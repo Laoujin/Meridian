@@ -11,9 +11,8 @@ export default function App() {
   const memories = useMemo(() => loadMemories(), []);
   const { activeIndex } = useScrollTimeline(memories.length);
 
-  // -1 means we're still on the opening card
-  const isOpening = activeIndex < 0 || activeIndex === 0;
-  const activeMemory = memories[activeIndex];
+  const isOpening = activeIndex < 0;
+  const activeMemory = activeIndex >= 0 ? memories[activeIndex] : null;
   const loc = activeMemory ? getLocation(activeMemory) : { lat: ARC_APEX[1], lng: ARC_APEX[0] };
 
   // Determine map center and zoom
