@@ -4,7 +4,7 @@ import memories2025 from '../../../data/memories-2025.json';
 import memories2026 from '../../../data/memories-2026.json';
 
 // Default location for entries without coordinates (home in Gent)
-const DEFAULT_LOCATION = { lat: 51.0543, lng: 3.7174, name: 'Gent' };
+const DEFAULT_LOCATION = { lat: 51.0597, lng: 3.7527, name: 'Gent' };
 
 export function loadMemories(): Memory[] {
   const all = [

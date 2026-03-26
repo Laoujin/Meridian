@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
-import MapCanvas from './components/MapCanvas';
+import MapCanvas, { ARC_APEX } from './components/MapCanvas';
 import TimelineStrip from './components/TimelineStrip';
 import OpeningCard from './components/OpeningCard';
 import MemoryCard from './components/MemoryCard';
@@ -11,25 +11,36 @@ export default function App() {
   const memories = useMemo(() => loadMemories(), []);
   const { activeIndex } = useScrollTimeline(memories.length);
 
+  // -1 means we're still on the opening card
+  const isOpening = activeIndex < 0 || activeIndex === 0;
   const activeMemory = memories[activeIndex];
-  const loc = activeMemory ? getLocation(activeMemory) : { lat: 51.0543, lng: 3.7174 };
+  const loc = activeMemory ? getLocation(activeMemory) : { lat: ARC_APEX[1], lng: ARC_APEX[0] };
 
-  // Determine zoom based on memory type and location
+  // Determine map center and zoom
+  const mapCenter = useMemo<[number, number]>(() => {
+    if (!activeMemory) return [ARC_APEX[0], ARC_APEX[1]];
+    return [loc.lng, loc.lat];
+  }, [activeMemory, loc]);
+
   const zoom = useMemo(() => {
-    if (!activeMemory) return 12;
+    if (!activeMemory) return 9; // Opening: show both Herent and Gent (fitBounds handles actual zoom)
     if (activeMemory.type === 'trip') return 6;
-    if (loc.lat === 51.0543 && loc.lng === 3.7174) return 13;
+    if (loc.lat === 51.0597 && loc.lng === 3.7527) return 13;
     return 11;
   }, [activeMemory, loc]);
 
   return (
     <>
-      <MapCanvas center={[loc.lng, loc.lat]} zoom={zoom} />
-      <TimelineStrip memories={memories} activeIndex={activeIndex} />
+      <MapCanvas
+        center={mapCenter}
+        zoom={zoom}
+        showOpeningLine={isOpening}
+      />
+      <TimelineStrip memories={memories} activeIndex={Math.max(0, activeIndex)} />
 
       <div className="scroll-container">
         {/* Opening section */}
-        <div className="scroll-section scroll-section--opening">
+        <div id="opening-section" className="scroll-section scroll-section--opening">
           <OpeningCard />
         </div>
 

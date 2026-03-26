@@ -1,13 +1,51 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+
+// Herent and Gent coordinates
+const HERENT = { lng: 4.6717, lat: 50.8985 };
+const GENT = { lng: 3.7527, lat: 51.0597 }; // Sint-Amandsberg, Gentbruggestraat
+// Midpoint between the two
+const MIDPOINT = {
+  lng: (HERENT.lng + GENT.lng) / 2,
+  lat: (HERENT.lat + GENT.lat) / 2,
+};
+
+// Generate a smooth arc between two points
+// The arc bows northward (higher lat)
+function generateArc(
+  start: { lng: number; lat: number },
+  end: { lng: number; lat: number },
+  segments: number = 50,
+  bowAmount: number = 0.15
+): [number, number][] {
+  const coords: [number, number][] = [];
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments;
+    const lng = start.lng + (end.lng - start.lng) * t;
+    const lat = start.lat + (end.lat - start.lat) * t;
+    // Parabolic bow: max at t=0.5
+    const bow = bowAmount * Math.sin(t * Math.PI);
+    coords.push([lng, lat + bow]);
+  }
+  return coords;
+}
+
+const ARC_COORDS = generateArc(HERENT, GENT);
+// The apex of the arc (midpoint, used to position the opening card on the map)
+const ARC_APEX = ARC_COORDS[Math.floor(ARC_COORDS.length / 2)];
 
 interface MapCanvasProps {
   center: [number, number]; // [lng, lat]
   zoom: number;
+  showOpeningLine?: boolean;
 }
 
-// Simple raster tile style that works with any MapLibre version
+export interface MapCanvasHandle {
+  getMap: () => maplibregl.Map | null;
+}
+
+// Simple raster tile style
 const MAP_STYLE: maplibregl.StyleSpecification = {
   version: 8,
   sources: {
@@ -34,51 +72,197 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-export default function MapCanvas({ center, zoom }: MapCanvasProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<maplibregl.Map | null>(null);
+const MapCanvas = forwardRef<MapCanvasHandle, MapCanvasProps>(
+  function MapCanvas({ center, zoom, showOpeningLine }, ref) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const mapRef = useRef<maplibregl.Map | null>(null);
+    const lineAddedRef = useRef(false);
 
-  useEffect(() => {
-    if (!containerRef.current || mapRef.current) return;
+    useImperativeHandle(ref, () => ({
+      getMap: () => mapRef.current,
+    }));
 
-    const map = new maplibregl.Map({
-      container: containerRef.current,
-      style: MAP_STYLE,
-      center: [3.7174, 51.0543], // Start at Gent
-      zoom: 12,
-      attributionControl: false,
-      interactive: false, // Disable all map interaction — scroll controls everything
-    });
+    useEffect(() => {
+      if (!containerRef.current || mapRef.current) return;
 
-    mapRef.current = map;
+      const map = new maplibregl.Map({
+        container: containerRef.current,
+        style: MAP_STYLE,
+        center: [ARC_APEX[0], ARC_APEX[1]],
+        zoom: 9,
+        attributionControl: false,
+        interactive: false,
+      });
 
-    return () => {
-      map.remove();
-      mapRef.current = null;
-    };
-  }, []);
+      mapRef.current = map;
 
-  // Update map position when props change
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map) return;
+      map.on('load', () => {
+        // Smooth arc line
+        map.addSource('opening-line', {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'LineString',
+              coordinates: ARC_COORDS,
+            },
+          },
+        });
 
-    map.easeTo({
-      center,
-      zoom,
-      duration: 800,
-      easing: (t) => t * (2 - t), // ease-out quad
-    });
-  }, [center, zoom]);
+        map.addLayer({
+          id: 'opening-line-layer',
+          type: 'line',
+          source: 'opening-line',
+          paint: {
+            'line-color': '#e60000',
+            'line-width': 3,
+            'line-opacity': showOpeningLine ? 1 : 0,
+          },
+        });
 
-  return (
-    <div
-      ref={containerRef}
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0,
-      }}
-    />
-  );
-}
+        // Dot markers at both ends
+        map.addSource('dots', {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [
+              { type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: [HERENT.lng, HERENT.lat] } },
+              { type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: [GENT.lng, GENT.lat] } },
+            ],
+          },
+        });
+
+        map.addLayer({
+          id: 'dots-layer',
+          type: 'circle',
+          source: 'dots',
+          paint: {
+            'circle-radius': 6,
+            'circle-color': '#e8836b',
+            'circle-stroke-color': '#fff',
+            'circle-stroke-width': 2,
+            'circle-opacity': showOpeningLine ? 1 : 0,
+            'circle-stroke-opacity': showOpeningLine ? 1 : 0,
+          },
+        });
+
+        // Herent label
+        map.addSource('label-herent', {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            properties: { label: 'Herent' },
+            geometry: { type: 'Point', coordinates: [HERENT.lng, HERENT.lat] },
+          },
+        });
+
+        map.addLayer({
+          id: 'label-herent-layer',
+          type: 'symbol',
+          source: 'label-herent',
+          layout: {
+            'text-field': '{label}',
+            'text-size': 14,
+            'text-offset': [0, 1.5],
+            'text-font': ['Open Sans Regular'],
+          },
+          paint: {
+            'text-color': '#666',
+            'text-opacity': showOpeningLine ? 1 : 0,
+          },
+        });
+
+        // Gent label
+        map.addSource('label-gent', {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            properties: { label: 'Gent' },
+            geometry: { type: 'Point', coordinates: [GENT.lng, GENT.lat] },
+          },
+        });
+
+        map.addLayer({
+          id: 'label-gent-layer',
+          type: 'symbol',
+          source: 'label-gent',
+          layout: {
+            'text-field': '{label}',
+            'text-size': 14,
+            'text-offset': [0, 1.5],
+            'text-font': ['Open Sans Regular'],
+          },
+          paint: {
+            'text-color': '#666',
+            'text-opacity': showOpeningLine ? 1 : 0,
+          },
+        });
+
+        lineAddedRef.current = true;
+      });
+
+      return () => {
+        map.remove();
+        mapRef.current = null;
+        lineAddedRef.current = false;
+      };
+    }, []);
+
+    // Toggle opening line visibility
+    useEffect(() => {
+      const map = mapRef.current;
+      if (!map || !lineAddedRef.current) return;
+
+      const opacity = showOpeningLine ? 1 : 0;
+
+      try {
+        map.setPaintProperty('opening-line-layer', 'line-opacity', opacity);
+        map.setPaintProperty('label-herent-layer', 'text-opacity', opacity);
+        map.setPaintProperty('label-gent-layer', 'text-opacity', opacity);
+        map.setPaintProperty('dots-layer', 'circle-opacity', opacity);
+        map.setPaintProperty('dots-layer', 'circle-stroke-opacity', opacity);
+      } catch {
+        // Layers may not exist yet
+      }
+    }, [showOpeningLine]);
+
+    // Update map position when props change
+    useEffect(() => {
+      const map = mapRef.current;
+      if (!map) return;
+
+      if (showOpeningLine) {
+        // For the opening, fit both cities in view
+        map.fitBounds(
+          [
+            [GENT.lng - 0.05, Math.min(GENT.lat, HERENT.lat) - 0.05],
+            [HERENT.lng + 0.05, Math.max(GENT.lat, HERENT.lat) + 0.2],
+          ],
+          { padding: 80, duration: 800 }
+        );
+      } else {
+        map.easeTo({
+          center,
+          zoom,
+          duration: 800,
+          easing: (t) => t * (2 - t),
+        });
+      }
+    }, [center, zoom, showOpeningLine]);
+
+    return (
+      <div
+        ref={containerRef}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 0,
+        }}
+      />
+    );
+  }
+);
+
+export default MapCanvas;
+export { MIDPOINT, GENT, ARC_APEX };
