@@ -114,7 +114,8 @@ export default function App() {
     if (phase === 'hold') return [travelFrom, travelTo];
     if (!isTravelTransition) return null;
     // Interpolate the "to" point from origin toward destination
-    const currentTo = interpolateLine(travelFrom, travelTo, progress);
+    // Use at least 0.15 so fitBounds always has a meaningful spread
+    const currentTo = interpolateLine(travelFrom, travelTo, Math.max(progress, 0.15));
     return [travelFrom, currentTo];
   }, [isTravelTransition, phase, travelFrom, travelTo, progress]);
 

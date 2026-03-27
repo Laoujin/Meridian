@@ -292,9 +292,10 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
           { padding: 80, duration: 0 }
         );
       } else if (travelBounds) {
-        // During travel: fitBounds so both origin and destination dots stay visible
+        // During travel + hold: fitBounds so both dots stay visible
         map.fitBounds(travelBounds, {
           padding: { top: h * 0.67, bottom: 40, left: 40, right: 40 },
+          maxZoom: 13,
           duration: 0,
         });
       } else {
