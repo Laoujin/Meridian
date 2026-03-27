@@ -60,27 +60,15 @@ body {
   font-weight: 600;
 }
 
-/* ===== Scroll Container ===== */
-.scroll-container {
+/* ===== Scroll Track ===== */
+.scroll-track {
   position: relative;
-  z-index: 10;
+  z-index: 1;
   pointer-events: none;
 }
 
-.scroll-section {
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 60px;
-  pointer-events: auto;
-}
-
-.scroll-section--opening {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.scroll-track__section {
+  /* height set inline via style */
 }
 
 /* ===== Opening Card ===== */
