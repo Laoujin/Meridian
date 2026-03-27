@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import type { Memory } from '../types/memory';
 import type { ScrollPhase } from '../hooks/useScrollTimeline';
 import OpeningCard from './OpeningCard';
@@ -13,62 +12,85 @@ interface CardOverlayProps {
 }
 
 /**
- * Compute card opacity and translateY based on scroll phase and progress.
- *
- * During hold: card is fully visible (opacity 1, translateY 0).
- * During transition:
- *   0.00–0.25: outgoing card fades out (opacity 1→0, translateY 0→-30)
- *   0.25–0.75: no card visible (between locations)
- *   0.75–1.00: incoming card fades in (opacity 0→1, translateY 30→0)
+ * Card A fades out over progress 0–0.4
+ * Card B fades in over progress 0.3–1.0
+ * Overlap at 0.3–0.4: both partially visible (crossfade)
  */
-function getCardStyle(phase: ScrollPhase, progress: number): React.CSSProperties {
-  if (phase === 'hold') {
-    return { opacity: 1, transform: 'translateY(0px)' };
-  }
+function outgoingOpacity(progress: number): number {
+  if (progress <= 0) return 1;
+  if (progress >= 0.4) return 0;
+  return 1 - progress / 0.4;
+}
 
-  if (progress <= 0.25) {
-    const p = progress / 0.25;
-    return {
-      opacity: 1 - p,
-      transform: `translateY(${-30 * p}px)`,
-    };
-  }
-
-  if (progress < 0.75) {
-    return { opacity: 0, transform: 'translateY(30px)' };
-  }
-
-  const p = (progress - 0.75) / 0.25;
-  return {
-    opacity: p,
-    transform: `translateY(${30 * (1 - p)}px)`,
-  };
+function incomingOpacity(progress: number): number {
+  if (progress <= 0.3) return 0;
+  if (progress >= 1) return 1;
+  return (progress - 0.3) / 0.7;
 }
 
 export default function CardOverlay({ activeIndex, memories, phase, progress, onShowDetails }: CardOverlayProps) {
-  const displayIndex = useMemo(() => {
-    if (phase === 'hold') return activeIndex;
-    if (progress < 0.25) return activeIndex - 1;
-    return activeIndex;
-  }, [activeIndex, phase, progress]);
+  if (phase === 'hold') {
+    const idx = activeIndex;
+    if (idx >= memories.length) return null;
 
-  const style = getCardStyle(phase, progress);
-  const isClosing = displayIndex >= memories.length;
+    return (
+      <div className="card-overlay">
+        <div style={{ opacity: 1, transform: 'translateY(0px)' }}>
+          {idx < 0 ? (
+            <OpeningCard />
+          ) : (
+            <MemoryCard
+              memory={memories[idx]}
+              onShowDetails={onShowDetails ? () => onShowDetails(idx) : undefined}
+            />
+          )}
+        </div>
+      </div>
+    );
+  }
 
-  if (isClosing) return null;
+  // Transition: show outgoing card (activeIndex - 1) fading out
+  // and incoming card (activeIndex) fading in
+  const outIdx = activeIndex - 1;
+  const inIdx = activeIndex;
+  const outOp = outgoingOpacity(progress);
+  const inOp = incomingOpacity(progress);
 
   return (
     <div className="card-overlay">
-      <div style={style}>
-        {displayIndex < 0 ? (
-          <OpeningCard />
-        ) : (
+      {outOp > 0 && outIdx >= -1 && outIdx < memories.length && (
+        <div style={{
+          opacity: outOp,
+          transform: `translateY(${-30 * (1 - outOp)}px)`,
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          display: 'flex',
+          justifyContent: 'center',
+        }}>
+          {outIdx < 0 ? (
+            <OpeningCard />
+          ) : (
+            <MemoryCard memory={memories[outIdx]} />
+          )}
+        </div>
+      )}
+      {inOp > 0 && inIdx >= 0 && inIdx < memories.length && (
+        <div style={{
+          opacity: inOp,
+          transform: `translateY(${30 * (1 - inOp)}px)`,
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          display: 'flex',
+          justifyContent: 'center',
+        }}>
           <MemoryCard
-            memory={memories[displayIndex]}
-            onShowDetails={onShowDetails ? () => onShowDetails(displayIndex) : undefined}
+            memory={memories[inIdx]}
+            onShowDetails={onShowDetails ? () => onShowDetails(inIdx) : undefined}
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
