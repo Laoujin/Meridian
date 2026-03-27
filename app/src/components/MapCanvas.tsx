@@ -290,7 +290,10 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overview
           { padding: 80, duration: 0 }
         );
       } else {
-        map.jumpTo({ center, zoom });
+        // Offset center so the pin appears in the bottom half of the screen
+        // (card overlay occupies the top portion on mobile)
+        const h = containerRef.current?.clientHeight ?? 0;
+        map.jumpTo({ center, zoom, padding: { top: h * 0.35, bottom: 0, left: 0, right: 0 } });
       }
     }, [center, zoom, showOpeningLine]);
 
