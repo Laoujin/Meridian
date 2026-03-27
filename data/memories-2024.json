@@ -18,7 +18,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "first-date",
+      "bumble"
+    ]
   },
   {
     "id": "2024-06-16",
@@ -386,7 +389,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "comedy"
+    ]
   },
   {
     "id": "2024-09-11",
@@ -503,7 +508,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "birthday"
     ]
   },
   {
@@ -656,7 +662,8 @@
     "videos": [],
     "tags": [
       "restaurant",
-      "family"
+      "family",
+      "expo"
     ]
   },
   {
@@ -1096,7 +1103,8 @@
       "20241117_162721.mp4"
     ],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "show"
     ]
   },
   {
@@ -1201,7 +1209,10 @@
       "20241215_134542.jpg"
     ],
     "videos": [],
-    "tags": []
+    "tags": [
+      "expo",
+      "kerstmarkt"
+    ]
   },
   {
     "id": "2024-12-21",
@@ -1247,7 +1258,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "family"
+      "family",
+      "kerst"
     ]
   },
   {
@@ -1270,7 +1282,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "family"
+      "family",
+      "kerst"
     ]
   }
 ]

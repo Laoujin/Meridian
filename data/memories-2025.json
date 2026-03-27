@@ -146,7 +146,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "valentijn"
     ]
   },
   {
@@ -337,7 +338,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "travel"
+      "travel",
+      "verjaardag-caro"
     ],
     "transport": [
       {
@@ -1551,7 +1553,8 @@
     "videos": [],
     "tags": [
       "restaurant",
-      "sake"
+      "sake",
+      "expo"
     ]
   },
   {
@@ -1634,7 +1637,8 @@
     "videos": [],
     "tags": [
       "movie",
-      "itenium"
+      "itenium",
+      "feest"
     ]
   },
   {
@@ -2432,7 +2436,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "show"
+    ]
   },
   {
     "id": "2025-12-12",
@@ -2546,7 +2552,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "family"
+      "family",
+      "show"
     ]
   },
   {
@@ -2599,7 +2606,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "family"
+      "family",
+      "kerst"
     ]
   },
   {
@@ -2622,7 +2630,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "family"
+      "family",
+      "kerst"
     ]
   },
   {
@@ -2772,7 +2781,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "food"
+      "food",
+      "nieuwjaar"
     ]
   }
 ]
