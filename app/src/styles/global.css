@@ -266,3 +266,23 @@ body {
     opacity: 0;
   }
 }
+
+/* ===== Details Button ===== */
+.memory-card__details-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 16px;
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  color: #e8836b;
+  background: none;
+  border: 1px solid #e8836b;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.memory-card__details-btn:hover {
+  background: #e8836b;
+  color: #fff;
+}

@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import type { Memory } from '../types/memory';
 import { format, parseISO } from 'date-fns';
 import { nl } from 'date-fns/locale';
@@ -6,11 +5,10 @@ import PhotoStack from './PhotoStack';
 
 interface MemoryCardProps {
   memory: Memory;
+  onShowDetails?: () => void;
 }
 
-export default function MemoryCard({ memory }: MemoryCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
+export default function MemoryCard({ memory, onShowDetails }: MemoryCardProps) {
   const dateStr = format(parseISO(memory.date), 'd MMMM yyyy', { locale: nl });
 
   const isMilestone = memory.type === 'milestone';
@@ -18,7 +16,6 @@ export default function MemoryCard({ memory }: MemoryCardProps) {
 
   return (
     <div
-      ref={cardRef}
       className={`memory-card ${isMilestone ? 'memory-card--milestone' : ''} ${isTrip ? 'memory-card--trip' : ''}`}
     >
       <div className="memory-card__date">{dateStr}</div>
@@ -32,6 +29,11 @@ export default function MemoryCard({ memory }: MemoryCardProps) {
       )}
       {memory.location?.name && (
         <div className="memory-card__location">📍 {memory.location.name}</div>
+      )}
+      {(memory.expandedText || memory.expandedPhotos.length > 0) && onShowDetails && (
+        <button className="memory-card__details-btn" onClick={onShowDetails}>
+          Meer details
+        </button>
       )}
     </div>
   );
