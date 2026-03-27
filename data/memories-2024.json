@@ -68,36 +68,11 @@
     "tags": []
   },
   {
-    "id": "2024-06-29",
-    "date": "2024-06-29",
-    "type": "date",
-    "title": "Van Schandevijlen feest",
-    "caption": "TO-CHECK: Van Schandevijlen feest.",
-    "location": {
-      "lat": 50.8833,
-      "lng": 3.95,
-      "name": "Lebeke, Denderhoutem"
-    },
-    "photos": [
-      "2024-06-29-van-schandevijl-feest.jpg"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "family"
-    ]
-  },
-  {
     "id": "2024-06-29-2",
     "date": "2024-06-29",
     "type": "date",
     "title": "Picnic bij Caro",
-    "caption": "TO-CHECK: Picnic bij Caro thuis. Ging normaal in bos zijn, waar ze me dan kon vermoorden.",
+    "caption": "Ging normaal in bos zijn, waar ze me dan kon vermoorden.",
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
@@ -109,7 +84,7 @@
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
-    "weather": null,
+    "weather": "raining",
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
@@ -145,7 +120,7 @@
     "date": "2024-07-13",
     "type": "date",
     "title": "Verjaardag Lieve",
-    "caption": "TO-CHECK: Verjaardag Lieve De Bodt. Caro en ik hebben spa cadeaubon het jaar nadien gekregen.",
+    "caption": "Caro en ik hebben spa cadeaubon het jaar nadien gekregen.",
     "location": {
       "lat": 50.8833,
       "lng": 3.9833,
@@ -169,7 +144,7 @@
     "id": "2024-07-20",
     "date": "2024-07-20",
     "type": "trip",
-    "title": "Paris — Moulin Rouge",
+    "title": "Moulin Rouge",
     "caption": "Moulin Rouge! Het was daar net Olympische Spelen, alles duurder en raakten die avond niet meer aan de parking.",
     "location": {
       "lat": 48.8566,
@@ -205,7 +180,7 @@
     "date": "2024-07-26",
     "type": "date",
     "title": "Gentse Feesten",
-    "caption": "Gentse Feesten met Joscha en Karen.",
+    "caption": "Met Joscha en Karen.",
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
@@ -238,81 +213,6 @@
     },
     "photos": [
       "2024-08-09.jpg"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": []
-  },
-  {
-    "id": "2024-08-10",
-    "date": "2024-08-10",
-    "type": "date",
-    "title": "BBQ Karel",
-    "caption": "Verjaardag Karel BBQ.",
-    "location": {
-      "lat": 50.8358,
-      "lng": 4.0171,
-      "name": "Nieuwenhove"
-    },
-    "photos": [
-      "2024-08-10-bbq-karel.png"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends",
-      "festival"
-    ]
-  },
-  {
-    "id": "2024-08-10-2",
-    "date": "2024-08-10",
-    "type": "date",
-    "title": "Verjaardag Clarisse",
-    "caption": "Caro was verjaardag van Clarisse gaan vieren.",
-    "location": {
-      "lat": 50.8358,
-      "lng": 4.0171,
-      "name": "Ninove"
-    },
-    "photos": [
-      "2024-08-10-clarisse.jpg"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends",
-      "festival"
-    ]
-  },
-  {
-    "id": "2024-08-19",
-    "date": "2024-08-19",
-    "type": "date",
-    "title": "Agenda Caro",
-    "caption": "Agenda Caro ;)",
-    "location": {
-      "lat": 50.8985,
-      "lng": 4.6717,
-      "name": "Herent"
-    },
-    "photos": [
-      "2024-08-19.png"
     ],
     "coverPhoto": null,
     "heroPhoto": null,
