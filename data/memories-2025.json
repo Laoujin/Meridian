@@ -5,7 +5,11 @@
     "type": "date",
     "title": "Night Out Gent",
     "caption": "Night out in Gent. Stil zijn, Caro slaapt al!",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -22,8 +26,18 @@
     "type": "date",
     "title": "Sofie Au Cabaret",
     "caption": "Sofie Au Cabaret in BXL.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussels" },
-    "photos": ["20250103_223157.jpg", "20250103_211844.jpg", "20250103_220515.jpg", "20250103_204848.jpg", "20250103_213847.jpg"],
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel"
+    },
+    "photos": [
+      "20250103_223157.jpg",
+      "20250103_211844.jpg",
+      "20250103_220515.jpg",
+      "20250103_204848.jpg",
+      "20250103_213847.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -31,7 +45,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["show"]
+    "tags": [
+      "show"
+    ]
   },
   {
     "id": "2025-01-12",
@@ -39,7 +55,11 @@
     "type": "date",
     "title": "Ontbijt + Wereldkaart",
     "caption": "Breakfast for Caro (Ontbijtrolletjes). World map for travel plans. Dinner with parents.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -58,18 +78,43 @@
     "tripStart": "2025-01-17",
     "tripEnd": "2025-01-18",
     "caption": "London! Lego Store, Wax Museum, Hamilton.",
-    "location": { "lat": 51.5074, "lng": -0.1278, "name": "London" },
-    "photos": ["20250117_105530.jpg", "20250117_115115.jpg", "20250117_120448.jpg", "20250117_122708.jpg", "20250117_121635.jpg", "20250117_122952.jpg", "20250118_122255.jpg", "20250118_122937.jpg", "20250118_133219.jpg", "20250118_190649.jpg", "20250118_222146.jpg"],
+    "location": {
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "name": "London"
+    },
+    "photos": [
+      "20250117_105530.jpg",
+      "20250117_115115.jpg",
+      "20250117_120448.jpg",
+      "20250117_122708.jpg",
+      "20250117_121635.jpg",
+      "20250117_122952.jpg",
+      "20250118_122255.jpg",
+      "20250118_122937.jpg",
+      "20250118_133219.jpg",
+      "20250118_190649.jpg",
+      "20250118_222146.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
-    "weather": { "note": "Het was vree warm" },
+    "weather": {
+      "note": "Het was vree warm"
+    },
     "expandedText": "Konden de Eye niet doen want onderhoudswerken.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["city-trip", "london"],
+    "tags": [
+      "city-trip",
+      "london"
+    ],
     "transport": [
-      { "mode": "train", "from": "Gent", "to": "London" }
+      {
+        "mode": "train",
+        "from": "Gent",
+        "to": "London"
+      }
     ]
   },
   {
@@ -78,8 +123,17 @@
     "type": "date",
     "title": "The Jane + Valentijn",
     "caption": "Restaurant The Jane. Anton Chocolaatjes.",
-    "location": { "lat": 51.2094, "lng": 4.3955, "name": "The Jane, Antwerpen" },
-    "photos": ["20250213_224716.jpg", "20250214_111424.jpg", "20250213_222108.jpg", "20250213_211700.jpg"],
+    "location": {
+      "lat": 51.2094,
+      "lng": 4.3955,
+      "name": "Antwerpen"
+    },
+    "photos": [
+      "20250213_224716.jpg",
+      "20250214_111424.jpg",
+      "20250213_222108.jpg",
+      "20250213_211700.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -87,7 +141,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant", "valentijn"]
+    "tags": [
+      "restaurant",
+      "valentijn"
+    ]
   },
   {
     "id": "2025-03-08",
@@ -95,8 +152,14 @@
     "type": "date",
     "title": "Zuru Zuru Ramen",
     "caption": "Restaurant Zuru Zuru Ramen. Daar ook sake gekocht, maar niet zo lekker!",
-    "location": { "lat": null, "lng": null, "name": "Zuru Zuru Ramen" },
-    "photos": ["20250308_131211.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "20250308_131211.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -104,7 +167,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-03-15",
@@ -112,8 +177,14 @@
     "type": "date",
     "title": "Pancakes van Caro",
     "caption": "Pancakes van Caro, wheeeeee!",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
-    "photos": ["2025-03-15 11.28.42.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "2025-03-15 11.28.42.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -121,7 +192,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["food", "thuis"]
+    "tags": [
+      "food",
+      "thuis"
+    ]
   },
   {
     "id": "2025-04-18",
@@ -131,18 +205,40 @@
     "tripStart": "2025-04-18",
     "tripEnd": "2025-04-19",
     "caption": "Naar Burna Boy in Parijs. Louis Vuitton maison Champs Elisee. Brunch met die vree lekkere toast met Munster kaas.",
-    "location": { "lat": 48.8566, "lng": 2.3522, "name": "Paris" },
-    "photos": ["20250419_223756.jpg", "20250418_222212.jpg", "20250418_230321.jpg"],
+    "location": {
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "name": "Paris"
+    },
+    "photos": [
+      "20250419_223756.jpg",
+      "20250418_222212.jpg",
+      "20250418_230321.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
-    "music": { "track": "burna-boy.mp3", "artist": "Burna Boy", "title": "" },
+    "music": {
+      "track": "burna-boy.mp3",
+      "artist": "Burna Boy",
+      "title": ""
+    },
     "weather": null,
     "expandedText": "Hotel des Pavillons, 16 rue des Acacias, Paris, France, 75017.",
     "expandedPhotos": [],
-    "videos": ["20250418_180728-1.mp4"],
-    "tags": ["city-trip", "paris", "concert"],
+    "videos": [
+      "20250418_180728-1.mp4"
+    ],
+    "tags": [
+      "city-trip",
+      "paris",
+      "concert"
+    ],
     "transport": [
-      { "mode": "car", "from": "Gent", "to": "Paris" }
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Paris"
+      }
     ]
   },
   {
@@ -151,7 +247,11 @@
     "type": "milestone",
     "title": "Verhuis Caro naar Gent",
     "caption": "Caro verhuist naar Gent!",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Herent / Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -160,7 +260,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["milestone"]
+    "tags": [
+      "milestone"
+    ]
   },
   {
     "id": "2025-04-27",
@@ -168,8 +270,15 @@
     "type": "date",
     "title": "Verassingsbord Caro",
     "caption": "Lekkere sandwich! En ook verassingsbord Caro.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
-    "photos": ["2025-04-27 11.39.29.jpg", "20250427_155908.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "2025-04-27 11.39.29.jpg",
+      "20250427_155908.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -177,7 +286,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["food", "thuis"]
+    "tags": [
+      "food",
+      "thuis"
+    ]
   },
   {
     "id": "2025-05-02",
@@ -187,7 +299,11 @@
     "tripStart": "2025-05-02",
     "tripEnd": "2025-05-06",
     "caption": "Madeira! Verjaardag Caro op het eiland.",
-    "location": { "lat": 32.6669, "lng": -16.9241, "name": "Funchal, Madeira" },
+    "location": {
+      "lat": 32.6669,
+      "lng": -16.9241,
+      "name": "Funchal, Madeira"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -196,50 +312,119 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["travel", "madeira", "verjaardag-caro"],
+    "tags": [
+      "travel",
+      "madeira",
+      "verjaardag-caro"
+    ],
     "transport": [
-      { "mode": "car", "from": "Gent", "to": "Brussels Charleroi Airport" },
-      { "mode": "plane", "from": "Brussels Charleroi", "to": "Funchal, Madeira" }
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Brussels Charleroi Airport"
+      },
+      {
+        "mode": "plane",
+        "from": "Brussels Charleroi",
+        "to": "Funchal, Madeira"
+      }
     ],
     "days": [
       {
         "date": "2025-05-02",
         "title": "Arrival",
         "caption": "Flight FR 398 naar Madeira. TURIM Santa Maria Hotel.",
-        "location": { "lat": 32.6669, "lng": -16.9241, "name": "Funchal" },
-        "photos": ["20250502_184246.jpg"],
+        "location": {
+          "lat": 32.6669,
+          "lng": -16.9241,
+          "name": "Funchal"
+        },
+        "photos": [
+          "20250502_184246.jpg"
+        ],
         "videos": []
       },
       {
         "date": "2025-05-03",
         "title": "Monte Cable Car + Il Gallo d'Oro",
         "caption": "Funchal Monte Cable Car. Monte Palace Tropical Garden. Dan weer naar beneden met de Toboggan Ride. 's avonds restaurant Il Gallo d'Oro.",
-        "location": { "lat": 32.6669, "lng": -16.9241, "name": "Funchal" },
-        "photos": ["20250503_113409.jpg", "20250503_125730.jpg", "20250503_130118.jpg", "20250503_125232.jpg", "20250503_123843.jpg", "20250503_231958.jpg", "20250503_192507.jpg", "20250503_210557.jpg"],
+        "location": {
+          "lat": 32.6669,
+          "lng": -16.9241,
+          "name": "Funchal"
+        },
+        "photos": [
+          "20250503_113409.jpg",
+          "20250503_125730.jpg",
+          "20250503_130118.jpg",
+          "20250503_125232.jpg",
+          "20250503_123843.jpg",
+          "20250503_231958.jpg",
+          "20250503_192507.jpg",
+          "20250503_210557.jpg"
+        ],
         "videos": []
       },
       {
         "date": "2025-05-04",
         "title": "Cabo Girao + Flower Festival",
         "caption": "Mega voituur gehuurd. Seixal — maar zwembroek vergeten. Cabo Girao. Nog net op tijd terug voor het Flower Festival.",
-        "location": { "lat": 32.6588, "lng": -17.0097, "name": "Cabo Girao / Funchal" },
-        "photos": ["20250504_122221.jpg", "20250504_115906.jpg", "20250504_103901.jpg", "20250504_095513.jpg", "20250504_095127.jpg", "20250504_190739.jpg", "20250504_185653.jpg", "20250504_184616.jpg"],
+        "location": {
+          "lat": 32.6588,
+          "lng": -17.0097,
+          "name": "Cabo Girao / Funchal"
+        },
+        "photos": [
+          "20250504_122221.jpg",
+          "20250504_115906.jpg",
+          "20250504_103901.jpg",
+          "20250504_095513.jpg",
+          "20250504_095127.jpg",
+          "20250504_190739.jpg",
+          "20250504_185653.jpg",
+          "20250504_184616.jpg"
+        ],
         "videos": []
       },
       {
         "date": "2025-05-05",
         "title": "Boot Uitstap",
         "caption": "Uitstap boot. Cafe met bier voor 1 euro!? En nog goeie tapas!",
-        "location": { "lat": 32.6669, "lng": -16.9241, "name": "Funchal" },
-        "photos": ["20250505_173401.jpg", "20250505_160456.jpg", "20250504_203759.jpg", "20250504_200054.jpg"],
+        "location": {
+          "lat": 32.6669,
+          "lng": -16.9241,
+          "name": "Funchal"
+        },
+        "photos": [
+          "20250505_173401.jpg",
+          "20250505_160456.jpg",
+          "20250504_203759.jpg",
+          "20250504_200054.jpg"
+        ],
         "videos": []
       },
       {
         "date": "2025-05-06",
         "title": "Verjaardag Caro!",
         "caption": "Verjaardag Caro! Wandeling met speciale gids. Kleedje Caro. 's avonds restaurant Desarma (omg...).",
-        "location": { "lat": 32.6669, "lng": -16.9241, "name": "Funchal" },
-        "photos": ["20250506_151419.jpg", "20250506_143702.jpg", "20250506_142946.jpg", "20250506_121404.jpg", "20250506_191240.jpg", "20250506_192849.jpg", "20250506_201921.jpg", "20250506_203430.jpg", "20250506_200234.jpg", "20250506_233915.jpg", "20250506_234607.jpg"],
+        "location": {
+          "lat": 32.6669,
+          "lng": -16.9241,
+          "name": "Funchal"
+        },
+        "photos": [
+          "20250506_151419.jpg",
+          "20250506_143702.jpg",
+          "20250506_142946.jpg",
+          "20250506_121404.jpg",
+          "20250506_191240.jpg",
+          "20250506_192849.jpg",
+          "20250506_201921.jpg",
+          "20250506_203430.jpg",
+          "20250506_200234.jpg",
+          "20250506_233915.jpg",
+          "20250506_234607.jpg"
+        ],
         "videos": []
       }
     ]
@@ -250,8 +435,14 @@
     "type": "date",
     "title": "Barracuda",
     "caption": "Restaurant Barracuda met Caro, zaten buiten.",
-    "location": { "lat": null, "lng": null, "name": "Barracuda, Gent" },
-    "photos": ["20250513_185048.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Ixelles"
+    },
+    "photos": [
+      "20250513_185048.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -259,7 +450,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-05-18",
@@ -267,8 +460,14 @@
     "type": "date",
     "title": "Pancakes Again!",
     "caption": "Caro maakt weer pancakes!!",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
-    "photos": ["2025-05-18 11.39.30.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "2025-05-18 11.39.30.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -276,7 +475,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["food", "thuis"]
+    "tags": [
+      "food",
+      "thuis"
+    ]
   },
   {
     "id": "2025-05-27",
@@ -284,16 +486,28 @@
     "type": "date",
     "title": "Ruger",
     "caption": "Optreden Ruger. Ben haar niet kwijt geraakt ;)",
-    "location": { "lat": null, "lng": null, "name": "" },
-    "photos": ["20250527_214219.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Brussel, AB"
+    },
+    "photos": [
+      "20250527_214219.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
-    "music": { "track": "ruger.mp3", "artist": "Ruger", "title": "" },
+    "music": {
+      "track": "ruger.mp3",
+      "artist": "Ruger",
+      "title": ""
+    },
     "weather": null,
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["concert"]
+    "tags": [
+      "concert"
+    ]
   },
   {
     "id": "2025-06-07",
@@ -301,8 +515,15 @@
     "type": "date",
     "title": "Luv l'Oeuf",
     "caption": "Restaurant Luv l'Oeuf.",
-    "location": { "lat": null, "lng": null, "name": "Luv l'Oeuf" },
-    "photos": ["20250607_132016.jpg", "20250607_132341.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "20250607_132016.jpg",
+      "20250607_132341.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -310,7 +531,38 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
+  },
+  {
+    "id": "2025-06-14",
+    "date": "2025-06-14",
+    "type": "date",
+    "title": "Gin + Pizza Brutal",
+    "caption": "Gin opdrinken met zus en Stijn. Gimlets, French 75. Restaurant Pizza Brutal. Kaaskroketten en cake met appel, mascarpone en speculaas.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "20250722_195032.jpg",
+      "20250614_213621.jpg"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "family",
+      "cocktail",
+      "restaurant",
+      "food"
+    ]
   },
   {
     "id": "2025-06-21",
@@ -318,8 +570,14 @@
     "type": "date",
     "title": "Van Der Valk + Jazz",
     "caption": "Restaurant Van Der Valk (Drongen). Kreeft + live Jazz optreden.",
-    "location": { "lat": 51.0475, "lng": 3.6584, "name": "Van Der Valk, Drongen" },
-    "photos": ["20250621_205131.jpg"],
+    "location": {
+      "lat": 51.0475,
+      "lng": 3.6584,
+      "name": "Drongen"
+    },
+    "photos": [
+      "20250621_205131.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -327,7 +585,36 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
+  },
+  {
+    "id": "2025-06-29",
+    "date": "2025-06-29",
+    "type": "date",
+    "title": "Couleur Cafe",
+    "caption": "Couleur Cafe festival in Brussel. Ik was Bob. Davido kwam.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Brussel"
+    },
+    "photos": [
+      "20250629_173436.jpg",
+      "20250629_200742.jpg",
+      "20250628_200054 1.jpg"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "festival"
+    ]
   },
   {
     "id": "2025-07-02",
@@ -335,8 +622,15 @@
     "type": "date",
     "title": "Comedy Josh",
     "caption": "Comedy Josh. Heleen was er een paar maand later ook naar gaan kijken!",
-    "location": { "lat": null, "lng": null, "name": "" },
-    "photos": ["20250702_214526.jpg", "20250702_202323.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Antwerpen"
+    },
+    "photos": [
+      "20250702_214526.jpg",
+      "20250702_202323.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -344,7 +638,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["comedy"]
+    "tags": [
+      "comedy"
+    ]
   },
   {
     "id": "2025-07-04",
@@ -352,16 +648,31 @@
     "type": "date",
     "title": "Rock Werchter",
     "caption": "Rock Werchter! Thee Sacred Souls (vree leuk), Mark Ambor (bah), Arsenal (konden niet meer binnen!), Green Day.",
-    "location": { "lat": 50.9494, "lng": 4.7073, "name": "Werchter" },
-    "photos": ["2025-07-04.jpg", "20250704_135921.jpg", "20250704_150241.jpg", "20250705_001602.jpg"],
+    "location": {
+      "lat": 50.9494,
+      "lng": 4.7073,
+      "name": "Werchter"
+    },
+    "photos": [
+      "2025-07-04.jpg",
+      "20250704_135921.jpg",
+      "20250704_150241.jpg",
+      "20250705_001602.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
-    "music": { "track": "green-day.mp3", "artist": "Green Day", "title": "" },
+    "music": {
+      "track": "green-day.mp3",
+      "artist": "Green Day",
+      "title": ""
+    },
     "weather": null,
     "expandedText": "Caro op het einde in paniek met dat ik last had van astma bij terug naar huis keren.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["festival"]
+    "tags": [
+      "festival"
+    ]
   },
   {
     "id": "2025-07-13",
@@ -369,7 +680,11 @@
     "type": "date",
     "title": "Bij Mediatrice",
     "caption": "Eten bij Mediatrice. Caro kreeg honing mee.",
-    "location": { "lat": null, "lng": null, "name": "Mediatrice" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Herent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -378,7 +693,63 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["familie"]
+    "tags": [
+      "familie"
+    ]
+  },
+  {
+    "id": "2025-07-26",
+    "date": "2025-07-26",
+    "type": "date",
+    "title": "Pingpong + Tapas",
+    "caption": "Pingpong kwamen eten. Tapas en desert.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "2025-07-26.jpg",
+      "2025-07-26-tapas.jpg",
+      "2025-07-26-desert.jpg"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "friends",
+      "food",
+      "pingpong"
+    ]
+  },
+  {
+    "id": "2025-08-01",
+    "date": "2025-08-01",
+    "type": "date",
+    "title": "Cafe rechtover Steamy Windows",
+    "caption": "Cafe rechtover Steamy Windows.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "2025-08-01.jpg"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-08-08",
@@ -386,8 +757,16 @@
     "type": "date",
     "title": "Gillis + Ghostwalk",
     "caption": "Restaurant Gillis. Ghostwalk Tour Ghent.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
-    "photos": ["2025-08-08-gillis.jpg", "2025-08-08.jpg", "ghostwalk-gent-2.jpg"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
+    "photos": [
+      "2025-08-08-gillis.jpg",
+      "2025-08-08.jpg",
+      "ghostwalk-gent-2.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -395,7 +774,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant", "activiteit"]
+    "tags": [
+      "restaurant",
+      "activiteit"
+    ]
   },
   {
     "id": "2025-08-09",
@@ -403,16 +785,26 @@
     "type": "date",
     "title": "Lokerse Feesten",
     "caption": "Lokerse Feesten met Caro, Leen en Jan. Sean Paul, Hof van Commerce. Smashburgers.",
-    "location": { "lat": 51.1076, "lng": 3.9903, "name": "Lokeren" },
+    "location": {
+      "lat": 51.1076,
+      "lng": 3.9903,
+      "name": "Lokeren"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
-    "music": { "track": "sean-paul.mp3", "artist": "Sean Paul", "title": "" },
+    "music": {
+      "track": "sean-paul.mp3",
+      "artist": "Sean Paul",
+      "title": ""
+    },
     "weather": null,
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["festival"]
+    "tags": [
+      "festival"
+    ]
   },
   {
     "id": "2025-08-10",
@@ -420,7 +812,11 @@
     "type": "date",
     "title": "F1 Movie",
     "caption": "F1 movie met Caro. Brad Pitt, Javier Bardem, Damson Idris.",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -429,7 +825,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["movie"]
+    "tags": [
+      "movie"
+    ]
   },
   {
     "id": "2025-08-12",
@@ -437,7 +835,11 @@
     "type": "date",
     "title": "Bokes door Caro",
     "caption": "Pingpong stage. Bokes gemaakt door Caro.",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Merelbeke"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -446,7 +848,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["thuis"]
+    "tags": [
+      "thuis"
+    ]
   },
   {
     "id": "2025-08-15",
@@ -454,16 +858,26 @@
     "type": "date",
     "title": "Popup Restaurant",
     "caption": "Popup restaurant aan het Water. Limoncello Shakerato. Desertje ook met koffie.",
-    "location": { "lat": null, "lng": null, "name": "Aan het Water, Gent" },
-    "photos": ["2025-08-15-tapas-bord.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "2025-08-15-tapas-bord.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
     "expandedPhotos": [],
-    "videos": ["20250815_200604.mp4"],
-    "tags": ["restaurant"]
+    "videos": [
+      "20250815_200604.mp4"
+    ],
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-08-16",
@@ -471,7 +885,11 @@
     "type": "date",
     "title": "Cabaret Vert",
     "caption": "Cabaret Vert festival. Afgezet door Caro, later is ze ook nog gekomen.",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Charleville-Mézières"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -480,7 +898,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["festival", "overlap"]
+    "tags": [
+      "festival",
+      "overlap"
+    ]
   },
   {
     "id": "2025-08-20",
@@ -488,7 +909,11 @@
     "type": "date",
     "title": "Aan Zee bij Metj",
     "caption": "Trip to the sea at Metj's. Caro ribbetjes, ik vispannetje.",
-    "location": { "lat": null, "lng": null, "name": "Aan zee" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Middelkerke"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -505,7 +930,11 @@
     "type": "date",
     "title": "25ste Verjaardagsfeest",
     "caption": "Verjaardagsfeest. Caro grote blauwe 25 cijfers gekocht. Quiche zalm door Caro.",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -522,8 +951,15 @@
     "type": "date",
     "title": "Petit Comite + Jos",
     "caption": "Tapas in Petit Comite. Vreed lekker, aanrader!! Daarna bij Jos. Caro haar Margarita was van niveau Ambiance.",
-    "location": { "lat": null, "lng": null, "name": "Petit Comite, Gent" },
-    "photos": ["2025-08-30.jpg", "2025-08-30 21.39.13.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "2025-08-30.jpg",
+      "2025-08-30 21.39.13.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -531,7 +967,37 @@
     "expandedText": "Mijn Pimm's was verkeerd begrepen en ik kreeg een biertje (misschien beter zo;)",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
+  },
+  {
+    "id": "2025-08-31",
+    "date": "2025-08-31",
+    "type": "date",
+    "title": "Mis Mediatrice",
+    "caption": "Mis overleden broer Mediatrice in Herent. Rwandeese liederen gezongen. Daarna eten.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Herent"
+    },
+    "photos": [
+      "2025-08-31-mis.jpg",
+      "2025-08-31.jpg",
+      "2025-08-31-Keuken.jpg",
+      "2025-08-31-kids.jpg"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "Nog zitten praten met nicht & haar man die in Nederland gewoont hebben. Neef die in Austria woont. Ik veel te zat en daarna niet meer gewerkt.",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2025-09-06",
@@ -539,7 +1005,11 @@
     "type": "date",
     "title": "Dinner Karel & Liesbet",
     "caption": "Eten bij Karel en Liesbet. Caro achteraf: 'Ik snap wel dat zijn broer hem een blauw oog geslagen heeft.'",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -556,8 +1026,14 @@
     "type": "date",
     "title": "Cafe Canelle + Autovrije Zondag",
     "caption": "Restaurant Cafe Canelle. Autovrije zondag, naar het stad maar winkels waren nog niet open. 's avonds The Cobbler + Mortier.",
-    "location": { "lat": null, "lng": null, "name": "Cafe Canelle, Gent" },
-    "photos": ["2025-09-07.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "2025-09-07.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -565,7 +1041,37 @@
     "expandedText": "Gingen normaal naar expo Typefaces, maar het is dan toch gewoon eten & drinken geworden.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
+  },
+  {
+    "id": "2025-09-13",
+    "date": "2025-09-13",
+    "type": "date",
+    "title": "Friends Dinner",
+    "caption": "Jan, Leen, Eli, Karel, Fabiola en Mini kwamen eten. Gebakken gamba's met guacamole en pico de gallo. Chili con carne. Sjarel maakte poffertjes.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "2025-09-13-Voorgerecht.png",
+      "2025-09-13-ChiliConCarne.png",
+      "2025-09-14.jpg"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "Mini was super irritant.",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "food",
+      "friends"
+    ]
   },
   {
     "id": "2025-09-17",
@@ -573,7 +1079,11 @@
     "type": "date",
     "title": "Ballonnen + Muffins",
     "caption": "Pingpong avond. Caro had ballonnen en birthday muffins klaar thuis.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Erpe-Mere / Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -582,7 +1092,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["birthday"]
+    "tags": [
+      "birthday"
+    ]
   },
   {
     "id": "2025-09-18",
@@ -590,7 +1102,11 @@
     "type": "date",
     "title": "Verjaardag Wouter",
     "caption": "Surprise van Caro naar restaurant Atelier Gist. Birthday presents.",
-    "location": { "lat": null, "lng": null, "name": "Atelier Gist" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Geraardsbergen"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -599,7 +1115,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["birthday", "restaurant"]
+    "tags": [
+      "birthday",
+      "restaurant"
+    ]
   },
   {
     "id": "2025-09-19",
@@ -607,7 +1126,11 @@
     "type": "date",
     "title": "Chill Avond",
     "caption": "Caro dit aan het doen in de zetel. Hamburgers.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -616,7 +1139,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["thuis"]
+    "tags": [
+      "thuis"
+    ]
   },
   {
     "id": "2025-09-20",
@@ -624,7 +1149,11 @@
     "type": "date",
     "title": "Steamy Windows met Familie",
     "caption": "Steamy Windows met familie. Cocktails.",
-    "location": { "lat": null, "lng": null, "name": "Steamy Windows, Gent" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -633,7 +1162,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant", "familie"]
+    "tags": [
+      "restaurant",
+      "familie"
+    ]
   },
   {
     "id": "2025-09-21",
@@ -641,7 +1173,11 @@
     "type": "date",
     "title": "20km Refugee Walk",
     "caption": "20km refugee walk. Caro had koekjes van Vietnam mee. Daarna hamburgers met zus en Stijn.",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent / Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -658,7 +1194,11 @@
     "type": "date",
     "title": "Babette Tapas",
     "caption": "Auto keuring voor Caro. Restaurant Babette (tapas).",
-    "location": { "lat": null, "lng": null, "name": "Babette" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -667,7 +1207,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-09-25",
@@ -675,7 +1217,11 @@
     "type": "date",
     "title": "Caro Wax",
     "caption": "Caro wax ;)",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Mechelen"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -692,16 +1238,38 @@
     "type": "date",
     "title": "Zoo of the Future + Alegria",
     "caption": "Date dag! Zoo of the Future (een beetje teleurstellend). Tour en Taxis Comics conventie. Alegria! Trois Saveurs (110 euro maar veel niet aangerekend).",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussels" },
-    "photos": ["2025-09-Zara3.jpg", "ZooOfTheFuture.jpg", "2025-09-ZooOfTheFuture.png", "2025-09-ZooOfTheFuture3.png", "2025-09-ZooOfTheFuture2.png", "2025-09-ZooOfTheFuture.jpg", "2025-09-ZooOfTheFuture4.jpg", "2025-09-ZooOfTheFuture2.jpg", "2025-09-ZooOfTheFuture3.jpg", "2025-09-TourEnTaxis.jpg", "2025-09-TourEnTaxis2.jpg", "2025-09-Alegria.png"],
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel"
+    },
+    "photos": [
+      "2025-09-Zara3.jpg",
+      "ZooOfTheFuture.jpg",
+      "2025-09-ZooOfTheFuture.png",
+      "2025-09-ZooOfTheFuture3.png",
+      "2025-09-ZooOfTheFuture2.png",
+      "2025-09-ZooOfTheFuture.jpg",
+      "2025-09-ZooOfTheFuture4.jpg",
+      "2025-09-ZooOfTheFuture2.jpg",
+      "2025-09-ZooOfTheFuture3.jpg",
+      "2025-09-TourEnTaxis.jpg",
+      "2025-09-TourEnTaxis2.jpg",
+      "2025-09-Alegria.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Caro haar ribbetjes waren undercooked. Ik was al bezig met 1 star review maar rekening veel niet aangerekend.",
-    "expandedPhotos": ["2025-09-Alegria.jpg"],
+    "expandedPhotos": [
+      "2025-09-Alegria.jpg"
+    ],
     "videos": [],
-    "tags": ["activiteit", "restaurant"]
+    "tags": [
+      "activiteit",
+      "restaurant"
+    ]
   },
   {
     "id": "2025-09-28",
@@ -709,8 +1277,14 @@
     "type": "date",
     "title": "BBQ Chicken Caro",
     "caption": "Caro maakt bbq chicken met de bbq saus van toen zus en Stijn waren komen eten!",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
-    "photos": ["2025-09-28-bbq-chicken.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "2025-09-28-bbq-chicken.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -718,7 +1292,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["food", "thuis"]
+    "tags": [
+      "food",
+      "thuis"
+    ]
   },
   {
     "id": "2025-10-01",
@@ -726,8 +1303,14 @@
     "type": "date",
     "title": "Winterkleren Caro",
     "caption": "Winterkleren van Caro komen toe.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
-    "photos": ["2025-10-01-WinterklerenCaro.png"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "2025-10-01-WinterklerenCaro.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -735,7 +1318,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["thuis"]
+    "tags": [
+      "thuis"
+    ]
   },
   {
     "id": "2025-10-02",
@@ -743,8 +1328,16 @@
     "type": "date",
     "title": "Rizoom",
     "caption": "Restaurant Rizoom. Caro haar GSM vergeten, de mijne leeg. Aangepaste wijnen en sake van kaori.be — echt super lekker.",
-    "location": { "lat": null, "lng": null, "name": "Rizoom, Gent" },
-    "photos": ["2025-10-02-Rizoom.jpg", "2025-10-02-RizoomSake.jpg", "2025-10-02-RizoomLepeltje.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "2025-10-02-Rizoom.jpg",
+      "2025-10-02-RizoomSake.jpg",
+      "2025-10-02-RizoomLepeltje.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -752,7 +1345,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-10-04",
@@ -760,7 +1355,11 @@
     "type": "date",
     "title": "Fietsen + Lucifer",
     "caption": "Bike ride. Lucifer kijken met Caro.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Ninove / Stichelen, Haaltert / Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -769,7 +1368,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["thuis"]
+    "tags": [
+      "thuis"
+    ]
   },
   {
     "id": "2025-10-05",
@@ -777,8 +1378,19 @@
     "type": "date",
     "title": "Jules Verne + Korean BBQ + Sake Festival",
     "caption": "Jules Verne expo Brussel. Duurste wafel ooit maar wel lekker. Korean Drum BBQ in Antwerpen. Sake Festival!",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussels / Antwerpen" },
-    "photos": ["2025-10-05-JulesVerne.jpg", "2025-10-08-WafelWouter.jpg", "2025-10-08-WafelCaro.jpg", "2025-10-05-KoreanDrumBBQ.jpg", "2025-10-05-DrumBBQ.jpg", "2025-10-05-SakeFestival.jpg"],
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel / Antwerpen"
+    },
+    "photos": [
+      "2025-10-05-JulesVerne.jpg",
+      "2025-10-08-WafelWouter.jpg",
+      "2025-10-08-WafelCaro.jpg",
+      "2025-10-05-KoreanDrumBBQ.jpg",
+      "2025-10-05-DrumBBQ.jpg",
+      "2025-10-05-SakeFestival.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -786,7 +1398,10 @@
     "expandedText": "Bij het naar huis stappen een Sake Festival tegengekomen — met standje van kaori.be van bij Rizoom eerder die week!",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["expo", "restaurant"]
+    "tags": [
+      "expo",
+      "restaurant"
+    ]
   },
   {
     "id": "2025-10-06",
@@ -794,7 +1409,11 @@
     "type": "date",
     "title": "Bij Jos — Mariokart",
     "caption": "Bij Jos. Caro mee gaan eten. Mariokart, Bish Bash Bots.",
-    "location": { "lat": null, "lng": null, "name": "Bij Jos" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -811,16 +1430,31 @@
     "type": "date",
     "title": "Cinema Culinaire + Party Jelle",
     "caption": "Cinema Culinaire: Chocolat in Eskimofabriek. 's avonds naar Jelle en Sarah hun 10 jarig dans trouwfeest.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
-    "photos": ["20251011_120454.jpg", "2025-10-11 at 16.34.22 (1).jpeg", "2025-10-11 at 16.34.22.jpeg", "2025-10-11 at 16.34.23.jpeg", "1760453361986-2025-10-11.jpg"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
+    "photos": [
+      "20251011_120454.jpg",
+      "2025-10-11 at 16.34.22 (1).jpeg",
+      "2025-10-11 at 16.34.22.jpeg",
+      "2025-10-11 at 16.34.23.jpeg",
+      "1760453361986-2025-10-11.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "M&Ms bowl! Frituurtruck! Black & White & Retro.",
-    "expandedPhotos": ["20251012144306.png"],
+    "expandedPhotos": [
+      "20251012144306.png"
+    ],
     "videos": [],
-    "tags": ["movie", "feest"]
+    "tags": [
+      "movie",
+      "feest"
+    ]
   },
   {
     "id": "2025-10-12",
@@ -828,8 +1462,14 @@
     "type": "date",
     "title": "Zalm Quiche",
     "caption": "Heel rustige zondag! Caro maakt haar alomgekende Zalm Quiche!",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
-    "photos": ["1760518148805-2025-10-12.png"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "1760518148805-2025-10-12.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -837,7 +1477,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["food", "thuis"]
+    "tags": [
+      "food",
+      "thuis"
+    ]
   },
   {
     "id": "2025-10-13",
@@ -845,16 +1488,26 @@
     "type": "date",
     "title": "The Cat Empire",
     "caption": "The Cat Empire at AB. Zelfs Caro vond het goed want ze was wat aan het twijfelen.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "AB, Brussels" },
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
-    "music": { "track": "cat-empire.mp3", "artist": "The Cat Empire", "title": "" },
+    "music": {
+      "track": "cat-empire.mp3",
+      "artist": "The Cat Empire",
+      "title": ""
+    },
     "weather": null,
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["concert"]
+    "tags": [
+      "concert"
+    ]
   },
   {
     "id": "2025-10-19",
@@ -862,16 +1515,26 @@
     "type": "date",
     "title": "Studio Ghibli in Concert",
     "caption": "Studio Ghibli in concert at Capitole Gent.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Capitole, Gent" },
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
-    "music": { "track": "ghibli.mp3", "artist": "Studio Ghibli", "title": "" },
+    "music": {
+      "track": "ghibli.mp3",
+      "artist": "Studio Ghibli",
+      "title": ""
+    },
     "weather": null,
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["concert"]
+    "tags": [
+      "concert"
+    ]
   },
   {
     "id": "2025-10-22",
@@ -879,7 +1542,11 @@
     "type": "date",
     "title": "Table 22",
     "caption": "Table 22 voor de beste vol-au-vent van Belgie. Caro: Rib-eye Holstein. De garcon noemde de vol-au-vent meermaals de slechtste van Belgie.",
-    "location": { "lat": null, "lng": null, "name": "Table 22" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Denderleeuw"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -888,17 +1555,23 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-10-27",
     "date": "2025-10-27",
     "type": "trip",
     "title": "Philippines",
-    "tripStart": "2025-10-27",
-    "tripEnd": "2025-11-10",
+    "tripStart": "2025-10-26",
+    "tripEnd": "2025-11-12",
     "caption": "Philippines!",
-    "location": { "lat": 14.5995, "lng": 120.9842, "name": "Manila, Philippines" },
+    "location": {
+      "lat": 14.5995,
+      "lng": 120.9842,
+      "name": "Manila, Philippines"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -907,17 +1580,47 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["travel", "philippines"],
+    "tags": [
+      "travel",
+      "philippines"
+    ],
     "transport": [
-      { "mode": "car", "from": "Gent", "to": "Brussels Airport" },
-      { "mode": "plane", "from": "Brussels", "to": "Manila" }
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Brussels Airport"
+      },
+      {
+        "mode": "plane",
+        "from": "Brussels",
+        "to": "Manila"
+      }
     ],
     "days": [
+      {
+        "date": "2025-10-26",
+        "title": "Vlucht naar Manila",
+        "caption": "Etihad vlucht van Brussel naar Manila. Films: Crazy Rich Asians, Wreck-It Ralph, Freakier Friday, The Bad Guys 2, Jurassic World Rebirth, The Luckiest Man in America.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "Manila, Philippines"
+        },
+        "photos": [
+          "1763931128212-2025-10-26.png",
+          "1763931187129-2025-10-26.png"
+        ],
+        "videos": []
+      },
       {
         "date": "2025-10-27",
         "title": "Manila — Fort Santiago",
         "caption": "Fort Santiago, Barbara's Heritage Restaurant. Caro probeert mij wakker te maken maar het lukte niet. Caro deed mee en kon goed op tempo dansen.",
-        "location": { "lat": 14.5955, "lng": 120.9726, "name": "Manila" },
+        "location": {
+          "lat": 14.5955,
+          "lng": 120.9726,
+          "name": "Manila, Philippines"
+        },
         "photos": [],
         "videos": []
       },
@@ -925,41 +1628,176 @@
         "date": "2025-10-28",
         "title": "El Nido",
         "caption": "Robot Barista, Artcafe. Caro had teveel werk met haar scampis.",
-        "location": { "lat": 11.1784, "lng": 119.3926, "name": "El Nido, Palawan" },
+        "location": {
+          "lat": 11.1784,
+          "lng": 119.3926,
+          "name": "El Nido, Philippines"
+        },
         "photos": [],
         "videos": [],
-        "transport": [{ "mode": "plane", "from": "Manila", "to": "El Nido" }]
+        "transport": [
+          {
+            "mode": "plane",
+            "from": "Manila",
+            "to": "El Nido"
+          }
+        ]
       },
       {
         "date": "2025-10-29",
         "title": "El Nido Tour A",
         "caption": "Eerste keer snorkelen met Caro! Piece of Sky. Caro ging niet drinken maar het was dan happy hour.",
-        "location": { "lat": 11.1784, "lng": 119.3926, "name": "El Nido" },
+        "location": {
+          "lat": 11.1784,
+          "lng": 119.3926,
+          "name": "El Nido, Philippines"
+        },
         "photos": [],
+        "videos": []
+      },
+      {
+        "date": "2025-10-30",
+        "title": "Canopy Walk El Nido",
+        "caption": "Regen in de voormiddag. Taraw Cliff Climb bleek dicht te zijn. Canopy Walk gedaan, veel foto's voor Instagram. Uitzicht op El Nido bay. Zipline was ook al dicht. Wijntje en pannekoek.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "El Nido, Philippines"
+        },
+        "photos": [
+          "1763933782330-2025-10-30.png",
+          "1763933821921-2025-10-30.png",
+          "1763933895344-2025-10-30.png",
+          "1763933923363-2025-10-30.png",
+          "1763933976606-2025-10-30.png",
+          "1763933995330-2025-10-30.png",
+          "1763934045061-2025-10-30.png"
+        ],
         "videos": []
       },
       {
         "date": "2025-10-31",
         "title": "El Nido Zipline",
         "caption": "Zipline! Caro foot massage.",
-        "location": { "lat": 11.1784, "lng": 119.3926, "name": "El Nido" },
+        "location": {
+          "lat": 11.1784,
+          "lng": 119.3926,
+          "name": "El Nido, Philippines"
+        },
         "photos": [],
+        "videos": []
+      },
+      {
+        "date": "2025-11-01",
+        "title": "Tour C El Nido",
+        "caption": "Tour C met minder volk op de boot. Swimming, ondiepe lagoon, Hidden Beach. Snorkeling. Motor issue op terugweg. Halloween burger gegeten.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "El Nido, Philippines"
+        },
+        "photos": [
+          "1763934559255-2025-11-01.png",
+          "1763934572093-2025-11-01.png",
+          "1763934741384-2025-11-01.png",
+          "1763934777029-2025-11-01.png",
+          "1763941807625-2025-11-01.png",
+          "1763934797779-2025-11-01.png",
+          "1763934845054-2025-11-01.png",
+          "1763934870520-2025-11-01.png",
+          "1763934974802-2025-11-01.png",
+          "1763935006835-2025-11-01.png",
+          "1763935074002-2025-11-01.png",
+          "1763935341022-2025-11-01.png",
+          "1763935390367-2025-11-01.png",
+          "1763935521446-2025-11-01.png",
+          "1763941762392-2025-11-01.png"
+        ],
+        "videos": []
+      },
+      {
+        "date": "2025-11-02",
+        "title": "Massage + Big Bad Thai",
+        "caption": "Regendag. Massage gedaan. Big Bad Thai, vree lekker. Super warm door BBQ joint op eerste verdiep.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "El Nido, Philippines"
+        },
+        "photos": [
+          "1763935621136-2025-11-02.png",
+          "1763935684155-2025-11-02.png"
+        ],
+        "videos": []
+      },
+      {
+        "date": "2025-11-03",
+        "title": "El Nido naar Manila",
+        "caption": "Coron tour gecancelled door Typhoon Kalmaegi. Ferry ook gecancelled. Bus naar Puerto Princesa, vlieger terug naar Manila. City Garden Grand Hotel.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "El Nido / Manila, Philippines"
+        },
+        "photos": [
+          "1763936392479-2025-11-03.png",
+          "1763941995483-2025-11-03.png"
+        ],
         "videos": []
       },
       {
         "date": "2025-11-04",
         "title": "Manila Shopping",
         "caption": "Greenbelt shopping centre dat Caro wou doen. HALONG restaurant.",
-        "location": { "lat": 14.5547, "lng": 121.0244, "name": "Makati, Manila" },
+        "location": {
+          "lat": 14.5547,
+          "lng": 121.0244,
+          "name": "Manila, Philippines"
+        },
         "photos": [],
         "videos": [],
-        "transport": [{ "mode": "plane", "from": "El Nido", "to": "Manila" }]
+        "transport": [
+          {
+            "mode": "plane",
+            "from": "El Nido",
+            "to": "Manila"
+          }
+        ]
+      },
+      {
+        "date": "2025-11-05",
+        "title": "Intramuros",
+        "caption": "Power Plant mall. Spaanse Intramuros: Fort Santiago, Cathedral of Manila, Casa Manila, Museo de Intramuros. Harbor View. Rooftop bar hotel.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "Manila, Philippines"
+        },
+        "photos": [
+          "1763941888829-2025-11-05.png",
+          "1763941907897-2025-11-05.png",
+          "1763937136756-2025-11-05.png",
+          "1763936942244-2025-11-05.png",
+          "1763936953329-2025-11-05.png",
+          "1763937030530-2025-11-05.png",
+          "1763941948358-2025-11-05.png",
+          "1763937061590-2025-11-05.png",
+          "1763937094340-2025-11-05.png",
+          "1763937192228-2025-11-05.png",
+          "1763937254105-2025-11-05.png",
+          "1763937305921-2025-11-05.png"
+        ],
+        "videos": []
       },
       {
         "date": "2025-11-06",
         "title": "Taal Vulcano",
         "caption": "Taal Vulcano day trip. Wat was Caro haar wens???",
-        "location": { "lat": 14.0113, "lng": 120.9979, "name": "Taal Volcano" },
+        "location": {
+          "lat": 14.0113,
+          "lng": 120.9979,
+          "name": "Manila, Philippines"
+        },
         "photos": [],
         "videos": []
       },
@@ -967,7 +1805,11 @@
         "date": "2025-11-07",
         "title": "Greenbelt + Toyo Eatery",
         "caption": "Greenbelt Christmas decorations. Facials. Toyo Eatery (waar Caro gereserveerd had). Skydeck.",
-        "location": { "lat": 14.5547, "lng": 121.0244, "name": "Makati, Manila" },
+        "location": {
+          "lat": 14.5547,
+          "lng": 121.0244,
+          "name": "Manila, Philippines"
+        },
         "photos": [],
         "videos": []
       },
@@ -975,16 +1817,67 @@
         "date": "2025-11-08",
         "title": "Pagsanjan Falls",
         "caption": "Pagsanjan Falls. Caro begon te veel te schreeuwen. Halo-Halo (Caro: daarna niet meer gekust). Ember restaurant.",
-        "location": { "lat": 14.2723, "lng": 121.4567, "name": "Cavinti / Pagsanjan" },
+        "location": {
+          "lat": 14.2723,
+          "lng": 121.4567,
+          "name": "Manila, Philippines"
+        },
         "photos": [],
+        "videos": []
+      },
+      {
+        "date": "2025-11-09",
+        "title": "Storm Day",
+        "caption": "De storm was nu echt upon us dus niet zoveel gedaan die dag. Toch nog effe uit geweest 's avonds.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "Manila, Philippines"
+        },
+        "photos": [
+          "1763942434482-2025-11-09.png",
+          "1763939833567-2025-11-09.png"
+        ],
         "videos": []
       },
       {
         "date": "2025-11-10",
         "title": "Last Day Manila",
         "caption": "Nieuw sjakoske voor Caro. Ring Side midget boxing (wou Caro absoluut naar).",
-        "location": { "lat": 14.5995, "lng": 120.9842, "name": "Manila" },
+        "location": {
+          "lat": 14.5995,
+          "lng": 120.9842,
+          "name": "Manila, Philippines"
+        },
         "photos": [],
+        "videos": []
+      },
+      {
+        "date": "2025-11-11",
+        "title": "Check-out",
+        "caption": "Tijd om onze mega kamer te verlaten...",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "Manila, Philippines"
+        },
+        "photos": [
+          "1763940489421-2025-11-11.png"
+        ],
+        "videos": []
+      },
+      {
+        "date": "2025-11-12",
+        "title": "Back in Belgium",
+        "caption": "Back in Belgium! Nog snel GSM opladen voor Dark War, het zombiespel waar ik aan begonnen was door Fung-wong.",
+        "location": {
+          "lat": null,
+          "lng": null,
+          "name": "Manila, Philippines"
+        },
+        "photos": [
+          "1763940654699-2025-11-12.png"
+        ],
         "videos": []
       }
     ]
@@ -995,16 +1888,27 @@
     "type": "date",
     "title": "Koen & Marijke Brugge",
     "caption": "Verassing van Caro naar Koen & Marijke in Brugge. Tegen het vuur. Americain, lekker steakje op het open vuur.",
-    "location": { "lat": 51.2093, "lng": 3.2247, "name": "Brugge" },
-    "photos": ["1763561117968-2025-11-13.png", "1763561147140-2025-11-13.png"],
+    "location": {
+      "lat": 51.2093,
+      "lng": 3.2247,
+      "name": "Brugge"
+    },
+    "photos": [
+      "1763561117968-2025-11-13.png",
+      "1763561147140-2025-11-13.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
-    "weather": { "note": "Begon koud te worden" },
+    "weather": {
+      "note": "Begon koud te worden"
+    },
     "expandedText": "Zaten naast zatte madam met haar man die de hele avond niks gezegd had. Het was blijkbaar toch nodig om te betalen voor parkeren na 19u.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2025-11-14",
@@ -1014,7 +1918,11 @@
     "tripStart": "2025-11-14",
     "tripEnd": "2025-11-16",
     "caption": "Lille trip met familie + Caro.",
-    "location": { "lat": 50.6292, "lng": 3.0573, "name": "Lille, France" },
+    "location": {
+      "lat": 50.6292,
+      "lng": 3.0573,
+      "name": "Lambersart, Frankrijk"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1023,16 +1931,27 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["city-trip", "lille"],
+    "tags": [
+      "city-trip",
+      "lille"
+    ],
     "transport": [
-      { "mode": "car", "from": "Gent", "to": "Lambersart / Lille" }
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Lambersart / Lille"
+      }
     ],
     "days": [
       {
         "date": "2025-11-14",
         "title": "Lambersart",
         "caption": "Family + Caro, gaming, Placid Plastic Duck Simulator.",
-        "location": { "lat": 50.6433, "lng": 3.0234, "name": "Lambersart" },
+        "location": {
+          "lat": 50.6433,
+          "lng": 3.0234,
+          "name": "Lambersart, Frankrijk"
+        },
         "photos": [],
         "videos": []
       },
@@ -1040,7 +1959,11 @@
         "date": "2025-11-15",
         "title": "Villa Cavrois + La Piscine",
         "caption": "Villa Cavrois — Huizenjacht voor Caro en mezelf. La Piscine. Caro was er niet over te spreken dat ik mijn kreeft salade niet gevraagd had.",
-        "location": { "lat": 50.6727, "lng": 3.1496, "name": "Roubaix / Croix" },
+        "location": {
+          "lat": 50.6727,
+          "lng": 3.1496,
+          "name": "Roubaix / Croix"
+        },
         "photos": [],
         "videos": []
       },
@@ -1048,10 +1971,42 @@
         "date": "2025-11-16",
         "title": "Lille Walk + Martin Kohlstedt",
         "caption": "Walk through Lille. Winkel van Caro haar ring. Martin Kohlstedt concert — Caro was een beetje in slaap gevallen.",
-        "location": { "lat": 50.6292, "lng": 3.0573, "name": "Lille" },
+        "location": {
+          "lat": 50.6292,
+          "lng": 3.0573,
+          "name": "Lambersart, Frankrijk / Brugge"
+        },
         "photos": [],
         "videos": []
       }
+    ]
+  },
+  {
+    "id": "2025-11-22",
+    "date": "2025-11-22",
+    "type": "date",
+    "title": "Brunch + CoderDojo + Allegro Moderato",
+    "caption": "Airconditioning installatie vervolledigd. Ex-collega's Caro van Herent kwamen brunchen. Met Thijs en Vic naar Coder Dojo Haaltert. Gaan eten in Allegro Moderato na 7 restaurants gecheckt te hebben die vol zaten.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg / Haaltert / Gent"
+    },
+    "photos": [
+      "IMG-20251122-WA0009.jpg",
+      "20251122_202851.jpg"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "Ze was heel blij nadat ze me getoond had hoe een foto toe te voegen in Obsidian.",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "home",
+      "coderdojo",
+      "restaurant"
     ]
   },
   {
@@ -1060,8 +2015,15 @@
     "type": "date",
     "title": "Oak",
     "caption": "Samen naar Oak. De mais en cesar salad waren super.",
-    "location": { "lat": null, "lng": null, "name": "Oak, Gent" },
-    "photos": ["IMG-20251125-WA0006.jpg", "20251125_222740.jpg"],
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gent"
+    },
+    "photos": [
+      "IMG-20251125-WA0006.jpg",
+      "20251125_222740.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -1069,7 +2031,33 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
+  },
+  {
+    "id": "2025-11-29",
+    "date": "2025-11-29",
+    "type": "date",
+    "title": "De Rare Vos",
+    "caption": "Eten in De Rare Vos met Frank, Leen, va, moe en Gert. Kroketten van fazant met spekjes en oesterzwam waren super. Kregen een Bob Sleutel.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Schepdaal"
+    },
+    "photos": [],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "Leen had haar witte blouse aan die we in Vietnam hadden laten maken. Caro was naar baby shower in Rotterdam geweest.",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "family",
+      "restaurant"
+    ]
   },
   {
     "id": "2025-11-30",
@@ -1077,7 +2065,11 @@
     "type": "date",
     "title": "Zootopia 2",
     "caption": "Zootopia 2 in Kinepolis Gent.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Kinepolis, Gent" },
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1086,7 +2078,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["movie"]
+    "tags": [
+      "movie"
+    ]
   },
   {
     "id": "2025-12-03",
@@ -1094,7 +2088,11 @@
     "type": "date",
     "title": "Haantjes + F1",
     "caption": "Haantjes bij Thijs. Afspreken met Caro om naar F1 te gaan kijken.",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Ninove"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1111,8 +2109,14 @@
     "type": "date",
     "title": "Carmina Burana (oeps)",
     "caption": "Naar Capitole voor Black Swan, maar verkeerde tickets gekocht! Het was Carmina Burana. Daarna smoutebollen aan het Zuid.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Capitole, Gent" },
-    "photos": ["1765359159259-2025-12-09.png"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
+    "photos": [
+      "1765359159259-2025-12-09.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -1120,7 +2124,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["show"]
+    "tags": [
+      "show"
+    ]
   },
   {
     "id": "2025-12-12",
@@ -1130,7 +2136,11 @@
     "tripStart": "2025-12-12",
     "tripEnd": "2025-12-13",
     "caption": "Berlin trip!",
-    "location": { "lat": 52.52, "lng": 13.405, "name": "Berlin, Germany" },
+    "location": {
+      "lat": 52.52,
+      "lng": 13.405,
+      "name": "Berlin, Germany"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1139,16 +2149,27 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["city-trip", "berlin"],
+    "tags": [
+      "city-trip",
+      "berlin"
+    ],
     "transport": [
-      { "mode": "plane", "from": "Brussels", "to": "Berlin" }
+      {
+        "mode": "plane",
+        "from": "Brussels",
+        "to": "Berlin"
+      }
     ],
     "days": [
       {
         "date": "2025-12-12",
         "title": "Magicum + Walking Tour",
         "caption": "Magicum (Caro had 'Music'). WW2 walking tour: Checkpoint Charlie, Holocaust Museum, Brandenburg Gate. Bavaria Berlin. Kerstmarkt (Caro net 4 euro mee had).",
-        "location": { "lat": 52.52, "lng": 13.405, "name": "Berlin" },
+        "location": {
+          "lat": 52.52,
+          "lng": 13.405,
+          "name": "Berlin"
+        },
         "photos": [],
         "videos": []
       },
@@ -1156,10 +2177,39 @@
         "date": "2025-12-13",
         "title": "KaDeWe + Nobelhart & Schmutzig",
         "caption": "KaDeWe (Caro zich kunnen inhouden). Kaiser-Wilhelm Church. Nobelhart & Schmutzig. Gibson Bar (Caro haar 'Rocket Woman'). Totaal niet omdat Caro zat was ofzo...",
-        "location": { "lat": 52.52, "lng": 13.405, "name": "Berlin" },
+        "location": {
+          "lat": 52.52,
+          "lng": 13.405,
+          "name": "Berlin"
+        },
         "photos": [],
         "videos": []
       }
+    ]
+  },
+  {
+    "id": "2025-12-14",
+    "date": "2025-12-14",
+    "type": "date",
+    "title": "De Lint",
+    "caption": "Terugkeer met de auto. Restaurant De Lint met hun iets te lopende Creme Brulee. 's avonds nog The Running Man gekeken.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Koekelare"
+    },
+    "photos": [
+      "1766002275324-2025-12-14.png"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "restaurant"
     ]
   },
   {
@@ -1168,16 +2218,31 @@
     "type": "date",
     "title": "Pancakes + Cabaret Secret",
     "caption": "'s morgens pancakes! Cabaret Secret in Tour en Taxis. Bij de haren genomen (en dan later iets bij de tanden)!",
-    "location": { "lat": 50.8647, "lng": 4.3489, "name": "Tour en Taxis, Brussels" },
-    "photos": ["1766427222415-2025-12-20.png", "1766427233284-2025-12-20.png", "1766427287316-2025-12-20.png", "1766427699993-2025-12-20.png", "1766427714341-2025-12-20.png", "1766428377610-2025-12-20.png"],
+    "location": {
+      "lat": 50.8647,
+      "lng": 4.3489,
+      "name": "Stichelen, Haaltert / Brussel"
+    },
+    "photos": [
+      "1766427222415-2025-12-20.png",
+      "1766427233284-2025-12-20.png",
+      "1766427287316-2025-12-20.png",
+      "1766427699993-2025-12-20.png",
+      "1766427714341-2025-12-20.png",
+      "1766428377610-2025-12-20.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "En op het einde het kleinste stukje wegnemen en alles viel in elkaar!",
     "expandedPhotos": [],
-    "videos": ["WhatsApp Video 2025-12-20 at 20.12.13.mp4"],
-    "tags": ["show"]
+    "videos": [
+      "WhatsApp Video 2025-12-20 at 20.12.13.mp4"
+    ],
+    "tags": [
+      "show"
+    ]
   },
   {
     "id": "2025-12-24",
@@ -1185,7 +2250,11 @@
     "type": "date",
     "title": "Kerst bij Ouders",
     "caption": "Kerst bij ouders. Toast champignon al eens voor Caro gemaakt.",
-    "location": { "lat": null, "lng": null, "name": "Bij ouders" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Stichelen, Haaltert"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1194,7 +2263,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["kerst", "familie"]
+    "tags": [
+      "kerst",
+      "familie"
+    ]
   },
   {
     "id": "2025-12-25",
@@ -1202,7 +2274,11 @@
     "type": "date",
     "title": "Kerst Mediatrice",
     "caption": "Kerst bij Mediatrice. Caro had kip gemaakt. Appelcake met honing.",
-    "location": { "lat": null, "lng": null, "name": "Mediatrice" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Herent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1211,7 +2287,67 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["kerst", "familie"]
+    "tags": [
+      "kerst",
+      "familie"
+    ]
+  },
+  {
+    "id": "2025-12-26",
+    "date": "2025-12-26",
+    "type": "date",
+    "title": "Heleen + Babette",
+    "caption": "Heleen kwam bij ons na een dagje winkelen met moe. Samosas gemaakt. Daarna naar Babette met zus en Stijn.",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg / Sint-Martens-Latem"
+    },
+    "photos": [],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "Thuis weer met Heleen het eerste seizoen van Solo Leveling gezien.",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "family",
+      "restaurant"
+    ]
+  },
+  {
+    "id": "2025-12-27",
+    "date": "2025-12-27",
+    "type": "date",
+    "title": "Oudejaar De Bodts",
+    "caption": "Oudejaar De Bodts in De Wingerd, Pamel. Gert zijn cocktails waren veel te straf. Frank zijn broodje met gesmolten kaas + spekjes was super. Heleen was er dit jaar nog eens bij!",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "De Wingerd, Pamel"
+    },
+    "photos": [
+      "1767432797464-2025-12-27.png",
+      "1767433645098-2025-12-27.png",
+      "1767433579065-2025-12-27.png",
+      "IMG-20251227-WA0007.jpg",
+      "1767433606199-2025-12-27.png",
+      "1767433873134-2025-12-27.png",
+      "1767433970443-2025-12-27.png",
+      "1767433951630-2025-12-27.png",
+      "1767433903788-2025-12-27.png"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "Veel te veel desert van Anes en Nikolaas. De appelflappen waren vree lekker.",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2025-12-28",
@@ -1219,7 +2355,11 @@
     "type": "date",
     "title": "Rubberplant",
     "caption": "Tip van Caro: rubberplant. Opkuis.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1228,7 +2368,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["thuis"]
+    "tags": [
+      "thuis"
+    ]
   },
   {
     "id": "2025-12-30",
@@ -1236,7 +2378,11 @@
     "type": "date",
     "title": "Cadootjes voor Caro",
     "caption": "Cadootjes kopen voor Caro: poncho, oorbellen, Le Creuset.",
-    "location": { "lat": null, "lng": null, "name": "" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1253,7 +2399,11 @@
     "type": "date",
     "title": "Nieuwjaar",
     "caption": "Nieuwjaar! Caro maakte Espresso Martinis. De Ponyo.",
-    "location": { "lat": null, "lng": null, "name": "Thuis" },
+    "location": {
+      "lat": null,
+      "lng": null,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -1262,6 +2412,8 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["nieuwjaar"]
+    "tags": [
+      "nieuwjaar"
+    ]
   }
 ]
