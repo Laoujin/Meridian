@@ -41,6 +41,7 @@ interface MapCanvasProps {
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
+  travelBounds?: [[number, number], [number, number]] | null;
   overviewLocations?: [number, number][];
   showOverview?: boolean;
 }
@@ -72,7 +73,7 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBounds, overviewLocations, showOverview }: MapCanvasProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
     const lineAddedRef = useRef(false);
@@ -280,6 +281,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overview
     useEffect(() => {
       const map = mapRef.current;
       if (!map) return;
+      const h = containerRef.current?.clientHeight ?? 0;
 
       if (showOpeningLine) {
         map.fitBounds(
@@ -289,16 +291,17 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overview
           ],
           { padding: 80, duration: 0 }
         );
+      } else if (travelBounds) {
+        // During travel: fitBounds so both origin and destination dots stay visible
+        map.fitBounds(travelBounds, {
+          padding: { top: h * 0.67, bottom: 40, left: 40, right: 40 },
+          duration: 0,
+        });
       } else {
-        // Offset center so the pin appears in the bottom half of the screen
-        // (card overlay occupies the top portion on mobile)
-        const h = containerRef.current?.clientHeight ?? 0;
-        // Card takes top 2/3, pin should be centered in bottom 1/3
-        // That means the center point should be at 5/6 of the screen height
-        // So top padding = 2/3 of screen height
+        // Hold: center on location, offset to bottom third
         map.jumpTo({ center, zoom, padding: { top: h * 0.67, bottom: 0, left: 0, right: 0 } });
       }
-    }, [center, zoom, showOpeningLine]);
+    }, [center, zoom, showOpeningLine, travelBounds]);
 
     return (
       <div

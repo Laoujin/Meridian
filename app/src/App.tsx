@@ -2,7 +2,7 @@ import { useMemo, useState, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
 import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
-import { interpolateLine, haversineDistance } from './utils/geo';
+import { interpolateLine } from './utils/geo';
 import MapCanvas, { ARC_APEX } from './components/MapCanvas';
 import TimelineStrip from './components/TimelineStrip';
 import CardOverlay from './components/CardOverlay';
@@ -82,48 +82,7 @@ export default function App() {
   }, [isOpening, isClosing, activeIndex]);
 
   // Smooth zoom: start zoom → mid-journey zoom (based on distance) → dest zoom
-  const mapZoom = useMemo(() => {
-    if (phase !== 'transition' || transitionType === 'same-location' || transitionType === 'to-milestone') {
-      return destZoom;
-    }
-
-    const travelP = progress >= 0.25 && progress <= 0.75
-      ? (progress - 0.25) / 0.5
-      : progress > 0.75 ? 1 : 0;
-
-    if (travelP <= 0) return destZoom; // still in card-fade-out, keep previous zoom
-
-    const fromCoord = transitionType === 'opening'
-      ? [ARC_APEX[0], ARC_APEX[1]] as [number, number]
-      : transitionType === 'from-milestone'
-        ? memoryLngLat(memories, lastLocatedIndex(memories, activeIndex))
-        : memoryLngLat(memories, activeIndex - 1);
-    const toCoord = memoryLngLat(memories, activeIndex);
-
-    const prevIdx = transitionType === 'opening' ? -1
-      : transitionType === 'from-milestone' ? lastLocatedIndex(memories, activeIndex)
-      : activeIndex - 1;
-    const startZoom = zoomForMemory(prevIdx);
-
-    // Mid-journey zoom: zoom out proportionally to distance
-    const dist = haversineDistance(fromCoord, toCoord);
-    // ~5km → barely zoom out, ~500km → zoom way out
-    const midZoom = dist < 5 ? Math.min(startZoom, destZoom)
-      : dist < 20 ? 10
-      : dist < 50 ? 9
-      : dist < 150 ? 8
-      : dist < 500 ? 6
-      : 5;
-
-    // First half of travel: startZoom → midZoom, second half: midZoom → destZoom
-    if (travelP <= 0.5) {
-      const t = travelP / 0.5;
-      return startZoom + (midZoom - startZoom) * t;
-    }
-    const t = (travelP - 0.5) / 0.5;
-    return midZoom + (destZoom - midZoom) * t;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, progress, transitionType, destZoom, activeIndex, memories]);
+  const mapZoom = destZoom;
 
   // --- Milestone dimming ---
   const isDimmed = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -153,6 +112,18 @@ export default function App() {
   const lineFadeOut = phase === 'hold' ? Math.min(1, progress / 0.2) : 0;
   const travelVisible = phase === 'transition' && travelFrom !== null && travelTo !== null;
   const travelTransport = activeMemory?.transport?.[0] ?? null;
+
+  // During travel, fitBounds both endpoints so both dots stay visible
+  const travelBounds = useMemo<[[number, number], [number, number]] | null>(() => {
+    if (phase !== 'transition' || transitionType === 'same-location' || transitionType === 'to-milestone') {
+      return null;
+    }
+    const travelP = progress >= 0.25 && progress <= 0.75
+      ? (progress - 0.25) / 0.5
+      : progress > 0.75 ? 1 : 0;
+    if (travelP <= 0 || !travelFrom || !travelTo) return null;
+    return [travelFrom, travelTo];
+  }, [phase, transitionType, progress, travelFrom, travelTo]);
 
   // --- Location marker ---
   const markerCoords = useMemo<[number, number] | null>(() => {
@@ -198,6 +169,7 @@ export default function App() {
         showOpeningLine={isOpening}
         dimmed={isDimmed}
         onMapReady={handleMapReady}
+        travelBounds={travelBounds}
         overviewLocations={allLocations}
         showOverview={isClosing && transitionType === 'closing-overview'}
       />
@@ -212,6 +184,14 @@ export default function App() {
         fadeOutProgress={lineFadeOut}
       />
 
+      {/* Origin dot: shown during travel at the starting location */}
+      <LocationMarker
+        map={mapInstance}
+        coordinates={travelVisible ? travelFrom : null}
+        pulse={false}
+      />
+
+      {/* Destination dot: shown at current memory location, pulses on arrival */}
       <LocationMarker
         map={mapInstance}
         coordinates={markerCoords}
