@@ -78,6 +78,12 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
     const mapRef = useRef<maplibregl.Map | null>(null);
     const lineAddedRef = useRef(false);
     const overviewMarkersRef = useRef<maplibregl.Marker[]>([]);
+    const onMapReadyRef = useRef(onMapReady);
+    const showOpeningLineRef = useRef(showOpeningLine);
+    useEffect(() => {
+      onMapReadyRef.current = onMapReady;
+      showOpeningLineRef.current = showOpeningLine;
+    });
 
     useEffect(() => {
       if (!containerRef.current || mapRef.current) return;
@@ -94,7 +100,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
       mapRef.current = map;
 
       map.on('load', () => {
-        onMapReady?.(map);
+        onMapReadyRef.current?.(map);
         // Smooth arc line
         map.addSource('opening-line', {
           type: 'geojson',
@@ -115,7 +121,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
           paint: {
             'line-color': '#e60000',
             'line-width': 3,
-            'line-opacity': showOpeningLine ? 1 : 0,
+            'line-opacity': showOpeningLineRef.current ? 1 : 0,
           },
         });
 
@@ -140,8 +146,8 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
             'circle-color': '#e8836b',
             'circle-stroke-color': '#fff',
             'circle-stroke-width': 2,
-            'circle-opacity': showOpeningLine ? 1 : 0,
-            'circle-stroke-opacity': showOpeningLine ? 1 : 0,
+            'circle-opacity': showOpeningLineRef.current ? 1 : 0,
+            'circle-stroke-opacity': showOpeningLineRef.current ? 1 : 0,
           },
         });
 
@@ -167,7 +173,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
           },
           paint: {
             'text-color': '#666',
-            'text-opacity': showOpeningLine ? 1 : 0,
+            'text-opacity': showOpeningLineRef.current ? 1 : 0,
           },
         });
 
@@ -193,7 +199,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
           },
           paint: {
             'text-color': '#666',
-            'text-opacity': showOpeningLine ? 1 : 0,
+            'text-opacity': showOpeningLineRef.current ? 1 : 0,
           },
         });
 

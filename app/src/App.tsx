@@ -165,7 +165,7 @@ export default function App() {
         memories={memories}
         phase={phase}
         progress={progress}
-        transitionType={transitionType}
+        onShowDetails={handleShowDetails}
       />
 
       {showMilestoneEffect && (
