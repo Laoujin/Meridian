@@ -4,7 +4,7 @@
     "date": "2024-06-12",
     "type": "date",
     "title": "Eerste Date",
-    "caption": "Eerste date in Zaventem met Caro.",
+    "caption": "",
     "location": {
       "lat": 50.884,
       "lng": 4.474,
@@ -28,7 +28,7 @@
     "date": "2024-06-16",
     "type": "date",
     "title": "Octobar",
-    "caption": "Caro @ restaurant Octobar.",
+    "caption": "",
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
@@ -50,8 +50,8 @@
     "id": "2024-06-17",
     "date": "2024-06-17",
     "type": "date",
-    "title": "Lader afgeven",
-    "caption": "Lader gaan afgeven bij Caroline.",
+    "title": "Lader Afgeven",
+    "caption": "",
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
@@ -68,36 +68,11 @@
     "tags": []
   },
   {
-    "id": "2024-06-29",
-    "date": "2024-06-29",
-    "type": "date",
-    "title": "Van Schandevijlen feest",
-    "caption": "TO-CHECK: Van Schandevijlen feest.",
-    "location": {
-      "lat": 50.8833,
-      "lng": 3.95,
-      "name": "Lebeke, Denderhoutem"
-    },
-    "photos": [
-      "2024-06-29-van-schandevijl-feest.jpg"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "family"
-    ]
-  },
-  {
     "id": "2024-06-29-2",
     "date": "2024-06-29",
     "type": "date",
     "title": "Picnic bij Caro",
-    "caption": "TO-CHECK: Picnic bij Caro thuis. Ging normaal in bos zijn, waar ze me dan kon vermoorden.",
+    "caption": "Ging normaal in bos zijn, waar ze me dan kon vermoorden.",
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
@@ -122,7 +97,7 @@
     "date": "2024-07-04",
     "type": "date",
     "title": "Inside Out 2",
-    "caption": "Caro naar Inside Out 2.",
+    "caption": "",
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
@@ -169,8 +144,8 @@
     "id": "2024-07-20",
     "date": "2024-07-20",
     "type": "trip",
-    "title": "Paris — Moulin Rouge",
-    "caption": "Moulin Rouge! Het was daar net Olympische Spelen, alles duurder en raakten die avond niet meer aan de parking.",
+    "title": "Moulin Rouge",
+    "caption": "",
     "location": {
       "lat": 48.8566,
       "lng": 2.3522,
@@ -205,7 +180,7 @@
     "date": "2024-07-26",
     "type": "date",
     "title": "Gentse Feesten",
-    "caption": "Gentse Feesten met Joscha en Karen.",
+    "caption": "Joscha en Karen.",
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
@@ -230,7 +205,7 @@
     "date": "2024-08-09",
     "type": "date",
     "title": "Beleuvenissen",
-    "caption": "Beleuvenissen.",
+    "caption": ".",
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
@@ -249,86 +224,11 @@
     "tags": []
   },
   {
-    "id": "2024-08-10",
-    "date": "2024-08-10",
-    "type": "date",
-    "title": "BBQ Karel",
-    "caption": "Verjaardag Karel BBQ.",
-    "location": {
-      "lat": 50.8358,
-      "lng": 4.0171,
-      "name": "Nieuwenhove"
-    },
-    "photos": [
-      "2024-08-10-bbq-karel.png"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends",
-      "festival"
-    ]
-  },
-  {
-    "id": "2024-08-10-2",
-    "date": "2024-08-10",
-    "type": "date",
-    "title": "Verjaardag Clarisse",
-    "caption": "Caro was verjaardag van Clarisse gaan vieren.",
-    "location": {
-      "lat": 50.8358,
-      "lng": 4.0171,
-      "name": "Ninove"
-    },
-    "photos": [
-      "2024-08-10-clarisse.jpg"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends",
-      "festival"
-    ]
-  },
-  {
-    "id": "2024-08-19",
-    "date": "2024-08-19",
-    "type": "date",
-    "title": "Agenda Caro",
-    "caption": "Agenda Caro ;)",
-    "location": {
-      "lat": 50.8985,
-      "lng": 4.6717,
-      "name": "Herent"
-    },
-    "photos": [
-      "2024-08-19.png"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": []
-  },
-  {
     "id": "2024-08-26",
     "date": "2024-08-26",
     "type": "date",
     "title": "Operatie Caro",
-    "caption": "Operatie Caro.",
+    "caption": "",
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
@@ -352,7 +252,7 @@
     "date": "2024-08-29",
     "type": "date",
     "title": "Eten bij Mediatrice",
-    "caption": "Eten bij Mediatrice. Ik had crème brûlée van speculaas mee!",
+    "caption": "Crème brûlée van speculaas",
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
@@ -375,7 +275,7 @@
     "date": "2024-09-07",
     "type": "date",
     "title": "Brussels Chuckles",
-    "caption": "Brussels Chuckles met Caro. Travestiet met mini piano was super grappig.",
+    "caption": "Travestiet met mini piano was super grappig.",
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
@@ -398,7 +298,7 @@
     "date": "2024-09-11",
     "type": "date",
     "title": "Pizza Brutal",
-    "caption": "Restaurant Pizza Brutal met Caro.",
+    "caption": "",
     "location": {
       "lat": 51.0283,
       "lng": 3.6847,
@@ -421,7 +321,7 @@
     "date": "2024-09-12",
     "type": "date",
     "title": "La Paix",
-    "caption": "Restaurant La Paix.",
+    "caption": "",
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
@@ -446,7 +346,7 @@
     "date": "2024-09-13",
     "type": "date",
     "title": "Meeting ouders",
-    "caption": "Meeting ouders en Caro.",
+    "caption": "",
     "location": {
       "lat": 50.8833,
       "lng": 3.9833,
@@ -469,7 +369,7 @@
     "date": "2024-09-14",
     "type": "date",
     "title": "Patyntje",
-    "caption": "Restaurant Patyntje met Caro, Eli, Mini, Jan en Leen.",
+    "caption": "Met Eli, Mini, Jan en Leen.",
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
@@ -493,7 +393,7 @@
     "date": "2024-09-18",
     "type": "date",
     "title": "NYYÓ",
-    "caption": "Vietnamees sharing NYYÓ.",
+    "caption": "Vietnamees sharing",
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
@@ -517,7 +417,7 @@
     "date": "2024-09-18",
     "type": "date",
     "title": "Verassing",
-    "caption": "Verassing thuis!",
+    "caption": "",
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
@@ -543,7 +443,7 @@
     "date": "2024-09-21",
     "type": "date",
     "title": "Verjaardagsfeest",
-    "caption": "Verjaardagsfeest. Waarvan iedereen dacht dat Caro alles gedaan had.",
+    "caption": "Waarvan iedereen dacht dat Caro alles gedaan had.",
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
@@ -566,7 +466,7 @@
     "date": "2024-09-28",
     "type": "date",
     "title": "Vakantiehuisje Bourbourg",
-    "caption": "Vakantiehuisje met familie. Leen gaf toen ook al af op Souvenir.",
+    "caption": "Met familie.",
     "location": {
       "lat": 50.9497,
       "lng": 2.1978,
@@ -591,7 +491,7 @@
     "date": "2024-10-04",
     "type": "date",
     "title": "Souvenir",
-    "caption": "Restaurant Souvenir met Heleen, zus, Stijn en ouders.",
+    "caption": "Met Heleen, zus, Stijn en ouders.",
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
@@ -644,7 +544,7 @@
     "date": "2024-10-19",
     "type": "date",
     "title": "Planet Happiness",
-    "caption": "Planet Happiness tentoonstelling in Brussel.",
+    "caption": "",
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
@@ -699,7 +599,7 @@
     "date": "2024-10-26",
     "type": "date",
     "title": "Steamy Windows",
-    "caption": "Restaurant Steamy Windows.",
+    "caption": "",
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
@@ -736,9 +636,9 @@
     "coverPhoto": null,
     "heroPhoto": null,
     "music": {
-      "track": "dancing-with-my-own.mp3",
+      "track": "dancing-on-my-own.mp3",
       "artist": "Taylor Swift",
-      "title": "Dancing With My Own"
+      "title": "Dancing On My Own"
     },
     "weather": null,
     "expandedText": "",
