@@ -2,7 +2,7 @@ import { useMemo, useState, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
 import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
-import { interpolateLine } from './utils/geo';
+import { interpolateLine, haversineDistance } from './utils/geo';
 import MapCanvas, { ARC_APEX } from './components/MapCanvas';
 import TimelineStrip from './components/TimelineStrip';
 import CardOverlay from './components/CardOverlay';
@@ -65,23 +65,65 @@ export default function App() {
     return memoryLngLat(memories, activeIndex);
   }, [isOpening, isClosing, activeIndex, memories, phase, progress, transitionType]);
 
+  function zoomForMemory(index: number): number {
+    if (index < 0 || index >= memories.length) return 9;
+    const m = memories[index];
+    if (m.type === 'trip') return 6;
+    const loc = getLocation(m);
+    if (loc.lat === 51.0597 && loc.lng === 3.7527) return 13;
+    return 11;
+  }
+
   const destZoom = useMemo(() => {
     if (isOpening) return 9;
     if (isClosing) return 4;
-    if (!activeMemory) return 11;
-    if (activeMemory.type === 'trip') return 6;
-    const loc = getLocation(activeMemory);
-    if (loc.lat === 51.0597 && loc.lng === 3.7527) return 13;
-    return 11;
-  }, [isOpening, isClosing, activeMemory]);
+    return zoomForMemory(activeIndex);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpening, isClosing, activeIndex]);
 
-  // During travel, zoom out a bit to show the journey, then zoom to destination
+  // Smooth zoom: start zoom → mid-journey zoom (based on distance) → dest zoom
   const mapZoom = useMemo(() => {
-    if (phase === 'transition' && progress >= 0.25 && progress < 0.75) {
-      return Math.min(destZoom, 8); // zoomed out during travel
+    if (phase !== 'transition' || transitionType === 'same-location' || transitionType === 'to-milestone') {
+      return destZoom;
     }
-    return destZoom;
-  }, [phase, progress, destZoom]);
+
+    const travelP = progress >= 0.25 && progress <= 0.75
+      ? (progress - 0.25) / 0.5
+      : progress > 0.75 ? 1 : 0;
+
+    if (travelP <= 0) return destZoom; // still in card-fade-out, keep previous zoom
+
+    const fromCoord = transitionType === 'opening'
+      ? [ARC_APEX[0], ARC_APEX[1]] as [number, number]
+      : transitionType === 'from-milestone'
+        ? memoryLngLat(memories, lastLocatedIndex(memories, activeIndex))
+        : memoryLngLat(memories, activeIndex - 1);
+    const toCoord = memoryLngLat(memories, activeIndex);
+
+    const prevIdx = transitionType === 'opening' ? -1
+      : transitionType === 'from-milestone' ? lastLocatedIndex(memories, activeIndex)
+      : activeIndex - 1;
+    const startZoom = zoomForMemory(prevIdx);
+
+    // Mid-journey zoom: zoom out proportionally to distance
+    const dist = haversineDistance(fromCoord, toCoord);
+    // ~5km → barely zoom out, ~500km → zoom way out
+    const midZoom = dist < 5 ? Math.min(startZoom, destZoom)
+      : dist < 20 ? 10
+      : dist < 50 ? 9
+      : dist < 150 ? 8
+      : dist < 500 ? 6
+      : 5;
+
+    // First half of travel: startZoom → midZoom, second half: midZoom → destZoom
+    if (travelP <= 0.5) {
+      const t = travelP / 0.5;
+      return startZoom + (midZoom - startZoom) * t;
+    }
+    const t = (travelP - 0.5) / 0.5;
+    return midZoom + (destZoom - midZoom) * t;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, progress, transitionType, destZoom, activeIndex, memories]);
 
   // --- Milestone dimming ---
   const isDimmed = phase === 'hold' && activeMemory?.type === 'milestone';
