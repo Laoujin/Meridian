@@ -2,7 +2,7 @@ import { useMemo, useState, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
 import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
-import { interpolateLine, haversineDistance } from './utils/geo';
+import { interpolateLine } from './utils/geo';
 import MapCanvas, { ARC_APEX } from './components/MapCanvas';
 import TimelineStrip from './components/TimelineStrip';
 import CardOverlay from './components/CardOverlay';
@@ -13,42 +13,23 @@ import ClosingSequence from './components/ClosingSequence';
 import DetailOverlay from './components/DetailOverlay';
 import './styles/global.css';
 
-const DEFAULT_LOC: [number, number] = [3.7527, 51.0597];
-
 function memoryLngLat(memories: ReturnType<typeof loadMemories>, index: number): [number, number] {
   if (index < 0 || index >= memories.length) return [ARC_APEX[0], ARC_APEX[1]];
   const loc = getLocation(memories[index]);
   return [loc.lng, loc.lat];
 }
 
-function lastLocatedIndex(memories: ReturnType<typeof loadMemories>, index: number): number {
-  for (let i = index - 1; i >= 0; i--) {
-    if (memories[i].type !== 'milestone') return i;
+/**
+ * Get the origin of the line shown during hold at memory index i.
+ * For i=0: ARC_APEX (came from the opening).
+ * For i>0: location of the previous located memory (skipping milestones).
+ */
+function lineOriginAt(memories: ReturnType<typeof loadMemories>, i: number): [number, number] {
+  if (i <= 0) return [ARC_APEX[0], ARC_APEX[1]];
+  for (let j = i - 1; j >= 0; j--) {
+    if (memories[j].type !== 'milestone') return memoryLngLat(memories, j);
   }
-  return -1;
-}
-
-/** Compute zoom level that fits two points on screen. */
-function zoomForDistance(distKm: number): number {
-  if (distKm < 2) return 14;
-  if (distKm < 5) return 13;
-  if (distKm < 10) return 12;
-  if (distKm < 25) return 11;
-  if (distKm < 50) return 10;
-  if (distKm < 100) return 9;
-  if (distKm < 250) return 8;
-  if (distKm < 500) return 7;
-  if (distKm < 1000) return 6;
-  return 5;
-}
-
-function zoomForMemory(memories: ReturnType<typeof loadMemories>, index: number): number {
-  if (index < 0 || index >= memories.length) return 9;
-  const m = memories[index];
-  if (m.type === 'trip') return 6;
-  const loc = getLocation(m);
-  if (loc.lat === 51.0597 && loc.lng === 3.7527) return 13;
-  return 11;
+  return [ARC_APEX[0], ARC_APEX[1]];
 }
 
 export default function App() {
@@ -65,93 +46,84 @@ export default function App() {
   const isClosing = activeIndex >= memories.length;
   const activeMemory = activeIndex >= 0 && activeIndex < memories.length ? memories[activeIndex] : null;
 
-  // --- Travel line ---
+  // --- Three key locations for the current state ---
+  // During hold at memory i: line is from lineOriginAt(i) → location(i)
+  // During transition to memory i: new line from lineOriginAt(i) → location(i)
+  //   and previous hold showed lineOriginAt(i-1) → location(i-1)
+
   const isTravelTransition = phase === 'transition'
     && transitionType !== 'same-location'
     && transitionType !== 'to-milestone';
 
+  // --- Travel line (from/to for drawing) ---
+  // During transition to i: line draws from lineOriginAt(i) → location(i)
+  // During hold at i: line stays from lineOriginAt(i) → location(i)
   const travelFrom = useMemo<[number, number] | null>(() => {
-    if (!isTravelTransition && phase !== 'hold') return null;
-    if (transitionType === 'same-location' || transitionType === 'to-milestone') return null;
-    if (isTravelTransition) {
-      if (transitionType === 'opening') return [ARC_APEX[0], ARC_APEX[1]];
-      if (transitionType === 'from-milestone') {
-        return memoryLngLat(memories, lastLocatedIndex(memories, activeIndex));
-      }
-      return memoryLngLat(memories, activeIndex - 1);
-    }
-    // Hold: line from previous memory
-    if (activeIndex <= 0) return null;
-    const prevIdx = memories[activeIndex - 1]?.type === 'milestone'
-      ? lastLocatedIndex(memories, activeIndex)
-      : activeIndex - 1;
-    if (prevIdx < 0) return null;
-    return memoryLngLat(memories, prevIdx);
-  }, [isTravelTransition, phase, transitionType, activeIndex, memories]);
+    if (isOpening) return null;
+    if (isClosing) return null;
+    if (activeMemory?.type === 'milestone') return null;
+    return lineOriginAt(memories, activeIndex);
+  }, [isOpening, isClosing, activeMemory, activeIndex, memories]);
 
   const travelTo = useMemo<[number, number] | null>(() => {
-    if (!isTravelTransition && phase !== 'hold') return null;
-    if (transitionType === 'same-location' || transitionType === 'to-milestone') return null;
-    if (activeIndex < 0 || activeIndex >= memories.length) return null;
+    if (isOpening) return null;
+    if (isClosing) return null;
+    if (activeMemory?.type === 'milestone') return null;
     return memoryLngLat(memories, activeIndex);
-  }, [isTravelTransition, phase, transitionType, activeIndex, memories]);
+  }, [isOpening, isClosing, activeMemory, activeIndex, memories]);
 
-  const lineProgress = isTravelTransition ? progress : (phase === 'hold' && travelFrom ? 1 : 0);
+  const lineProgress = isTravelTransition ? progress : (travelFrom ? 1 : 0);
   const travelVisible = travelFrom !== null && travelTo !== null;
   const travelTransport = activeMemory?.transport?.[0] ?? null;
 
-  // --- Map center/zoom (computed, no fitBounds) ---
-  const mapCenter = useMemo<[number, number]>(() => {
+  // --- Map view (two points for fitBounds) ---
+  // See docs/map-scroll-behavior.md for the full spec.
+  //
+  // Hold at memory i:
+  //   viewA = lineOriginAt(i)  (= A, the origin of the displayed line)
+  //   viewB = location(i)       (= B, the end of the displayed line)
+  //
+  // Transition to memory i at progress p:
+  //   Previous hold was at memory i-1: viewA_prev = lineOriginAt(i-1), viewB_prev = location(i-1)
+  //   New hold will be at memory i:    viewA_next = lineOriginAt(i),   viewB_next = location(i)
+  //   viewA = interpolate(viewA_prev, viewA_next, p)
+  //   viewB = interpolate(viewB_prev, viewB_next, p)
+
+  const viewA = useMemo<[number, number]>(() => {
     if (isOpening) return [ARC_APEX[0], ARC_APEX[1]];
-    if (isClosing) return DEFAULT_LOC;
+    if (isClosing) return memoryLngLat(memories, memories.length - 1);
 
-    // During travel: center = midpoint between origin and current line tip
-    if (isTravelTransition && travelFrom && travelTo) {
-      const currentTip = interpolateLine(travelFrom, travelTo, progress);
-      return [(travelFrom[0] + currentTip[0]) / 2, (travelFrom[1] + currentTip[1]) / 2];
+    if (isTravelTransition) {
+      const prevViewA = lineOriginAt(memories, activeIndex - 1);
+      const nextViewA = lineOriginAt(memories, activeIndex);
+      return interpolateLine(prevViewA, nextViewA, progress);
     }
 
-    // Hold with line: center between both endpoints
-    if (phase === 'hold' && travelFrom && travelTo) {
-      return [(travelFrom[0] + travelTo[0]) / 2, (travelFrom[1] + travelTo[1]) / 2];
+    // Hold
+    return lineOriginAt(memories, activeIndex);
+  }, [isOpening, isClosing, isTravelTransition, activeIndex, memories, progress]);
+
+  const viewB = useMemo<[number, number]>(() => {
+    if (isOpening) return [ARC_APEX[0], ARC_APEX[1]];
+    if (isClosing) return memoryLngLat(memories, memories.length - 1);
+
+    if (isTravelTransition) {
+      const prevViewB = memoryLngLat(memories, activeIndex - 1);
+      const nextViewB = memoryLngLat(memories, activeIndex);
+      return interpolateLine(prevViewB, nextViewB, progress);
     }
 
+    // Hold
     return memoryLngLat(memories, activeIndex);
-  }, [isOpening, isClosing, activeIndex, memories, isTravelTransition, phase, progress, travelFrom, travelTo]);
-
-  const mapZoom = useMemo(() => {
-    if (isOpening) return 9;
-    if (isClosing) return 4;
-
-    // During travel: zoom out to fit origin + current line tip
-    if (isTravelTransition && travelFrom && travelTo) {
-      const currentTip = interpolateLine(travelFrom, travelTo, progress);
-      const dist = haversineDistance(travelFrom, currentTip);
-      const startZoom = zoomForMemory(memories, activeIndex - 1);
-      const fitZoom = zoomForDistance(dist);
-      return Math.min(startZoom, fitZoom);
-    }
-
-    // Hold with line: zoom to fit both endpoints
-    if (phase === 'hold' && travelFrom && travelTo) {
-      const dist = haversineDistance(travelFrom, travelTo);
-      return zoomForDistance(dist);
-    }
-
-    return zoomForMemory(memories, activeIndex);
-  }, [isOpening, isClosing, isTravelTransition, phase, progress, travelFrom, travelTo, activeIndex, memories]);
+  }, [isOpening, isClosing, isTravelTransition, activeIndex, memories, progress]);
 
   // --- Milestone dimming ---
   const isDimmed = phase === 'hold' && activeMemory?.type === 'milestone';
 
   // --- Location markers ---
   const originCoords = travelFrom;
-  const destCoords = useMemo<[number, number] | null>(() => {
-    if (isOpening || isClosing) return null;
-    if (activeMemory?.type === 'milestone') return null;
-    return memoryLngLat(memories, activeIndex);
-  }, [isOpening, isClosing, activeMemory, activeIndex, memories]);
-  const destPulse = isTravelTransition || (phase === 'hold');
+  const destCoords = travelTo;
+  const destPulse = true; // destination always pulses
 
   // --- Milestone effect ---
   const showMilestoneEffect = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -182,8 +154,8 @@ export default function App() {
   return (
     <>
       <MapCanvas
-        center={mapCenter}
-        zoom={mapZoom}
+        viewA={viewA}
+        viewB={viewB}
         showOpeningLine={isOpening}
         dimmed={isDimmed}
         onMapReady={handleMapReady}

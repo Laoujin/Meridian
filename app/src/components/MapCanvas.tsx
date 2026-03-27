@@ -36,8 +36,8 @@ const ARC_COORDS = generateArc(HERENT, GENT);
 const ARC_APEX = ARC_COORDS[Math.floor(ARC_COORDS.length / 2)];
 
 interface MapCanvasProps {
-  center: [number, number]; // [lng, lat]
-  zoom: number;
+  viewA: [number, number]; // [lng, lat] - first point for fitBounds
+  viewB: [number, number]; // [lng, lat] - second point for fitBounds
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
@@ -72,7 +72,7 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
     const lineAddedRef = useRef(false);
@@ -276,7 +276,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overview
       };
     }, [showOverview, overviewLocations]);
 
-    // Update map position when props change — instant (scroll drives timing)
+    // Update map position — fitBounds is the only positioning method
     useEffect(() => {
       const map = mapRef.current;
       if (!map) return;
@@ -291,10 +291,13 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overview
           { padding: 80, duration: 0 }
         );
       } else {
-        // Hold: center on location, offset to bottom third
-        map.jumpTo({ center, zoom, padding: { top: h * 0.67, bottom: 0, left: 0, right: 0 } });
+        map.fitBounds([viewA, viewB], {
+          padding: { top: h * 0.67, bottom: 40, left: 40, right: 40 },
+          maxZoom: 14,
+          duration: 0,
+        });
       }
-    }, [center, zoom, showOpeningLine]);
+    }, [viewA, viewB, showOpeningLine]);
 
     return (
       <div
