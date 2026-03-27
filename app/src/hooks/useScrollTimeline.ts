@@ -89,6 +89,11 @@ export function useScrollTimeline(memories: Memory[]) {
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
+    // Reset scroll position on load
+    window.scrollTo(0, 0);
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     const lenis = new Lenis();
     lenisRef.current = lenis;
 
