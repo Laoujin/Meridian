@@ -41,7 +41,6 @@ interface MapCanvasProps {
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
-  travelBounds?: [[number, number], [number, number]] | null;
   overviewLocations?: [number, number][];
   showOverview?: boolean;
 }
@@ -73,7 +72,7 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBounds, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
     const lineAddedRef = useRef(false);
@@ -291,18 +290,11 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
           ],
           { padding: 80, duration: 0 }
         );
-      } else if (travelBounds) {
-        // During travel + hold: fitBounds so both dots stay visible
-        map.fitBounds(travelBounds, {
-          padding: { top: 60, bottom: 40, left: 40, right: 40 },
-          maxZoom: 13,
-          duration: 0,
-        });
       } else {
         // Hold: center on location, offset to bottom third
         map.jumpTo({ center, zoom, padding: { top: h * 0.67, bottom: 0, left: 0, right: 0 } });
       }
-    }, [center, zoom, showOpeningLine, travelBounds]);
+    }, [center, zoom, showOpeningLine]);
 
     return (
       <div
