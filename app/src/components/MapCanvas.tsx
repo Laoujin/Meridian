@@ -291,11 +291,13 @@ function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overview
           { padding: 80, duration: 0 }
         );
       } else {
-        map.fitBounds([viewA, viewB], {
-          padding: { top: h * 0.67, bottom: 40, left: 40, right: 40 },
+        const result = map.cameraForBounds([viewA, viewB], {
+          padding: { top: h * 0.5, bottom: 40, left: 40, right: 40 },
           maxZoom: 14,
-          duration: 0,
         });
+        if (result) {
+          map.jumpTo(result);
+        }
       }
     }, [viewA, viewB, showOpeningLine]);
 
