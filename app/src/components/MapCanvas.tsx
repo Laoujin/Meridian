@@ -291,19 +291,23 @@ function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overview
           { padding: 80, duration: 0 }
         );
       } else {
-        const result = map.cameraForBounds([viewA, viewB], {
-          padding: { top: h * 0.5, bottom: 40, left: 40, right: 40 },
+        // 1. Compute camera that fits both points in the full viewport
+        const camera = map.cameraForBounds([viewA, viewB], {
+          padding: 60,
           maxZoom: 14,
         });
-        if (result) {
-          map.jumpTo(result);
-        } else {
-          // Fallback: center on midpoint if fitBounds can't compute a valid camera
-          map.jumpTo({
-            center: [(viewA[0] + viewB[0]) / 2, (viewA[1] + viewB[1]) / 2],
-            zoom: 10,
-          });
-        }
+        if (!camera) return;
+
+        // 2. Apply it so we can use project/unproject at the right zoom
+        map.jumpTo(camera);
+
+        // 3. Shift center northward so the two points appear in the bottom third
+        //    The center is at screen midpoint (h/2). We want content at h*5/6.
+        //    So shift the camera center UP by h/3 pixels.
+        const centerPx = map.project(camera.center);
+        centerPx.y -= h / 3;
+        const shifted = map.unproject(centerPx);
+        map.jumpTo({ center: shifted, zoom: camera.zoom });
       }
     }, [viewA, viewB, showOpeningLine]);
 
