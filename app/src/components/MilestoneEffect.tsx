@@ -1,27 +1,31 @@
-import { useMemo } from 'react';
 import '../styles/milestone-effect.css';
 
 const PARTICLE_COUNT = 16;
 const COLORS = ['#e8836b', '#f5c242', '#4a9eff', '#e060e0', '#60e090'];
+
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed * 9301 + 49297) * 49297;
+  return x - Math.floor(x);
+}
+
+const PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
+  const angle = (i / PARTICLE_COUNT) * 2 * Math.PI;
+  const radius = 80 + seededRandom(i) * 60;
+  return {
+    dx: `${Math.cos(angle) * radius}px`,
+    dy: `${Math.sin(angle) * radius}px`,
+    color: COLORS[i % COLORS.length],
+    delay: `${seededRandom(i + 100) * 0.4}s`,
+    size: 4 + seededRandom(i + 200) * 4,
+  };
+});
 
 interface MilestoneEffectProps {
   active: boolean;
 }
 
 export default function MilestoneEffect({ active }: MilestoneEffectProps) {
-  const particles = useMemo(() => {
-    return Array.from({ length: PARTICLE_COUNT }, (_, i) => {
-      const angle = (i / PARTICLE_COUNT) * 2 * Math.PI;
-      const radius = 80 + Math.random() * 60;
-      return {
-        dx: `${Math.cos(angle) * radius}px`,
-        dy: `${Math.sin(angle) * radius}px`,
-        color: COLORS[i % COLORS.length],
-        delay: `${Math.random() * 0.4}s`,
-        size: 4 + Math.random() * 4,
-      };
-    });
-  }, []);
+  const particles = PARTICLES;
 
   if (!active) return null;
 

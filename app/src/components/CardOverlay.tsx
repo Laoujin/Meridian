@@ -9,7 +9,7 @@ interface CardOverlayProps {
   memories: Memory[];
   phase: ScrollPhase;
   progress: number;
-  transitionType: string | null;
+  onShowDetails?: (memoryIndex: number) => void;
 }
 
 /**
@@ -45,7 +45,7 @@ function getCardStyle(phase: ScrollPhase, progress: number): React.CSSProperties
   };
 }
 
-export default function CardOverlay({ activeIndex, memories, phase, progress, transitionType }: CardOverlayProps) {
+export default function CardOverlay({ activeIndex, memories, phase, progress, onShowDetails }: CardOverlayProps) {
   const displayIndex = useMemo(() => {
     if (phase === 'hold') return activeIndex;
     if (progress < 0.25) return activeIndex - 1;
@@ -63,7 +63,10 @@ export default function CardOverlay({ activeIndex, memories, phase, progress, tr
         {displayIndex < 0 ? (
           <OpeningCard />
         ) : (
-          <MemoryCard memory={memories[displayIndex]} />
+          <MemoryCard
+            memory={memories[displayIndex]}
+            onShowDetails={onShowDetails ? () => onShowDetails(displayIndex) : undefined}
+          />
         )}
       </div>
     </div>
