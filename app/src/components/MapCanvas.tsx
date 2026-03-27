@@ -297,6 +297,12 @@ function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overview
         });
         if (result) {
           map.jumpTo(result);
+        } else {
+          // Fallback: center on midpoint if fitBounds can't compute a valid camera
+          map.jumpTo({
+            center: [(viewA[0] + viewB[0]) / 2, (viewA[1] + viewB[1]) / 2],
+            zoom: 10,
+          });
         }
       }
     }, [viewA, viewB, showOpeningLine]);
