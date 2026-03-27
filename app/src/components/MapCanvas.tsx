@@ -294,7 +294,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
       } else if (travelBounds) {
         // During travel + hold: fitBounds so both dots stay visible
         map.fitBounds(travelBounds, {
-          padding: { top: h * 0.67, bottom: 40, left: 40, right: 40 },
+          padding: { top: 60, bottom: 40, left: 40, right: 40 },
           maxZoom: 13,
           duration: 0,
         });
