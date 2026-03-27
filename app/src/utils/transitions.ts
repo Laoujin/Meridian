@@ -10,14 +10,14 @@ export type TransitionType =
 
 /** Heights in vh for each transition type. */
 export const TRANSITION_HEIGHTS: Record<TransitionType, number> = {
-  standard: 300,
-  'same-location': 50,
-  'to-milestone': 100,
-  'from-milestone': 100,
-  opening: 300,
+  standard: 60,
+  'same-location': 15,
+  'to-milestone': 25,
+  'from-milestone': 25,
+  opening: 60,
 };
 
-export const HOLD_HEIGHT_VH = 100;
+export const HOLD_HEIGHT_VH = 40;
 
 /**
  * Determine the transition type between two memories.

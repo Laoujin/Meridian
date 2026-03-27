@@ -41,7 +41,6 @@ interface MapCanvasProps {
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
-  travelBounds?: [[number, number], [number, number]] | null;
   overviewLocations?: [number, number][];
   showOverview?: boolean;
 }
@@ -73,7 +72,7 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBounds, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
     const lineAddedRef = useRef(false);
@@ -238,12 +237,7 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
       container.style.filter = dimmed ? 'brightness(0.4) blur(8px)' : 'none';
     }, [dimmed]);
 
-    useEffect(() => {
-      const map = mapRef.current;
-      if (!map || !travelBounds) return;
-      const [a, b] = travelBounds;
-      map.fitBounds([a, b], { padding: 80, duration: 0 });
-    }, [travelBounds]);
+
 
     useEffect(() => {
       const map = mapRef.current;
@@ -282,27 +276,21 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBo
       };
     }, [showOverview, overviewLocations]);
 
-    // Update map position when props change
+    // Update map position when props change — instant (scroll drives timing)
     useEffect(() => {
       const map = mapRef.current;
       if (!map) return;
 
       if (showOpeningLine) {
-        // For the opening, fit both cities in view
         map.fitBounds(
           [
             [GENT.lng - 0.05, Math.min(GENT.lat, HERENT.lat) - 0.05],
             [HERENT.lng + 0.05, Math.max(GENT.lat, HERENT.lat) + 0.2],
           ],
-          { padding: 80, duration: 800 }
+          { padding: 80, duration: 0 }
         );
       } else {
-        map.easeTo({
-          center,
-          zoom,
-          duration: 800,
-          easing: (t) => t * (2 - t),
-        });
+        map.jumpTo({ center, zoom });
       }
     }, [center, zoom, showOpeningLine]);
 

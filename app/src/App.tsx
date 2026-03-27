@@ -2,6 +2,7 @@ import { useMemo, useState, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
 import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
+import { interpolateLine } from './utils/geo';
 import MapCanvas, { ARC_APEX } from './components/MapCanvas';
 import TimelineStrip from './components/TimelineStrip';
 import CardOverlay from './components/CardOverlay';
@@ -42,13 +43,29 @@ export default function App() {
   const isClosing = activeIndex >= memories.length;
   const activeMemory = activeIndex >= 0 && activeIndex < memories.length ? memories[activeIndex] : null;
 
+  // During transitions, interpolate map center along the travel path
   const mapCenter = useMemo<[number, number]>(() => {
     if (isOpening) return [ARC_APEX[0], ARC_APEX[1]];
     if (isClosing) return DEFAULT_LOC;
-    return memoryLngLat(memories, activeIndex);
-  }, [isOpening, isClosing, activeIndex, memories]);
 
-  const mapZoom = useMemo(() => {
+    if (phase === 'transition' && transitionType !== 'same-location' && transitionType !== 'to-milestone') {
+      const from = transitionType === 'opening'
+        ? [ARC_APEX[0], ARC_APEX[1]] as [number, number]
+        : transitionType === 'from-milestone'
+          ? memoryLngLat(memories, lastLocatedIndex(memories, activeIndex))
+          : memoryLngLat(memories, activeIndex - 1);
+      const to = memoryLngLat(memories, activeIndex);
+      // Map lineProgress (0-1 within travel phase) to position
+      const travelP = progress >= 0.25 && progress <= 0.75
+        ? (progress - 0.25) / 0.5
+        : progress > 0.75 ? 1 : 0;
+      return interpolateLine(from, to, travelP);
+    }
+
+    return memoryLngLat(memories, activeIndex);
+  }, [isOpening, isClosing, activeIndex, memories, phase, progress, transitionType]);
+
+  const destZoom = useMemo(() => {
     if (isOpening) return 9;
     if (isClosing) return 4;
     if (!activeMemory) return 11;
@@ -57,6 +74,14 @@ export default function App() {
     if (loc.lat === 51.0597 && loc.lng === 3.7527) return 13;
     return 11;
   }, [isOpening, isClosing, activeMemory]);
+
+  // During travel, zoom out a bit to show the journey, then zoom to destination
+  const mapZoom = useMemo(() => {
+    if (phase === 'transition' && progress >= 0.25 && progress < 0.75) {
+      return Math.min(destZoom, 8); // zoomed out during travel
+    }
+    return destZoom;
+  }, [phase, progress, destZoom]);
 
   // --- Milestone dimming ---
   const isDimmed = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -86,12 +111,6 @@ export default function App() {
   const lineFadeOut = phase === 'hold' ? Math.min(1, progress / 0.2) : 0;
   const travelVisible = phase === 'transition' && travelFrom !== null && travelTo !== null;
   const travelTransport = activeMemory?.transport?.[0] ?? null;
-
-  // --- Travel bounds (fitBounds during travel) ---
-  const travelBounds = useMemo(() => {
-    if (!travelVisible || !travelFrom || !travelTo) return null;
-    return [travelFrom, travelTo] as [[number, number], [number, number]];
-  }, [travelVisible, travelFrom, travelTo]);
 
   // --- Location marker ---
   const markerCoords = useMemo<[number, number] | null>(() => {
@@ -137,7 +156,6 @@ export default function App() {
         showOpeningLine={isOpening}
         dimmed={isDimmed}
         onMapReady={handleMapReady}
-        travelBounds={travelBounds}
         overviewLocations={allLocations}
         showOverview={isClosing && transitionType === 'closing-overview'}
       />
