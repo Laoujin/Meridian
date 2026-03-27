@@ -43,43 +43,23 @@ export default function App() {
   const isClosing = activeIndex >= memories.length;
   const activeMemory = activeIndex >= 0 && activeIndex < memories.length ? memories[activeIndex] : null;
 
-  // During transitions, interpolate map center along the travel path
+  // Map center: during transition fitBounds handles positioning, during hold center on location
   const mapCenter = useMemo<[number, number]>(() => {
     if (isOpening) return [ARC_APEX[0], ARC_APEX[1]];
     if (isClosing) return DEFAULT_LOC;
-
-    if (phase === 'transition' && transitionType !== 'same-location' && transitionType !== 'to-milestone') {
-      const from = transitionType === 'opening'
-        ? [ARC_APEX[0], ARC_APEX[1]] as [number, number]
-        : transitionType === 'from-milestone'
-          ? memoryLngLat(memories, lastLocatedIndex(memories, activeIndex))
-          : memoryLngLat(memories, activeIndex - 1);
-      const to = memoryLngLat(memories, activeIndex);
-      // Map lineProgress (0-1 within travel phase) to position
-      const travelP = progress >= 0.25 && progress <= 0.75
-        ? (progress - 0.25) / 0.5
-        : progress > 0.75 ? 1 : 0;
-      return interpolateLine(from, to, travelP);
-    }
-
     return memoryLngLat(memories, activeIndex);
-  }, [isOpening, isClosing, activeIndex, memories, phase, progress, transitionType]);
-
-  function zoomForMemory(index: number): number {
-    if (index < 0 || index >= memories.length) return 9;
-    const m = memories[index];
-    if (m.type === 'trip') return 6;
-    const loc = getLocation(m);
-    if (loc.lat === 51.0597 && loc.lng === 3.7527) return 13;
-    return 11;
-  }
+  }, [isOpening, isClosing, activeIndex, memories]);
 
   const destZoom = useMemo(() => {
     if (isOpening) return 9;
     if (isClosing) return 4;
-    return zoomForMemory(activeIndex);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpening, isClosing, activeIndex]);
+    if (activeIndex < 0 || activeIndex >= memories.length) return 9;
+    const m = memories[activeIndex];
+    if (m.type === 'trip') return 6;
+    const loc = getLocation(m);
+    if (loc.lat === 51.0597 && loc.lng === 3.7527) return 13;
+    return 11;
+  }, [isOpening, isClosing, activeIndex, memories]);
 
   // Smooth zoom: start zoom → mid-journey zoom (based on distance) → dest zoom
   const mapZoom = destZoom;
@@ -88,51 +68,68 @@ export default function App() {
   const isDimmed = phase === 'hold' && activeMemory?.type === 'milestone';
 
   // --- Travel line ---
+  // travelFrom/travelTo persist during hold so the line stays visible
+  const isTravelTransition = phase === 'transition'
+    && transitionType !== 'same-location'
+    && transitionType !== 'to-milestone';
+
   const travelFrom = useMemo<[number, number] | null>(() => {
-    if (phase !== 'transition') return null;
+    if (!isTravelTransition && phase !== 'hold') return null;
     if (transitionType === 'same-location' || transitionType === 'to-milestone') return null;
-    if (transitionType === 'opening') return [ARC_APEX[0], ARC_APEX[1]];
-    if (transitionType === 'from-milestone') {
-      const prevIdx = lastLocatedIndex(memories, activeIndex);
-      return memoryLngLat(memories, prevIdx);
+    if (isTravelTransition) {
+      if (transitionType === 'opening') return [ARC_APEX[0], ARC_APEX[1]];
+      if (transitionType === 'from-milestone') {
+        const prevIdx = lastLocatedIndex(memories, activeIndex);
+        return memoryLngLat(memories, prevIdx);
+      }
+      return memoryLngLat(memories, activeIndex - 1);
     }
-    return memoryLngLat(memories, activeIndex - 1);
-  }, [phase, transitionType, activeIndex, memories]);
+    // Hold phase: show line from previous memory
+    if (activeIndex <= 0) return null;
+    const prevIdx = memories[activeIndex - 1]?.type === 'milestone'
+      ? lastLocatedIndex(memories, activeIndex)
+      : activeIndex - 1;
+    if (prevIdx < 0) return null;
+    return memoryLngLat(memories, prevIdx);
+  }, [isTravelTransition, phase, transitionType, activeIndex, memories]);
 
   const travelTo = useMemo<[number, number] | null>(() => {
-    if (phase !== 'transition') return null;
+    if (!isTravelTransition && phase !== 'hold') return null;
     if (transitionType === 'same-location' || transitionType === 'to-milestone') return null;
+    if (activeIndex < 0 || activeIndex >= memories.length) return null;
     return memoryLngLat(memories, activeIndex);
-  }, [phase, transitionType, activeIndex, memories]);
+  }, [isTravelTransition, phase, transitionType, activeIndex, memories]);
 
-  const lineProgress = phase === 'transition' && progress >= 0.25 && progress <= 0.75
-    ? (progress - 0.25) / 0.5
-    : phase === 'transition' && progress > 0.75 ? 1 : 0;
-
-  const lineFadeOut = phase === 'hold' ? Math.min(1, progress / 0.2) : 0;
-  const travelVisible = phase === 'transition' && travelFrom !== null && travelTo !== null;
+  // Line draws over full 0-1 during transition, stays at 1 during hold
+  const lineProgress = isTravelTransition ? progress : (phase === 'hold' && travelFrom ? 1 : 0);
+  const lineFadeOut = 0; // Line never fades
+  const travelVisible = travelFrom !== null && travelTo !== null;
   const travelTransport = activeMemory?.transport?.[0] ?? null;
 
-  // During travel, fitBounds both endpoints so both dots stay visible
+  // Progressive fitBounds: expands from origin toward destination as line draws
+  // At progress 0: just the origin point. At progress 1: both endpoints.
+  // During hold: both endpoints (line is fully drawn).
   const travelBounds = useMemo<[[number, number], [number, number]] | null>(() => {
-    if (phase !== 'transition' || transitionType === 'same-location' || transitionType === 'to-milestone') {
-      return null;
-    }
-    const travelP = progress >= 0.25 && progress <= 0.75
-      ? (progress - 0.25) / 0.5
-      : progress > 0.75 ? 1 : 0;
-    if (travelP <= 0 || !travelFrom || !travelTo) return null;
-    return [travelFrom, travelTo];
-  }, [phase, transitionType, progress, travelFrom, travelTo]);
+    if (!travelFrom || !travelTo) return null;
+    if (phase === 'hold') return [travelFrom, travelTo];
+    if (!isTravelTransition) return null;
+    // Interpolate the "to" point from origin toward destination
+    const currentTo = interpolateLine(travelFrom, travelTo, progress);
+    return [travelFrom, currentTo];
+  }, [isTravelTransition, phase, travelFrom, travelTo, progress]);
 
-  // --- Location marker ---
-  const markerCoords = useMemo<[number, number] | null>(() => {
+  // --- Location markers ---
+  // Origin dot: previous location, visible during transition + hold
+  const originCoords = travelFrom;
+
+  // Destination dot: current location, appears immediately when transition starts, pulses always
+  const destCoords = useMemo<[number, number] | null>(() => {
     if (isOpening || isClosing) return null;
     if (activeMemory?.type === 'milestone') return null;
     return memoryLngLat(memories, activeIndex);
   }, [isOpening, isClosing, activeMemory, activeIndex, memories]);
 
-  const markerPulse = phase === 'transition' && progress >= 0.75;
+  const destPulse = isTravelTransition || (phase === 'hold');
 
   // --- Milestone effect ---
   const showMilestoneEffect = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -184,18 +181,18 @@ export default function App() {
         fadeOutProgress={lineFadeOut}
       />
 
-      {/* Origin dot: shown during travel at the starting location */}
+      {/* Origin dot: previous location, stays during transition + hold */}
       <LocationMarker
         map={mapInstance}
-        coordinates={travelVisible ? travelFrom : null}
+        coordinates={originCoords}
         pulse={false}
       />
 
-      {/* Destination dot: shown at current memory location, pulses on arrival */}
+      {/* Destination dot: current location, pulsing */}
       <LocationMarker
         map={mapInstance}
-        coordinates={markerCoords}
-        pulse={markerPulse}
+        coordinates={destCoords}
+        pulse={destPulse}
       />
 
       <TimelineStrip memories={memories} activeIndex={timelineIndex} />
