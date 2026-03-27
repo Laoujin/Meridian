@@ -293,7 +293,10 @@ function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, overview
         // Offset center so the pin appears in the bottom half of the screen
         // (card overlay occupies the top portion on mobile)
         const h = containerRef.current?.clientHeight ?? 0;
-        map.jumpTo({ center, zoom, padding: { top: h * 0.35, bottom: 0, left: 0, right: 0 } });
+        // Card takes top 2/3, pin should be centered in bottom 1/3
+        // That means the center point should be at 5/6 of the screen height
+        // So top padding = 2/3 of screen height
+        map.jumpTo({ center, zoom, padding: { top: h * 0.67, bottom: 0, left: 0, right: 0 } });
       }
     }, [center, zoom, showOpeningLine]);
 
