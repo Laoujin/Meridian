@@ -5,8 +5,14 @@
     "type": "date",
     "title": "Yalo -- Chili Fries OMG",
     "caption": "Caro nam me mee naar Yalo Urban Boutique Hotel Gent. De Chili Fries (omg!!) met de zandwortel + entrecote!!",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Yalo, Gent" },
-    "photos": ["1770199850426-2026-01-02.png"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Yalo, Gent"
+    },
+    "photos": [
+      "1770199850426-2026-01-02.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -14,7 +20,9 @@
     "expandedText": "'s avonds gekeken naar Missing.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2026-01-10",
@@ -22,7 +30,11 @@
     "type": "milestone",
     "title": "Wettelijk Samenwonend",
     "caption": "Wettelijk samenwonen met Caro! Hou papier goed bij met instructies hoe te verbreken!",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -31,8 +43,14 @@
     "expandedText": "Terug naar Yalo. Eten was minder deze keer. Ik kreeg een uitnodiging van Caro! 's avonds desert buffet op Dimitri zijn 10 jarig jubileum.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["milestone", "restaurant"],
-    "attachments": ["Epson_14012026101548.pdf"]
+    "tags": [
+      "restaurant",
+      "milestone",
+      "pingpong"
+    ],
+    "attachments": [
+      "Epson_14012026101548.pdf"
+    ]
   },
   {
     "id": "2026-01-14",
@@ -40,8 +58,14 @@
     "type": "date",
     "title": "Chez Jean -- Beste Wafel",
     "caption": "Caro naar Chez Jean voor de beste wafel van de wereld.",
-    "location": { "lat": 51.0167, "lng": 3.6333, "name": "Chez Jean, Sint-Martens-Latem" },
-    "photos": ["1770199642771-2026-01-14.png"],
+    "location": {
+      "lat": 51.0167,
+      "lng": 3.6333,
+      "name": "Chez Jean, Sint-Martens-Latem"
+    },
+    "photos": [
+      "1770199642771-2026-01-14.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -49,16 +73,25 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2026-01-17",
     "date": "2026-01-17",
     "type": "date",
     "title": "Verjaardag Guido -- Lamskroon",
-    "caption": "Erg uitgestelde verjaardag Guido met Gert, Lieve, Stijn en Eveline. Tartaar van zalm als voorgerecht, Mini Mushroom Vol-Au-Vent waarvan iedereen dacht met truffel, en opnieuw de Lamskroon met kruidenkorstje (die geen \u20ac28 maar \u20ac99 koste). Desert: Trifle van rood fruit, mascarpone en witte chocolade.",
-    "location": { "lat": 51.0597, "lng": 3.7527, "name": "Gentbruggestraat, Sint-Amandsberg" },
-    "photos": ["1770199700806-2026-01-17.png", "1770199528124-2026-01-17.png"],
+    "caption": "Erg uitgestelde verjaardag Guido met Gert, Lieve, Stijn en Eveline. Tartaar van zalm als voorgerecht, Mini Mushroom Vol-Au-Vent waarvan iedereen dacht met truffel, en opnieuw de Lamskroon met kruidenkorstje (die geen €28 maar €99 koste). Desert: Trifle van rood fruit, mascarpone en witte chocolade.",
+    "location": {
+      "lat": 51.0597,
+      "lng": 3.7527,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "1770199700806-2026-01-17.png",
+      "1770199528124-2026-01-17.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -66,7 +99,10 @@
     "expandedText": "Moe bracht een fles Limoncello mee, die veel zachter was dan die van Eli en daarmee ook geprefereerd. Ook nog een fles van Uzu geopent (zus), alsook de vanilla rum (stijn, broer).",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["family", "food"]
+    "tags": [
+      "family",
+      "food"
+    ]
   },
   {
     "id": "2026-01-21",
@@ -74,8 +110,14 @@
     "type": "date",
     "title": "La Malcontenta",
     "caption": "La Malcontenta tapasbar van op Caro haar lijst. Vooral de humus met lam en de gambas. Goeie cocktails, vree goedkoop.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "La Malcontenta, Gent" },
-    "photos": ["1770199441659-2026-01-21.png"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "La Malcontenta, Gent"
+    },
+    "photos": [
+      "1770199441659-2026-01-21.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -83,7 +125,9 @@
     "expandedText": "De creme catalane was niet super...",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2026-01-23",
@@ -91,8 +135,14 @@
     "type": "date",
     "title": "Surprise na Pingpong",
     "caption": "Surprise for Caro na pingpong. Ze dacht dat het, je weet wel wat was, maar:",
-    "location": { "lat": 51.0597, "lng": 3.7527, "name": "Gentbruggestraat, Sint-Amandsberg" },
-    "photos": ["1770199290805-2026-01-23.png"],
+    "location": {
+      "lat": 51.0597,
+      "lng": 3.7527,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "1770199290805-2026-01-23.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -100,7 +150,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "pingpong"
+    ]
   },
   {
     "id": "2026-01-29",
@@ -108,7 +160,11 @@
     "type": "date",
     "title": "Cinema Culinaire: Chef",
     "caption": "Cinema Culinaire: Chef in Antwerpen, Hall AthenA.",
-    "location": { "lat": 51.2194, "lng": 4.4025, "name": "Hall AthenA, Antwerpen" },
+    "location": {
+      "lat": 51.2194,
+      "lng": 4.4025,
+      "name": "Hall AthenA, Antwerpen"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -117,7 +173,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["movie"]
+    "tags": [
+      "movie"
+    ]
   },
   {
     "id": "2026-01-31",
@@ -125,8 +183,14 @@
     "type": "date",
     "title": "Taverne Ambiance",
     "caption": "Caro was naar Yalo zonder mij (met Simbi)! 's avonds gaan eten in Taverne Ambiance (de befaamde Scampi Diabolique).",
-    "location": { "lat": 51.0597, "lng": 3.7527, "name": "Taverne Ambiance, Gentbruggestraat, Sint-Amandsberg" },
-    "photos": ["1770199000309-2026-01-31.png"],
+    "location": {
+      "lat": 51.0597,
+      "lng": 3.7527,
+      "name": "Taverne Ambiance, Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "1770199000309-2026-01-31.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -134,7 +198,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "coderdojo",
+      "restaurant"
+    ]
   },
   {
     "id": "2026-02-01",
@@ -142,8 +209,14 @@
     "type": "date",
     "title": "Ontbijt voor Zieke Caro",
     "caption": "Ontbijt voor Caro (ze was ziek aan het worden). Galette Bretonne met ham, ei en kaas. 's avonds maakte zij gehaktballen met stoemp en prei.",
-    "location": { "lat": 51.0597, "lng": 3.7527, "name": "Gentbruggestraat, Sint-Amandsberg" },
-    "photos": ["1770198787945-2026-02-01.png"],
+    "location": {
+      "lat": 51.0597,
+      "lng": 3.7527,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "1770198787945-2026-02-01.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -151,7 +224,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["food", "thuis"]
+    "tags": [
+      "food"
+    ]
   },
   {
     "id": "2026-02-07",
@@ -159,8 +234,14 @@
     "type": "date",
     "title": "Double Date Leuven + Urbanus",
     "caption": "Double date met Jan en Leen in Leuven. Restaurant Nirvana. Daarna naar Bes Tof van Urbanus.",
-    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
-    "photos": ["1772990823687-2026-02-07.png"],
+    "location": {
+      "lat": 50.8798,
+      "lng": 4.7005,
+      "name": "Leuven"
+    },
+    "photos": [
+      "1772990823687-2026-02-07.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -168,7 +249,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant", "show"]
+    "tags": [
+      "restaurant",
+      "comedy"
+    ]
   },
   {
     "id": "2026-02-08",
@@ -176,8 +260,14 @@
     "type": "date",
     "title": "Yalo -- Mega Dure Sardinnen",
     "caption": "Yalo again. We hebben de mega dure sardinnen geproefd. Ze waren wel lekker!",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Yalo, Gent" },
-    "photos": ["1772990874137-2026-02-08.png"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Yalo, Gent"
+    },
+    "photos": [
+      "1772990874137-2026-02-08.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -185,7 +275,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2026-02-10",
@@ -193,8 +285,15 @@
     "type": "date",
     "title": "Badkamer Kleuren",
     "caption": "Caro badkamer kleuren uitproberen met ChatGPT. Eerste keer bad gebruikt!",
-    "location": { "lat": 51.0597, "lng": 3.7527, "name": "Gentbruggestraat, Sint-Amandsberg" },
-    "photos": ["1772991944849-2026-02-10.png", "1772991900460-2026-02-10.png"],
+    "location": {
+      "lat": 51.0597,
+      "lng": 3.7527,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "1772991944849-2026-02-10.png",
+      "1772991900460-2026-02-10.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -202,7 +301,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["thuis"]
+    "tags": [
+      "home"
+    ]
   },
   {
     "id": "2026-02-14",
@@ -210,16 +311,27 @@
     "type": "date",
     "title": "Valentijn FOM",
     "caption": "Valentijn at FOM 2026. Ondertussen Caro alleen thuis in de sneeuw!",
-    "location": { "lat": 50.9667, "lng": 4.0333, "name": "Oktoberhallen, Wieze" },
-    "photos": ["1772992146545-2026-02-14.png", "1772992186220-2026-02-14.png"],
+    "location": {
+      "lat": 50.9667,
+      "lng": 4.0333,
+      "name": "Oktoberhallen, Wieze"
+    },
+    "photos": [
+      "1772992146545-2026-02-14.png",
+      "1772992186220-2026-02-14.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
-    "weather": { "note": "Sneeuw" },
+    "weather": {
+      "note": "Sneeuw"
+    },
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["valentijn"]
+    "tags": [
+      "lan-party"
+    ]
   },
   {
     "id": "2026-02-18",
@@ -227,8 +339,16 @@
     "type": "date",
     "title": "Nuance -- 2 Michelin Sterren",
     "caption": "Valentijn make-up @ Nuance. 2 Michelin sterren, het eten was ongeloofelijk. Champagne van 92 euro. Bloemen laten leveren voor Caro.",
-    "location": { "lat": 51.0958, "lng": 4.5092, "name": "Nuance, Duffel" },
-    "photos": ["1772991437243-2026-02-18.png", "1772991476867-2026-02-18.png", "1772991577050-2026-02-18.png"],
+    "location": {
+      "lat": 51.0958,
+      "lng": 4.5092,
+      "name": "Nuance, Duffel"
+    },
+    "photos": [
+      "1772991437243-2026-02-18.png",
+      "1772991476867-2026-02-18.png",
+      "1772991577050-2026-02-18.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -236,7 +356,9 @@
     "expandedText": "'s avonds bij terugkeer ook nog een cadootje ACQUA DI PARMA - Oh L'amore Candle.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant", "valentijn"],
+    "tags": [
+      "restaurant"
+    ],
     "relatedNote": "Valentijn 2026"
   },
   {
@@ -245,8 +367,16 @@
     "type": "date",
     "title": "Trouw Esse + Publiek",
     "caption": "Esse en Hanne officieel getrouwd! 's avonds date bij Publiek. Ons dieet in 2026 is zeer goed bezig!",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Publiek, Gent" },
-    "photos": ["1772992363561-2026-02-20.png", "1772992388236-2026-02-20.png", "1772992705573-2026-02-20.png"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Publiek, Gent"
+    },
+    "photos": [
+      "1772992363561-2026-02-20.png",
+      "1772992388236-2026-02-20.png",
+      "1772992705573-2026-02-20.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -254,7 +384,10 @@
     "expandedText": "Was dit nog altijd een Valentijn 2026 ding...? ;)",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "family",
+      "restaurant"
+    ]
   },
   {
     "id": "2026-02-21",
@@ -262,8 +395,15 @@
     "type": "date",
     "title": "Amai Comedy Club",
     "caption": "Comedy van Amai Comedy Club 'Any Color You Like' door Karan Karthik. Ondertussen doen Lieve en Metj de plafond van onze badkamer ;)",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Amai Comedy Club, Gent" },
-    "photos": ["1772992775410-2026-02-21.png", "1772993117256-2026-02-21.png"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Amai Comedy Club, Gent"
+    },
+    "photos": [
+      "1772992775410-2026-02-21.png",
+      "1772993117256-2026-02-21.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -271,7 +411,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["comedy"]
+    "tags": [
+      "comedy"
+    ]
   },
   {
     "id": "2026-02-22",
@@ -279,8 +421,15 @@
     "type": "date",
     "title": "Massage + Nepal Delight",
     "caption": "Massage gedaan en daarna Nepal Delight. Goeie score maar viel toch een beetje tegen.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Nepal Delight, Gent" },
-    "photos": ["1772995396394-2026-02-22.png", "1772995381579-2026-02-22.png"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Nepal Delight, Gent"
+    },
+    "photos": [
+      "1772995396394-2026-02-22.png",
+      "1772995381579-2026-02-22.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -288,7 +437,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant",
+      "massage"
+    ]
   },
   {
     "id": "2026-03-01",
@@ -298,7 +450,11 @@
     "tripStart": "2026-03-01",
     "tripEnd": "2026-03-06",
     "caption": "Marrakesh!",
-    "location": { "lat": 31.6295, "lng": -7.9811, "name": "Marrakesh, Marocco" },
+    "location": {
+      "lat": 31.6295,
+      "lng": -7.9811,
+      "name": "Marrakesh, Marocco"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -307,59 +463,167 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["travel", "marrakesh"],
+    "tags": [
+      "travel"
+    ],
     "transport": [
-      { "mode": "car", "from": "Gent", "to": "Brussels Airport" },
-      { "mode": "plane", "from": "Brussels", "to": "Marrakesh" }
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Brussels Airport"
+      },
+      {
+        "mode": "plane",
+        "from": "Brussels",
+        "to": "Marrakesh"
+      }
     ],
     "days": [
       {
         "date": "2026-03-01",
         "title": "Arrival -- Riad Mazaj",
         "caption": "Riad Mazaj (water was niet warm genoeg voor Caro). Le Slimana -- Caro had ook goeie lam raviole.",
-        "location": { "lat": 31.6295, "lng": -7.9811, "name": "Marrakesh, Marocco" },
-        "photos": ["1772996677466-2026-03-01.png", "1772999037005-2026-03-01.png", "1772996598255-2026-03-01.png", "1772996731351-2026-03-01.png"],
-        "videos": ["2026-03-01 21.37.37.mp4"]
+        "location": {
+          "lat": 31.6295,
+          "lng": -7.9811,
+          "name": "Marrakesh, Marocco"
+        },
+        "photos": [
+          "1772996677466-2026-03-01.png",
+          "1772999037005-2026-03-01.png",
+          "1772996598255-2026-03-01.png",
+          "1772996731351-2026-03-01.png"
+        ],
+        "videos": [
+          "2026-03-01 21.37.37.mp4"
+        ],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2026-03-02",
         "title": "Souks, Bahia Palace + Ben Jamil",
         "caption": "De Souks, altijd rechtdoor! Koutoubia Mosque, Bahia Palace. Kleren kopen in Gueliz, cocktail bij Kabana. 's avonds Libanees bij Ben Jamil.",
-        "location": { "lat": 31.6295, "lng": -7.9811, "name": "Marrakesh, Marocco" },
-        "photos": ["1772997248464-2026-03-02.png", "1772997460981-2026-03-02.png", "1772997490199-2026-03-02.png", "1772997535950-2026-03-02.png", "1772997655725-2026-03-02.png", "1772997667914-2026-03-02.png", "1772997689162-2026-03-02.png", "1773001594535-2026-03-02.png", "1772998454564-2026-03-02.png", "1772998254078-2026-03-02.png", "1772998618627-2026-03-02.png", "1772998642959-2026-03-02.png", "1772998341242-2026-03-03.png"],
-        "videos": []
+        "location": {
+          "lat": 31.6295,
+          "lng": -7.9811,
+          "name": "Marrakesh, Marocco"
+        },
+        "photos": [
+          "1772997248464-2026-03-02.png",
+          "1772997460981-2026-03-02.png",
+          "1772997490199-2026-03-02.png",
+          "1772997535950-2026-03-02.png",
+          "1772997655725-2026-03-02.png",
+          "1772997667914-2026-03-02.png",
+          "1772997689162-2026-03-02.png",
+          "1773001594535-2026-03-02.png",
+          "1772998454564-2026-03-02.png",
+          "1772998254078-2026-03-02.png",
+          "1772998618627-2026-03-02.png",
+          "1772998642959-2026-03-02.png",
+          "1772998341242-2026-03-03.png"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2026-03-03",
         "title": "Shopping + Hamam",
         "caption": "Caro was ondertussen gaan shoppen en Hamam. Caro aan het onderhandelen over de prijs. Nomad restaurant.",
-        "location": { "lat": 31.6295, "lng": -7.9811, "name": "Marrakesh, Marocco" },
-        "photos": ["1772998912069-2026-03-03.png", "1772997941223-2026-03-03.png", "1772998683182-2026-03-03.png", "1772998797816-2026-03-03.png", "1772998787653-2026-03-03.png", "1772998947581-2026-03-03.png"],
-        "videos": []
+        "location": {
+          "lat": 31.6295,
+          "lng": -7.9811,
+          "name": "Marrakesh, Marocco"
+        },
+        "photos": [
+          "1772998912069-2026-03-03.png",
+          "1772997941223-2026-03-03.png",
+          "1772998683182-2026-03-03.png",
+          "1772998797816-2026-03-03.png",
+          "1772998787653-2026-03-03.png",
+          "1772998947581-2026-03-03.png"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2026-03-04",
         "title": "Museums + Otto",
         "caption": "Museums. Als het aan Caro lag, dan waren we het nu nog aan het zoeken. Otto restaurant -- vergeten Caro haar saus apart te houden.",
-        "location": { "lat": 31.6295, "lng": -7.9811, "name": "Marrakesh, Marocco" },
-        "photos": ["1772999190080-2026-03-04.png", "1772999247062-2026-03-04.png", "1772999286615-2026-03-04.png", "1772999481412-2026-03-04.png", "1772999315222-2026-03-04.png", "1772999385026-2026-03-04.png", "1772999510201-2026-03-04.png"],
-        "videos": []
+        "location": {
+          "lat": 31.6295,
+          "lng": -7.9811,
+          "name": "Marrakesh, Marocco"
+        },
+        "photos": [
+          "1772999190080-2026-03-04.png",
+          "1772999247062-2026-03-04.png",
+          "1772999286615-2026-03-04.png",
+          "1772999481412-2026-03-04.png",
+          "1772999315222-2026-03-04.png",
+          "1772999385026-2026-03-04.png",
+          "1772999510201-2026-03-04.png"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2026-03-05",
         "title": "Atlas Mountains + Le Bistro Arabe",
         "caption": "Daguitstap naar de Atlas Mountains, Vallee de l'Ourika. Viel een beetje tegen door het weer. 's avonds Le Bistro Arabe met live Jazz.",
-        "location": { "lat": 31.6295, "lng": -7.9811, "name": "Marrakesh, Marocco" },
-        "photos": ["1772999719026-2026-03-05.png", "1772999739896-2026-03-05.png", "1772999778670-2026-03-05.png", "1772999796185-2026-03-05.png", "1773000016826-2026-03-05.png"],
-        "videos": ["20260305_203804.mp4"]
+        "location": {
+          "lat": 31.6295,
+          "lng": -7.9811,
+          "name": "Marrakesh, Marocco"
+        },
+        "photos": [
+          "1772999719026-2026-03-05.png",
+          "1772999739896-2026-03-05.png",
+          "1772999778670-2026-03-05.png",
+          "1772999796185-2026-03-05.png",
+          "1773000016826-2026-03-05.png"
+        ],
+        "videos": [
+          "20260305_203804.mp4"
+        ],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2026-03-06",
         "title": "Jardin Majorelle + YSL",
         "caption": "Jardin Majorelle, YSL Museum. Caro had zin in vis: Fish House Al Aachabe. La Kamounya.",
-        "location": { "lat": 31.6295, "lng": -7.9811, "name": "Marrakesh, Marocco" },
-        "photos": ["1773000548649-2026-03-06.png", "1773000080566-2026-03-06.png", "1773000116734-2026-03-06.png", "1773000143658-2026-03-06.png", "1773000187937-2026-03-06.png", "1773000210068-2026-03-06.png", "1773000290207-2026-03-06.png", "1773000579481-2026-03-06.png", "1773000454444-2026-03-06.png", "1773000459728-2026-03-06.png", "1773000504172-2026-03-06.png"],
-        "videos": []
+        "location": {
+          "lat": 31.6295,
+          "lng": -7.9811,
+          "name": "Marrakesh, Marocco"
+        },
+        "photos": [
+          "1773000548649-2026-03-06.png",
+          "1773000080566-2026-03-06.png",
+          "1773000116734-2026-03-06.png",
+          "1773000143658-2026-03-06.png",
+          "1773000187937-2026-03-06.png",
+          "1773000210068-2026-03-06.png",
+          "1773000290207-2026-03-06.png",
+          "1773000579481-2026-03-06.png",
+          "1773000454444-2026-03-06.png",
+          "1773000459728-2026-03-06.png",
+          "1773000504172-2026-03-06.png"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       }
     ]
   },
@@ -378,7 +642,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["valentijn", "special-card"],
+    "tags": [
+      "valentijn",
+      "special-card"
+    ],
     "linkedTo": "2026-02-18"
   }
 ]

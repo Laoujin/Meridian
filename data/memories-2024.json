@@ -5,7 +5,11 @@
     "type": "date",
     "title": "Eerste Date",
     "caption": "Eerste date in Zaventem met Caro.",
-    "location": { "lat": 50.884, "lng": 4.474, "name": "Zaventem" },
+    "location": {
+      "lat": 50.884,
+      "lng": 4.474,
+      "name": "Zaventem"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -14,7 +18,7 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["first-date", "bumble"]
+    "tags": []
   },
   {
     "id": "2024-06-16",
@@ -22,7 +26,11 @@
     "type": "date",
     "title": "Octobar",
     "caption": "Caro @ restaurant Octobar.",
-    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
+    "location": {
+      "lat": 50.8798,
+      "lng": 4.7005,
+      "name": "Leuven"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -31,7 +39,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-06-17",
@@ -39,7 +49,11 @@
     "type": "date",
     "title": "Lader afgeven",
     "caption": "Lader gaan afgeven bij Caroline.",
-    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
+    "location": {
+      "lat": 50.8985,
+      "lng": 4.6717,
+      "name": "Herent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -56,8 +70,14 @@
     "type": "date",
     "title": "Van Schandevijlen feest",
     "caption": "TO-CHECK: Van Schandevijlen feest.",
-    "location": { "lat": 50.8833, "lng": 3.95, "name": "Lebeke, Denderhoutem" },
-    "photos": ["2024-06-29-van-schandevijl-feest.jpg"],
+    "location": {
+      "lat": 50.8833,
+      "lng": 3.95,
+      "name": "Lebeke, Denderhoutem"
+    },
+    "photos": [
+      "2024-06-29-van-schandevijl-feest.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -65,7 +85,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["to-check"]
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-06-29-2",
@@ -73,8 +95,14 @@
     "type": "date",
     "title": "Picnic bij Caro",
     "caption": "TO-CHECK: Picnic bij Caro thuis. Ging normaal in bos zijn, waar ze me dan kon vermoorden.",
-    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
-    "photos": ["2024-06-29-UitnodigingCaro.png"],
+    "location": {
+      "lat": 50.8985,
+      "lng": 4.6717,
+      "name": "Herent"
+    },
+    "photos": [
+      "2024-06-29-UitnodigingCaro.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -82,7 +110,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["to-check"]
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-07-04",
@@ -90,7 +120,11 @@
     "type": "date",
     "title": "Inside Out 2",
     "caption": "Caro naar Inside Out 2.",
-    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
+    "location": {
+      "lat": 50.8798,
+      "lng": 4.7005,
+      "name": "Leuven"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -99,7 +133,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["movie"]
+    "tags": [
+      "movie"
+    ]
   },
   {
     "id": "2024-07-13",
@@ -107,8 +143,14 @@
     "type": "date",
     "title": "Verjaardag Lieve",
     "caption": "TO-CHECK: Verjaardag Lieve De Bodt. Caro en ik hebben spa cadeaubon het jaar nadien gekregen.",
-    "location": { "lat": 50.8833, "lng": 3.9833, "name": "Stichelen, Haaltert" },
-    "photos": ["2024-07-13-verjaardag-moe.png"],
+    "location": {
+      "lat": 50.8833,
+      "lng": 3.9833,
+      "name": "Stichelen, Haaltert"
+    },
+    "photos": [
+      "2024-07-13-verjaardag-moe.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -116,7 +158,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["to-check"]
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-07-20",
@@ -124,8 +168,17 @@
     "type": "trip",
     "title": "Paris — Moulin Rouge",
     "caption": "Moulin Rouge! Het was daar net Olympische Spelen, alles duurder en raakten die avond niet meer aan de parking.",
-    "location": { "lat": 48.8566, "lng": 2.3522, "name": "Paris" },
-    "photos": ["2024-07-20-MoulinRouge.png", "2024-07-20-moulin-rouge.jpg", "2024-07-20-boot-cafe.jpg", "2024-07-20.jpg"],
+    "location": {
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "name": "Paris"
+    },
+    "photos": [
+      "2024-07-20-MoulinRouge.png",
+      "2024-07-20-moulin-rouge.jpg",
+      "2024-07-20-boot-cafe.jpg",
+      "2024-07-20.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": "2024-07-20-MoulinRouge.png",
     "music": null,
@@ -133,9 +186,15 @@
     "expandedText": "Boot cafe: 19 Rue du Pont aux Choux, 75003 Paris. Hotel Jeanne d'Arc le marais.",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["city-trip", "paris"],
+    "tags": [
+      "city-trip"
+    ],
     "transport": [
-      { "mode": "car", "from": "Gent", "to": "Paris" }
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Paris"
+      }
     ]
   },
   {
@@ -144,8 +203,14 @@
     "type": "date",
     "title": "Gentse Feesten",
     "caption": "Gentse Feesten met Joscha en Karen.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
-    "photos": ["2024-07-26.jpg"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
+    "photos": [
+      "2024-07-26.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -153,7 +218,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["friends"]
+    "tags": [
+      "friends"
+    ]
   },
   {
     "id": "2024-08-09",
@@ -161,8 +228,14 @@
     "type": "date",
     "title": "Beleuvenissen",
     "caption": "Beleuvenissen.",
-    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
-    "photos": ["2024-08-09.jpg"],
+    "location": {
+      "lat": 50.8798,
+      "lng": 4.7005,
+      "name": "Leuven"
+    },
+    "photos": [
+      "2024-08-09.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -178,8 +251,14 @@
     "type": "date",
     "title": "BBQ Karel",
     "caption": "Verjaardag Karel BBQ.",
-    "location": { "lat": 50.8358, "lng": 4.0171, "name": "Nieuwenhove" },
-    "photos": ["2024-08-10-bbq-karel.png"],
+    "location": {
+      "lat": 50.8358,
+      "lng": 4.0171,
+      "name": "Nieuwenhove"
+    },
+    "photos": [
+      "2024-08-10-bbq-karel.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -187,7 +266,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "friends",
+      "festival"
+    ]
   },
   {
     "id": "2024-08-10-2",
@@ -195,8 +277,14 @@
     "type": "date",
     "title": "Verjaardag Clarisse",
     "caption": "Caro was verjaardag van Clarisse gaan vieren.",
-    "location": { "lat": 50.8358, "lng": 4.0171, "name": "Ninove" },
-    "photos": ["2024-08-10-clarisse.jpg"],
+    "location": {
+      "lat": 50.8358,
+      "lng": 4.0171,
+      "name": "Ninove"
+    },
+    "photos": [
+      "2024-08-10-clarisse.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -204,7 +292,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "friends",
+      "festival"
+    ]
   },
   {
     "id": "2024-08-19",
@@ -212,8 +303,14 @@
     "type": "date",
     "title": "Agenda Caro",
     "caption": "Agenda Caro ;)",
-    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
-    "photos": ["2024-08-19.png"],
+    "location": {
+      "lat": 50.8985,
+      "lng": 4.6717,
+      "name": "Herent"
+    },
+    "photos": [
+      "2024-08-19.png"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -229,8 +326,15 @@
     "type": "date",
     "title": "Operatie Caro",
     "caption": "Operatie Caro.",
-    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
-    "photos": ["2024-08-26.jpg", "2024-08-26-geslaagd.jpg"],
+    "location": {
+      "lat": 50.8798,
+      "lng": 4.7005,
+      "name": "Leuven"
+    },
+    "photos": [
+      "2024-08-26.jpg",
+      "2024-08-26-geslaagd.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -246,8 +350,14 @@
     "type": "date",
     "title": "Eten bij Mediatrice",
     "caption": "Eten bij Mediatrice. Ik had crème brûlée van speculaas mee!",
-    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
-    "photos": ["2024-08-29.jpg"],
+    "location": {
+      "lat": 50.8985,
+      "lng": 4.6717,
+      "name": "Herent"
+    },
+    "photos": [
+      "2024-08-29.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -263,7 +373,11 @@
     "type": "date",
     "title": "Brussels Chuckles",
     "caption": "Brussels Chuckles met Caro. Travestiet met mini piano was super grappig.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussels" },
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussels"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -272,7 +386,7 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["comedy"]
+    "tags": []
   },
   {
     "id": "2024-09-11",
@@ -280,7 +394,11 @@
     "type": "date",
     "title": "Pizza Brutal",
     "caption": "Restaurant Pizza Brutal met Caro.",
-    "location": { "lat": 51.0283, "lng": 3.6847, "name": "Sint-Denijs-Westrem" },
+    "location": {
+      "lat": 51.0283,
+      "lng": 3.6847,
+      "name": "Sint-Denijs-Westrem"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -289,7 +407,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-09-12",
@@ -297,8 +417,14 @@
     "type": "date",
     "title": "La Paix",
     "caption": "Restaurant La Paix.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussel" },
-    "photos": ["2024-09-12-lapaix.jpg"],
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel"
+    },
+    "photos": [
+      "2024-09-12-lapaix.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -306,7 +432,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-09-13",
@@ -314,7 +442,11 @@
     "type": "date",
     "title": "Meeting ouders",
     "caption": "Meeting ouders en Caro.",
-    "location": { "lat": 50.8833, "lng": 3.9833, "name": "Stichelen, Haaltert" },
+    "location": {
+      "lat": 50.8833,
+      "lng": 3.9833,
+      "name": "Stichelen, Haaltert"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -323,7 +455,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-09-14",
@@ -331,7 +465,11 @@
     "type": "date",
     "title": "Patyntje",
     "caption": "Restaurant Patyntje met Caro, Eli, Mini, Jan en Leen.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -340,7 +478,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant",
+      "friends"
+    ]
   },
   {
     "id": "2024-09-18",
@@ -348,7 +489,11 @@
     "type": "date",
     "title": "NYYÓ",
     "caption": "Vietnamees sharing NYYÓ.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussel" },
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -357,7 +502,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant", "birthday"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-09-18-2",
@@ -365,8 +512,15 @@
     "type": "date",
     "title": "Verassing",
     "caption": "Verassing thuis!",
-    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
-    "photos": ["2024-09-18-birthday.jpg", "2024-09-18-42.jpg"],
+    "location": {
+      "lat": 50.8985,
+      "lng": 4.6717,
+      "name": "Herent"
+    },
+    "photos": [
+      "2024-09-18-birthday.jpg",
+      "2024-09-18-42.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -374,7 +528,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["birthday"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-09-21",
@@ -382,7 +538,11 @@
     "type": "date",
     "title": "Verjaardagsfeest",
     "caption": "Verjaardagsfeest. Waarvan iedereen dacht dat Caro alles gedaan had.",
-    "location": { "lat": 51.0597, "lng": 3.7527, "name": "Gentbruggestraat, Sint-Amandsberg" },
+    "location": {
+      "lat": 51.0597,
+      "lng": 3.7527,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -391,7 +551,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-09-28",
@@ -399,8 +561,14 @@
     "type": "date",
     "title": "Vakantiehuisje Bourbourg",
     "caption": "Vakantiehuisje met familie. Leen gaf toen ook al af op Souvenir.",
-    "location": { "lat": 50.9497, "lng": 2.1978, "name": "Bourbourg" },
-    "photos": ["2024-09-28-wandeling.jpg"],
+    "location": {
+      "lat": 50.9497,
+      "lng": 2.1978,
+      "name": "Bourbourg"
+    },
+    "photos": [
+      "2024-09-28-wandeling.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -408,7 +576,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["family"]
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-10-04",
@@ -416,8 +586,14 @@
     "type": "date",
     "title": "Souvenir",
     "caption": "Restaurant Souvenir met Heleen, zus, Stijn en ouders.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
-    "photos": ["20241004_211137.jpg"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
+    "photos": [
+      "20241004_211137.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -425,7 +601,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["family", "restaurant"]
+    "tags": [
+      "family",
+      "restaurant"
+    ]
   },
   {
     "id": "2024-10-16",
@@ -433,8 +612,15 @@
     "type": "date",
     "title": "Las Manas + Mo Gilligan",
     "caption": "Restaurant Las Manas met live optreden. Zwarte paella. Daarna comedy show Mo Gilligan in Arenberg, Antwerpen. 5000 euro Tequila ;)",
-    "location": { "lat": 51.2194, "lng": 4.4025, "name": "Antwerpen" },
-    "photos": ["20241016_174712.jpg", "20241016_215819.jpg"],
+    "location": {
+      "lat": 51.2194,
+      "lng": 4.4025,
+      "name": "Antwerpen"
+    },
+    "photos": [
+      "20241016_174712.jpg",
+      "20241016_215819.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -442,7 +628,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant", "comedy"]
+    "tags": [
+      "restaurant",
+      "comedy"
+    ]
   },
   {
     "id": "2024-10-19",
@@ -450,8 +639,14 @@
     "type": "date",
     "title": "Planet Happiness",
     "caption": "Planet Happiness tentoonstelling in Brussel.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussel" },
-    "photos": ["20241019_152202.jpg"],
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel"
+    },
+    "photos": [
+      "20241019_152202.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -459,7 +654,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["expo"]
+    "tags": [
+      "restaurant",
+      "family"
+    ]
   },
   {
     "id": "2024-10-19-2",
@@ -467,16 +665,27 @@
     "type": "date",
     "title": "De Rare Vos",
     "caption": "Gaan eten bij Nikolaas in De Rare Vos met ouders en zus/Stijn.",
-    "location": { "lat": 50.85, "lng": 4.2, "name": "Schepdaal" },
-    "photos": ["20241019_223809.jpg"],
+    "location": {
+      "lat": 50.85,
+      "lng": 4.2,
+      "name": "Schepdaal"
+    },
+    "photos": [
+      "20241019_223809.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
-    "expandedPhotos": ["2024-10-19-HeleenCado.png"],
+    "expandedPhotos": [
+      "2024-10-19-HeleenCado.png"
+    ],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant",
+      "family"
+    ]
   },
   {
     "id": "2024-10-26",
@@ -484,8 +693,14 @@
     "type": "date",
     "title": "Steamy Windows",
     "caption": "Restaurant Steamy Windows.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
-    "photos": ["20241026_211706.jpg"],
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
+    "photos": [
+      "20241026_211706.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -493,7 +708,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-10-31",
@@ -503,159 +720,354 @@
     "tripStart": "2024-10-31",
     "tripEnd": "2024-11-11",
     "caption": "Vietnam trip!",
-    "location": { "lat": 10.8231, "lng": 106.6297, "name": "Ho Chi Minh City, Vietnam" },
+    "location": {
+      "lat": 10.8231,
+      "lng": 106.6297,
+      "name": "Ho Chi Minh City, Vietnam"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
-    "music": { "track": "dancing-with-my-own.mp3", "artist": "Taylor Swift", "title": "Dancing With My Own" },
+    "music": {
+      "track": "dancing-with-my-own.mp3",
+      "artist": "Taylor Swift",
+      "title": "Dancing With My Own"
+    },
     "weather": null,
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["travel", "vietnam"],
+    "tags": [
+      "travel"
+    ],
     "transport": [
-      { "mode": "car", "from": "Gent", "to": "Brussels Airport" },
-      { "mode": "plane", "from": "Brussels", "to": "Ho Chi Minh City" }
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Brussels Airport"
+      },
+      {
+        "mode": "plane",
+        "from": "Brussels",
+        "to": "Ho Chi Minh City"
+      }
     ],
     "days": [
       {
         "date": "2024-10-29",
         "title": "Vertrek naar Vietnam",
         "caption": "Vlucht naar Vietnam via Turkije. Duurste biertjes ooit in Turkije (24 euro het stuk).",
-        "location": { "lat": 10.8231, "lng": 106.6297, "name": "Vietnam" },
+        "location": {
+          "lat": 10.8231,
+          "lng": 106.6297,
+          "name": "Vietnam"
+        },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-10-30",
         "title": "Aankomst HCMC",
         "caption": "Schoenen uiteengevallen op de luchthaven. Restaurant The Deck Saigon. 's nachts nog een foot-massage (marteling).",
-        "location": { "lat": 10.8231, "lng": 106.6297, "name": "Ho Chi Minh City" },
-        "photos": ["2024-10-29-Vietnam.jpg", "2024-10-29-Schoenen.jpg", "2024-10-30-Bier.png", "20241030_213557.jpg", "2024-10-30-DeckSaigon.png", "20241030_232500.jpg", "20241031_010432.jpg"],
-        "videos": []
+        "location": {
+          "lat": 10.8231,
+          "lng": 106.6297,
+          "name": "Ho Chi Minh City"
+        },
+        "photos": [
+          "2024-10-29-Vietnam.jpg",
+          "2024-10-29-Schoenen.jpg",
+          "2024-10-30-Bier.png",
+          "20241030_213557.jpg",
+          "2024-10-30-DeckSaigon.png",
+          "20241030_232500.jpg",
+          "20241031_010432.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel",
+          "restaurant"
+        ]
       },
       {
         "date": "2024-10-31",
         "title": "HCMC — Day 1",
         "caption": "War Remnants Museum, Reunification Palace, Notre-Dame Cathedral, Bitexco Financial Tower.",
-        "location": { "lat": 10.8231, "lng": 106.6297, "name": "Ho Chi Minh City" },
+        "location": {
+          "lat": 10.8231,
+          "lng": 106.6297,
+          "name": "Ho Chi Minh City"
+        },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-01",
         "title": "Cu Chi Tunnels",
         "caption": "Cu Chi Tunnels. Caro was ook iedereen aan het trakteren tot al ons geld op was.",
-        "location": { "lat": 11.1417, "lng": 106.4633, "name": "Cu Chi" },
+        "location": {
+          "lat": 11.1417,
+          "lng": 106.4633,
+          "name": "Cu Chi"
+        },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-01-2",
         "title": "Mekong Delta",
         "caption": "Mekong delta. Caro een juwelenkistje gekocht.",
-        "location": { "lat": 10.4583, "lng": 106.365, "name": "Mekong Delta" },
+        "location": {
+          "lat": 10.4583,
+          "lng": 106.365,
+          "name": "Mekong Delta"
+        },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-03",
         "title": "Da Nang",
         "caption": "Dragon Bridge fireworks. Caro had ook review gedaan voor gratis shots!",
-        "location": { "lat": 16.0544, "lng": 108.2022, "name": "Da Nang" },
+        "location": {
+          "lat": 16.0544,
+          "lng": 108.2022,
+          "name": "Da Nang"
+        },
         "photos": [],
         "videos": [],
-        "transport": [{ "mode": "plane", "from": "Ho Chi Minh City", "to": "Da Nang" }]
+        "transport": [
+          {
+            "mode": "plane",
+            "from": "Ho Chi Minh City",
+            "to": "Da Nang"
+          }
+        ],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-04",
         "title": "Marble Mountains + Hue",
         "caption": "Train to Hue, Marble Mountains. Kijk Caro -- winkeltjes!",
-        "location": { "lat": 16.4637, "lng": 107.5909, "name": "Hue" },
+        "location": {
+          "lat": 16.4637,
+          "lng": 107.5909,
+          "name": "Hue"
+        },
         "photos": [],
         "videos": [],
-        "transport": [{ "mode": "train", "from": "Da Nang", "to": "Hue" }]
+        "transport": [
+          {
+            "mode": "train",
+            "from": "Da Nang",
+            "to": "Hue"
+          }
+        ],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-05",
         "title": "Citadel + Tombs",
         "caption": "Citadel bezoek in de regen. Daarna Tomb of Khai Dinh, Minh Mang & Tu Duc.",
-        "location": { "lat": 16.4637, "lng": 107.5909, "name": "Hue" },
-        "photos": ["20241105_135342.jpg", "20241105_135651.jpg", "20241105_165959.jpg", "20241105_161418.jpg"],
-        "videos": []
+        "location": {
+          "lat": 16.4637,
+          "lng": 107.5909,
+          "name": "Hue"
+        },
+        "photos": [
+          "20241105_135342.jpg",
+          "20241105_135651.jpg",
+          "20241105_165959.jpg",
+          "20241105_161418.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-06",
         "title": "Wandeling Hue",
         "caption": "Wandeling in de regen. Eenmaal boven fantastisch uitzicht.",
-        "location": { "lat": 16.4637, "lng": 107.5909, "name": "Hue" },
-        "photos": ["20241106_101455(0).jpg", "20241106_111738.jpg", "20241106_123251(1).jpg", "20241106_141126.jpg", "20241106_113128.jpg"],
-        "videos": []
+        "location": {
+          "lat": 16.4637,
+          "lng": 107.5909,
+          "name": "Hue"
+        },
+        "photos": [
+          "20241106_101455(0).jpg",
+          "20241106_111738.jpg",
+          "20241106_123251(1).jpg",
+          "20241106_141126.jpg",
+          "20241106_113128.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-07",
         "title": "Hoi An",
         "caption": "Night market. Waar Caro geen replacement Airbuds wou.",
-        "location": { "lat": 15.8801, "lng": 108.338, "name": "Hoi An" },
+        "location": {
+          "lat": 15.8801,
+          "lng": 108.338,
+          "name": "Hoi An"
+        },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-08",
         "title": "Hoi An — Strand",
         "caption": "Pakkie kopen, brunchke en eerste strand/zee bezoek.",
-        "location": { "lat": 15.8801, "lng": 108.338, "name": "Hoi An" },
-        "photos": ["20241108_131128(1).jpg", "20241108_135037.jpg", "20241108_145800.jpg"],
-        "videos": []
+        "location": {
+          "lat": 15.8801,
+          "lng": 108.338,
+          "name": "Hoi An"
+        },
+        "photos": [
+          "20241108_131128(1).jpg",
+          "20241108_135037.jpg",
+          "20241108_145800.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-09",
         "title": "Hanoi",
         "caption": "Ho Chi Minh mausoleum. Caro mocht niet binnen omdat haar short niet lang genoeg was. Water Puppet Show, Chapter Dining.",
-        "location": { "lat": 21.0285, "lng": 105.8542, "name": "Hanoi" },
+        "location": {
+          "lat": 21.0285,
+          "lng": 105.8542,
+          "name": "Hanoi"
+        },
         "photos": [],
         "videos": [],
-        "transport": [{ "mode": "plane", "from": "Hoi An", "to": "Hanoi" }]
+        "transport": [
+          {
+            "mode": "plane",
+            "from": "Hoi An",
+            "to": "Hanoi"
+          }
+        ],
+        "tags": [
+          "travel",
+          "restaurant"
+        ]
       },
       {
         "date": "2024-11-10",
         "title": "Da Lat — Crazy House",
         "caption": "Crazy House bezoek.",
-        "location": { "lat": 11.9404, "lng": 108.4583, "name": "Da Lat" },
-        "photos": ["20241110_161236.jpg", "20241110_162158(1).jpg", "20241110_162630.jpg"],
-        "videos": []
+        "location": {
+          "lat": 11.9404,
+          "lng": 108.4583,
+          "name": "Da Lat"
+        },
+        "photos": [
+          "20241110_161236.jpg",
+          "20241110_162158(1).jpg",
+          "20241110_162630.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-11",
         "title": "Kayaking + Spa",
         "caption": "Kayaking. Caro was verbrand en ik niet, ha!",
-        "location": { "lat": 20.9101, "lng": 107.1839, "name": "Ha Long Bay area" },
+        "location": {
+          "lat": 20.9101,
+          "lng": 107.1839,
+          "name": "Ha Long Bay area"
+        },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel",
+          "massage"
+        ]
       },
       {
         "date": "2024-11-12",
         "title": "Mui Ne — Strand",
         "caption": "Busreis naar Mui Ne. Stranddag.",
-        "location": { "lat": 10.9333, "lng": 108.2833, "name": "Mui Ne" },
-        "photos": ["20241112_081625.jpg", "20241112_152858.jpg", "20241113_094509.jpg"],
-        "videos": []
+        "location": {
+          "lat": 10.9333,
+          "lng": 108.2833,
+          "name": "Mui Ne"
+        },
+        "photos": [
+          "20241112_081625.jpg",
+          "20241112_152858.jpg",
+          "20241113_094509.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-13",
         "title": "The AO Show",
         "caption": "The AO Show in de Saigon Opera.",
-        "location": { "lat": 10.8231, "lng": 106.6297, "name": "Ho Chi Minh City" },
-        "photos": ["20241113_190650.jpg", "20241113_191141.jpg"],
-        "videos": []
+        "location": {
+          "lat": 10.8231,
+          "lng": 106.6297,
+          "name": "Ho Chi Minh City"
+        },
+        "photos": [
+          "20241113_190650.jpg",
+          "20241113_191141.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2024-11-14",
         "title": "Terug naar huis",
         "caption": "Tricked into shoe 'repair'. En back!",
-        "location": { "lat": 10.8231, "lng": 106.6297, "name": "Ho Chi Minh City" },
-        "photos": ["20241114_164705.jpg", "20241114_214450.jpg"],
-        "videos": []
+        "location": {
+          "lat": 10.8231,
+          "lng": 106.6297,
+          "name": "Ho Chi Minh City"
+        },
+        "photos": [
+          "20241114_164705.jpg",
+          "20241114_214450.jpg"
+        ],
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       }
     ]
   },
@@ -665,16 +1077,27 @@
     "type": "date",
     "title": "Cirque Du Soleil — Corteo",
     "caption": "Cirque Du Soleil Corteo in Rotterdam Ahoy. Mood Restaurant.",
-    "location": { "lat": 51.9225, "lng": 4.4792, "name": "Rotterdam" },
-    "photos": ["20241117_174910.jpg"],
+    "location": {
+      "lat": 51.9225,
+      "lng": 4.4792,
+      "name": "Rotterdam"
+    },
+    "photos": [
+      "20241117_174910.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
     "expandedPhotos": [],
-    "videos": ["20241117_164805.mp4", "20241117_162721.mp4"],
-    "tags": ["show"]
+    "videos": [
+      "20241117_164805.mp4",
+      "20241117_162721.mp4"
+    ],
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-11-23",
@@ -682,16 +1105,28 @@
     "type": "date",
     "title": "Brugge bij Mini & Eli",
     "caption": "Brugge bij Mini en Eli. Restaurant Bonte B. Het ontbijt heeft vreed lang geduurd, maar het was wel de moeite.",
-    "location": { "lat": 51.2093, "lng": 3.2247, "name": "Brugge" },
-    "photos": ["20241123_164433.jpg", "20241123_222339.jpg"],
+    "location": {
+      "lat": 51.2093,
+      "lng": 3.2247,
+      "name": "Brugge"
+    },
+    "photos": [
+      "20241123_164433.jpg",
+      "20241123_222339.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
-    "expandedPhotos": ["20241124_131551(1).jpg"],
+    "expandedPhotos": [
+      "20241124_131551(1).jpg"
+    ],
     "videos": [],
-    "tags": ["friends", "restaurant"]
+    "tags": [
+      "friends",
+      "restaurant"
+    ]
   },
   {
     "id": "2024-11-27",
@@ -699,7 +1134,11 @@
     "type": "date",
     "title": "Bij Machteld & Tsjok",
     "caption": "Eten met Caro bij Machteld en Tsjok.",
-    "location": { "lat": 51.0543, "lng": 3.7174, "name": "Gent" },
+    "location": {
+      "lat": 51.0543,
+      "lng": 3.7174,
+      "name": "Gent"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -708,7 +1147,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-12-03",
@@ -716,8 +1157,14 @@
     "type": "date",
     "title": "MENMA",
     "caption": "Restaurant MENMA in Ixelles.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Ixelles" },
-    "photos": ["20241203_191106.jpg"],
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Ixelles"
+    },
+    "photos": [
+      "20241203_191106.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -725,7 +1172,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["restaurant"]
+    "tags": [
+      "restaurant"
+    ]
   },
   {
     "id": "2024-12-14",
@@ -733,16 +1182,26 @@
     "type": "date",
     "title": "Terra Cotta Army + Kerstmarkt",
     "caption": "Terra Cotta Army Expo Brussels. Daarna kerstmarkt Brussel.",
-    "location": { "lat": 50.8503, "lng": 4.3517, "name": "Brussel" },
-    "photos": ["20241214_155823(1).jpg", "20241214_162709.jpg", "20241213_210413(1).jpg"],
+    "location": {
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "name": "Brussel"
+    },
+    "photos": [
+      "20241214_155823(1).jpg",
+      "20241214_162709.jpg",
+      "20241213_210413(1).jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
-    "expandedPhotos": ["20241215_134542.jpg"],
+    "expandedPhotos": [
+      "20241215_134542.jpg"
+    ],
     "videos": [],
-    "tags": ["expo", "kerstmarkt"]
+    "tags": []
   },
   {
     "id": "2024-12-21",
@@ -750,8 +1209,15 @@
     "type": "date",
     "title": "Sint-Amandsberg",
     "caption": "",
-    "location": { "lat": 51.0597, "lng": 3.7527, "name": "Gentbruggestraat, Sint-Amandsberg" },
-    "photos": ["20241221_175555.jpg", "20241221_175558.jpg"],
+    "location": {
+      "lat": 51.0597,
+      "lng": 3.7527,
+      "name": "Gentbruggestraat, Sint-Amandsberg"
+    },
+    "photos": [
+      "20241221_175555.jpg",
+      "20241221_175558.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -767,7 +1233,11 @@
     "type": "date",
     "title": "Kerst bij Clarisse",
     "caption": "Christmas at Clarisse. Caro had voor iedereen matching pyjamas gekocht.",
-    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
+    "location": {
+      "lat": 50.8798,
+      "lng": 4.7005,
+      "name": "Leuven"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -776,7 +1246,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["kerst"]
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2024-12-28",
@@ -784,7 +1256,11 @@
     "type": "date",
     "title": "Kerst bij ouders",
     "caption": "Kerst bij ouders. Cado voor Caro, mini-socks.",
-    "location": { "lat": 50.8833, "lng": 3.9833, "name": "Stichelen, Haaltert" },
+    "location": {
+      "lat": 50.8833,
+      "lng": 3.9833,
+      "name": "Stichelen, Haaltert"
+    },
     "photos": [],
     "coverPhoto": null,
     "heroPhoto": null,
@@ -793,6 +1269,8 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": ["kerst"]
+    "tags": [
+      "family"
+    ]
   }
 ]

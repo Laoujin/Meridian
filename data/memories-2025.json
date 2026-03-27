@@ -18,7 +18,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "friends"
+    ]
   },
   {
     "id": "2025-01-03",
@@ -68,7 +70,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "family"
+    ]
   },
   {
     "id": "2025-01-17",
@@ -107,7 +111,7 @@
     "videos": [],
     "tags": [
       "city-trip",
-      "london"
+      "show"
     ],
     "transport": [
       {
@@ -142,8 +146,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant",
-      "valentijn"
+      "restaurant"
     ]
   },
   {
@@ -193,8 +196,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "food",
-      "thuis"
+      "food"
     ]
   },
   {
@@ -230,7 +232,7 @@
     ],
     "tags": [
       "city-trip",
-      "paris",
+      "food",
       "concert"
     ],
     "transport": [
@@ -310,8 +312,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "food",
-      "thuis"
+      "food"
     ]
   },
   {
@@ -336,9 +337,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "travel",
-      "madeira",
-      "verjaardag-caro"
+      "travel"
     ],
     "transport": [
       {
@@ -365,7 +364,10 @@
         "photos": [
           "20250502_184246.jpg"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-05-03",
@@ -386,7 +388,11 @@
           "20250503_192507.jpg",
           "20250503_210557.jpg"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel",
+          "restaurant"
+        ]
       },
       {
         "date": "2025-05-04",
@@ -404,7 +410,10 @@
           "20250504_095513.jpg",
           "20250504_095127.jpg"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-05-04",
@@ -420,7 +429,10 @@
           "20250504_185653.jpg",
           "20250504_184616.jpg"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-05-05",
@@ -437,7 +449,10 @@
           "20250504_203759.jpg",
           "20250504_200054.jpg"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-05-06",
@@ -461,7 +476,11 @@
           "20250506_233915.jpg",
           "20250506_234607.jpg"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel",
+          "restaurant"
+        ]
       }
     ]
   },
@@ -512,8 +531,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "food",
-      "thuis"
+      "food"
     ]
   },
   {
@@ -730,7 +748,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "familie"
+      "family",
+      "food"
     ]
   },
   {
@@ -811,8 +830,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant",
-      "activiteit"
+      "restaurant"
     ]
   },
   {
@@ -839,7 +857,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "festival"
+      "festival",
+      "friends"
     ]
   },
   {
@@ -885,7 +904,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "thuis"
+      "pingpong"
     ]
   },
   {
@@ -912,7 +931,8 @@
       "20250815_200604.mp4"
     ],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "cocktail"
     ]
   },
   {
@@ -936,7 +956,7 @@
     "videos": [],
     "tags": [
       "festival",
-      "overlap"
+      "friends"
     ]
   },
   {
@@ -958,7 +978,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "restaurant",
+      "family"
+    ]
   },
   {
     "id": "2025-08-23",
@@ -979,7 +1002,12 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "family",
+      "friends",
+      "cocktail",
+      "food"
+    ]
   },
   {
     "id": "2025-08-30",
@@ -1004,7 +1032,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "friends"
     ]
   },
   {
@@ -1054,7 +1083,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "food",
+      "friends"
+    ]
   },
   {
     "id": "2025-09-07",
@@ -1078,7 +1110,9 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "cocktail",
+      "family"
     ]
   },
   {
@@ -1129,6 +1163,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
+      "pingpong",
       "birthday"
     ]
   },
@@ -1152,6 +1187,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
+      "pingpong",
       "birthday"
     ]
   },
@@ -1176,6 +1212,7 @@
     "videos": [],
     "tags": [
       "birthday",
+      "serie",
       "restaurant"
     ]
   },
@@ -1199,7 +1236,9 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "thuis"
+      "pingpong",
+      "cocktail",
+      "itenium"
     ]
   },
   {
@@ -1223,7 +1262,7 @@
     "videos": [],
     "tags": [
       "restaurant",
-      "familie"
+      "family"
     ]
   },
   {
@@ -1245,7 +1284,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "food",
+      "family"
+    ]
   },
   {
     "id": "2025-09-21-2",
@@ -1266,7 +1308,10 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "food",
+      "family"
+    ]
   },
   {
     "id": "2025-09-24",
@@ -1288,7 +1333,9 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "cocktail",
+      "family"
     ]
   },
   {
@@ -1310,7 +1357,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "itenium"
+    ]
   },
   {
     "id": "2025-09-27",
@@ -1347,8 +1396,8 @@
     ],
     "videos": [],
     "tags": [
-      "activiteit",
-      "restaurant"
+      "restaurant",
+      "cocktail"
     ]
   },
   {
@@ -1373,8 +1422,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "food",
-      "thuis"
+      "food"
     ]
   },
   {
@@ -1426,7 +1474,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "restaurant"
+      "restaurant",
+      "sake"
     ]
   },
   {
@@ -1449,7 +1498,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "thuis"
+      "friends",
+      "serie"
     ]
   },
   {
@@ -1472,7 +1522,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "thuis"
+      "friends",
+      "serie"
     ]
   },
   {
@@ -1499,8 +1550,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "expo",
-      "restaurant"
+      "restaurant",
+      "sake"
     ]
   },
   {
@@ -1527,8 +1578,8 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "expo",
-      "restaurant"
+      "restaurant",
+      "sake"
     ]
   },
   {
@@ -1550,7 +1601,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "friends"
+    ]
   },
   {
     "id": "2025-10-11",
@@ -1581,7 +1634,7 @@
     "videos": [],
     "tags": [
       "movie",
-      "feest"
+      "itenium"
     ]
   },
   {
@@ -1606,8 +1659,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "food",
-      "thuis"
+      "food"
     ]
   },
   {
@@ -1634,7 +1686,9 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "concert"
+      "concert",
+      "restaurant",
+      "friends"
     ]
   },
   {
@@ -1661,7 +1715,9 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "concert"
+      "concert",
+      "friends",
+      "family"
     ]
   },
   {
@@ -1709,8 +1765,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "travel",
-      "philippines"
+      "travel"
     ],
     "transport": [
       {
@@ -1738,7 +1793,10 @@
           "1763931128212-2025-10-26.png",
           "1763931187129-2025-10-26.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-10-27",
@@ -1750,7 +1808,10 @@
           "name": "Manila, Philippines"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-10-28",
@@ -1769,6 +1830,9 @@
             "from": "Manila",
             "to": "El Nido"
           }
+        ],
+        "tags": [
+          "travel"
         ]
       },
       {
@@ -1781,7 +1845,10 @@
           "name": "El Nido, Philippines"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-10-30",
@@ -1801,7 +1868,10 @@
           "1763933995330-2025-10-30.png",
           "1763934045061-2025-10-30.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-10-31",
@@ -1813,7 +1883,10 @@
           "name": "El Nido, Philippines"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-01",
@@ -1841,7 +1914,10 @@
           "1763935521446-2025-11-01.png",
           "1763941762392-2025-11-01.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-02",
@@ -1856,7 +1932,10 @@
           "1763935621136-2025-11-02.png",
           "1763935684155-2025-11-02.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-03",
@@ -1870,7 +1949,10 @@
         "photos": [
           "1763936392479-2025-11-03.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-03",
@@ -1884,7 +1966,10 @@
         "photos": [
           "1763941995483-2025-11-03.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-04",
@@ -1903,6 +1988,9 @@
             "from": "El Nido",
             "to": "Manila"
           }
+        ],
+        "tags": [
+          "travel"
         ]
       },
       {
@@ -1928,7 +2016,10 @@
           "1763937254105-2025-11-05.png",
           "1763937305921-2025-11-05.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-06",
@@ -1940,7 +2031,10 @@
           "name": "Manila, Philippines"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-07",
@@ -1952,7 +2046,10 @@
           "name": "Manila, Philippines"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-08",
@@ -1964,7 +2061,10 @@
           "name": "Manila, Philippines"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-09",
@@ -1979,7 +2079,10 @@
           "1763942434482-2025-11-09.png",
           "1763939833567-2025-11-09.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-10",
@@ -1991,7 +2094,10 @@
           "name": "Manila, Philippines"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-11",
@@ -2005,7 +2111,10 @@
         "photos": [
           "1763940489421-2025-11-11.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       },
       {
         "date": "2025-11-12",
@@ -2019,7 +2128,10 @@
         "photos": [
           "1763940654699-2025-11-12.png"
         ],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "travel"
+        ]
       }
     ]
   },
@@ -2074,7 +2186,7 @@
     "videos": [],
     "tags": [
       "city-trip",
-      "lille"
+      "family"
     ],
     "transport": [
       {
@@ -2094,7 +2206,11 @@
           "name": "Lambersart, Frankrijk"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "city-trip",
+          "family"
+        ]
       },
       {
         "date": "2025-11-15",
@@ -2106,7 +2222,10 @@
           "name": "Roubaix / Croix"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "city-trip"
+        ]
       },
       {
         "date": "2025-11-16",
@@ -2118,7 +2237,11 @@
           "name": "Lambersart, Frankrijk"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "city-trip",
+          "concert"
+        ]
       },
       {
         "date": "2025-11-16",
@@ -2130,7 +2253,11 @@
           "name": "Brugge"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "city-trip",
+          "concert"
+        ]
       }
     ]
   },
@@ -2280,7 +2407,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "friends"
+    ]
   },
   {
     "id": "2025-12-09",
@@ -2303,9 +2432,7 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": [
-      "show"
-    ]
+    "tags": []
   },
   {
     "id": "2025-12-12",
@@ -2329,8 +2456,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "city-trip",
-      "berlin"
+      "city-trip"
     ],
     "transport": [
       {
@@ -2350,7 +2476,10 @@
           "name": "Berlin"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "city-trip"
+        ]
       },
       {
         "date": "2025-12-13",
@@ -2362,7 +2491,10 @@
           "name": "Berlin"
         },
         "photos": [],
-        "videos": []
+        "videos": [],
+        "tags": [
+          "city-trip"
+        ]
       }
     ]
   },
@@ -2414,7 +2546,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "show"
+      "family"
     ]
   },
   {
@@ -2444,7 +2576,7 @@
       "WhatsApp Video 2025-12-20 at 20.12.13.mp4"
     ],
     "tags": [
-      "show"
+      "family"
     ]
   },
   {
@@ -2467,8 +2599,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "kerst",
-      "familie"
+      "family"
     ]
   },
   {
@@ -2491,8 +2622,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "kerst",
-      "familie"
+      "family"
     ]
   },
   {
@@ -2618,7 +2748,9 @@
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
-    "tags": []
+    "tags": [
+      "food"
+    ]
   },
   {
     "id": "2025-12-31",
@@ -2640,7 +2772,7 @@
     "expandedPhotos": [],
     "videos": [],
     "tags": [
-      "nieuwjaar"
+      "food"
     ]
   }
 ]
