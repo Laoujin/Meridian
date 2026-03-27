@@ -1,4 +1,4 @@
-import { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
+import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
@@ -39,10 +39,11 @@ interface MapCanvasProps {
   center: [number, number]; // [lng, lat]
   zoom: number;
   showOpeningLine?: boolean;
-}
-
-export interface MapCanvasHandle {
-  getMap: () => maplibregl.Map | null;
+  dimmed?: boolean;
+  onMapReady?: (map: maplibregl.Map) => void;
+  travelBounds?: [[number, number], [number, number]] | null;
+  overviewLocations?: [number, number][];
+  showOverview?: boolean;
 }
 
 // Simple raster tile style
@@ -72,15 +73,11 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-const MapCanvas = forwardRef<MapCanvasHandle, MapCanvasProps>(
-  function MapCanvas({ center, zoom, showOpeningLine }, ref) {
+function MapCanvas({ center, zoom, showOpeningLine, dimmed, onMapReady, travelBounds, overviewLocations, showOverview }: MapCanvasProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
     const lineAddedRef = useRef(false);
-
-    useImperativeHandle(ref, () => ({
-      getMap: () => mapRef.current,
-    }));
+    const overviewMarkersRef = useRef<maplibregl.Marker[]>([]);
 
     useEffect(() => {
       if (!containerRef.current || mapRef.current) return;
@@ -97,6 +94,7 @@ const MapCanvas = forwardRef<MapCanvasHandle, MapCanvasProps>(
       mapRef.current = map;
 
       map.on('load', () => {
+        onMapReady?.(map);
         // Smooth arc line
         map.addSource('opening-line', {
           type: 'geojson',
@@ -227,6 +225,57 @@ const MapCanvas = forwardRef<MapCanvasHandle, MapCanvasProps>(
       }
     }, [showOpeningLine]);
 
+    useEffect(() => {
+      const container = containerRef.current;
+      if (!container) return;
+      container.style.transition = 'filter 300ms ease';
+      container.style.filter = dimmed ? 'brightness(0.4) blur(8px)' : 'none';
+    }, [dimmed]);
+
+    useEffect(() => {
+      const map = mapRef.current;
+      if (!map || !travelBounds) return;
+      const [a, b] = travelBounds;
+      map.fitBounds([a, b], { padding: 80, duration: 0 });
+    }, [travelBounds]);
+
+    useEffect(() => {
+      const map = mapRef.current;
+      if (!map || !showOverview || !overviewLocations?.length) {
+        overviewMarkersRef.current.forEach(m => m.remove());
+        overviewMarkersRef.current = [];
+        return;
+      }
+
+      const bounds = new maplibregl.LngLatBounds();
+      for (const [lng, lat] of overviewLocations) {
+        bounds.extend([lng, lat]);
+      }
+      map.fitBounds(bounds, { padding: 60, duration: 1500 });
+
+      overviewLocations.forEach(([lng, lat], i) => {
+        const el = document.createElement('div');
+        el.className = 'location-marker location-marker--pulse';
+        el.style.opacity = '0';
+        el.style.transition = 'opacity 0.3s ease';
+
+        const marker = new maplibregl.Marker({ element: el })
+          .setLngLat([lng, lat])
+          .addTo(map);
+
+        setTimeout(() => {
+          el.style.opacity = '1';
+        }, i * 100);
+
+        overviewMarkersRef.current.push(marker);
+      });
+
+      return () => {
+        overviewMarkersRef.current.forEach(m => m.remove());
+        overviewMarkersRef.current = [];
+      };
+    }, [showOverview, overviewLocations]);
+
     // Update map position when props change
     useEffect(() => {
       const map = mapRef.current;
@@ -261,8 +310,7 @@ const MapCanvas = forwardRef<MapCanvasHandle, MapCanvasProps>(
         }}
       />
     );
-  }
-);
+}
 
 export default MapCanvas;
 export { MIDPOINT, GENT, ARC_APEX };
