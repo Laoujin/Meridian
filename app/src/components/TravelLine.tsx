@@ -19,14 +19,8 @@ export default function TravelLine({ map, from, to, progress, visible, fadeOutPr
   const fullPath = useMemo<[number, number][]>(() => {
     if (!from || !to) return [];
     const dist = haversineDistance(from, to);
-    if (dist > 100) {
-      return generateArc(from, to, 50, 0.1);
-    }
-    const points: [number, number][] = [];
-    for (let i = 0; i <= 20; i++) {
-      points.push(interpolateLine(from, to, i / 20));
-    }
-    return points;
+    const bow = dist > 100 ? 0.1 : 0.005 + (dist / 100) * 0.02;
+    return generateArc(from, to, 50, bow);
   }, [from, to]);
 
   // Ensure source+layer exist on the map, return true if ready
