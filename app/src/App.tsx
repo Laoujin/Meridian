@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback, useEffect } from 'react';
 import maplibregl from 'maplibre-gl';
 import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
@@ -41,6 +41,11 @@ export default function App() {
   const handleMapReady = useCallback((map: maplibregl.Map) => {
     setMapInstance(map);
   }, []);
+
+  // Expose state for e2e testing
+  useEffect(() => {
+    (window as any).__scrollState = { activeIndex, phase, progress, transitionType };
+  }, [activeIndex, phase, progress, transitionType]);
 
   const isOpening = activeIndex < 0;
   const isClosing = activeIndex >= memories.length;
@@ -116,6 +121,11 @@ export default function App() {
     // Hold
     return memoryLngLat(memories, activeIndex);
   }, [isOpening, isClosing, isTravelTransition, activeIndex, memories, progress]);
+
+  // Expose viewA/viewB for e2e testing
+  useEffect(() => {
+    (window as any).__viewState = { viewA, viewB, travelFrom, travelTo, lineProgress };
+  }, [viewA, viewB, travelFrom, travelTo, lineProgress]);
 
   // --- Milestone dimming ---
   const isDimmed = phase === 'hold' && activeMemory?.type === 'milestone';

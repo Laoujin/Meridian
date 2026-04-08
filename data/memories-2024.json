@@ -116,31 +116,6 @@
     ]
   },
   {
-    "id": "2024-07-13",
-    "date": "2024-07-13",
-    "type": "date",
-    "title": "Verjaardag Lieve",
-    "caption": "Caro en ik hebben spa cadeaubon het jaar nadien gekregen.",
-    "location": {
-      "lat": 50.8833,
-      "lng": 3.9833,
-      "name": "Stichelen, Haaltert"
-    },
-    "photos": [
-      "2024-07-13-verjaardag-moe.png"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "family"
-    ]
-  },
-  {
     "id": "2024-07-20",
     "date": "2024-07-20",
     "type": "trip",
