@@ -79,7 +79,6 @@ export default function App() {
 
   const lineProgress = isTravelTransition ? progress : (travelFrom ? 1 : 0);
   const travelVisible = travelFrom !== null && travelTo !== null;
-  const travelTransport = activeMemory?.transport?.[0] ?? null;
 
   // --- Map view (two points for fitBounds) ---
   // See docs/map-scroll-behavior.md for the full spec.
@@ -133,7 +132,7 @@ export default function App() {
   // --- Location markers ---
   const originCoords = travelFrom;
   const destCoords = travelTo;
-  const destPulse = true; // destination always pulses
+  const destPulse = true;
 
   // --- Milestone effect ---
   const showMilestoneEffect = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -178,7 +177,6 @@ export default function App() {
         from={travelFrom}
         to={travelTo}
         progress={lineProgress}
-        transport={travelTransport}
         visible={travelVisible}
         fadeOutProgress={0}
       />
