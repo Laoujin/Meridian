@@ -1,17 +1,6 @@
-import { useEffect, useRef, useMemo, useCallback } from 'react';
+import { useEffect, useMemo, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
-import type { Transport } from '../types/memory';
 import { haversineDistance, generateArc, sliceLine, interpolateLine } from '../utils/geo';
-
-const TRANSPORT_ICONS: Record<string, string> = {
-  car: '\u{1F697}',
-  plane: '\u{2708}\u{FE0F}',
-  train: '\u{1F686}',
-  bus: '\u{1F68C}',
-  boat: '\u{26F5}',
-  walk: '\u{1F6B6}',
-  bike: '\u{1F6B2}',
-};
 
 const SOURCE_ID = 'travel-line-source';
 const LAYER_ID = 'travel-line-layer';
@@ -21,13 +10,11 @@ interface TravelLineProps {
   from: [number, number] | null;
   to: [number, number] | null;
   progress: number;
-  transport: Transport | null;
   visible: boolean;
   fadeOutProgress: number;
 }
 
-export default function TravelLine({ map, from, to, progress, transport, visible, fadeOutProgress }: TravelLineProps) {
-  const markerRef = useRef<maplibregl.Marker | null>(null);
+export default function TravelLine({ map, from, to, progress, visible, fadeOutProgress }: TravelLineProps) {
 
   const fullPath = useMemo<[number, number][]>(() => {
     if (!from || !to) return [];
@@ -77,7 +64,6 @@ export default function TravelLine({ map, from, to, progress, transport, visible
 
     if (!visible || progress <= 0 || fullPath.length < 2) {
       source.setData({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [] } });
-      markerRef.current?.remove();
       return;
     }
 
@@ -94,44 +80,11 @@ export default function TravelLine({ map, from, to, progress, transport, visible
     } catch {
       // noop
     }
-
-    // Transport marker at the tip
-    const tip = sliced[sliced.length - 1];
-
-    if (!markerRef.current) {
-      const el = document.createElement('div');
-      el.style.fontSize = '20px';
-      el.style.lineHeight = '1';
-
-      const iconText = transport?.mode ? TRANSPORT_ICONS[transport.mode] : null;
-      if (iconText) {
-        el.textContent = iconText;
-      } else {
-        el.style.width = '12px';
-        el.style.height = '12px';
-        el.style.background = '#e8836b';
-        el.style.borderRadius = '50%';
-      }
-
-      markerRef.current = new maplibregl.Marker({ element: el });
-    }
-
-    markerRef.current.setLngLat(tip).addTo(map);
-    const el = markerRef.current.getElement();
-    el.style.opacity = `${opacity}`;
-
-    if (sliced.length >= 2) {
-      const prev = sliced[sliced.length - 2];
-      const angle = Math.atan2(tip[1] - prev[1], tip[0] - prev[0]) * (180 / Math.PI);
-      el.style.transform = `rotate(${-angle + 90}deg)`;
-    }
-  }, [map, fullPath, progress, visible, fadeOutProgress, transport, ensureSource]);
+  }, [map, fullPath, progress, visible, fadeOutProgress, ensureSource]);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      markerRef.current?.remove();
-      markerRef.current = null;
       if (map?.getLayer(LAYER_ID)) map.removeLayer(LAYER_ID);
       if (map?.getSource(SOURCE_ID)) map.removeSource(SOURCE_ID);
     };
