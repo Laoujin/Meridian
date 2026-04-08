@@ -84,7 +84,7 @@
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
-    "weather": null,
+    "weather": "raining",
     "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
@@ -116,11 +116,36 @@
     ]
   },
   {
+    "id": "2024-07-13",
+    "date": "2024-07-13",
+    "type": "date",
+    "title": "Verjaardag Lieve",
+    "caption": "Caro en ik hebben spa cadeaubon het jaar nadien gekregen.",
+    "location": {
+      "lat": 50.8833,
+      "lng": 3.9833,
+      "name": "Stichelen, Haaltert"
+    },
+    "photos": [
+      "2024-07-13-verjaardag-moe.png"
+    ],
+    "coverPhoto": null,
+    "heroPhoto": null,
+    "music": null,
+    "weather": null,
+    "expandedText": "",
+    "expandedPhotos": [],
+    "videos": [],
+    "tags": [
+      "family"
+    ]
+  },
+  {
     "id": "2024-07-20",
     "date": "2024-07-20",
     "type": "trip",
     "title": "Moulin Rouge",
-    "caption": "",
+    "caption": "Moulin Rouge! Het was daar net Olympische Spelen, alles duurder en raakten die avond niet meer aan de parking.",
     "location": {
       "lat": 48.8566,
       "lng": 2.3522,
@@ -155,7 +180,7 @@
     "date": "2024-07-26",
     "type": "date",
     "title": "Gentse Feesten",
-    "caption": "Joscha en Karen.",
+    "caption": "Met Joscha en Karen.",
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
