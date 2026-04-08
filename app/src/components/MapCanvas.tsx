@@ -97,6 +97,8 @@ function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overview
       });
 
       mapRef.current = map;
+      // Expose for e2e testing
+      (window as any).__mlMap = map;
 
       map.on('load', () => {
         onMapReadyRef.current?.(map);
@@ -291,23 +293,26 @@ function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overview
           { padding: 80, duration: 0 }
         );
       } else {
-        // 1. Compute camera that fits both points in the full viewport
-        const camera = map.cameraForBounds([viewA, viewB], {
-          padding: 60,
+        // Ensure minimum spread so fitBounds doesn't produce degenerate results
+        const minSpread = 0.01; // ~1km
+        const lngs = [viewA[0], viewB[0]];
+        const lats = [viewA[1], viewB[1]];
+        const lngSpread = Math.max(Math.abs(lngs[1] - lngs[0]), minSpread);
+        const latSpread = Math.max(Math.abs(lats[1] - lats[0]), minSpread);
+        const cLng = (lngs[0] + lngs[1]) / 2;
+        const cLat = (lats[0] + lats[1]) / 2;
+
+        const bounds: [[number, number], [number, number]] = [
+          [cLng - lngSpread / 2, cLat - latSpread / 2],
+          [cLng + lngSpread / 2, cLat + latSpread / 2],
+        ];
+
+        // Push content into the bottom 1/3 by padding the top 2/3
+        map.fitBounds(bounds, {
+          padding: { top: Math.round(h * 0.67), bottom: 40, left: 40, right: 40 },
           maxZoom: 14,
+          duration: 0,
         });
-        if (!camera) return;
-
-        // 2. Apply it so we can use project/unproject at the right zoom
-        map.jumpTo(camera);
-
-        // 3. Shift center northward so the two points appear in the bottom third
-        //    The center is at screen midpoint (h/2). We want content at h*5/6.
-        //    So shift the camera center UP by h/3 pixels.
-        const centerPx = map.project(camera.center);
-        centerPx.y -= h / 3;
-        const shifted = map.unproject(centerPx);
-        map.jumpTo({ center: shifted, zoom: camera.zoom });
       }
     }, [viewA, viewB, showOpeningLine]);
 
