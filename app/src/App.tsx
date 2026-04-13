@@ -190,6 +190,8 @@ export default function App() {
         activeIndex={activeIndex}
         targetViewA={targetViewA}
         targetViewB={targetViewB}
+        dotFrom={travelFrom}
+        dotTo={travelTo}
         showOpeningLine={isOpening}
         dimmed={isDimmed}
         onMapReady={handleMapReady}
