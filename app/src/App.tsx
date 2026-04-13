@@ -121,6 +121,17 @@ export default function App() {
     return memoryLngLat(memories, activeIndex);
   }, [isOpening, isClosing, isTravelTransition, activeIndex, memories, progress]);
 
+  // Target bounds for camera interpolation during travel transitions
+  const targetViewA = useMemo<[number, number] | undefined>(() => {
+    if (!isTravelTransition) return undefined;
+    return lineOriginAt(memories, activeIndex);
+  }, [isTravelTransition, activeIndex, memories]);
+
+  const targetViewB = useMemo<[number, number] | undefined>(() => {
+    if (!isTravelTransition) return undefined;
+    return memoryLngLat(memories, activeIndex);
+  }, [isTravelTransition, activeIndex, memories]);
+
   // Expose viewA/viewB for e2e testing
   useEffect(() => {
     (window as any).__viewState = { viewA, viewB, travelFrom, travelTo, lineProgress };
@@ -165,6 +176,11 @@ export default function App() {
       <MapCanvas
         viewA={viewA}
         viewB={viewB}
+        phase={phase}
+        progress={progress}
+        activeIndex={activeIndex}
+        targetViewA={targetViewA}
+        targetViewB={targetViewB}
         showOpeningLine={isOpening}
         dimmed={isDimmed}
         onMapReady={handleMapReady}

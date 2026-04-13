@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
@@ -38,11 +38,47 @@ const ARC_APEX = ARC_COORDS[Math.floor(ARC_COORDS.length / 2)];
 interface MapCanvasProps {
   viewA: [number, number]; // [lng, lat] - first point for fitBounds
   viewB: [number, number]; // [lng, lat] - second point for fitBounds
+  phase: 'hold' | 'transition';
+  progress: number;
+  activeIndex: number;
+  targetViewA?: [number, number]; // final viewA for transition's hold state
+  targetViewB?: [number, number]; // final viewB for transition's hold state
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
   overviewLocations?: [number, number][];
   showOverview?: boolean;
+}
+
+function computeTargetCamera(
+  map: maplibregl.Map,
+  viewA: [number, number],
+  viewB: [number, number],
+  containerHeight: number,
+): { center: [number, number]; zoom: number } | null {
+  const minSpread = 0.01;
+  const lngs = [viewA[0], viewB[0]];
+  const lats = [viewA[1], viewB[1]];
+  const lngSpread = Math.max(Math.abs(lngs[1] - lngs[0]), minSpread);
+  const latSpread = Math.max(Math.abs(lats[1] - lats[0]), minSpread);
+  const cLng = (lngs[0] + lngs[1]) / 2;
+  const cLat = (lats[0] + lats[1]) / 2;
+
+  const bounds: [[number, number], [number, number]] = [
+    [cLng - lngSpread / 2, cLat - latSpread / 2],
+    [cLng + lngSpread / 2, cLat + latSpread / 2],
+  ];
+
+  const result = map.cameraForBounds(bounds, {
+    padding: { top: Math.round(containerHeight * 0.67), bottom: 40, left: 40, right: 40 },
+    maxZoom: 14,
+  });
+
+  if (!result?.center || result.zoom == null) return null;
+  const c = result.center;
+  const lng = 'lng' in c ? c.lng : (c as unknown as [number, number])[0];
+  const lat = 'lat' in c ? c.lat : (c as unknown as [number, number])[1];
+  return { center: [lng, lat], zoom: result.zoom };
 }
 
 // Simple raster tile style
@@ -72,13 +108,16 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, targetViewB, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const mapRef = useRef<maplibregl.Map | null>(null);
     const lineAddedRef = useRef(false);
     const overviewMarkersRef = useRef<maplibregl.Marker[]>([]);
     const onMapReadyRef = useRef(onMapReady);
     const showOpeningLineRef = useRef(showOpeningLine);
+    const startCameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null);
+    const targetCameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null);
+    const prevTransitionKeyRef = useRef('');
     useEffect(() => {
       onMapReadyRef.current = onMapReady;
       showOpeningLineRef.current = showOpeningLine;
@@ -278,7 +317,7 @@ function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overview
       };
     }, [showOverview, overviewLocations]);
 
-    // Update map position — fitBounds is the only positioning method
+    // Update map position — camera interpolation during transitions, direct jump during hold
     useEffect(() => {
       const map = mapRef.current;
       if (!map) return;
@@ -292,29 +331,41 @@ function MapCanvas({ viewA, viewB, showOpeningLine, dimmed, onMapReady, overview
           ],
           { padding: 80, duration: 0 }
         );
-      } else {
-        // Ensure minimum spread so fitBounds doesn't produce degenerate results
-        const minSpread = 0.01; // ~1km
-        const lngs = [viewA[0], viewB[0]];
-        const lats = [viewA[1], viewB[1]];
-        const lngSpread = Math.max(Math.abs(lngs[1] - lngs[0]), minSpread);
-        const latSpread = Math.max(Math.abs(lats[1] - lats[0]), minSpread);
-        const cLng = (lngs[0] + lngs[1]) / 2;
-        const cLat = (lats[0] + lats[1]) / 2;
-
-        const bounds: [[number, number], [number, number]] = [
-          [cLng - lngSpread / 2, cLat - latSpread / 2],
-          [cLng + lngSpread / 2, cLat + latSpread / 2],
-        ];
-
-        // Push content into the bottom 1/3 by padding the top 2/3
-        map.fitBounds(bounds, {
-          padding: { top: Math.round(h * 0.67), bottom: 40, left: 40, right: 40 },
-          maxZoom: 14,
-          duration: 0,
-        });
+        startCameraRef.current = null;
+        return;
       }
-    }, [viewA, viewB, showOpeningLine]);
+
+      const transitionKey = `${activeIndex}-${phase}`;
+      const isNewTransition = transitionKey !== prevTransitionKeyRef.current;
+      prevTransitionKeyRef.current = transitionKey;
+
+      if (phase === 'transition' && targetViewA && targetViewB) {
+        // Travel transition: interpolate camera smoothly
+        if (isNewTransition) {
+          const center = map.getCenter();
+          startCameraRef.current = { center: [center.lng, center.lat], zoom: map.getZoom() };
+          targetCameraRef.current = computeTargetCamera(map, targetViewA, targetViewB, h);
+        }
+
+        const start = startCameraRef.current;
+        const target = targetCameraRef.current;
+        if (start && target) {
+          const p = progress;
+          const lng = start.center[0] + (target.center[0] - start.center[0]) * p;
+          const lat = start.center[1] + (target.center[1] - start.center[1]) * p;
+          const zoom = start.zoom + (target.zoom - start.zoom) * p;
+          map.jumpTo({ center: [lng, lat], zoom });
+        }
+      } else {
+        // Hold or non-travel transition: jump directly to target
+        const target = computeTargetCamera(map, viewA, viewB, h);
+        if (target) {
+          map.jumpTo({ center: target.center, zoom: target.zoom });
+        }
+        startCameraRef.current = null;
+        targetCameraRef.current = null;
+      }
+    }, [viewA, viewB, targetViewA, targetViewB, phase, progress, activeIndex, showOpeningLine]);
 
     return (
       <div
