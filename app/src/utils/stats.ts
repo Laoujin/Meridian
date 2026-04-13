@@ -25,7 +25,7 @@ export function computeStats(memories: Memory[]): JourneyStats {
       locationSet.add(`${m.location.lat},${m.location.lng}`);
     }
 
-    totalPhotos += m.photos.length + m.expandedPhotos.length;
+    totalPhotos += m.photos.length;
   }
 
   return {

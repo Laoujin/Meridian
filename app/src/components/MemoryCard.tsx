@@ -30,7 +30,7 @@ export default function MemoryCard({ memory, onShowDetails }: MemoryCardProps) {
       {memory.location?.name && (
         <div className="memory-card__location">📍 {memory.location.name}</div>
       )}
-      {(memory.expandedText || memory.expandedPhotos.length > 0) && onShowDetails && (
+      {memory.type === 'trip' && memory.days && memory.days.length > 0 && onShowDetails && (
         <button className="memory-card__details-btn" onClick={onShowDetails}>
           Meer details
         </button>

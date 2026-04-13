@@ -40,8 +40,6 @@ export interface Memory {
   photos: string[];
   music: Music | null;
   weather: Weather | null;
-  expandedText: string;
-  expandedPhotos: string[];
   videos: string[];
   tags: string[];
 
