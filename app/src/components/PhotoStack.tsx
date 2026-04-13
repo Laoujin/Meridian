@@ -9,6 +9,7 @@ export default function PhotoStack({ photos }: PhotoStackProps) {
 
   if (photos.length === 0) return null;
 
+  const isInteractive = photos.length > 1;
   const handleTap = () => {
     setTopIndex((prev) => (prev + 1) % photos.length);
   };
@@ -25,7 +26,10 @@ export default function PhotoStack({ photos }: PhotoStackProps) {
   visiblePhotos.reverse();
 
   return (
-    <div className="photo-stack" onClick={handleTap}>
+    <div
+      className={`photo-stack${isInteractive ? '' : ' photo-stack--static'}`}
+      onClick={isInteractive ? handleTap : undefined}
+    >
       {visiblePhotos.map(({ index, filename, stackPos }) => (
         <div
           key={index}
