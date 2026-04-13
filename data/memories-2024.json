@@ -225,7 +225,9 @@
       "lng": 3.6697656,
       "name": "Kortrijksesteenweg 1137, 9051 Gent"
     },
-    "photos": [],
+    "photos": [
+      "pizza-brutal.jpg"
+    ],
     "music": null,
     "weather": null,
     "videos": [],
@@ -284,7 +286,9 @@
       "lng": 3.6945205,
       "name": "Gordunakaai 91, 9000 Gent"
     },
-    "photos": [],
+    "photos": [
+      "patyntje.jpg"
+    ],
     "music": null,
     "weather": null,
     "videos": [],
@@ -304,7 +308,9 @@
       "lng": 4.3618296,
       "name": "Rue du Bailli 38, 1050 Ixelles"
     },
-    "photos": [],
+    "photos": [
+      "nyyo.jpg"
+    ],
     "music": null,
     "weather": null,
     "videos": [],
