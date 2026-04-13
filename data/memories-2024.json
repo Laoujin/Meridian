@@ -34,7 +34,9 @@
       "lng": 4.7040598,
       "name": "Alfons Smetsplein 3A, Leuven"
     },
-    "photos": [],
+    "photos": [
+      "octobar.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -45,27 +47,6 @@
     "tags": [
       "restaurant"
     ]
-  },
-  {
-    "id": "2024-06-17",
-    "date": "2024-06-17",
-    "type": "date",
-    "title": "Lader Afgeven",
-    "caption": "",
-    "location": {
-      "lat": 50.905557,
-      "lng": 4.6257737,
-      "name": "Gladiolenlaan, Herent"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": []
   },
   {
     "id": "2024-06-29-2",
