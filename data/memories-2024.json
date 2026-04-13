@@ -32,7 +32,7 @@
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
-      "name": "Leuven"
+      "name": "Alfons Smetsplein 3A, Leuven"
     },
     "photos": [],
     "coverPhoto": null,
@@ -55,7 +55,7 @@
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
-      "name": "Herent"
+      "name": "Gladiolenlaan, Herent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -76,7 +76,7 @@
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
-      "name": "Herent"
+      "name": "Gladiolenlaan, Herent"
     },
     "photos": [
       "2024-06-29-UitnodigingCaro.png"
@@ -101,7 +101,7 @@
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
-      "name": "Leuven"
+      "name": "Bondgenotenlaan 145/149, 3000 Leuven"
     },
     "photos": [],
     "coverPhoto": null,
@@ -124,7 +124,7 @@
     "location": {
       "lat": 48.8566,
       "lng": 2.3522,
-      "name": "Paris"
+      "name": "82 Bd de Clichy, 75018 Paris, France"
     },
     "photos": [
       "2024-07-20-MoulinRouge.png",
@@ -207,7 +207,7 @@
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
-      "name": "Leuven"
+      "name": "Herestraat 49, 3000 Leuven"
     },
     "photos": [
       "2024-08-26.jpg",
@@ -231,7 +231,7 @@
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
-      "name": "Herent"
+      "name": "Myrna Mackstraat 5, 3020 Herent"
     },
     "photos": [
       "2024-08-29.jpg"
@@ -254,7 +254,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussels"
+      "name": "Carr de l'Europe, 1000 Bruxelles"
     },
     "photos": [],
     "coverPhoto": null,
@@ -277,7 +277,7 @@
     "location": {
       "lat": 51.0283,
       "lng": 3.6847,
-      "name": "Sint-Denijs-Westrem"
+      "name": "Kortrijksesteenweg 1137, 9051 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -300,7 +300,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Rue Ropsy Chaudron 49, 1070 Anderlecht"
     },
     "photos": [
       "2024-09-12-lapaix.jpg"
@@ -325,7 +325,7 @@
     "location": {
       "lat": 50.8833,
       "lng": 3.9833,
-      "name": "Stichelen, Haaltert"
+      "name": "Stichelen 70, Haaltert"
     },
     "photos": [],
     "coverPhoto": null,
@@ -348,7 +348,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Restaurant 't Patyntje, Gordunakaai 91, 9000 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -372,7 +372,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Rue du Bailli 38, 1050 Ixelles"
     },
     "photos": [],
     "coverPhoto": null,
@@ -396,7 +396,7 @@
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
-      "name": "Herent"
+      "name": "Gladiolenlaan, Herent"
     },
     "photos": [
       "2024-09-18-birthday.jpg",
@@ -422,7 +422,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -470,7 +470,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Brabantdam 134, 9000 Gent"
     },
     "photos": [
       "20241004_211137.jpg"
@@ -496,7 +496,7 @@
     "location": {
       "lat": 51.2194,
       "lng": 4.4025,
-      "name": "Antwerpen"
+      "name": "Arenbergstraat 28, 2000 Antwerpen"
     },
     "photos": [
       "20241016_174712.jpg",
@@ -523,7 +523,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Mont des Arts, 1000 Bruxelles"
     },
     "photos": [
       "20241019_152202.jpg"
@@ -550,7 +550,7 @@
     "location": {
       "lat": 50.85,
       "lng": 4.2,
-      "name": "Schepdaal"
+      "name": "22, Marktplein, 1703 Dilbeek"
     },
     "photos": [
       "20241019_223809.jpg"
@@ -578,7 +578,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Hoogpoort 9, 9000 Gent"
     },
     "photos": [
       "20241026_211706.jpg"
@@ -962,7 +962,7 @@
     "location": {
       "lat": 51.9225,
       "lng": 4.4792,
-      "name": "Rotterdam"
+      "name": "Ahoyweg 10, 3084 BD Rotterdam, Netherlands"
     },
     "photos": [
       "20241117_174910.jpg"
@@ -991,7 +991,7 @@
     "location": {
       "lat": 51.2093,
       "lng": 3.2247,
-      "name": "Brugge"
+      "name": "Dweersstraat 12, 8000 Brugge"
     },
     "photos": [
       "20241123_164433.jpg",
@@ -1020,7 +1020,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Hofmeierstraat, 9000 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1043,7 +1043,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Ixelles"
+      "name": "Quai aux Briques 34, 1000 Bruxelles"
     },
     "photos": [
       "20241203_191106.jpg"
@@ -1068,7 +1068,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Av. du Port 86C, 1000 Bruxelles"
     },
     "photos": [
       "20241214_155823(1).jpg",
@@ -1098,7 +1098,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "20241221_175555.jpg",
@@ -1122,7 +1122,7 @@
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
-      "name": "Leuven"
+      "name": "Nachtegalenstraat 18, 3001 Heverlee"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1146,7 +1146,7 @@
     "location": {
       "lat": 50.8833,
       "lng": 3.9833,
-      "name": "Stichelen, Haaltert"
+      "name": "Stichelen 70, Haaltert"
     },
     "photos": [],
     "coverPhoto": null,

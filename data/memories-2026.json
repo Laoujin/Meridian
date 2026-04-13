@@ -8,7 +8,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Yalo, Gent"
+      "name": "Brabantdam 33, 9000 Gent"
     },
     "photos": [
       "1770199850426-2026-01-02.png"
@@ -33,7 +33,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Woodrow Wilsonplein 1, 9000 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -61,7 +61,7 @@
     "location": {
       "lat": 51.0167,
       "lng": 3.6333,
-      "name": "Chez Jean, Sint-Martens-Latem"
+      "name": "Dorp 10, 9830 Sint-Martens-Latem"
     },
     "photos": [
       "1770199642771-2026-01-14.png"
@@ -86,7 +86,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "1770199700806-2026-01-17.png",
@@ -113,7 +113,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "La Malcontenta, Gent"
+      "name": "Haringsteeg 7, 9000 Gent"
     },
     "photos": [
       "1770199441659-2026-01-21.png"
@@ -138,7 +138,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "1770199290805-2026-01-23.png"
@@ -163,7 +163,7 @@
     "location": {
       "lat": 51.2194,
       "lng": 4.4025,
-      "name": "Hall AthenA, Antwerpen"
+      "name": "Franklin Rooseveltplaats 11, 2060 Antwerpen"
     },
     "photos": [],
     "coverPhoto": null,
@@ -186,7 +186,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Taverne Ambiance, Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 238, 9040 Gent"
     },
     "photos": [
       "1770199000309-2026-01-31.png"
@@ -212,7 +212,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "1770198787945-2026-02-01.png"
@@ -237,7 +237,7 @@
     "location": {
       "lat": 50.8798,
       "lng": 4.7005,
-      "name": "Leuven"
+      "name": "Monseigneur Ladeuzeplein 32, 3000 Leuven"
     },
     "photos": [
       "1772990823687-2026-02-07.png"
@@ -263,7 +263,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Yalo, Gent"
+      "name": "Brabantdam 33, 9000 Gent"
     },
     "photos": [
       "1772990874137-2026-02-08.png"
@@ -277,32 +277,6 @@
     "videos": [],
     "tags": [
       "restaurant"
-    ]
-  },
-  {
-    "id": "2026-02-10",
-    "date": "2026-02-10",
-    "type": "date",
-    "title": "Badkamer Kleuren",
-    "caption": "Caro badkamer kleuren uitproberen met ChatGPT. Eerste keer bad gebruikt!",
-    "location": {
-      "lat": 51.0597,
-      "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
-    },
-    "photos": [
-      "1772991944849-2026-02-10.png",
-      "1772991900460-2026-02-10.png"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "home"
     ]
   },
   {
@@ -343,7 +317,7 @@
     "location": {
       "lat": 51.0958,
       "lng": 4.5092,
-      "name": "Nuance, Duffel"
+      "name": "Kiliaanstraat 6-8, 2570 Duffel"
     },
     "photos": [
       "1772991437243-2026-02-18.png",
@@ -372,7 +346,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Publiek, Gent"
+      "name": "Ham 39, 9000 Gent"
     },
     "photos": [
       "1772992363561-2026-02-20.png",
@@ -400,7 +374,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Amai Comedy Club, Gent"
+      "name": "Burgstraat 59, 9000 Gent"
     },
     "photos": [
       "1772992775410-2026-02-21.png",
@@ -426,7 +400,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Nepal Delight, Gent"
+      "name": "Normaalschoolstraat 7, 9000 Gent"
     },
     "photos": [
       "1772995396394-2026-02-22.png",
@@ -472,11 +446,11 @@
       {
         "mode": "car",
         "from": "Gent",
-        "to": "Brussels Airport"
+        "to": "Chaleroi Airport"
       },
       {
         "mode": "plane",
-        "from": "Brussels",
+        "from": "Chaleroi Airport",
         "to": "Marrakesh"
       }
     ],
@@ -628,26 +602,5 @@
         ]
       }
     ]
-  },
-  {
-    "id": "valentijn-2026",
-    "date": "2026-02-18",
-    "type": "special",
-    "title": "Valentijn 2026",
-    "caption": "Valentijn kaartje/gedicht voor Caro met bloemen.",
-    "location": null,
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "valentijn",
-      "special-card"
-    ],
-    "linkedTo": "2026-02-18"
   }
 ]

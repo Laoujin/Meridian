@@ -1,28 +1,5 @@
 [
   {
-    "id": "2025-01-02",
-    "date": "2025-01-02",
-    "type": "date",
-    "title": "Night Out Gent",
-    "caption": "Night out in Gent. Stil zijn, Caro slaapt al!",
-    "location": {
-      "lat": 51.0543,
-      "lng": 3.7174,
-      "name": "Gent"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends"
-    ]
-  },
-  {
     "id": "2025-01-03",
     "date": "2025-01-03",
     "type": "date",
@@ -31,7 +8,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Av. du Port 86C, 1000 Bruxelles"
     },
     "photos": [
       "20250103_223157.jpg",
@@ -60,7 +37,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -85,7 +62,7 @@
     "location": {
       "lat": 51.5074,
       "lng": -0.1278,
-      "name": "London"
+      "name": "126 Victoria St, London SW1E 5EA, United Kingdom"
     },
     "photos": [
       "20250117_105530.jpg",
@@ -130,7 +107,7 @@
     "location": {
       "lat": 51.2094,
       "lng": 4.3955,
-      "name": "Antwerpen"
+      "name": "Limastraat 5, 2000 Antwerpen"
     },
     "photos": [
       "20250213_224716.jpg",
@@ -159,7 +136,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Kortrijksesteenweg 110, 9000 Gent"
     },
     "photos": [
       "20250308_131211.jpg"
@@ -184,7 +161,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "2025-03-15 11.28.42.jpg"
@@ -211,7 +188,7 @@
     "location": {
       "lat": 48.8566,
       "lng": 2.3522,
-      "name": "Paris"
+      "name": "Stade De France, 93200 Saint-Denis, France"
     },
     "photos": [
       "20250419_223756.jpg",
@@ -253,7 +230,7 @@
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
-      "name": "Herent"
+      "name": "Gladiolenlaan, Herent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -276,7 +253,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -299,7 +276,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "2025-04-27 11.39.29.jpg",
@@ -495,7 +472,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Ixelles"
+      "name": "Pl. Eugène Flagey 18A, 1050 Ixelles"
     },
     "photos": [
       "20250513_185048.jpg"
@@ -520,7 +497,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "2025-05-18 11.39.30.jpg"
@@ -545,7 +522,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel, AB"
+      "name": "Bd Anspach 110, 1000 Bruxelles"
     },
     "photos": [
       "20250527_214219.jpg"
@@ -574,7 +551,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Nederkouter 30, 9000 Gent"
     },
     "photos": [
       "20250607_132016.jpg",
@@ -600,7 +577,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "20250722_195032.jpg",
@@ -629,7 +606,7 @@
     "location": {
       "lat": 51.0475,
       "lng": 3.6584,
-      "name": "Drongen"
+      "name": "Baarlevelde Straat 2, 9031 Gent"
     },
     "photos": [
       "20250621_205131.jpg"
@@ -654,7 +631,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Parc d'Osseghem Laeken, Brussel"
     },
     "photos": [
       "20250629_173436.jpg",
@@ -739,7 +716,7 @@
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
-      "name": "Herent"
+      "name": "Myrna Mackstraat 5, 3020 Herent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -763,7 +740,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "2025-07-26.jpg",
@@ -792,7 +769,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Hoogpoort 9, 9000 Gent"
     },
     "photos": [
       "2025-08-01.jpg"
@@ -817,7 +794,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Hoogstraat 23, 9000 Gent"
     },
     "photos": [
       "2025-08-08-gillis.jpg",
@@ -844,7 +821,7 @@
     "location": {
       "lat": 51.1076,
       "lng": 3.9903,
-      "name": "Lokeren"
+      "name": "Grote Kaai, 9160 Lokeren"
     },
     "photos": [],
     "coverPhoto": null,
@@ -872,7 +849,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Ter Platen 12, 9000 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -887,29 +864,6 @@
     ]
   },
   {
-    "id": "2025-08-12",
-    "date": "2025-08-12",
-    "type": "date",
-    "title": "Bokes door Caro",
-    "caption": "Pingpong stage. Bokes gemaakt door Caro.",
-    "location": {
-      "lat": 51.0,
-      "lng": 3.75,
-      "name": "Merelbeke"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "pingpong"
-    ]
-  },
-  {
     "id": "2025-08-15",
     "date": "2025-08-15",
     "type": "date",
@@ -918,7 +872,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Dampoort, Gent"
     },
     "photos": [
       "2025-08-15-tapas-bord.jpg"
@@ -935,30 +889,6 @@
     "tags": [
       "restaurant",
       "cocktail"
-    ]
-  },
-  {
-    "id": "2025-08-16",
-    "date": "2025-08-16",
-    "type": "date",
-    "title": "Cabaret Vert",
-    "caption": "Cabaret Vert festival. Afgezet door Caro, later is ze ook nog gekomen.",
-    "location": {
-      "lat": 49.7719,
-      "lng": 4.72,
-      "name": "Charleville-Mézières"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "festival",
-      "friends"
     ]
   },
   {
@@ -994,7 +924,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1020,7 +950,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Sluizeken 12, 9000 Gent"
     },
     "photos": [
       "2025-08-30.jpg",
@@ -1075,7 +1005,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1099,7 +1029,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Aannemersstraat 1A, 9040 Gent"
     },
     "photos": [
       "2025-09-07.jpg"
@@ -1126,7 +1056,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "2025-09-13-Voorgerecht.png",
@@ -1146,30 +1076,6 @@
     ]
   },
   {
-    "id": "2025-09-17",
-    "date": "2025-09-17",
-    "type": "date",
-    "title": "Pingpong",
-    "caption": "Pingpong avond.",
-    "location": {
-      "lat": 50.9333,
-      "lng": 3.95,
-      "name": "Erpe-Mere"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "pingpong",
-      "birthday"
-    ]
-  },
-  {
     "id": "2025-09-17-2",
     "date": "2025-09-17",
     "type": "date",
@@ -1178,7 +1084,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1202,7 +1108,7 @@
     "location": {
       "lat": 50.7707,
       "lng": 3.8808,
-      "name": "Geraardsbergen"
+      "name": "Goeferdingeplein 21, 9500 Geraardsbergen"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1227,7 +1133,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1252,7 +1158,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Hoogpoort 9, 9000 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1300,7 +1206,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1324,7 +1230,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Pontstraat 2, 9831 Sint-Martens-Latem"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1341,29 +1247,6 @@
     ]
   },
   {
-    "id": "2025-09-25",
-    "date": "2025-09-25",
-    "type": "date",
-    "title": "Caro Wax",
-    "caption": "Caro wax ;)",
-    "location": {
-      "lat": 51.0259,
-      "lng": 4.4776,
-      "name": "Mechelen"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "itenium"
-    ]
-  },
-  {
     "id": "2025-09-27",
     "date": "2025-09-27",
     "type": "date",
@@ -1372,7 +1255,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "L'Esplanade 161, 1020 Bruxelles"
     },
     "photos": [
       "2025-09-Zara3.jpg",
@@ -1411,7 +1294,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "2025-09-28-bbq-chicken.jpg"
@@ -1428,31 +1311,6 @@
     ]
   },
   {
-    "id": "2025-10-01",
-    "date": "2025-10-01",
-    "type": "date",
-    "title": "Winterkleren Caro",
-    "caption": "Winterkleren van Caro komen toe.",
-    "location": {
-      "lat": 51.0597,
-      "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
-    },
-    "photos": [
-      "2025-10-01-WinterklerenCaro.png"
-    ],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "thuis"
-    ]
-  },
-  {
     "id": "2025-10-02",
     "date": "2025-10-02",
     "type": "date",
@@ -1461,7 +1319,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Nieuwewandeling 62, 9000 Gent"
     },
     "photos": [
       "2025-10-02-Rizoom.jpg",
@@ -1481,54 +1339,6 @@
     ]
   },
   {
-    "id": "2025-10-04",
-    "date": "2025-10-04",
-    "type": "date",
-    "title": "Fietsen",
-    "caption": "Bike ride.",
-    "location": {
-      "lat": 50.8358,
-      "lng": 4.0171,
-      "name": "Ninove"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends",
-      "serie"
-    ]
-  },
-  {
-    "id": "2025-10-04-2",
-    "date": "2025-10-04",
-    "type": "date",
-    "title": "Lucifer",
-    "caption": "Lucifer kijken met Caro.",
-    "location": {
-      "lat": 51.0597,
-      "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends",
-      "serie"
-    ]
-  },
-  {
     "id": "2025-10-05",
     "date": "2025-10-05",
     "type": "date",
@@ -1537,7 +1347,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Rue du Marché aux Herbes 116, 1000 Bruxelles"
     },
     "photos": [
       "2025-10-05-JulesVerne.jpg",
@@ -1566,7 +1376,7 @@
     "location": {
       "lat": 51.2194,
       "lng": 4.4025,
-      "name": "Antwerpen"
+      "name": "Zand 3, 2000 Antwerpen"
     },
     "photos": [
       "2025-10-05-KoreanDrumBBQ.jpg",
@@ -1586,29 +1396,6 @@
     ]
   },
   {
-    "id": "2025-10-06",
-    "date": "2025-10-06",
-    "type": "date",
-    "title": "Bij Jos — Mariokart",
-    "caption": "Bij Jos. Caro mee gaan eten. Mariokart, Bish Bash Bots.",
-    "location": {
-      "lat": 51.0543,
-      "lng": 3.7174,
-      "name": "Gent"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends"
-    ]
-  },
-  {
     "id": "2025-10-11",
     "date": "2025-10-11",
     "type": "date",
@@ -1617,7 +1404,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Wiedauwkaai 23/25, 9000 Gent"
     },
     "photos": [
       "20251011_120454.jpg",
@@ -1650,7 +1437,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "1760518148805-2025-10-12.png"
@@ -1675,7 +1462,7 @@
     "location": {
       "lat": 50.8503,
       "lng": 4.3517,
-      "name": "Brussel"
+      "name": "Bd Anspach 110, 1000 Bruxelles"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1704,7 +1491,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Graaf van Vlaanderenplein 5, 9000 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -1733,7 +1520,7 @@
     "location": {
       "lat": 50.8833,
       "lng": 4.0667,
-      "name": "Denderleeuw"
+      "name": "Hertstraat 22, 9473 Denderleeuw"
     },
     "photos": [],
     "coverPhoto": null,
@@ -2148,7 +1935,7 @@
     "location": {
       "lat": 51.2093,
       "lng": 3.2247,
-      "name": "Brugge"
+      "name": "Hooistraat 42, 8000 Brugge"
     },
     "photos": [
       "1763561117968-2025-11-13.png",
@@ -2296,12 +2083,12 @@
     "id": "2025-11-22-2",
     "date": "2025-11-22",
     "type": "date",
-    "title": "CoderDojo + Allegro Moderato",
-    "caption": "Met Thijs en Vic naar Coder Dojo Haaltert. Gaan eten in Allegro Moderato na 7 restaurants gecheckt te hebben die vol zaten.",
+    "title": "Allegro Moderato",
+    "caption": "Gaan eten in Allegro Moderato na 7 restaurants gecheckt te hebben die vol zaten.",
     "location": {
       "lat": 50.8833,
       "lng": 3.9833,
-      "name": "Haaltert"
+      "name": "Korenlei 7, 9000 Gent"
     },
     "photos": [
       "20251122_202851.jpg"
@@ -2328,7 +2115,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "9000, Burgstraat 16, 9000 Gent"
     },
     "photos": [
       "IMG-20251125-WA0006.jpg",
@@ -2354,7 +2141,7 @@
     "location": {
       "lat": 50.85,
       "lng": 4.2,
-      "name": "Schepdaal"
+      "name": "22, Marktplein, 1703 Dilbeek"
     },
     "photos": [],
     "coverPhoto": null,
@@ -2378,7 +2165,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Ter Platen 12, 9000 Gent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -2393,29 +2180,6 @@
     ]
   },
   {
-    "id": "2025-12-03",
-    "date": "2025-12-03",
-    "type": "date",
-    "title": "Haantjes + F1",
-    "caption": "Haantjes bij Thijs. Afspreken met Caro om naar F1 te gaan kijken.",
-    "location": {
-      "lat": 50.8358,
-      "lng": 4.0171,
-      "name": "Ninove"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "friends"
-    ]
-  },
-  {
     "id": "2025-12-09",
     "date": "2025-12-09",
     "type": "date",
@@ -2424,7 +2188,7 @@
     "location": {
       "lat": 51.0543,
       "lng": 3.7174,
-      "name": "Gent"
+      "name": "Graaf van Vlaanderenplein 5, 9000 Gent"
     },
     "photos": [
       "1765359159259-2025-12-09.png"
@@ -2466,7 +2230,7 @@
     ],
     "transport": [
       {
-        "mode": "plane",
+        "mode": "car",
         "from": "Brussels",
         "to": "Berlin"
       }
@@ -2479,7 +2243,7 @@
         "location": {
           "lat": 52.52,
           "lng": 13.405,
-          "name": "Berlin"
+          "name": "Große Hamburger Str. 17, 10115 Berlin, Germany"
         },
         "photos": [],
         "videos": [],
@@ -2494,7 +2258,7 @@
         "location": {
           "lat": 52.52,
           "lng": 13.405,
-          "name": "Berlin"
+          "name": "Friedrichstraße 218, 10969 Berlin, Germany"
         },
         "photos": [],
         "videos": [],
@@ -2513,7 +2277,7 @@
     "location": {
       "lat": 51.0875,
       "lng": 2.975,
-      "name": "Koekelare"
+      "name": "Donk 2, 2360 Oud-Turnhout"
     },
     "photos": [
       "1766002275324-2025-12-14.png"
@@ -2538,7 +2302,7 @@
     "location": {
       "lat": 50.8833,
       "lng": 3.9833,
-      "name": "Stichelen, Haaltert"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "1766427222415-2025-12-20.png",
@@ -2565,7 +2329,7 @@
     "location": {
       "lat": 50.8647,
       "lng": 4.3489,
-      "name": "Brussel"
+      "name": "Av. du Port 86C, 1000 Bruxelles"
     },
     "photos": [
       "1766427287316-2025-12-20.png",
@@ -2595,7 +2359,7 @@
     "location": {
       "lat": 50.8833,
       "lng": 3.9833,
-      "name": "Stichelen, Haaltert"
+      "name": "Stichelen 70, Haaltert"
     },
     "photos": [],
     "coverPhoto": null,
@@ -2619,7 +2383,7 @@
     "location": {
       "lat": 50.8985,
       "lng": 4.6717,
-      "name": "Herent"
+      "name": "Myrna Mackstraat 5, 3020 Herent"
     },
     "photos": [],
     "coverPhoto": null,
@@ -2635,30 +2399,6 @@
     ]
   },
   {
-    "id": "2025-12-26",
-    "date": "2025-12-26",
-    "type": "date",
-    "title": "Heleen + Samosas",
-    "caption": "Heleen kwam bij ons na een dagje winkelen met moe. Samosas gemaakt.",
-    "location": {
-      "lat": 51.0597,
-      "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "Thuis weer met Heleen het eerste seizoen van Solo Leveling gezien.",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "family",
-      "restaurant"
-    ]
-  },
-  {
     "id": "2025-12-26-2",
     "date": "2025-12-26",
     "type": "date",
@@ -2667,7 +2407,7 @@
     "location": {
       "lat": 51.0167,
       "lng": 3.6333,
-      "name": "Sint-Martens-Latem"
+      "name": "Pontstraat 2, 9831 Sint-Martens-Latem"
     },
     "photos": [],
     "coverPhoto": null,
@@ -2691,7 +2431,7 @@
     "location": {
       "lat": 50.82,
       "lng": 4.08,
-      "name": "De Wingerd, Pamel"
+      "name": "Poelkveldstraat 60, 1760 Roosdaal"
     },
     "photos": [
       "1767432797464-2025-12-27.png",
@@ -2716,52 +2456,6 @@
     ]
   },
   {
-    "id": "2025-12-28",
-    "date": "2025-12-28",
-    "type": "date",
-    "title": "Rubberplant",
-    "caption": "Tip van Caro: rubberplant. Opkuis.",
-    "location": {
-      "lat": 51.0597,
-      "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "thuis"
-    ]
-  },
-  {
-    "id": "2025-12-30",
-    "date": "2025-12-30",
-    "type": "date",
-    "title": "Cadootjes voor Caro",
-    "caption": "Cadootjes kopen voor Caro: poncho, oorbellen, Le Creuset.",
-    "location": {
-      "lat": 51.0597,
-      "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
-    },
-    "photos": [],
-    "coverPhoto": null,
-    "heroPhoto": null,
-    "music": null,
-    "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "food"
-    ]
-  },
-  {
     "id": "2025-12-31",
     "date": "2025-12-31",
     "type": "date",
@@ -2770,7 +2464,7 @@
     "location": {
       "lat": 51.0597,
       "lng": 3.7527,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
     "coverPhoto": null,
