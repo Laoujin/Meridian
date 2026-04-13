@@ -103,7 +103,7 @@
     "date": "2024-07-20",
     "type": "trip",
     "title": "Moulin Rouge",
-    "caption": "Het was daar net Olympische Spelen, alles duurder en raakten die avond niet meer aan de parking.",
+    "caption": "Olympische Spelen, Hotel Jeanne d'Arc le Marais, Boot Cafe, Coulée Verte.",
     "location": {
       "lat": 48.8841094,
       "lng": 2.3323564,
@@ -113,13 +113,14 @@
       "2024-07-20-MoulinRouge.png",
       "2024-07-20-moulin-rouge.jpg",
       "2024-07-20-boot-cafe.jpg",
-      "2024-07-20.jpg"
+      "2024-07-20.jpg",
+      "2024-07-20-coulee-verte.jpg"
     ],
     "coverPhoto": null,
     "heroPhoto": "2024-07-20-MoulinRouge.png",
     "music": null,
     "weather": null,
-    "expandedText": "Boot cafe: 19 Rue du Pont aux Choux, 75003 Paris. Hotel Jeanne d'Arc le marais.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
