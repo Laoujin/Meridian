@@ -96,8 +96,9 @@ export default function App() {
       return interpolateLine(prevViewA, nextViewA, progress);
     }
 
-    // Hold at memory 0: show Gent (widest point) so converging lines are visible
+    // Hold at memory 0: use Gent as viewA so Gent, Herent and Zaventem are all visible
     if (activeIndex === 0) return GENT;
+
 
     return lineOriginAt(memories, activeIndex);
   }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
@@ -107,8 +108,11 @@ export default function App() {
     if (isClosing) return memoryLngLat(memories, memories.length - 1);
 
     if (isOpeningTransition) {
-      return interpolateLine(HERENT, memoryLngLat(memories, 0), progress);
+      return interpolateLine(HERENT, HERENT, progress); // stays at Herent during transition
     }
+
+    // Hold at memory 0: use Herent as viewB to match the target camera
+    if (activeIndex === 0) return HERENT;
 
     if (isTravelTransition) {
       const prevViewB = memoryLngLat(memories, activeIndex - 1);
@@ -120,14 +124,16 @@ export default function App() {
   }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
   // Target bounds for camera interpolation during travel transitions
+  // For the opening transition and hold0, the camera must frame Gent, Herent AND Zaventem.
+  // Gent is the westernmost, Herent is the easternmost.
   const targetViewA = useMemo<[number, number] | undefined>(() => {
-    if (isOpeningTransition) return memoryLngLat(memories, 0);
+    if (isOpeningTransition) return GENT;
     if (!isTravelTransition) return undefined;
     return lineOriginAt(memories, activeIndex);
   }, [isOpeningTransition, isTravelTransition, activeIndex, memories]);
 
   const targetViewB = useMemo<[number, number] | undefined>(() => {
-    if (isOpeningTransition) return memoryLngLat(memories, 0);
+    if (isOpeningTransition) return HERENT;
     if (!isTravelTransition) return undefined;
     return memoryLngLat(memories, activeIndex);
   }, [isOpeningTransition, isTravelTransition, activeIndex, memories]);
