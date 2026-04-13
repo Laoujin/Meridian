@@ -3,3 +3,6 @@ _bmad
 .superpowers
 .worktrees
 app/test-results/
+
+scripts/
+working/
