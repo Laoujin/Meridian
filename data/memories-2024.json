@@ -84,7 +84,9 @@
       "lng": 4.7118576,
       "name": "Bondgenotenlaan 145/149, 3000 Leuven"
     },
-    "photos": [],
+    "photos": [
+      "inside-out-2.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
@@ -101,7 +103,7 @@
     "date": "2024-07-20",
     "type": "trip",
     "title": "Moulin Rouge",
-    "caption": "Moulin Rouge! Het was daar net Olympische Spelen, alles duurder en raakten die avond niet meer aan de parking.",
+    "caption": "Het was daar net Olympische Spelen, alles duurder en raakten die avond niet meer aan de parking.",
     "location": {
       "lat": 48.8841094,
       "lng": 2.3323564,
