@@ -327,9 +327,9 @@ function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, ta
         map.fitBounds(
           [
             [GENT.lng - 0.05, Math.min(GENT.lat, HERENT.lat) - 0.05],
-            [HERENT.lng + 0.05, Math.max(GENT.lat, HERENT.lat) + 0.2],
+            [HERENT.lng + 0.05, Math.max(GENT.lat, HERENT.lat) + 0.15],
           ],
-          { padding: 80, duration: 0 }
+          { padding: { top: Math.round(h * 0.72), bottom: 40, left: 40, right: 40 }, duration: 0 }
         );
         startCameraRef.current = null;
         return;
