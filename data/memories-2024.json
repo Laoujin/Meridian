@@ -11,7 +11,6 @@
       "name": "Zaventem"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -36,7 +35,6 @@
     "photos": [
       "octobar.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -60,7 +58,6 @@
     "photos": [
       "2024-06-29-UitnodigingCaro.png"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": "raining",
     "expandedText": "",
@@ -84,7 +81,6 @@
     "photos": [
       "inside-out-2.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -112,7 +108,6 @@
       "2024-07-20.jpg",
       "2024-07-20-coulee-verte.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -143,7 +138,6 @@
     "photos": [
       "2024-07-26.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -167,7 +161,6 @@
     "photos": [
       "2024-08-09.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -190,7 +183,6 @@
       "2024-08-26.jpg",
       "2024-08-26-geslaagd.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -212,7 +204,6 @@
     "photos": [
       "2024-08-29.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -234,7 +225,6 @@
     "photos": [
       "brussels-chuckles.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -256,7 +246,6 @@
       "name": "Kortrijksesteenweg 1137, 9051 Gent"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -280,7 +269,6 @@
     "photos": [
       "2024-09-12-lapaix.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -302,7 +290,6 @@
       "name": "Stichelen 70, Haaltert"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -324,7 +311,6 @@
       "name": "Gordunakaai 91, 9000 Gent"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -347,7 +333,6 @@
       "name": "Rue du Bailli 38, 1050 Ixelles"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -373,7 +358,6 @@
       "2024-09-18-birthday.jpg",
       "2024-09-18-42.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -395,7 +379,6 @@
       "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -419,7 +402,6 @@
     "photos": [
       "2024-09-28-wandeling.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -443,7 +425,6 @@
     "photos": [
       "20241004_211137.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -469,7 +450,6 @@
       "20241016_174712.jpg",
       "20241016_215819.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -494,7 +474,6 @@
     "photos": [
       "20241019_152202.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -520,7 +499,6 @@
     "photos": [
       "20241019_223809.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -547,7 +525,6 @@
     "photos": [
       "20241026_211706.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -571,7 +548,6 @@
       "name": "Ho Chi Minh City, Vietnam"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": {
       "track": "dancing-on-my-own.mp3",
       "artist": "Taylor Swift",
@@ -929,7 +905,6 @@
     "photos": [
       "20241117_174910.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -958,7 +933,6 @@
       "20241123_164433.jpg",
       "20241123_222339.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -983,7 +957,6 @@
       "name": "Hofmeierstraat, 9000 Gent"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1007,7 +980,6 @@
     "photos": [
       "20241203_191106.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1033,7 +1005,6 @@
       "20241214_162709.jpg",
       "20241213_210413(1).jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1061,7 +1032,6 @@
       "20241221_175555.jpg",
       "20241221_175558.jpg"
     ],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1081,7 +1051,6 @@
       "name": "Nachtegalenstraat 18, 3001 Heverlee"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1104,7 +1073,6 @@
       "name": "Stichelen 70, Haaltert"
     },
     "photos": [],
-    "coverPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
