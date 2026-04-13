@@ -13,8 +13,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "first-date",
@@ -37,8 +35,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant"
@@ -60,8 +56,6 @@
     ],
     "music": null,
     "weather": "raining",
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family"
@@ -83,8 +77,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "movie"
@@ -110,8 +102,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "city-trip"
@@ -140,8 +130,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "friends"
@@ -163,8 +151,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": []
   },
@@ -185,8 +171,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": []
   },
@@ -206,8 +190,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": []
   },
@@ -227,8 +209,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "comedy"
@@ -248,8 +228,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant"
@@ -271,8 +249,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant"
@@ -292,8 +268,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family"
@@ -313,8 +287,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant",
@@ -335,8 +307,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant",
@@ -360,8 +330,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant"
@@ -381,8 +349,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family"
@@ -404,8 +370,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family"
@@ -427,8 +391,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family",
@@ -452,8 +414,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant",
@@ -476,8 +436,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant",
@@ -497,14 +455,11 @@
       "name": "22, Marktplein, 1703 Dilbeek"
     },
     "photos": [
-      "20241019_223809.jpg"
+      "20241019_223809.jpg",
+      "2024-10-19-HeleenCado.png"
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [
-      "2024-10-19-HeleenCado.png"
-    ],
     "videos": [],
     "tags": [
       "restaurant",
@@ -527,8 +482,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant"
@@ -554,8 +507,6 @@
       "title": "Dancing On My Own"
     },
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "travel"
@@ -907,8 +858,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [
       "20241117_164805.mp4",
       "20241117_162721.mp4"
@@ -931,14 +880,11 @@
     },
     "photos": [
       "20241123_164433.jpg",
-      "20241123_222339.jpg"
+      "20241123_222339.jpg",
+      "20241124_131551(1).jpg"
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [
-      "20241124_131551(1).jpg"
-    ],
     "videos": [],
     "tags": [
       "friends",
@@ -959,8 +905,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family"
@@ -982,8 +926,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "restaurant"
@@ -1003,14 +945,11 @@
     "photos": [
       "20241214_155823(1).jpg",
       "20241214_162709.jpg",
-      "20241213_210413(1).jpg"
+      "20241213_210413(1).jpg",
+      "20241215_134542.jpg"
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [
-      "20241215_134542.jpg"
-    ],
     "videos": [],
     "tags": [
       "expo",
@@ -1034,8 +973,6 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": []
   },
@@ -1053,8 +990,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family",
@@ -1075,8 +1010,6 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "",
-    "expandedPhotos": [],
     "videos": [],
     "tags": [
       "family",

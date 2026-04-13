@@ -7,7 +7,7 @@ function makeMemory(overrides: Partial<Memory> = {}): Memory {
     id: 'test', date: '2024-06-12', type: 'date', title: 'Test',
     caption: '', location: { lat: 51.05, lng: 3.75, name: 'Gent' },
     photos: [], music: null,
-    weather: null, expandedText: '', expandedPhotos: [], videos: [], tags: [],
+    weather: null, videos: [], tags: [],
     ...overrides,
   };
 }

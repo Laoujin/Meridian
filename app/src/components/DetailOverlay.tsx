@@ -1,19 +1,11 @@
 import type { Memory } from '../types/memory';
 import { format, parseISO } from 'date-fns';
 import { nl } from 'date-fns/locale';
-import Markdown from 'react-markdown';
 import '../styles/detail-overlay.css';
 
 interface DetailOverlayProps {
   memory: Memory;
   onClose: () => void;
-}
-
-/** Rewrite relative image paths to /photos/full/ */
-function resolveImageSrc(src: string | undefined): string {
-  if (!src) return '';
-  if (src.startsWith('http') || src.startsWith('/')) return src;
-  return `/photos/full/${src}`;
 }
 
 export default function DetailOverlay({ memory, onClose }: DetailOverlayProps) {
@@ -28,20 +20,6 @@ export default function DetailOverlay({ memory, onClose }: DetailOverlayProps) {
           <div className="detail-overlay__date">{dateStr}</div>
           <h2 className="detail-overlay__title">{memory.title}</h2>
         </div>
-
-        {memory.expandedText && (
-          <div className="detail-overlay__body">
-            <Markdown
-              components={{
-                img: ({ src, alt }) => (
-                  <img src={resolveImageSrc(src)} alt={alt ?? ''} loading="lazy" />
-                ),
-              }}
-            >
-              {memory.expandedText}
-            </Markdown>
-          </div>
-        )}
 
         {memory.days?.map((day, i) => (
           <div key={i} className="detail-overlay__day">
