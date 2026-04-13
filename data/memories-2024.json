@@ -240,7 +240,9 @@
       "lng": 4.356682,
       "name": "Carrefour de l'Europe, 1000 Bruxelles"
     },
-    "photos": [],
+    "photos": [
+      "brussels-chuckles.jpg"
+    ],
     "coverPhoto": null,
     "heroPhoto": null,
     "music": null,
