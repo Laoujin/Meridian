@@ -3,7 +3,9 @@ import maplibregl from 'maplibre-gl';
 import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
 import { interpolateLine } from './utils/geo';
-import MapCanvas, { ARC_APEX } from './components/MapCanvas';
+import MapCanvas from './components/MapCanvas';
+import OpeningArc, { HERENT, GENT } from './components/OpeningArc';
+import OpeningTransition from './components/OpeningTransition';
 import TimelineStrip from './components/TimelineStrip';
 import CardOverlay from './components/CardOverlay';
 import TravelLine from './components/TravelLine';
@@ -14,22 +16,22 @@ import DetailOverlay from './components/DetailOverlay';
 import './styles/global.css';
 
 function memoryLngLat(memories: ReturnType<typeof loadMemories>, index: number): [number, number] {
-  if (index < 0 || index >= memories.length) return [ARC_APEX[0], ARC_APEX[1]];
+  if (index < 0 || index >= memories.length) return HERENT; // fallback
   const loc = getLocation(memories[index]);
   return [loc.lng, loc.lat];
 }
 
 /**
  * Get the origin of the line shown during hold at memory index i.
- * For i=0: ARC_APEX (came from the opening).
+ * For i=0: first memory has no "previous" line origin (opening transition handles it).
  * For i>0: location of the previous located memory (skipping milestones).
  */
 function lineOriginAt(memories: ReturnType<typeof loadMemories>, i: number): [number, number] {
-  if (i <= 0) return [ARC_APEX[0], ARC_APEX[1]];
+  if (i <= 0) return memoryLngLat(memories, 0); // memory 0 has no regular origin
   for (let j = i - 1; j >= 0; j--) {
     if (memories[j].type !== 'milestone') return memoryLngLat(memories, j);
   }
-  return [ARC_APEX[0], ARC_APEX[1]];
+  return memoryLngLat(memories, 0);
 }
 
 export default function App() {
@@ -51,51 +53,42 @@ export default function App() {
   const isClosing = activeIndex >= memories.length;
   const activeMemory = activeIndex >= 0 && activeIndex < memories.length ? memories[activeIndex] : null;
 
-  // --- Three key locations for the current state ---
-  // During hold at memory i: line is from lineOriginAt(i) → location(i)
-  // During transition to memory i: new line from lineOriginAt(i) → location(i)
-  //   and previous hold showed lineOriginAt(i-1) → location(i-1)
+  // Is this the special opening→memory0 transition?
+  const isOpeningTransition = phase === 'transition' && transitionType === 'opening';
 
   const isTravelTransition = phase === 'transition'
     && transitionType !== 'same-location'
-    && transitionType !== 'to-milestone';
+    && transitionType !== 'to-milestone'
+    && !isOpeningTransition; // opening transition is handled separately
 
   // --- Travel line (from/to for drawing) ---
-  // During transition to i: line draws from lineOriginAt(i) → location(i)
-  // During hold at i: line stays from lineOriginAt(i) → location(i)
+  // Not used during opening or the opening transition (OpeningTransition handles that)
   const travelFrom = useMemo<[number, number] | null>(() => {
-    if (isOpening) return null;
+    if (isOpening || isOpeningTransition) return null;
     if (isClosing) return null;
     if (activeMemory?.type === 'milestone') return null;
     return lineOriginAt(memories, activeIndex);
-  }, [isOpening, isClosing, activeMemory, activeIndex, memories]);
+  }, [isOpening, isOpeningTransition, isClosing, activeMemory, activeIndex, memories]);
 
   const travelTo = useMemo<[number, number] | null>(() => {
-    if (isOpening) return null;
+    if (isOpening || isOpeningTransition) return null;
     if (isClosing) return null;
     if (activeMemory?.type === 'milestone') return null;
     return memoryLngLat(memories, activeIndex);
-  }, [isOpening, isClosing, activeMemory, activeIndex, memories]);
+  }, [isOpening, isOpeningTransition, isClosing, activeMemory, activeIndex, memories]);
 
   const lineProgress = isTravelTransition ? progress : (travelFrom ? 1 : 0);
   const travelVisible = travelFrom !== null && travelTo !== null;
 
   // --- Map view (two points for fitBounds) ---
-  // See docs/map-scroll-behavior.md for the full spec.
-  //
-  // Hold at memory i:
-  //   viewA = lineOriginAt(i)  (= A, the origin of the displayed line)
-  //   viewB = location(i)       (= B, the end of the displayed line)
-  //
-  // Transition to memory i at progress p:
-  //   Previous hold was at memory i-1: viewA_prev = lineOriginAt(i-1), viewB_prev = location(i-1)
-  //   New hold will be at memory i:    viewA_next = lineOriginAt(i),   viewB_next = location(i)
-  //   viewA = interpolate(viewA_prev, viewA_next, p)
-  //   viewB = interpolate(viewB_prev, viewB_next, p)
-
   const viewA = useMemo<[number, number]>(() => {
-    if (isOpening) return [ARC_APEX[0], ARC_APEX[1]];
+    if (isOpening) return HERENT;
     if (isClosing) return memoryLngLat(memories, memories.length - 1);
+
+    if (isOpeningTransition) {
+      // Interpolate from opening view (Gent-Herent area) toward first memory
+      return interpolateLine(GENT, memoryLngLat(memories, 0), progress);
+    }
 
     if (isTravelTransition) {
       const prevViewA = lineOriginAt(memories, activeIndex - 1);
@@ -103,13 +96,19 @@ export default function App() {
       return interpolateLine(prevViewA, nextViewA, progress);
     }
 
-    // Hold
+    // Hold at memory 0: show Gent (widest point) so converging lines are visible
+    if (activeIndex === 0) return GENT;
+
     return lineOriginAt(memories, activeIndex);
-  }, [isOpening, isClosing, isTravelTransition, activeIndex, memories, progress]);
+  }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
   const viewB = useMemo<[number, number]>(() => {
-    if (isOpening) return [ARC_APEX[0], ARC_APEX[1]];
+    if (isOpening) return HERENT;
     if (isClosing) return memoryLngLat(memories, memories.length - 1);
+
+    if (isOpeningTransition) {
+      return interpolateLine(HERENT, memoryLngLat(memories, 0), progress);
+    }
 
     if (isTravelTransition) {
       const prevViewB = memoryLngLat(memories, activeIndex - 1);
@@ -117,20 +116,21 @@ export default function App() {
       return interpolateLine(prevViewB, nextViewB, progress);
     }
 
-    // Hold
     return memoryLngLat(memories, activeIndex);
-  }, [isOpening, isClosing, isTravelTransition, activeIndex, memories, progress]);
+  }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
   // Target bounds for camera interpolation during travel transitions
   const targetViewA = useMemo<[number, number] | undefined>(() => {
+    if (isOpeningTransition) return memoryLngLat(memories, 0);
     if (!isTravelTransition) return undefined;
     return lineOriginAt(memories, activeIndex);
-  }, [isTravelTransition, activeIndex, memories]);
+  }, [isOpeningTransition, isTravelTransition, activeIndex, memories]);
 
   const targetViewB = useMemo<[number, number] | undefined>(() => {
+    if (isOpeningTransition) return memoryLngLat(memories, 0);
     if (!isTravelTransition) return undefined;
     return memoryLngLat(memories, activeIndex);
-  }, [isTravelTransition, activeIndex, memories]);
+  }, [isOpeningTransition, isTravelTransition, activeIndex, memories]);
 
   // Expose viewA/viewB for e2e testing
   useEffect(() => {
@@ -144,6 +144,9 @@ export default function App() {
   const originCoords = travelFrom;
   const destCoords = travelTo;
   const destPulse = true;
+
+  // For opening transition, show the destination dot at memory 0
+  const openingDestCoords = isOpeningTransition ? memoryLngLat(memories, 0) : null;
 
   // --- Milestone effect ---
   const showMilestoneEffect = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -187,6 +190,20 @@ export default function App() {
         overviewLocations={allLocations}
         showOverview={isClosing && transitionType === 'closing-overview'}
       />
+
+      <OpeningArc map={mapInstance} visible={isOpening} />
+
+      {(isOpeningTransition || (activeIndex === 0 && phase === 'hold')) && (
+        <OpeningTransition
+          map={mapInstance}
+          destination={memoryLngLat(memories, 0)}
+          progress={isOpeningTransition ? progress : 1}
+          visible
+        />
+      )}
+
+      {/* Destination dot during opening transition */}
+      <LocationMarker map={mapInstance} coordinates={openingDestCoords} pulse />
 
       <TravelLine
         map={mapInstance}
