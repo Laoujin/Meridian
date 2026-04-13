@@ -176,6 +176,10 @@ body {
   cursor: pointer;
 }
 
+.photo-stack--static {
+  cursor: default;
+}
+
 .photo-stack__photo {
   position: absolute;
   top: 0;
