@@ -18,7 +18,6 @@
       "20250103_213847.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -41,7 +40,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -78,7 +76,6 @@
       "20250118_222146.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": {
       "note": "Het was vree warm"
@@ -116,7 +113,6 @@
       "20250213_211700.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -142,7 +138,6 @@
       "20250308_131211.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -167,7 +162,6 @@
       "2025-03-15 11.28.42.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -196,7 +190,6 @@
       "20250418_230321.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": {
       "track": "burna-boy.mp3",
       "artist": "Burna Boy",
@@ -234,7 +227,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -257,7 +249,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -283,7 +274,6 @@
       "20250427_155908.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -308,7 +298,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -478,7 +467,6 @@
       "20250513_185048.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -503,7 +491,6 @@
       "2025-05-18 11.39.30.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -528,7 +515,6 @@
       "20250527_214219.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": {
       "track": "ruger.mp3",
       "artist": "Ruger",
@@ -558,7 +544,6 @@
       "20250607_132341.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -584,7 +569,6 @@
       "20250614_213621.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -612,7 +596,6 @@
       "20250621_205131.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -639,7 +622,6 @@
       "20250628_200054 1.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -665,7 +647,6 @@
       "20250702_202323.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -693,7 +674,6 @@
       "20250705_001602.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": {
       "track": "green-day.mp3",
       "artist": "Green Day",
@@ -720,7 +700,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -748,7 +727,6 @@
       "2025-07-26-desert.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -775,7 +753,6 @@
       "2025-08-01.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -802,7 +779,6 @@
       "ghostwalk-gent-2.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -825,7 +801,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": {
       "track": "sean-paul.mp3",
       "artist": "Sean Paul",
@@ -853,7 +828,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -878,7 +852,6 @@
       "2025-08-15-tapas-bord.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -904,7 +877,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -928,7 +900,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -957,7 +928,6 @@
       "2025-08-30 21.39.13.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Mijn Pimm's was verkeerd begrepen en ik kreeg een biertje (misschien beter zo;)",
@@ -986,7 +956,6 @@
       "2025-08-31-kids.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Nog zitten praten met nicht & haar man die in Nederland gewoont hebben. Neef die in Austria woont. Ik veel te zat en daarna niet meer gewerkt.",
@@ -1009,7 +978,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1035,7 +1003,6 @@
       "2025-09-07.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Gingen normaal naar expo Typefaces, maar het is dan toch gewoon eten & drinken geworden.",
@@ -1064,7 +1031,6 @@
       "2025-09-14.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Mini was super irritant.",
@@ -1088,7 +1054,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1112,7 +1077,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1137,7 +1101,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1162,7 +1125,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1186,7 +1148,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1210,7 +1171,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1234,7 +1194,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1272,7 +1231,6 @@
       "2025-09-Alegria.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Caro haar ribbetjes waren undercooked. Ik was al bezig met 1 star review maar rekening veel niet aangerekend.",
@@ -1300,7 +1258,6 @@
       "2025-09-28-bbq-chicken.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1327,7 +1284,6 @@
       "2025-10-02-RizoomLepeltje.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1355,7 +1311,6 @@
       "2025-10-08-WafelCaro.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1384,7 +1339,6 @@
       "2025-10-05-SakeFestival.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Bij het naar huis stappen een Sake Festival tegengekomen — met standje van kaori.be van bij Rizoom eerder die week!",
@@ -1414,7 +1368,6 @@
       "1760453361986-2025-10-11.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "M&Ms bowl! Frituurtruck! Black & White & Retro.",
@@ -1443,7 +1396,6 @@
       "1760518148805-2025-10-12.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1466,7 +1418,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": {
       "track": "cat-empire.mp3",
       "artist": "The Cat Empire",
@@ -1495,7 +1446,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": {
       "track": "ghibli.mp3",
       "artist": "Studio Ghibli",
@@ -1524,7 +1474,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1549,7 +1498,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -1942,7 +1890,6 @@
       "1763561147140-2025-11-13.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": {
       "note": "Begon koud te worden"
@@ -1969,7 +1916,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2067,7 +2013,6 @@
       "IMG-20251122-WA0009.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Ze was heel blij nadat ze me getoond had hoe een foto toe te voegen in Obsidian.",
@@ -2094,7 +2039,6 @@
       "20251122_202851.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2122,7 +2066,6 @@
       "20251125_222740.jpg"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2145,7 +2088,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Leen had haar witte blouse aan die we in Vietnam hadden laten maken. Caro was naar baby shower in Rotterdam geweest.",
@@ -2169,7 +2111,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2194,7 +2135,6 @@
       "1765359159259-2025-12-09.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2219,7 +2159,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2283,7 +2222,6 @@
       "1766002275324-2025-12-14.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2309,7 +2247,6 @@
       "1766427233284-2025-12-20.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2338,7 +2275,6 @@
       "1766428377610-2025-12-20.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "En op het einde het kleinste stukje wegnemen en alles viel in elkaar!",
@@ -2363,7 +2299,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2387,7 +2322,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2411,7 +2345,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",
@@ -2445,7 +2378,6 @@
       "1767433903788-2025-12-27.png"
     ],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "Veel te veel desert van Anes en Nikolaas. De appelflappen waren vree lekker.",
@@ -2468,7 +2400,6 @@
     },
     "photos": [],
     "coverPhoto": null,
-    "heroPhoto": null,
     "music": null,
     "weather": null,
     "expandedText": "",

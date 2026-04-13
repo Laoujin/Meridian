@@ -39,7 +39,6 @@ export interface Memory {
   location: Location | null;
   photos: string[];
   coverPhoto: string | null;
-  heroPhoto: string | null;
   music: Music | null;
   weather: Weather | null;
   expandedText: string;
