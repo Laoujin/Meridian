@@ -1,11 +1,14 @@
-import { useMemo, useState, useCallback, useEffect } from 'react';
+import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
-import { loadMemories, getLocation } from './data/loader';
+import { loadMemories, getLocation, getCityLabel } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
 import { interpolateLine } from './utils/geo';
+import { isPointVisible } from './utils/camera';
 import MapCanvas from './components/MapCanvas';
 import OpeningArc, { HERENT, GENT } from './components/OpeningArc';
 import OpeningTransition from './components/OpeningTransition';
+import EaseInCamera from './components/EaseInCamera';
+import EaseOutCamera from './components/EaseOutCamera';
 import TimelineStrip from './components/TimelineStrip';
 import CardOverlay from './components/CardOverlay';
 import TravelLine from './components/TravelLine';
@@ -19,6 +22,11 @@ function memoryLngLat(memories: ReturnType<typeof loadMemories>, index: number):
   if (index < 0 || index >= memories.length) return HERENT; // fallback
   const loc = getLocation(memories[index]);
   return [loc.lng, loc.lat];
+}
+
+function memoryLabel(memories: ReturnType<typeof loadMemories>, index: number): string {
+  if (index < 0 || index >= memories.length) return '';
+  return getCityLabel(memories[index].location?.name);
 }
 
 /**
@@ -123,20 +131,26 @@ export default function App() {
     return memoryLngLat(memories, activeIndex);
   }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
-  // Target bounds for camera interpolation during travel transitions
-  // For the opening transition and hold0, the camera must frame Gent, Herent AND Zaventem.
-  // Gent is the westernmost, Herent is the easternmost.
-  const targetViewA = useMemo<[number, number] | undefined>(() => {
-    if (isOpeningTransition) return GENT;
-    if (!isTravelTransition) return undefined;
-    return lineOriginAt(memories, activeIndex);
-  }, [isOpeningTransition, isTravelTransition, activeIndex, memories]);
+  // Determine camera scenario for travel transitions:
+  // 'ease-in': both dots visible → zoom in to frame them
+  // 'ease-out': destination dot not visible → zoom out to show it
+  const [cameraScenario, setCameraScenario] = useState<'ease-in' | 'ease-out' | null>(null);
+  const prevTransitionRef = useRef('');
 
-  const targetViewB = useMemo<[number, number] | undefined>(() => {
-    if (isOpeningTransition) return HERENT;
-    if (!isTravelTransition) return undefined;
-    return memoryLngLat(memories, activeIndex);
-  }, [isOpeningTransition, isTravelTransition, activeIndex, memories]);
+  useEffect(() => {
+    if (!isTravelTransition || !mapInstance || !travelFrom || !travelTo) {
+      if (!isTravelTransition) setCameraScenario(null);
+      return;
+    }
+
+    const key = `${activeIndex}-transition`;
+    if (key === prevTransitionRef.current) return;
+    prevTransitionRef.current = key;
+
+    const fromVis = isPointVisible(mapInstance, travelFrom);
+    const toVis = isPointVisible(mapInstance, travelTo);
+    setCameraScenario(fromVis && toVis ? 'ease-in' : 'ease-out');
+  }, [isTravelTransition, mapInstance, travelFrom, travelTo, activeIndex]);
 
   // Expose viewA/viewB for e2e testing
   useEffect(() => {
@@ -151,8 +165,21 @@ export default function App() {
   const destCoords = travelTo;
   const destPulse = true;
 
+  // Origin is the previous located memory; mirror lineOriginAt.
+  let originLabel = '';
+  if (originCoords) {
+    for (let j = activeIndex - 1; j >= 0; j--) {
+      if (memories[j].type !== 'milestone') {
+        originLabel = memoryLabel(memories, j);
+        break;
+      }
+    }
+  }
+  const destLabel = destCoords ? memoryLabel(memories, activeIndex) : '';
+
   // For opening transition, show the destination dot at memory 0
   const openingDestCoords = isOpeningTransition ? memoryLngLat(memories, 0) : null;
+  const openingDestLabel = isOpeningTransition ? memoryLabel(memories, 0) : '';
 
   // --- Milestone effect ---
   const showMilestoneEffect = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -186,12 +213,6 @@ export default function App() {
         viewA={viewA}
         viewB={viewB}
         phase={phase}
-        progress={progress}
-        activeIndex={activeIndex}
-        targetViewA={targetViewA}
-        targetViewB={targetViewB}
-        dotFrom={travelFrom}
-        dotTo={travelTo}
         showOpeningLine={isOpening}
         dimmed={isDimmed}
         onMapReady={handleMapReady}
@@ -199,7 +220,32 @@ export default function App() {
         showOverview={isClosing && transitionType === 'closing-overview'}
       />
 
+      {/* Camera control during transitions — scenario-specific */}
+      {isOpeningTransition && (
+        <EaseOutCamera map={mapInstance} dotFrom={GENT} dotTo={HERENT} progress={progress} />
+      )}
+      {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-in' && (
+        <EaseInCamera map={mapInstance} dotFrom={travelFrom} dotTo={travelTo} progress={progress} />
+      )}
+      {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-out' && (
+        <EaseOutCamera map={mapInstance} dotFrom={travelFrom} dotTo={travelTo} progress={progress} />
+      )}
+
       <OpeningArc map={mapInstance} visible={isOpening} />
+
+      {/* Opening endpoints: Herent + Gent dots with labels, fade with opening sequence */}
+      <LocationMarker
+        map={mapInstance}
+        coordinates={HERENT}
+        label="Herent"
+        opacity={isOpening ? 1 : 0}
+      />
+      <LocationMarker
+        map={mapInstance}
+        coordinates={GENT}
+        label="Gent"
+        opacity={isOpening ? 1 : 0}
+      />
 
       {(isOpeningTransition || (activeIndex === 0 && phase === 'hold')) && (
         <OpeningTransition
@@ -211,7 +257,7 @@ export default function App() {
       )}
 
       {/* Destination dot during opening transition */}
-      <LocationMarker map={mapInstance} coordinates={openingDestCoords} pulse />
+      <LocationMarker map={mapInstance} coordinates={openingDestCoords} label={openingDestLabel} pulse />
 
       <TravelLine
         map={mapInstance}
@@ -222,8 +268,8 @@ export default function App() {
         fadeOutProgress={0}
       />
 
-      <LocationMarker map={mapInstance} coordinates={originCoords} pulse={false} />
-      <LocationMarker map={mapInstance} coordinates={destCoords} pulse={destPulse} />
+      <LocationMarker map={mapInstance} coordinates={originCoords} label={originLabel} pulse={false} />
+      <LocationMarker map={mapInstance} coordinates={destCoords} label={destLabel} pulse={destPulse} />
 
       <TimelineStrip memories={memories} activeIndex={timelineIndex} />
 

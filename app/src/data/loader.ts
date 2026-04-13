@@ -26,6 +26,19 @@ export function getLocation(memory: Memory): { lat: number; lng: number } {
   return DEFAULT_LOCATION;
 }
 
+/**
+ * Extract a short city label from a free-form location name.
+ * Takes the last comma-separated segment (or second-to-last if a country tail exists),
+ * stripping leading postcodes like "9000 Gent" → "Gent" or "3084 BD Rotterdam" → "Rotterdam".
+ */
+export function getCityLabel(name: string | undefined): string {
+  if (!name) return '';
+  const parts = name.split(',').map((s) => s.trim()).filter(Boolean);
+  if (parts.length === 0) return '';
+  const candidate = parts.length >= 3 ? parts[parts.length - 2] : parts[parts.length - 1];
+  return candidate.replace(/^\d+\s*[A-Z]{0,3}\s+/, '');
+}
+
 export function getScrollHeight(memory: Memory): number {
   // Return relative scroll height multiplier based on type
   if (memory.type === 'trip' && memory.days) {

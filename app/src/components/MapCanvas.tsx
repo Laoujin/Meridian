@@ -2,53 +2,17 @@ import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { HERENT, GENT } from './OpeningArc';
+import { computeTargetCamera } from '../utils/camera';
 
 interface MapCanvasProps {
   viewA: [number, number];
   viewB: [number, number];
   phase: 'hold' | 'transition';
-  progress: number;
-  activeIndex: number;
-  targetViewA?: [number, number];
-  targetViewB?: [number, number];
-  dotFrom?: [number, number] | null; // actual origin dot position
-  dotTo?: [number, number] | null;   // actual destination dot position
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
   overviewLocations?: [number, number][];
   showOverview?: boolean;
-}
-
-function computeTargetCamera(
-  map: maplibregl.Map,
-  viewA: [number, number],
-  viewB: [number, number],
-  containerHeight: number,
-): { center: [number, number]; zoom: number } | null {
-  const minSpread = 0.01;
-  const lngs = [viewA[0], viewB[0]];
-  const lats = [viewA[1], viewB[1]];
-  const lngSpread = Math.max(Math.abs(lngs[1] - lngs[0]), minSpread);
-  const latSpread = Math.max(Math.abs(lats[1] - lats[0]), minSpread);
-  const cLng = (lngs[0] + lngs[1]) / 2;
-  const cLat = (lats[0] + lats[1]) / 2;
-
-  const bounds: [[number, number], [number, number]] = [
-    [cLng - lngSpread / 2, cLat - latSpread / 2],
-    [cLng + lngSpread / 2, cLat + latSpread / 2],
-  ];
-
-  const result = map.cameraForBounds(bounds, {
-    padding: { top: Math.round(containerHeight * 0.72), bottom: 40, left: 40, right: 40 },
-    maxZoom: 14,
-  });
-
-  if (!result?.center || result.zoom == null) return null;
-  const c = result.center;
-  const lng = 'lng' in c ? c.lng : (c as unknown as [number, number])[0];
-  const lat = 'lat' in c ? c.lat : (c as unknown as [number, number])[1];
-  return { center: [lng, lat], zoom: result.zoom };
 }
 
 const MAP_STYLE: maplibregl.StyleSpecification = {
@@ -69,17 +33,13 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   }],
 };
 
-// Initial center: midpoint of Herent-Gent
 const INITIAL_CENTER: [number, number] = [(HERENT[0] + GENT[0]) / 2, (HERENT[1] + GENT[1]) / 2];
 
-function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, targetViewB, dotFrom, dotTo, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ viewA, viewB, phase, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const overviewMarkersRef = useRef<maplibregl.Marker[]>([]);
   const onMapReadyRef = useRef(onMapReady);
-  const startCameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null);
-  const targetCameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null);
-  const prevTransitionKeyRef = useRef('');
 
   useEffect(() => { onMapReadyRef.current = onMapReady; });
 
@@ -146,7 +106,7 @@ function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, ta
     };
   }, [showOverview, overviewLocations]);
 
-  // Camera positioning
+  // Camera: opening + hold only. Transitions are handled by EaseIn/EaseOutCamera.
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
@@ -160,49 +120,17 @@ function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, ta
         ],
         { padding: { top: Math.round(h * 0.72), bottom: 40, left: 40, right: 40 }, duration: 0 },
       );
-      startCameraRef.current = null;
       return;
     }
 
-    const transitionKey = `${activeIndex}-${phase}`;
-    const isNewTransition = transitionKey !== prevTransitionKeyRef.current;
-    prevTransitionKeyRef.current = transitionKey;
+    // Only position camera during hold — transitions are owned by scenario components
+    if (phase !== 'hold') return;
 
-    if (phase === 'transition' && targetViewA && targetViewB) {
-      if (isNewTransition) {
-        const center = map.getCenter();
-        startCameraRef.current = { center: [center.lng, center.lat], zoom: map.getZoom() };
-        targetCameraRef.current = computeTargetCamera(map, targetViewA, targetViewB, h);
-      }
-
-      const start = startCameraRef.current;
-      const target = targetCameraRef.current;
-      if (start && target) {
-        const p = progress;
-
-        // If we have dot positions, compute a camera that always frames them.
-        // Lerp from start camera toward this dots-framing camera for smooth motion.
-        // If no dots (e.g., opening transition), lerp start→target as before.
-        let destCamera = target;
-        if (dotFrom && dotTo) {
-          const dotsCamera = computeTargetCamera(map, dotFrom, dotTo, h);
-          if (dotsCamera) destCamera = dotsCamera;
-        }
-
-        const camLng = start.center[0] + (destCamera.center[0] - start.center[0]) * p;
-        const camLat = start.center[1] + (destCamera.center[1] - start.center[1]) * p;
-        const camZoom = start.zoom + (destCamera.zoom - start.zoom) * p;
-        map.jumpTo({ center: [camLng, camLat], zoom: camZoom });
-      }
-    } else {
-      const target = computeTargetCamera(map, viewA, viewB, h);
-      if (target) {
-        map.jumpTo({ center: target.center, zoom: target.zoom });
-      }
-      startCameraRef.current = null;
-      targetCameraRef.current = null;
+    const target = computeTargetCamera(map, viewA, viewB, h);
+    if (target) {
+      map.jumpTo({ center: target.center, zoom: target.zoom });
     }
-  }, [viewA, viewB, targetViewA, targetViewB, phase, progress, activeIndex, showOpeningLine]);
+  }, [viewA, viewB, phase, showOpeningLine]);
 
   return (
     <div
