@@ -4,18 +4,24 @@ import maplibregl from 'maplibre-gl';
 interface LocationMarkerProps {
   map: maplibregl.Map | null;
   coordinates: [number, number] | null; // [lng, lat]
-  pulse: boolean;
+  label?: string;
+  opacity?: number;
+  pulse?: boolean;
 }
 
 let idCounter = 0;
 
-export default function LocationMarker({ map, coordinates }: LocationMarkerProps) {
-  const idsRef = useRef({ source: `loc-marker-src-${idCounter}`, layer: `loc-marker-layer-${idCounter++}` });
+export default function LocationMarker({ map, coordinates, label, opacity = 1 }: LocationMarkerProps) {
+  const idsRef = useRef({
+    source: `loc-marker-src-${idCounter}`,
+    dotLayer: `loc-marker-dot-${idCounter}`,
+    labelLayer: `loc-marker-label-${idCounter++}`,
+  });
   const addedRef = useRef(false);
 
-  const ensureLayer = useCallback((): boolean => {
+  const ensureLayers = useCallback((): boolean => {
     if (!map || addedRef.current) return addedRef.current;
-    const { source, layer } = idsRef.current;
+    const { source, dotLayer, labelLayer } = idsRef.current;
 
     if (map.getSource(source)) {
       addedRef.current = true;
@@ -28,7 +34,7 @@ export default function LocationMarker({ map, coordinates }: LocationMarkerProps
         data: { type: 'FeatureCollection', features: [] },
       });
       map.addLayer({
-        id: layer,
+        id: dotLayer,
         type: 'circle',
         source,
         paint: {
@@ -38,6 +44,23 @@ export default function LocationMarker({ map, coordinates }: LocationMarkerProps
           'circle-stroke-width': 2,
         },
       });
+      map.addLayer({
+        id: labelLayer,
+        type: 'symbol',
+        source,
+        layout: {
+          'text-field': ['get', 'label'],
+          'text-size': 14,
+          'text-offset': [0, 1.5],
+          'text-font': ['Open Sans Regular'],
+          'text-allow-overlap': false,
+        },
+        paint: {
+          'text-color': '#666',
+          'text-halo-color': '#fff',
+          'text-halo-width': 1.5,
+        },
+      });
       addedRef.current = true;
       return true;
     } catch {
@@ -45,37 +68,60 @@ export default function LocationMarker({ map, coordinates }: LocationMarkerProps
     }
   }, [map]);
 
-  const setCoords = useCallback((coords: [number, number] | null) => {
-    if (!ensureLayer()) return;
+  const setData = useCallback((coords: [number, number] | null, lbl: string | undefined) => {
+    if (!ensureLayers()) return;
     const src = map!.getSource(idsRef.current.source) as maplibregl.GeoJSONSource | undefined;
     if (!src) return;
 
-    src.setData(coords
-      ? { type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: coords } }] }
-      : { type: 'FeatureCollection', features: [] }
+    src.setData(
+      coords
+        ? {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                properties: { label: lbl ?? '' },
+                geometry: { type: 'Point', coordinates: coords },
+              },
+            ],
+          }
+        : { type: 'FeatureCollection', features: [] }
     );
-  }, [ensureLayer, map]);
+  }, [ensureLayers, map]);
 
-  // Try on idle (fires after style is fully applied) and on coordinate changes
+  // Apply data changes
   useEffect(() => {
     if (!map) return;
 
-    setCoords(coordinates);
+    setData(coordinates, label);
 
-    // If layer wasn't added yet, retry on idle
     if (!addedRef.current) {
-      const onIdle = () => setCoords(coordinates);
+      const onIdle = () => setData(coordinates, label);
       map.once('idle', onIdle);
       return () => { map.off('idle', onIdle); };
     }
-  }, [map, coordinates, setCoords]);
+  }, [map, coordinates, label, setData]);
+
+  // Apply opacity
+  useEffect(() => {
+    if (!map || !addedRef.current) return;
+    const { dotLayer, labelLayer } = idsRef.current;
+    try {
+      map.setPaintProperty(dotLayer, 'circle-opacity', opacity);
+      map.setPaintProperty(dotLayer, 'circle-stroke-opacity', opacity);
+      map.setPaintProperty(labelLayer, 'text-opacity', opacity);
+    } catch {
+      // noop — layers not yet attached
+    }
+  }, [map, opacity]);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      const { source, layer } = idsRef.current;
+      const { source, dotLayer, labelLayer } = idsRef.current;
       try {
-        if (map?.getLayer(layer)) map.removeLayer(layer);
+        if (map?.getLayer(labelLayer)) map.removeLayer(labelLayer);
+        if (map?.getLayer(dotLayer)) map.removeLayer(dotLayer);
         if (map?.getSource(source)) map.removeSource(source);
       } catch {
         // map may already be removed
