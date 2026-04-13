@@ -34,8 +34,5 @@ export function getScrollHeight(memory: Memory): number {
   if (memory.type === 'milestone') {
     return 1.2;
   }
-  if (memory.heroPhoto) {
-    return 1.5;
-  }
   return 1;
 }
