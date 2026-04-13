@@ -11,6 +11,8 @@ interface MapCanvasProps {
   activeIndex: number;
   targetViewA?: [number, number];
   targetViewB?: [number, number];
+  dotFrom?: [number, number] | null; // actual origin dot position
+  dotTo?: [number, number] | null;   // actual destination dot position
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
@@ -70,7 +72,7 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
 // Initial center: midpoint of Herent-Gent
 const INITIAL_CENTER: [number, number] = [(HERENT[0] + GENT[0]) / 2, (HERENT[1] + GENT[1]) / 2];
 
-function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, targetViewB, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, targetViewB, dotFrom, dotTo, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const overviewMarkersRef = useRef<maplibregl.Marker[]>([]);
@@ -177,10 +179,20 @@ function MapCanvas({ viewA, viewB, phase, progress, activeIndex, targetViewA, ta
       const target = targetCameraRef.current;
       if (start && target) {
         const p = progress;
-        const lng = start.center[0] + (target.center[0] - start.center[0]) * p;
-        const lat = start.center[1] + (target.center[1] - start.center[1]) * p;
-        const zoom = start.zoom + (target.zoom - start.zoom) * p;
-        map.jumpTo({ center: [lng, lat], zoom });
+
+        // If we have dot positions, compute a camera that always frames them.
+        // Lerp from start camera toward this dots-framing camera for smooth motion.
+        // If no dots (e.g., opening transition), lerp start→target as before.
+        let destCamera = target;
+        if (dotFrom && dotTo) {
+          const dotsCamera = computeTargetCamera(map, dotFrom, dotTo, h);
+          if (dotsCamera) destCamera = dotsCamera;
+        }
+
+        const camLng = start.center[0] + (destCamera.center[0] - start.center[0]) * p;
+        const camLat = start.center[1] + (destCamera.center[1] - start.center[1]) * p;
+        const camZoom = start.zoom + (destCamera.zoom - start.zoom) * p;
+        map.jumpTo({ center: [camLng, camLat], zoom: camZoom });
       }
     } else {
       const target = computeTargetCamera(map, viewA, viewB, h);

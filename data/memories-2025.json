@@ -54,7 +54,7 @@
     "title": "London",
     "tripStart": "2025-01-17",
     "tripEnd": "2025-01-18",
-    "caption": "London! Lego Store, Wax Museum, Hamilton.",
+    "caption": "London! Lego Store, Wax Museum, Hamilton. GEEN London Eye!",
     "location": {
       "lat": 51.4965738,
       "lng": -0.1426172,
@@ -77,7 +77,7 @@
     "weather": {
       "note": "Het was vree warm"
     },
-    "expandedText": "Konden de Eye niet doen want onderhoudswerken.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -172,7 +172,7 @@
     "title": "Paris — Burna Boy",
     "tripStart": "2025-04-18",
     "tripEnd": "2025-04-19",
-    "caption": "Naar Burna Boy in Parijs. Louis Vuitton maison Champs Elisee. Brunch met die vree lekkere toast met Munster kaas.",
+    "caption": "Burna Boy. Louis Vuitton. Brunch met die vree lekkere toast met Munster kaas. Hotel des Pavillons",
     "location": {
       "lat": 48.9244726,
       "lng": 2.3601325,
@@ -189,7 +189,7 @@
       "title": ""
     },
     "weather": null,
-    "expandedText": "Hotel des Pavillons, 16 rue des Acacias, Paris, France, 75017.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [
       "20250418_180728-1.mp4"
@@ -660,7 +660,7 @@
       "title": ""
     },
     "weather": null,
-    "expandedText": "Caro op het einde in paniek met dat ik last had van astma bij terug naar huis keren.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -887,8 +887,8 @@
     "id": "2025-08-30",
     "date": "2025-08-30",
     "type": "date",
-    "title": "Petit Comite + Jos",
-    "caption": "Tapas in Petit Comite. Vreed lekker, aanrader!! Daarna bij Jos. Caro haar Margarita was van niveau Ambiance.",
+    "title": "Petit Comite",
+    "caption": "Tapas, vreed lekker!!",
     "location": {
       "lat": 51.0594109,
       "lng": 3.7244115,
@@ -900,7 +900,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "Mijn Pimm's was verkeerd begrepen en ik kreeg een biertje (misschien beter zo;)",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -913,7 +913,7 @@
     "date": "2025-08-31",
     "type": "date",
     "title": "Mis Mediatrice",
-    "caption": "Mis overleden broer Mediatrice in Herent. Rwandeese liederen gezongen. Daarna eten.",
+    "caption": "",
     "location": {
       "lat": 50.9123956,
       "lng": 4.6517402,
@@ -927,7 +927,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "Nog zitten praten met nicht & haar man die in Nederland gewoont hebben. Neef die in Austria woont. Ik veel te zat en daarna niet meer gewerkt.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -961,7 +961,7 @@
     "date": "2025-09-07",
     "type": "date",
     "title": "Cafe Canelle + Autovrije Zondag",
-    "caption": "Restaurant Cafe Canelle. Autovrije zondag, naar het stad maar winkels waren nog niet open. 's avonds The Cobbler + Mortier.",
+    "caption": "'s avonds The Cobbler + Mortier.",
     "location": {
       "lat": 51.0498873,
       "lng": 3.7454463,
@@ -972,7 +972,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "Gingen normaal naar expo Typefaces, maar het is dan toch gewoon eten & drinken geworden.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -986,7 +986,7 @@
     "date": "2025-09-13",
     "type": "date",
     "title": "Friends Dinner",
-    "caption": "Jan, Leen, Eli, Karel, Fabiola en Mini kwamen eten. Gebakken gamba's met guacamole en pico de gallo. Chili con carne. Sjarel maakte poffertjes.",
+    "caption": "Met Jan, Leen, Eli, Sjarel, Fabiola en... Mini.",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
@@ -999,7 +999,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "Mini was super irritant.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -1169,7 +1169,7 @@
     "date": "2025-09-27",
     "type": "date",
     "title": "Zoo of the Future + Alegria",
-    "caption": "Date dag! Zoo of the Future (een beetje teleurstellend). Tour en Taxis Comics conventie. Alegria! Trois Saveurs (110 euro maar veel niet aangerekend).",
+    "caption": "Ook met... Les Trois Saveurs...",
     "location": {
       "lat": 50.8525742,
       "lng": 4.4499515,
@@ -1191,7 +1191,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "Caro haar ribbetjes waren undercooked. Ik was al bezig met 1 star review maar rekening veel niet aangerekend.",
+    "expandedText": "",
     "expandedPhotos": [
       "2025-09-Alegria.jpg"
     ],
@@ -1281,8 +1281,8 @@
     "id": "2025-10-05-2",
     "date": "2025-10-05",
     "type": "date",
-    "title": "Korean BBQ + Sake Festival",
-    "caption": "Korean Drum BBQ in Antwerpen. Sake Festival!",
+    "title": "Korean Drum BBQ + Sake Festival",
+    "caption": "",
     "location": {
       "lat": 51.2196151,
       "lng": 4.3965942,
@@ -1295,7 +1295,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "Bij het naar huis stappen een Sake Festival tegengekomen — met standje van kaori.be van bij Rizoom eerder die week!",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -1308,7 +1308,7 @@
     "date": "2025-10-11",
     "type": "date",
     "title": "Cinema Culinaire + Party Jelle",
-    "caption": "Cinema Culinaire: Chocolat in Eskimofabriek. 's avonds naar Jelle en Sarah hun 10 jarig dans trouwfeest.",
+    "caption": "Chocolat in Eskimofabriek. 's avonds naar Jelle en Sarah hun 10 jarig dans trouwfeest.",
     "location": {
       "lat": 51.0709267,
       "lng": 3.7267525,
@@ -1323,7 +1323,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "M&Ms bowl! Frituurtruck! Black & White & Retro.",
+    "expandedText": "",
     "expandedPhotos": [
       "20251012144306.png"
     ],
@@ -1826,8 +1826,8 @@
     "id": "2025-11-13",
     "date": "2025-11-13",
     "type": "date",
-    "title": "Koen & Marijke Brugge",
-    "caption": "Verassing van Caro naar Koen & Marijke in Brugge. Tegen het vuur. Americain, lekker steakje op het open vuur.",
+    "title": "Koen & Marijke",
+    "caption": "Verassing van Caro. Americain, lekker steakje op het open vuur. Het was blijkbaar toch nodig om te betalen voor parkeren na 19u ;)",
     "location": {
       "lat": 51.2078761,
       "lng": 3.2360891,
@@ -1841,7 +1841,7 @@
     "weather": {
       "note": "Begon koud te worden"
     },
-    "expandedText": "Zaten naast zatte madam met haar man die de hele avond niks gezegd had. Het was blijkbaar toch nodig om te betalen voor parkeren na 19u.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -1945,31 +1945,6 @@
     ]
   },
   {
-    "id": "2025-11-22",
-    "date": "2025-11-22",
-    "type": "date",
-    "title": "Brunch",
-    "caption": "Airconditioning installatie vervolledigd. Ex-collega's Caro van Herent kwamen brunchen.",
-    "location": {
-      "lat": 51.0471361,
-      "lng": 3.7553592,
-      "name": "Gentbruggestraat, Sint-Amandsberg"
-    },
-    "photos": [
-      "IMG-20251122-WA0009.jpg"
-    ],
-    "music": null,
-    "weather": null,
-    "expandedText": "Ze was heel blij nadat ze me getoond had hoe een foto toe te voegen in Obsidian.",
-    "expandedPhotos": [],
-    "videos": [],
-    "tags": [
-      "home",
-      "coderdojo",
-      "restaurant"
-    ]
-  },
-  {
     "id": "2025-11-22-2",
     "date": "2025-11-22",
     "type": "date",
@@ -2023,7 +1998,7 @@
     "date": "2025-11-29",
     "type": "date",
     "title": "De Rare Vos",
-    "caption": "Eten in De Rare Vos met Frank, Leen, va, moe en Gert. Kroketten van fazant met spekjes en oesterzwam waren super. Kregen een Bob Sleutel.",
+    "caption": "Met Frank, Leen, va, moe en Gert. Kregen een Bob Sleutel. Leen had haar witte blouse aan die we in Vietnam hadden laten maken.",
     "location": {
       "lat": 50.8359035,
       "lng": 4.1923923,
@@ -2032,7 +2007,7 @@
     "photos": [],
     "music": null,
     "weather": null,
-    "expandedText": "Leen had haar witte blouse aan die we in Vietnam hadden laten maken. Caro was naar baby shower in Rotterdam geweest.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
@@ -2199,7 +2174,7 @@
     "date": "2025-12-20",
     "type": "date",
     "title": "Cabaret Secret",
-    "caption": "Cabaret Secret in Tour en Taxis. Bij de haren genomen (en dan later iets bij de tanden)!",
+    "caption": "",
     "location": {
       "lat": 50.8648019,
       "lng": 4.3486628,
@@ -2213,7 +2188,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "En op het einde het kleinste stukje wegnemen en alles viel in elkaar!",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [
       "WhatsApp Video 2025-12-20 at 20.12.13.mp4"
@@ -2293,7 +2268,7 @@
     "date": "2025-12-27",
     "type": "date",
     "title": "Oudejaar De Bodts",
-    "caption": "Oudejaar De Bodts in De Wingerd, Pamel. Gert zijn cocktails waren veel te straf. Frank zijn broodje met gesmolten kaas + spekjes was super. Heleen was er dit jaar nog eens bij!",
+    "caption": "Oudejaar De Bodts in De Wingerd. Gert zijn cocktails veel te straf. Frank zijn broodje met gesmolten kaas + spekjes was super. Heleen was er dit jaar nog eens bij!",
     "location": {
       "lat": 50.8253798,
       "lng": 4.0739914,
@@ -2312,7 +2287,7 @@
     ],
     "music": null,
     "weather": null,
-    "expandedText": "Veel te veel desert van Anes en Nikolaas. De appelflappen waren vree lekker.",
+    "expandedText": "",
     "expandedPhotos": [],
     "videos": [],
     "tags": [
