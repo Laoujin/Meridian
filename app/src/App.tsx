@@ -9,6 +9,7 @@ import OpeningArc, { HERENT, GENT } from './components/OpeningArc';
 import OpeningTransition from './components/OpeningTransition';
 import EaseInCamera from './components/EaseInCamera';
 import EaseOutCamera from './components/EaseOutCamera';
+import OpeningCamera from './components/OpeningCamera';
 import TimelineStrip from './components/TimelineStrip';
 import CardOverlay from './components/CardOverlay';
 import TravelLine from './components/TravelLine';
@@ -131,26 +132,24 @@ export default function App() {
     return memoryLngLat(memories, activeIndex);
   }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
-  // Determine camera scenario for travel transitions:
-  // 'ease-in': both dots visible → zoom in to frame them
-  // 'ease-out': destination dot not visible → zoom out to show it
-  const [cameraScenario, setCameraScenario] = useState<'ease-in' | 'ease-out' | null>(null);
+  // Determine camera scenario for travel transitions.
+  // Computed via ref so it's available on the same render (no useEffect delay).
+  const cameraScenarioRef = useRef<'ease-in' | 'ease-out' | null>(null);
   const prevTransitionRef = useRef('');
 
-  useEffect(() => {
-    if (!isTravelTransition || !mapInstance || !travelFrom || !travelTo) {
-      if (!isTravelTransition) setCameraScenario(null);
-      return;
-    }
-
+  if (!isTravelTransition) {
+    cameraScenarioRef.current = null;
+    prevTransitionRef.current = '';
+  } else if (mapInstance && travelFrom && travelTo) {
     const key = `${activeIndex}-transition`;
-    if (key === prevTransitionRef.current) return;
-    prevTransitionRef.current = key;
-
-    const fromVis = isPointVisible(mapInstance, travelFrom);
-    const toVis = isPointVisible(mapInstance, travelTo);
-    setCameraScenario(fromVis && toVis ? 'ease-in' : 'ease-out');
-  }, [isTravelTransition, mapInstance, travelFrom, travelTo, activeIndex]);
+    if (key !== prevTransitionRef.current) {
+      prevTransitionRef.current = key;
+      const fromVis = isPointVisible(mapInstance, travelFrom);
+      const toVis = isPointVisible(mapInstance, travelTo);
+      cameraScenarioRef.current = fromVis && toVis ? 'ease-in' : 'ease-out';
+    }
+  }
+  const cameraScenario = cameraScenarioRef.current;
 
   // Expose viewA/viewB for e2e testing
   useEffect(() => {
@@ -222,7 +221,7 @@ export default function App() {
 
       {/* Camera control during transitions — scenario-specific */}
       {isOpeningTransition && (
-        <EaseOutCamera map={mapInstance} dotFrom={GENT} dotTo={HERENT} progress={progress} />
+        <OpeningCamera map={mapInstance} destination={memoryLngLat(memories, 0)} progress={progress} />
       )}
       {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-in' && (
         <EaseInCamera map={mapInstance} dotFrom={travelFrom} dotTo={travelTo} progress={progress} />
