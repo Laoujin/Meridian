@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Memories Triage</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { font: 13px/1.4 system-ui, -apple-system, sans-serif; display: flex; flex-direction: column; }
+  header { padding: 8px 12px; border-bottom: 1px solid #ccc; display: flex; gap: 10px; align-items: center; background: #fafafa; flex: 0 0 auto; }
+  header strong { margin-right: 8px; }
+  header button { padding: 4px 10px; cursor: pointer; }
+  header button.year.active { background: #1a3a7f; color: white; border-color: #1a3a7f; }
+  .status { margin-left: auto; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+  .status.dirty { background: #fff3cd; color: #7a5a00; }
+  .status.clean { background: #e6f4ea; color: #1a7f37; }
+  main { flex: 1; display: grid; grid-template-columns: 280px 1fr 420px; min-height: 0; }
+  .pane { overflow: auto; padding: 8px; min-height: 0; }
+  .pane.days { border-right: 1px solid #e1e1e1; }
+  .pane.json { border-left: 1px solid #e1e1e1; display: flex; flex-direction: column; gap: 6px; }
+  .day { padding: 6px 8px; cursor: pointer; border-radius: 4px; margin-bottom: 2px; border-left: 3px solid transparent; }
+  .day:hover { background: #f0f0f0; }
+  .day.active { background: #d6e4ff; border-left-color: #1a3a7f; }
+  .day.orphan { color: #b25800; border-left-color: #ffb84d; }
+  .day.matched { color: #1a7f37; border-left-color: #4dc471; }
+  .day .count { color: #888; font-size: 11px; margin-left: 4px; }
+  .day .titles { color: #444; font-size: 11px; margin-top: 2px; padding-left: 6px; }
+  .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
+  .photo { position: relative; cursor: pointer; border: 3px solid transparent; border-radius: 6px; overflow: hidden; background: #222; }
+  .photo.selected { border-color: #1a7f37; }
+  .photo img, .photo video { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .photo .fn { font-size: 10px; padding: 2px 4px; background: rgba(0,0,0,0.65); color: white; position: absolute; bottom: 0; left: 0; right: 0; font-family: ui-monospace, Consolas, monospace; }
+  .photo .trash { position: absolute; top: 4px; right: 4px; background: rgba(0,0,0,0.75); color: white; border: none; cursor: pointer; padding: 2px 8px; border-radius: 4px; font-size: 14px; line-height: 1; }
+  .photo .trash:hover { background: #c00; }
+  .photo .check { position: absolute; top: 4px; left: 4px; background: #1a7f37; color: white; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; display: none; }
+  .photo.selected .check { display: inline-block; }
+  .photo .badge { position: absolute; top: 4px; left: 4px; background: rgba(0,0,0,0.7); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
+  textarea { font-family: ui-monospace, Consolas, monospace; font-size: 12px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: none; flex: 1; min-height: 0; tab-size: 2; }
+  textarea.error { border-color: #c00; background: #fff5f5; }
+  .json-toolbar { display: flex; gap: 6px; flex-wrap: wrap; }
+  .json-toolbar button { padding: 4px 10px; cursor: pointer; }
+  .empty { padding: 20px; color: #888; }
+  .err { color: #c00; font-size: 12px; min-height: 16px; }
+  .switcher { display: flex; gap: 4px; flex-wrap: wrap; font-size: 11px; }
+  .switcher button { padding: 2px 6px; font-size: 11px; cursor: pointer; }
+  .switcher button.active { background: #1a3a7f; color: white; border-color: #1a3a7f; }
+</style>
+</head>
+<body>
+<header>
+  <strong>Memories Triage</strong>
+  <button class="year" data-year="2024">2024</button>
+  <button class="year" data-year="2025">2025</button>
+  <button class="year" data-year="2026">2026</button>
+  <button id="save-btn">💾 Save</button>
+  <span class="status clean" id="status">saved</span>
+</header>
+<main>
+  <div class="pane days" id="days-pane"></div>
+  <div class="pane photos-pane" id="photos-pane">
+    <div class="empty">Pick a day on the left.</div>
+  </div>
+  <div class="pane json">
+    <div class="switcher" id="entry-switcher"></div>
+    <div class="json-toolbar">
+      <button id="add-entry-btn" disabled>+ Add entry</button>
+      <button id="add-day-btn" disabled>+ Add sub-day</button>
+      <button id="apply-btn" disabled>Apply edit</button>
+      <button id="revert-btn" disabled>Revert</button>
+      <button id="delete-btn" disabled>Delete entry</button>
+    </div>
+    <div class="err" id="json-err"></div>
+    <textarea id="json-editor" spellcheck="false" placeholder="Pick a day to view/edit its memory entry."></textarea>
+  </div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+
+const state = {
+  year: '2024',
+  memories: {},
+  files: [],
+  selectedDate: null,
+  selectedPath: null,
+  dirty: new Set(),
+  lastEntryRefRendered: null,
+};
+
+// ---- date helpers ----
+function parsePhotoDate(name) {
+  const m = name.match(/^(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})/);
+  if (!m) return null;
+  return { date: `${m[1]}-${m[2]}-${m[3]}`, hour: +m[4] };
+}
+function effectiveDate(p) {
+  if (!p) return null;
+  if (p.hour >= 4) return p.date;
+  const dt = new Date(p.date + 'T00:00:00Z');
+  dt.setUTCDate(dt.getUTCDate() - 1);
+  return dt.toISOString().slice(0, 10);
+}
+function groupPhotos(files) {
+  const m = new Map();
+  for (const f of files) {
+    const ed = effectiveDate(parsePhotoDate(f));
+    if (!ed) continue;
+    if (!m.has(ed)) m.set(ed, []);
+    m.get(ed).push(f);
+  }
+  for (const a of m.values()) a.sort();
+  return m;
+}
+
+// ---- memory traversal ----
+// Returns flat list of editable entries with their path.
+// Sub-days come BEFORE their parent so they win the "first match" race.
+function flattenForYear(memories, year) {
+  const list = memories[year] || [];
+  const flat = [];
+  list.forEach((e, i) => {
+    if (Array.isArray(e.days)) {
+      e.days.forEach((d, j) => flat.push({ date: d.date, entry: d, path: [i, 'days', j], kind: 'sub-day' }));
+    }
+    if (e.date) flat.push({ date: e.date, entry: e, path: [i], kind: e.days ? 'parent' : 'entry' });
+  });
+  return flat;
+}
+function entriesByDate(flat) {
+  const m = new Map();
+  for (const f of flat) {
+    if (!m.has(f.date)) m.set(f.date, []);
+    m.get(f.date).push(f);
+  }
+  return m;
+}
+function getEntryAtPath(memories, year, path) {
+  let cur = memories[year][path[0]];
+  for (let i = 1; i < path.length; i++) cur = cur[path[i]];
+  return cur;
+}
+function setEntryAtPath(memories, year, path, value) {
+  if (path.length === 1) memories[year][path[0]] = value;
+  else if (path.length === 3) memories[year][path[0]][path[1]][path[2]] = value;
+}
+function deleteEntryAtPath(memories, year, path) {
+  if (path.length === 1) memories[year].splice(path[0], 1);
+  else if (path.length === 3) memories[year][path[0]][path[1]].splice(path[2], 1);
+}
+
+function pathsEqual(a, b) {
+  if (!a || !b) return a === b;
+  if (a.length !== b.length) return false;
+  return a.every((v, i) => v === b[i]);
+}
+
+function currentEntry() {
+  if (!state.selectedPath) return null;
+  return getEntryAtPath(state.memories, state.year, state.selectedPath);
+}
+
+// ---- dirty tracking ----
+function markDirty(year) { state.dirty.add(year); }
+
+// ---- main render ----
+async function loadState() {
+  const r = await fetch('/api/state');
+  const data = await r.json();
+  state.memories = data.memories;
+  state.files = data.files;
+  render();
+}
+
+function render() {
+  renderDays();
+  renderPhotos();
+  renderJson();
+  renderStatus();
+}
+
+function renderDays() {
+  const pane = $('days-pane');
+  const groups = groupPhotos(state.files);
+  const flat = flattenForYear(state.memories, state.year);
+  const byDate = entriesByDate(flat);
+
+  const dates = new Set();
+  for (const [d] of groups) if (d.startsWith(state.year)) dates.add(d);
+  for (const [d] of byDate) dates.add(d);
+  const sorted = [...dates].sort();
+
+  pane.innerHTML = sorted.map((d) => {
+    const photos = groups.get(d) || [];
+    const entries = byDate.get(d) || [];
+    const cls = entries.length ? 'matched' : 'orphan';
+    const active = d === state.selectedDate ? 'active' : '';
+    const titles = entries.map((e) => e.entry.title || '(untitled)').join(' · ');
+    return `<div class="day ${cls} ${active}" data-date="${d}">
+      <div>${d} <span class="count">${photos.length}📷</span></div>
+      ${titles ? `<div class="titles">${escapeHtml(titles)}</div>` : ''}
+    </div>`;
+  }).join('') || '<div class="empty">No days for this year.</div>';
+
+  pane.querySelectorAll('.day').forEach((el) => {
+    el.addEventListener('click', () => selectDate(el.dataset.date));
+  });
+}
+
+function selectDate(d) {
+  if (!autoApplyJson()) return;
+  state.selectedDate = d;
+  const flat = flattenForYear(state.memories, state.year);
+  const matches = entriesByDate(flat).get(d) || [];
+  state.selectedPath = matches.length ? matches[0].path : null;
+  state.lastEntryRefRendered = null;
+  render();
+}
+
+function renderPhotos() {
+  const pane = $('photos-pane');
+  if (!state.selectedDate) {
+    pane.innerHTML = '<div class="empty">Pick a day on the left.</div>';
+    return;
+  }
+  const photos = groupPhotos(state.files).get(state.selectedDate) || [];
+  if (!photos.length) {
+    pane.innerHTML = '<div class="empty">No photos for this day in toselect/.</div>';
+    return;
+  }
+
+  // Build set of selected media across the *current* entry only
+  const entry = currentEntry();
+  const selected = new Set([
+    ...((entry && entry.photos) || []),
+    ...((entry && entry.videos) || []),
+  ]);
+  // And a set of media used by ANY entry (any year) — to flag "already used elsewhere"
+  const usedElsewhere = collectAllUsedMedia();
+
+  pane.innerHTML = '<div class="photos">' + photos.map((f) => {
+    const isVideo = /\.(mp4|mov)$/i.test(f);
+    const sel = selected.has(f) ? 'selected' : '';
+    const elseUsed = !selected.has(f) && usedElsewhere.has(f);
+    const media = isVideo
+      ? `<video src="/media/${encodeURIComponent(f)}" muted preload="metadata"></video>`
+      : `<img src="/media/${encodeURIComponent(f)}" loading="lazy" decoding="async">`;
+    return `<div class="photo ${sel}" data-name="${f}">
+      ${media}
+      <span class="check">✓</span>
+      ${elseUsed ? '<span class="badge" title="already used in another entry">↗</span>' : ''}
+      <button class="trash" data-trash="${f}" title="Move to trash">×</button>
+      <span class="fn">${f}</span>
+    </div>`;
+  }).join('') + '</div>';
+
+  pane.querySelectorAll('.photo').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      if (e.target.closest('.trash')) return;
+      togglePhoto(el.dataset.name);
+    });
+  });
+  pane.querySelectorAll('.trash').forEach((el) => {
+    el.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const name = el.dataset.trash;
+      if (!confirm(`Move ${name} to trash?`)) return;
+      const r = await fetch('/api/trash', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name }) });
+      if (!r.ok) { alert('trash failed: ' + await r.text()); return; }
+      // remove from any entry references too
+      removeMediaFromAllEntries(name);
+      state.files = state.files.filter((f) => f !== name);
+      render();
+    });
+  });
+}
+
+function collectAllUsedMedia() {
+  const s = new Set();
+  for (const list of Object.values(state.memories)) {
+    if (!Array.isArray(list)) continue;
+    for (const e of list) {
+      if (Array.isArray(e.photos)) for (const p of e.photos) s.add(p);
+      if (Array.isArray(e.videos)) for (const v of e.videos) s.add(v);
+      if (Array.isArray(e.days)) {
+        for (const d of e.days) {
+          if (Array.isArray(d.photos)) for (const p of d.photos) s.add(p);
+          if (Array.isArray(d.videos)) for (const v of d.videos) s.add(v);
+        }
+      }
+    }
+  }
+  return s;
+}
+
+function removeMediaFromAllEntries(name) {
+  for (const [year, list] of Object.entries(state.memories)) {
+    if (!Array.isArray(list)) continue;
+    let changed = false;
+    const strip = (e) => {
+      if (Array.isArray(e.photos) && e.photos.includes(name)) { e.photos = e.photos.filter((x) => x !== name); changed = true; }
+      if (Array.isArray(e.videos) && e.videos.includes(name)) { e.videos = e.videos.filter((x) => x !== name); changed = true; }
+    };
+    for (const e of list) {
+      strip(e);
+      if (Array.isArray(e.days)) for (const d of e.days) strip(d);
+    }
+    if (changed) markDirty(year);
+  }
+}
+
+async function togglePhoto(name) {
+  if (!state.selectedPath) {
+    alert('No memory entry for this day. Click "+ Add entry" first.');
+    return;
+  }
+  if (!autoApplyJson()) return;
+  const entry = currentEntry();
+  const isVideo = /\.(mp4|mov)$/i.test(name);
+  const key = isVideo ? 'videos' : 'photos';
+  if (!Array.isArray(entry[key])) entry[key] = [];
+  const idx = entry[key].indexOf(name);
+  if (idx >= 0) {
+    entry[key].splice(idx, 1);
+  } else {
+    entry[key].push(name);
+    const r = await fetch('/api/copy', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name }) });
+    if (!r.ok) { alert('copy failed: ' + await r.text()); entry[key].pop(); return; }
+  }
+  markDirty(state.year);
+  state.lastEntryRefRendered = null;
+  render();
+}
+
+function renderJson() {
+  const ed = $('json-editor');
+  const switcher = $('entry-switcher');
+  const addEntry = $('add-entry-btn');
+  const addDay = $('add-day-btn');
+  const apply = $('apply-btn');
+  const revert = $('revert-btn');
+  const del = $('delete-btn');
+  $('json-err').textContent = '';
+  ed.classList.remove('error');
+
+  // entry switcher: all entries matching the selected date
+  switcher.innerHTML = '';
+  if (state.selectedDate) {
+    const flat = flattenForYear(state.memories, state.year);
+    const matches = entriesByDate(flat).get(state.selectedDate) || [];
+    if (matches.length > 1) {
+      matches.forEach((m) => {
+        const b = document.createElement('button');
+        const label = `${m.kind === 'sub-day' ? '⤷ ' : ''}${m.entry.title || '(untitled)'}`;
+        b.textContent = label;
+        if (pathsEqual(m.path, state.selectedPath)) b.classList.add('active');
+        b.addEventListener('click', () => {
+          if (!autoApplyJson()) return;
+          state.selectedPath = m.path;
+          state.lastEntryRefRendered = null;
+          render();
+        });
+        switcher.appendChild(b);
+      });
+    }
+  }
+
+  if (!state.selectedDate) {
+    ed.value = ''; ed.disabled = true;
+    addEntry.disabled = true; addDay.disabled = true; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    return;
+  }
+  if (!state.selectedPath) {
+    ed.value = ''; ed.disabled = true; ed.placeholder = 'No entry yet for this day. Click "+ Add entry".';
+    addEntry.disabled = false; addDay.disabled = true; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    return;
+  }
+
+  const entry = currentEntry();
+  // Only refresh textarea content if entry reference changed (so user's typing isn't blown away)
+  if (state.lastEntryRefRendered !== entry) {
+    ed.value = JSON.stringify(entry, null, 2);
+    state.lastEntryRefRendered = entry;
+  }
+  ed.disabled = false;
+  addEntry.disabled = false;
+  addDay.disabled = !Array.isArray(entry.days) && state.selectedPath.length > 1; // disable on sub-day
+  apply.disabled = false;
+  revert.disabled = false;
+  del.disabled = false;
+}
+
+function autoApplyJson() {
+  if (!state.selectedPath) return true;
+  const ed = $('json-editor');
+  const text = ed.value;
+  if (!text.trim()) return true;
+  let parsed;
+  try { parsed = JSON.parse(text); }
+  catch (e) {
+    ed.classList.add('error');
+    $('json-err').textContent = 'JSON parse error: ' + e.message;
+    return false;
+  }
+  const current = currentEntry();
+  if (JSON.stringify(parsed) !== JSON.stringify(current)) {
+    setEntryAtPath(state.memories, state.year, state.selectedPath, parsed);
+    markDirty(state.year);
+    state.lastEntryRefRendered = parsed;
+  }
+  return true;
+}
+
+function addNewEntry() {
+  const date = state.selectedDate;
+  const year = date.slice(0, 4);
+  if (!state.memories[year]) { alert(`Year ${year} not loaded`); return; }
+  const list = state.memories[year];
+  const newEntry = {
+    id: date,
+    date,
+    type: 'date',
+    title: '',
+    caption: '',
+    location: { lat: 0, lng: 0, name: '' },
+    photos: [],
+    music: null,
+    weather: null,
+    videos: [],
+    tags: [],
+  };
+  let insertAt = list.length;
+  for (let i = 0; i < list.length; i++) {
+    const ed = list[i].date || (list[i].days && list[i].days[0] && list[i].days[0].date);
+    if (ed && ed > date) { insertAt = i; break; }
+  }
+  list.splice(insertAt, 0, newEntry);
+  if (year === state.year) state.selectedPath = [insertAt];
+  state.year = year;
+  document.querySelectorAll('header button.year').forEach((x) => x.classList.toggle('active', x.dataset.year === state.year));
+  state.lastEntryRefRendered = null;
+  markDirty(year);
+  render();
+}
+
+function addSubDay() {
+  if (!state.selectedPath || state.selectedPath.length !== 1) return;
+  const parent = currentEntry();
+  if (!Array.isArray(parent.days)) parent.days = [];
+  const date = state.selectedDate;
+  parent.days.push({
+    date,
+    title: '',
+    caption: '',
+    location: { lat: 0, lng: 0, name: '' },
+    photos: [],
+    videos: [],
+    tags: [],
+  });
+  parent.days.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  const j = parent.days.findIndex((d) => d.date === date);
+  state.selectedPath = [state.selectedPath[0], 'days', j];
+  state.lastEntryRefRendered = null;
+  markDirty(state.year);
+  render();
+}
+
+function deleteCurrentEntry() {
+  if (!state.selectedPath) return;
+  if (!confirm('Delete this entry from the JSON? (does not touch any files)')) return;
+  deleteEntryAtPath(state.memories, state.year, state.selectedPath);
+  state.selectedPath = null;
+  state.lastEntryRefRendered = null;
+  markDirty(state.year);
+  render();
+}
+
+async function saveAll() {
+  for (const y of state.dirty) {
+    const r = await fetch('/api/save', {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ year: y, memories: state.memories[y] }),
+    });
+    if (!r.ok) { alert(`save ${y} failed: ` + await r.text()); return; }
+  }
+  state.dirty.clear();
+  renderStatus();
+}
+
+function renderStatus() {
+  const el = $('status');
+  if (state.dirty.size === 0) {
+    el.textContent = 'saved'; el.className = 'status clean';
+  } else {
+    el.textContent = 'unsaved: ' + [...state.dirty].sort().join(', '); el.className = 'status dirty';
+  }
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
+}
+
+// ---- bindings ----
+document.querySelectorAll('header button.year').forEach((b) => {
+  b.addEventListener('click', () => {
+    if (!autoApplyJson()) return;
+    state.year = b.dataset.year;
+    state.selectedDate = null;
+    state.selectedPath = null;
+    state.lastEntryRefRendered = null;
+    document.querySelectorAll('header button.year').forEach((x) => x.classList.toggle('active', x.dataset.year === state.year));
+    render();
+  });
+});
+document.querySelector(`header button.year[data-year="${state.year}"]`).classList.add('active');
+
+$('save-btn').addEventListener('click', saveAll);
+$('apply-btn').addEventListener('click', () => { if (autoApplyJson()) render(); });
+$('revert-btn').addEventListener('click', () => { state.lastEntryRefRendered = null; render(); });
+$('add-entry-btn').addEventListener('click', addNewEntry);
+$('add-day-btn').addEventListener('click', addSubDay);
+$('delete-btn').addEventListener('click', deleteCurrentEntry);
+
+window.addEventListener('beforeunload', (e) => {
+  if (state.dirty.size) { e.preventDefault(); e.returnValue = ''; }
+});
+window.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveAll(); }
+});
+
+loadState();
+</script>
+</body>
+</html>
