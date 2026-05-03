@@ -12,7 +12,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 15°C"
+    },
     "videos": [],
     "tags": [
       "first-date",
@@ -34,7 +36,9 @@
       "octobar.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 18°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -76,7 +80,9 @@
       "inside-out-2.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 19°C"
+    },
     "videos": [],
     "tags": [
       "movie"
@@ -101,7 +107,9 @@
       "2024-07-20-coulee-verte.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Regen, 30°C"
+    },
     "videos": [],
     "tags": [
       "city-trip"
@@ -129,7 +137,9 @@
       "2024-07-26.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Regen, 23°C"
+    },
     "videos": [],
     "tags": [
       "friends"
@@ -150,7 +160,9 @@
       "2024-08-09.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 24°C"
+    },
     "videos": [],
     "tags": []
   },
@@ -170,7 +182,9 @@
       "2024-08-26-geslaagd.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 22°C"
+    },
     "videos": [],
     "tags": []
   },
@@ -189,7 +203,9 @@
       "2024-08-29.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 25°C"
+    },
     "videos": [],
     "tags": []
   },
@@ -208,7 +224,9 @@
       "brussels-chuckles.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Hevige regen, 26°C"
+    },
     "videos": [],
     "tags": [
       "comedy"
@@ -229,7 +247,9 @@
       "pizza-brutal.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Regen, 15°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -250,7 +270,9 @@
       "2024-09-12-lapaix.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Lichte regen, 14°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -269,7 +291,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 16°C"
+    },
     "videos": [],
     "tags": [
       "family"
@@ -290,7 +314,9 @@
       "patyntje.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 16°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -312,7 +338,9 @@
       "nyyo.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 22°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -335,7 +363,9 @@
       "2024-09-18-42.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 22°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -354,7 +384,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 24°C"
+    },
     "videos": [],
     "tags": [
       "family"
@@ -375,7 +407,9 @@
       "2024-09-28-wandeling.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 14°C"
+    },
     "videos": [],
     "tags": [
       "family"
@@ -396,7 +430,9 @@
       "20241004_211137.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 15°C"
+    },
     "videos": [],
     "tags": [
       "family",
@@ -419,7 +455,9 @@
       "20241016_215819.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 21°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -441,7 +479,9 @@
       "20241019_152202.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 16°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -465,7 +505,9 @@
       "2024-10-19-HeleenCado.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 16°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -487,7 +529,9 @@
       "20241026_211706.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 20°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -512,7 +556,9 @@
       "artist": "Taylor Swift",
       "title": "Dancing On My Own"
     },
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 31°C"
+    },
     "videos": [],
     "tags": [
       "travel"
@@ -863,7 +909,9 @@
       "20241117_174910.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Sneeuw, 11°C"
+    },
     "videos": [
       "20241117_164805.mp4",
       "20241117_162721.mp4"
@@ -890,7 +938,9 @@
       "20241124_131551(1).jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Lichte regen, 11°C"
+    },
     "videos": [],
     "tags": [
       "friends",
@@ -910,7 +960,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Lichte regen, 12°C"
+    },
     "videos": [],
     "tags": [
       "family"
@@ -931,7 +983,9 @@
       "20241203_191106.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 8°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -955,7 +1009,9 @@
       "20241215_134542.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 5°C"
+    },
     "videos": [],
     "tags": [
       "expo",
@@ -978,7 +1034,9 @@
       "20241221_175558.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Regen, 11°C"
+    },
     "videos": [],
     "tags": []
   },
@@ -995,7 +1053,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 7°C"
+    },
     "videos": [],
     "tags": [
       "family",
@@ -1015,7 +1075,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 4°C"
+    },
     "videos": [],
     "tags": [
       "family",

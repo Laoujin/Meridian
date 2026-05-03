@@ -14,7 +14,9 @@
       "1770199850426-2026-01-02.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Lichte sneeuw, 4°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -33,7 +35,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Sneeuw, 2°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -59,7 +63,9 @@
       "1770199642771-2026-01-14.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 10°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -81,7 +87,9 @@
       "1770199528124-2026-01-17.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 11°C"
+    },
     "videos": [],
     "tags": [
       "family",
@@ -103,7 +111,9 @@
       "1770199441659-2026-01-21.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 10°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -124,7 +134,9 @@
       "1770199290805-2026-01-23.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 9°C"
+    },
     "videos": [],
     "tags": [
       "pingpong"
@@ -143,7 +155,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 3°C"
+    },
     "videos": [],
     "tags": [
       "movie"
@@ -164,7 +178,9 @@
       "1770199000309-2026-01-31.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Lichte regen, 10°C"
+    },
     "videos": [],
     "tags": [
       "coderdojo",
@@ -186,7 +202,9 @@
       "1770198787945-2026-02-01.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 9°C"
+    },
     "videos": [],
     "tags": [
       "food"
@@ -207,7 +225,9 @@
       "1772990823687-2026-02-07.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 12°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -229,7 +249,9 @@
       "1772990874137-2026-02-08.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Bewolkt, 12°C"
+    },
     "videos": [],
     "tags": [
       "restaurant"
@@ -277,7 +299,9 @@
       "1772991577050-2026-02-18.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 6°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -302,7 +326,9 @@
       "1772992705573-2026-02-20.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 10°C"
+    },
     "videos": [],
     "tags": [
       "family",
@@ -325,7 +351,9 @@
       "1772993117256-2026-02-21.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Lichte regen, 12°C"
+    },
     "videos": [],
     "tags": [
       "comedy"
@@ -347,7 +375,9 @@
       "1772995381579-2026-02-22.png"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Lichte regen, 12°C"
+    },
     "videos": [],
     "tags": [
       "restaurant",
@@ -369,7 +399,9 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "note": "Motregen, 19°C"
+    },
     "videos": [],
     "tags": [
       "travel"
