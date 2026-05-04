@@ -114,6 +114,7 @@ body {
 
 /* ===== Memory Card ===== */
 .memory-card {
+  position: relative;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   border-radius: 16px;
@@ -154,7 +155,23 @@ body {
   margin-top: 8px;
 }
 
-.memory-card__weather {
+.memory-card__weather-badge {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1;
+}
+
+.memory-card__weather-icon {
+  font-size: 18px;
+}
+
+.memory-card__weather-note {
   font-size: 12px;
   color: #888;
   margin-top: 6px;

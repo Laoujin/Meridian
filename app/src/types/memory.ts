@@ -10,8 +10,21 @@ export interface Transport {
   to: string;
 }
 
+export type WeatherIcon =
+  | 'sun'
+  | 'cloud-sun'
+  | 'cloud'
+  | 'fog'
+  | 'drizzle'
+  | 'rain'
+  | 'rain-heavy'
+  | 'snow'
+  | 'storm';
+
 export interface Weather {
-  note: string;
+  icon: WeatherIcon;
+  tempC: number;
+  note?: string;
 }
 
 export interface Music {
