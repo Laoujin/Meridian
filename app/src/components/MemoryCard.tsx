@@ -6,9 +6,11 @@ import { weatherEmoji } from '../utils/weather';
 
 interface MemoryCardProps {
   memory: Memory;
+  muted?: boolean;
+  onToggleMute?: () => void;
 }
 
-export default function MemoryCard({ memory }: MemoryCardProps) {
+export default function MemoryCard({ memory, muted, onToggleMute }: MemoryCardProps) {
   const dateStr = format(parseISO(memory.date), 'd MMMM yyyy', { locale: nl });
 
   const isMilestone = memory.type === 'milestone';
@@ -35,6 +37,21 @@ export default function MemoryCard({ memory }: MemoryCardProps) {
       )}
       {memory.location?.text && (
         <div className="memory-card__location">📍 {memory.location.text}</div>
+      )}
+      {memory.music && (
+        <div className="memory-card__music">
+          <button
+            type="button"
+            className="memory-card__music-btn"
+            onClick={onToggleMute}
+            aria-label={muted ? 'Unmute music' : 'Mute music'}
+          >
+            {muted ? '🔇' : '🔊'}
+          </button>
+          <span className="memory-card__music-text">
+            {memory.music.artist}{memory.music.title ? ` — ${memory.music.title}` : ''}
+          </span>
+        </div>
       )}
     </div>
   );

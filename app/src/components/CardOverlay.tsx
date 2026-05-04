@@ -8,6 +8,8 @@ interface CardOverlayProps {
   memories: Memory[];
   phase: ScrollPhase;
   progress: number;
+  muted?: boolean;
+  onToggleMute?: () => void;
 }
 
 /**
@@ -27,7 +29,7 @@ function incomingOpacity(progress: number): number {
   return (progress - 0.3) / 0.7;
 }
 
-export default function CardOverlay({ activeIndex, memories, phase, progress }: CardOverlayProps) {
+export default function CardOverlay({ activeIndex, memories, phase, progress, muted, onToggleMute }: CardOverlayProps) {
   if (phase === 'hold') {
     const idx = activeIndex;
     if (idx >= memories.length) return null;
@@ -38,7 +40,7 @@ export default function CardOverlay({ activeIndex, memories, phase, progress }: 
           {idx < 0 ? (
             <OpeningCard />
           ) : (
-            <MemoryCard memory={memories[idx]} />
+            <MemoryCard memory={memories[idx]} muted={muted} onToggleMute={onToggleMute} />
           )}
         </div>
       </div>
@@ -67,7 +69,7 @@ export default function CardOverlay({ activeIndex, memories, phase, progress }: 
           {outIdx < 0 ? (
             <OpeningCard />
           ) : (
-            <MemoryCard memory={memories[outIdx]} />
+            <MemoryCard memory={memories[outIdx]} muted={muted} onToggleMute={onToggleMute} />
           )}
         </div>
       )}
@@ -81,7 +83,7 @@ export default function CardOverlay({ activeIndex, memories, phase, progress }: 
           display: 'flex',
           justifyContent: 'center',
         }}>
-          <MemoryCard memory={memories[inIdx]} />
+          <MemoryCard memory={memories[inIdx]} muted={muted} onToggleMute={onToggleMute} />
         </div>
       )}
     </div>
