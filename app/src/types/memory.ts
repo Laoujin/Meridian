@@ -58,8 +58,6 @@ export interface Memory {
   tags: string[];
 
   // Trip-specific
-  tripStart?: string;
-  tripEnd?: string;
   transport?: Transport[];
   days?: TripDay[];
 

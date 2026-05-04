@@ -620,8 +620,6 @@
     "date": "2024-10-31",
     "type": "trip",
     "title": "Vietnam",
-    "tripStart": "2024-10-31",
-    "tripEnd": "2024-11-11",
     "caption": "Vietnam trip!",
     "location": {
       "lat": 10.7755254,

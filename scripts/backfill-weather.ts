@@ -14,7 +14,6 @@ type Entry = {
   id?: string;
   title?: string;
   date: string;
-  tripStart?: string;
   location: Loc | null;
   weather: AnyWeather;
 };
@@ -103,7 +102,7 @@ for (const file of FILES) {
     const lng = entry.location?.lng;
     if (lat == null || lng == null) { skipped++; continue; }
 
-    const date = entry.tripStart ?? entry.date;
+    const date = entry.date;
     const note = preservedNote(entry.weather);
     try {
       const w = await fetchWeather(lat, lng, date);
