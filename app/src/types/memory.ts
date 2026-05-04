@@ -34,16 +34,6 @@ export interface Music {
   title: string;
 }
 
-export interface TripDay {
-  date: string;
-  title: string;
-  caption: string;
-  location: Location;
-  photos: string[];
-  videos: string[];
-  transport?: Transport[];
-}
-
 export interface Memory {
   id: string;
   date: string;
@@ -59,7 +49,6 @@ export interface Memory {
 
   // Trip-specific
   transport?: Transport[];
-  days?: TripDay[];
 
   // Special
   linkedTo?: string;

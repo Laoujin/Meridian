@@ -8,7 +8,6 @@ interface CardOverlayProps {
   memories: Memory[];
   phase: ScrollPhase;
   progress: number;
-  onShowDetails?: (memoryIndex: number) => void;
 }
 
 /**
@@ -28,7 +27,7 @@ function incomingOpacity(progress: number): number {
   return (progress - 0.3) / 0.7;
 }
 
-export default function CardOverlay({ activeIndex, memories, phase, progress, onShowDetails }: CardOverlayProps) {
+export default function CardOverlay({ activeIndex, memories, phase, progress }: CardOverlayProps) {
   if (phase === 'hold') {
     const idx = activeIndex;
     if (idx >= memories.length) return null;
@@ -39,10 +38,7 @@ export default function CardOverlay({ activeIndex, memories, phase, progress, on
           {idx < 0 ? (
             <OpeningCard />
           ) : (
-            <MemoryCard
-              memory={memories[idx]}
-              onShowDetails={onShowDetails ? () => onShowDetails(idx) : undefined}
-            />
+            <MemoryCard memory={memories[idx]} />
           )}
         </div>
       </div>
@@ -85,10 +81,7 @@ export default function CardOverlay({ activeIndex, memories, phase, progress, on
           display: 'flex',
           justifyContent: 'center',
         }}>
-          <MemoryCard
-            memory={memories[inIdx]}
-            onShowDetails={onShowDetails ? () => onShowDetails(inIdx) : undefined}
-          />
+          <MemoryCard memory={memories[inIdx]} />
         </div>
       )}
     </div>

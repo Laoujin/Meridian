@@ -431,22 +431,27 @@
     "id": "2026-03-01",
     "date": "2026-03-01",
     "type": "trip",
-    "title": "Marrakesh",
-    "tripStart": "2026-03-01",
-    "tripEnd": "2026-03-06",
-    "caption": "Marrakesh!",
+    "title": "Arrival -- Riad Mazaj",
+    "caption": "Riad Mazaj (water was niet warm genoeg voor Caro). Le Slimana -- Caro had ook goeie lam raviole.",
     "location": {
       "lat": 31.6258257,
       "lng": -7.9891608,
       "name": "Marrakesh, Marocco"
     },
-    "photos": [],
+    "photos": [
+      "1772996677466-2026-03-01.png",
+      "1772999037005-2026-03-01.png",
+      "1772996598255-2026-03-01.png",
+      "1772996731351-2026-03-01.png"
+    ],
     "music": null,
     "weather": {
       "icon": "drizzle",
       "tempC": 19
     },
-    "videos": [],
+    "videos": [
+      "2026-03-01 21.37.37.mp4"
+    ],
     "tags": [
       "travel"
     ],
@@ -461,154 +466,165 @@
         "from": "Chaleroi Airport",
         "to": "Marrakesh"
       }
+    ]
+  },
+  {
+    "id": "2026-03-02",
+    "date": "2026-03-02",
+    "type": "trip",
+    "title": "Souks, Bahia Palace + Ben Jamil",
+    "caption": "De Souks, altijd rechtdoor! Koutoubia Mosque, Bahia Palace. Kleren kopen in Gueliz, cocktail bij Kabana. 's avonds Libanees bij Ben Jamil.",
+    "location": {
+      "lat": 31.6258257,
+      "lng": -7.9891608,
+      "name": "Marrakesh, Marocco"
+    },
+    "photos": [
+      "1772997248464-2026-03-02.png",
+      "1772997460981-2026-03-02.png",
+      "1772997490199-2026-03-02.png",
+      "1772997535950-2026-03-02.png",
+      "1772997655725-2026-03-02.png",
+      "1772997667914-2026-03-02.png",
+      "1772997689162-2026-03-02.png",
+      "1773001594535-2026-03-02.png",
+      "1772998454564-2026-03-02.png",
+      "1772998254078-2026-03-02.png",
+      "1772998618627-2026-03-02.png",
+      "1772998642959-2026-03-02.png",
+      "1772998341242-2026-03-03.png"
     ],
-    "days": [
-      {
-        "date": "2026-03-01",
-        "title": "Arrival -- Riad Mazaj",
-        "caption": "Riad Mazaj (water was niet warm genoeg voor Caro). Le Slimana -- Caro had ook goeie lam raviole.",
-        "location": {
-          "lat": 31.6258257,
-          "lng": -7.9891608,
-          "name": "Marrakesh, Marocco"
-        },
-        "photos": [
-          "1772996677466-2026-03-01.png",
-          "1772999037005-2026-03-01.png",
-          "1772996598255-2026-03-01.png",
-          "1772996731351-2026-03-01.png"
-        ],
-        "videos": [
-          "2026-03-01 21.37.37.mp4"
-        ],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2026-03-02",
-        "title": "Souks, Bahia Palace + Ben Jamil",
-        "caption": "De Souks, altijd rechtdoor! Koutoubia Mosque, Bahia Palace. Kleren kopen in Gueliz, cocktail bij Kabana. 's avonds Libanees bij Ben Jamil.",
-        "location": {
-          "lat": 31.6258257,
-          "lng": -7.9891608,
-          "name": "Marrakesh, Marocco"
-        },
-        "photos": [
-          "1772997248464-2026-03-02.png",
-          "1772997460981-2026-03-02.png",
-          "1772997490199-2026-03-02.png",
-          "1772997535950-2026-03-02.png",
-          "1772997655725-2026-03-02.png",
-          "1772997667914-2026-03-02.png",
-          "1772997689162-2026-03-02.png",
-          "1773001594535-2026-03-02.png",
-          "1772998454564-2026-03-02.png",
-          "1772998254078-2026-03-02.png",
-          "1772998618627-2026-03-02.png",
-          "1772998642959-2026-03-02.png",
-          "1772998341242-2026-03-03.png"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2026-03-03",
-        "title": "Shopping + Hamam",
-        "caption": "Caro was ondertussen gaan shoppen en Hamam. Caro aan het onderhandelen over de prijs. Nomad restaurant.",
-        "location": {
-          "lat": 31.6258257,
-          "lng": -7.9891608,
-          "name": "Marrakesh, Marocco"
-        },
-        "photos": [
-          "1772998912069-2026-03-03.png",
-          "1772997941223-2026-03-03.png",
-          "1772998683182-2026-03-03.png",
-          "1772998797816-2026-03-03.png",
-          "1772998787653-2026-03-03.png",
-          "1772998947581-2026-03-03.png"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2026-03-04",
-        "title": "Museums + Otto",
-        "caption": "Museums. Als het aan Caro lag, dan waren we het nu nog aan het zoeken. Otto restaurant -- vergeten Caro haar saus apart te houden.",
-        "location": {
-          "lat": 31.6258257,
-          "lng": -7.9891608,
-          "name": "Marrakesh, Marocco"
-        },
-        "photos": [
-          "1772999190080-2026-03-04.png",
-          "1772999247062-2026-03-04.png",
-          "1772999286615-2026-03-04.png",
-          "1772999481412-2026-03-04.png",
-          "1772999315222-2026-03-04.png",
-          "1772999385026-2026-03-04.png",
-          "1772999510201-2026-03-04.png"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2026-03-05",
-        "title": "Atlas Mountains + Le Bistro Arabe",
-        "caption": "Daguitstap naar de Atlas Mountains, Vallee de l'Ourika. Viel een beetje tegen door het weer. 's avonds Le Bistro Arabe met live Jazz.",
-        "location": {
-          "lat": 31.6258257,
-          "lng": -7.9891608,
-          "name": "Marrakesh, Marocco"
-        },
-        "photos": [
-          "1772999719026-2026-03-05.png",
-          "1772999739896-2026-03-05.png",
-          "1772999778670-2026-03-05.png",
-          "1772999796185-2026-03-05.png",
-          "1773000016826-2026-03-05.png"
-        ],
-        "videos": [
-          "20260305_203804.mp4"
-        ],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2026-03-06",
-        "title": "Jardin Majorelle + YSL",
-        "caption": "Jardin Majorelle, YSL Museum. Caro had zin in vis: Fish House Al Aachabe. La Kamounya.",
-        "location": {
-          "lat": 31.6258257,
-          "lng": -7.9891608,
-          "name": "Marrakesh, Marocco"
-        },
-        "photos": [
-          "1773000548649-2026-03-06.png",
-          "1773000080566-2026-03-06.png",
-          "1773000116734-2026-03-06.png",
-          "1773000143658-2026-03-06.png",
-          "1773000187937-2026-03-06.png",
-          "1773000210068-2026-03-06.png",
-          "1773000290207-2026-03-06.png",
-          "1773000579481-2026-03-06.png",
-          "1773000454444-2026-03-06.png",
-          "1773000459728-2026-03-06.png",
-          "1773000504172-2026-03-06.png"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      }
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 18
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2026-03-03",
+    "date": "2026-03-03",
+    "type": "trip",
+    "title": "Shopping + Hamam",
+    "caption": "Caro was ondertussen gaan shoppen en Hamam. Caro aan het onderhandelen over de prijs. Nomad restaurant.",
+    "location": {
+      "lat": 31.6258257,
+      "lng": -7.9891608,
+      "name": "Marrakesh, Marocco"
+    },
+    "photos": [
+      "1772998912069-2026-03-03.png",
+      "1772997941223-2026-03-03.png",
+      "1772998683182-2026-03-03.png",
+      "1772998797816-2026-03-03.png",
+      "1772998787653-2026-03-03.png",
+      "1772998947581-2026-03-03.png"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 13
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2026-03-04",
+    "date": "2026-03-04",
+    "type": "trip",
+    "title": "Museums + Otto",
+    "caption": "Museums. Als het aan Caro lag, dan waren we het nu nog aan het zoeken. Otto restaurant -- vergeten Caro haar saus apart te houden.",
+    "location": {
+      "lat": 31.6258257,
+      "lng": -7.9891608,
+      "name": "Marrakesh, Marocco"
+    },
+    "photos": [
+      "1772999190080-2026-03-04.png",
+      "1772999247062-2026-03-04.png",
+      "1772999286615-2026-03-04.png",
+      "1772999481412-2026-03-04.png",
+      "1772999315222-2026-03-04.png",
+      "1772999385026-2026-03-04.png",
+      "1772999510201-2026-03-04.png"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 11
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2026-03-05",
+    "date": "2026-03-05",
+    "type": "trip",
+    "title": "Atlas Mountains + Le Bistro Arabe",
+    "caption": "Daguitstap naar de Atlas Mountains, Vallee de l'Ourika. Viel een beetje tegen door het weer. 's avonds Le Bistro Arabe met live Jazz.",
+    "location": {
+      "lat": 31.6258257,
+      "lng": -7.9891608,
+      "name": "Marrakesh, Marocco"
+    },
+    "photos": [
+      "1772999719026-2026-03-05.png",
+      "1772999739896-2026-03-05.png",
+      "1772999778670-2026-03-05.png",
+      "1772999796185-2026-03-05.png",
+      "1773000016826-2026-03-05.png"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 17
+    },
+    "videos": [
+      "20260305_203804.mp4"
+    ],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2026-03-06",
+    "date": "2026-03-06",
+    "type": "trip",
+    "title": "Jardin Majorelle + YSL",
+    "caption": "Jardin Majorelle, YSL Museum. Caro had zin in vis: Fish House Al Aachabe. La Kamounya.",
+    "location": {
+      "lat": 31.6258257,
+      "lng": -7.9891608,
+      "name": "Marrakesh, Marocco"
+    },
+    "photos": [
+      "1773000548649-2026-03-06.png",
+      "1773000080566-2026-03-06.png",
+      "1773000116734-2026-03-06.png",
+      "1773000143658-2026-03-06.png",
+      "1773000187937-2026-03-06.png",
+      "1773000210068-2026-03-06.png",
+      "1773000290207-2026-03-06.png",
+      "1773000579481-2026-03-06.png",
+      "1773000454444-2026-03-06.png",
+      "1773000459728-2026-03-06.png",
+      "1773000504172-2026-03-06.png"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 16
+    },
+    "videos": [],
+    "tags": [
+      "travel"
     ]
   },
   {

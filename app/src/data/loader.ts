@@ -44,12 +44,6 @@ export function getCityLabel(name: string | undefined): string {
 }
 
 export function getScrollHeight(memory: Memory): number {
-  // Return relative scroll height multiplier based on type
-  if (memory.type === 'trip' && memory.days) {
-    return 1 + memory.days.length * 0.8;
-  }
-  if (memory.type === 'milestone') {
-    return 1.2;
-  }
+  if (memory.type === 'milestone') return 1.2;
   return 1;
 }

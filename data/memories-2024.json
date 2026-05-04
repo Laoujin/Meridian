@@ -342,7 +342,9 @@
       "lng": 3.9987941,
       "name": "Stichelen 70, Haaltert"
     },
-    "photos": ["2024-09-13-ouders.png"],
+    "photos": [
+      "2024-09-13-ouders.png"
+    ],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -616,17 +618,80 @@
     ]
   },
   {
-    "id": "2024-10-31",
-    "date": "2024-10-31",
+    "id": "2024-10-29",
+    "date": "2024-10-29",
     "type": "trip",
-    "title": "Vietnam",
-    "caption": "Vietnam trip!",
+    "title": "Vertrek naar Vietnam",
+    "caption": "Vlucht naar Vietnam via Turkije. Duurste biertjes ooit in Turkije (24 euro het stuk).",
+    "location": {
+      "lat": 15.9266657,
+      "lng": 107.9650855,
+      "name": "Vietnam"
+    },
+    "photos": [
+      "2024-10-29 15.43.53.jpg",
+      "2024-10-29 22.11.19.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 20
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-10-30",
+    "date": "2024-10-30",
+    "type": "trip",
+    "title": "Aankomst HCMC",
+    "caption": "Schoenen uiteengevallen op de luchthaven. Restaurant The Deck Saigon. 's nachts nog een foot-massage (marteling).",
     "location": {
       "lat": 10.7755254,
       "lng": 106.7021047,
-      "name": "Ho Chi Minh City, Vietnam"
+      "name": "Ho Chi Minh City"
     },
-    "photos": [],
+    "photos": [
+      "2024-10-29-Vietnam.jpg",
+      "2024-10-29-Schoenen.jpg",
+      "2024-10-30-Bier.png",
+      "20241030_213557.jpg",
+      "2024-10-30-DeckSaigon.png",
+      "2024-10-30 19.04.32.jpg",
+      "2024-10-30 17.25.00.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 31
+    },
+    "videos": [],
+    "tags": [
+      "travel",
+      "restaurant"
+    ]
+  },
+  {
+    "id": "2024-10-31",
+    "date": "2024-10-31",
+    "type": "trip",
+    "title": "HCMC — Day 1",
+    "caption": "War Remnants Museum, Reunification Palace, Notre-Dame Cathedral, Bitexco Financial Tower.",
+    "location": {
+      "lat": 10.7755254,
+      "lng": 106.7021047,
+      "name": "Ho Chi Minh City"
+    },
+    "photos": [
+      "2024-10-31 08.41.38.jpg",
+      "2024-10-31 09.42.13.jpg",
+      "2024-10-31 12.16.26.jpg",
+      "2024-10-31 13.27.09.jpg",
+      "2024-10-31 13.35.28.jpg",
+      "2024-10-31 14.31.16.jpg"
+    ],
     "music": {
       "track": "shake-it-off.mp3",
       "artist": "Taylor Swift",
@@ -651,381 +716,413 @@
         "from": "Brussels",
         "to": "Ho Chi Minh City"
       }
+    ]
+  },
+  {
+    "id": "2024-11-01",
+    "date": "2024-11-01",
+    "type": "trip",
+    "title": "Cu Chi Tunnels",
+    "caption": "Cu Chi Tunnels. Caro was ook iedereen aan het trakteren tot al ons geld op was.",
+    "location": {
+      "lat": 10.9744159,
+      "lng": 106.4948968,
+      "name": "Cu Chi"
+    },
+    "photos": [
+      "2024-11-01 04.35.54.jpg",
+      "2024-11-01 11.09.22.jpg",
+      "2024-11-01 16.13.35.jpg",
+      "2024-11-01 18.07.47.jpg",
+      "2024-11-01 19.26.22.jpg"
     ],
-    "days": [
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 31
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-01-2",
+    "date": "2024-11-01",
+    "type": "trip",
+    "title": "Mekong Delta",
+    "caption": "Mekong delta. Caro een juwelenkistje gekocht.",
+    "location": {
+      "lat": 9.7508959,
+      "lng": 105.2224602,
+      "name": "Mekong Delta"
+    },
+    "photos": [],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 31
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-03",
+    "date": "2024-11-03",
+    "type": "trip",
+    "title": "Da Nang",
+    "caption": "Dragon Bridge fireworks. Caro had ook review gedaan voor gratis shots!",
+    "location": {
+      "lat": 16.068,
+      "lng": 108.212,
+      "name": "Da Nang"
+    },
+    "photos": [
+      "2024-11-03 15.03.38.jpg",
+      "2024-11-03 13.26.59.jpg",
+      "2024-11-03 15.07.19.jpg",
+      "2024-11-03 16.13.31.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 25
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ],
+    "transport": [
       {
-        "date": "2024-10-29",
-        "title": "Vertrek naar Vietnam",
-        "caption": "Vlucht naar Vietnam via Turkije. Duurste biertjes ooit in Turkije (24 euro het stuk).",
-        "location": {
-          "lat": 15.9266657,
-          "lng": 107.9650855,
-          "name": "Vietnam"
-        },
-        "photos": [
-          "2024-10-29 15.43.53.jpg",
-          "2024-10-29 22.11.19.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-10-30",
-        "title": "Aankomst HCMC",
-        "caption": "Schoenen uiteengevallen op de luchthaven. Restaurant The Deck Saigon. 's nachts nog een foot-massage (marteling).",
-        "location": {
-          "lat": 10.7755254,
-          "lng": 106.7021047,
-          "name": "Ho Chi Minh City"
-        },
-        "photos": [
-          "2024-10-29-Vietnam.jpg",
-          "2024-10-29-Schoenen.jpg",
-          "2024-10-30-Bier.png",
-          "20241030_213557.jpg",
-          "2024-10-30-DeckSaigon.png",
-          "2024-10-30 19.04.32.jpg",
-          "2024-10-30 17.25.00.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel",
-          "restaurant"
-        ]
-      },
-      {
-        "date": "2024-10-31",
-        "title": "HCMC — Day 1",
-        "caption": "War Remnants Museum, Reunification Palace, Notre-Dame Cathedral, Bitexco Financial Tower.",
-        "location": {
-          "lat": 10.7755254,
-          "lng": 106.7021047,
-          "name": "Ho Chi Minh City"
-        },
-        "photos": [
-          "2024-10-31 08.41.38.jpg",
-          "2024-10-31 09.42.13.jpg",
-          "2024-10-31 12.16.26.jpg",
-          "2024-10-31 13.27.09.jpg",
-          "2024-10-31 13.35.28.jpg",
-          "2024-10-31 14.31.16.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-01",
-        "title": "Cu Chi Tunnels",
-        "caption": "Cu Chi Tunnels. Caro was ook iedereen aan het trakteren tot al ons geld op was.",
-        "location": {
-          "lat": 10.9744159,
-          "lng": 106.4948968,
-          "name": "Cu Chi"
-        },
-        "photos": [
-          "2024-11-01 04.35.54.jpg",
-          "2024-11-01 11.09.22.jpg",
-          "2024-11-01 16.13.35.jpg",
-          "2024-11-01 18.07.47.jpg",
-          "2024-11-01 19.26.22.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-01-2",
-        "title": "Mekong Delta",
-        "caption": "Mekong delta. Caro een juwelenkistje gekocht.",
-        "location": {
-          "lat": 9.7508959,
-          "lng": 105.2224602,
-          "name": "Mekong Delta"
-        },
-        "photos": [],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-03",
-        "title": "Da Nang",
-        "caption": "Dragon Bridge fireworks. Caro had ook review gedaan voor gratis shots!",
-        "location": {
-          "lat": 16.068,
-          "lng": 108.212,
-          "name": "Da Nang"
-        },
-        "photos": [
-          "2024-11-03 15.03.38.jpg",
-          "2024-11-03 13.26.59.jpg",
-          "2024-11-03 15.07.19.jpg",
-          "2024-11-03 16.13.31.jpg"
-        ],
-        "videos": [],
-        "transport": [
-          {
-            "mode": "plane",
-            "from": "Ho Chi Minh City",
-            "to": "Da Nang"
-          }
-        ],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-04",
-        "title": "Marble Mountains + Hue",
-        "caption": "Train to Hue, Marble Mountains. Kijk Caro -- winkeltjes!",
-        "location": {
-          "lat": 16.4639321,
-          "lng": 107.5863388,
-          "name": "Hue"
-        },
-        "photos": [
-          "2024-11-04 04.49.33.jpg",
-          "2024-11-04 10.52.12.jpg",
-          "2024-11-04 12.29.10.jpg",
-          "2024-11-04 13.34.40.jpg"
-        ],
-        "videos": [],
-        "transport": [
-          {
-            "mode": "train",
-            "from": "Da Nang",
-            "to": "Hue"
-          }
-        ],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-05",
-        "title": "Citadel + Tombs",
-        "caption": "Citadel bezoek in de regen. Daarna Tomb of Khai Dinh, Minh Mang & Tu Duc.",
-        "location": {
-          "lat": 16.4639321,
-          "lng": 107.5863388,
-          "name": "Hue"
-        },
-        "photos": [
-          "20241105_135342.jpg",
-          "20241105_135651.jpg",
-          "20241105_165959.jpg",
-          "20241105_161418.jpg",
-          "20241105_163135.jpg",
-          "2024-11-05 10.59.59.jpg",
-          "2024-11-05 16.14.27.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-06",
-        "title": "Wandeling Hue",
-        "caption": "Wandeling in de regen. Eenmaal boven fantastisch uitzicht.",
-        "location": {
-          "lat": 16.4639321,
-          "lng": 107.5863388,
-          "name": "Hue"
-        },
-        "photos": [
-          "20241106_101455(0).jpg",
-          "20241106_111738.jpg",
-          "20241106_123251(1).jpg",
-          "20241106_141126.jpg",
-          "20241106_113128.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-07",
-        "title": "Hoi An",
-        "caption": "Night market. Waar Caro geen replacement Airbuds wou.",
-        "location": {
-          "lat": 15.8880397,
-          "lng": 108.3367883,
-          "name": "Hoi An"
-        },
-        "photos": [
-          "2024-11-07 09.35.59.jpg",
-          "2024-11-07 10.55.14.jpg",
-          "2024-11-07 10.55.48.jpg",
-          "2024-11-07 13.04.57.jpg",
-          "2024-11-07 13.17.32.jpg",
-          "2024-11-07 13.18.35.jpg",
-          "2024-11-07 14.39.02.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-08",
-        "title": "Hoi An — Strand",
-        "caption": "Pakkie kopen, brunchke en eerste strand/zee bezoek.",
-        "location": {
-          "lat": 15.8880397,
-          "lng": 108.3367883,
-          "name": "Hoi An"
-        },
-        "photos": [
-          "20241108_131128(1).jpg",
-          "20241108_135037.jpg",
-          "20241108_145800.jpg",
-          "2024-11-08 14.45.46.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-09",
-        "title": "Hanoi",
-        "caption": "Ho Chi Minh mausoleum. Caro mocht niet binnen omdat haar short niet lang genoeg was. Water Puppet Show, Chapter Dining.",
-        "location": {
-          "lat": 21.0283334,
-          "lng": 105.854041,
-          "name": "Hanoi"
-        },
-        "photos": [
-          "2024-11-09 12.21.44.jpg",
-          "2024-11-09 14.16.10.jpg",
-          "20241109_160727.jpg",
-          "20241109_222713.jpg",
-          "2024-11-09 09.24.11.jpg",
-          "2024-11-09 13.37.00.jpg",
-          "2024-11-09 14.53.18.jpg"
-        ],
-        "videos": [
-          "20241109_212511.mp4"
-        ],
-        "transport": [
-          {
-            "mode": "plane",
-            "from": "Hoi An",
-            "to": "Hanoi"
-          }
-        ],
-        "tags": [
-          "travel",
-          "restaurant"
-        ]
-      },
-      {
-        "date": "2024-11-10",
-        "title": "Da Lat — Crazy House",
-        "caption": "Crazy House bezoek.",
-        "location": {
-          "lat": 11.9402416,
-          "lng": 108.4375758,
-          "name": "Da Lat"
-        },
-        "photos": [
-          "20241110_161236.jpg",
-          "20241110_162158(1).jpg",
-          "20241110_162630.jpg",
-          "2024-11-11 02.56.41.jpg",
-          "2024-11-11 03.34.45.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-11",
-        "title": "Kayaking + Spa",
-        "caption": "Kayaking. Caro was verbrand en ik niet, ha!",
-        "location": {
-          "lat": 22.2513568,
-          "lng": 114.1437096,
-          "name": "Ha Long Bay area"
-        },
-        "photos": [
-          "20241111_172848.jpg",
-          "2024-11-11 05.07.23.jpg",
-          "2024-11-11 13.57.59.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel",
-          "massage"
-        ]
-      },
-      {
-        "date": "2024-11-12",
-        "title": "Mui Ne — Strand",
-        "caption": "Busreis naar Mui Ne. Stranddag.",
-        "location": {
-          "lat": 52.4235635,
-          "lng": 9.4324677,
-          "name": "Mui Ne"
-        },
-        "photos": [
-          "20241112_081625.jpg",
-          "20241112_152858.jpg",
-          "20241113_094509.jpg",
-          "2024-11-12 14.20.50.jpg",
-          "2024-11-12 14.38.26.jpg",
-          "20241112_092648.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-13",
-        "title": "The AO Show",
-        "caption": "The AO Show in de Saigon Opera.",
-        "location": {
-          "lat": 10.7755254,
-          "lng": 106.7021047,
-          "name": "Ho Chi Minh City"
-        },
-        "photos": [
-          "20241113_190650.jpg",
-          "20241113_191141.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
-      },
-      {
-        "date": "2024-11-14",
-        "title": "Terug naar huis",
-        "caption": "Tricked into shoe 'repair'. En back!",
-        "location": {
-          "lat": 10.7755254,
-          "lng": 106.7021047,
-          "name": "Ho Chi Minh City"
-        },
-        "photos": [
-          "20241114_164705.jpg",
-          "20241114_214450.jpg"
-        ],
-        "videos": [],
-        "tags": [
-          "travel"
-        ]
+        "mode": "plane",
+        "from": "Ho Chi Minh City",
+        "to": "Da Nang"
       }
+    ]
+  },
+  {
+    "id": "2024-11-04",
+    "date": "2024-11-04",
+    "type": "trip",
+    "title": "Marble Mountains + Hue",
+    "caption": "Train to Hue, Marble Mountains. Kijk Caro -- winkeltjes!",
+    "location": {
+      "lat": 16.4639321,
+      "lng": 107.5863388,
+      "name": "Hue"
+    },
+    "photos": [
+      "2024-11-04 04.49.33.jpg",
+      "2024-11-04 10.52.12.jpg",
+      "2024-11-04 12.29.10.jpg",
+      "2024-11-04 13.34.40.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain-heavy",
+      "tempC": 26
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ],
+    "transport": [
+      {
+        "mode": "train",
+        "from": "Da Nang",
+        "to": "Hue"
+      }
+    ]
+  },
+  {
+    "id": "2024-11-05",
+    "date": "2024-11-05",
+    "type": "trip",
+    "title": "Citadel + Tombs",
+    "caption": "Citadel bezoek in de regen. Daarna Tomb of Khai Dinh, Minh Mang & Tu Duc.",
+    "location": {
+      "lat": 16.4639321,
+      "lng": 107.5863388,
+      "name": "Hue"
+    },
+    "photos": [
+      "20241105_135342.jpg",
+      "20241105_135651.jpg",
+      "20241105_165959.jpg",
+      "20241105_161418.jpg",
+      "20241105_163135.jpg",
+      "2024-11-05 10.59.59.jpg",
+      "2024-11-05 16.14.27.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain-heavy",
+      "tempC": 25
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-06",
+    "date": "2024-11-06",
+    "type": "trip",
+    "title": "Wandeling Hue",
+    "caption": "Wandeling in de regen. Eenmaal boven fantastisch uitzicht.",
+    "location": {
+      "lat": 16.4639321,
+      "lng": 107.5863388,
+      "name": "Hue"
+    },
+    "photos": [
+      "20241106_101455(0).jpg",
+      "20241106_111738.jpg",
+      "20241106_123251(1).jpg",
+      "20241106_141126.jpg",
+      "20241106_113128.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 26
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-07",
+    "date": "2024-11-07",
+    "type": "trip",
+    "title": "Hoi An",
+    "caption": "Night market. Waar Caro geen replacement Airbuds wou.",
+    "location": {
+      "lat": 15.8880397,
+      "lng": 108.3367883,
+      "name": "Hoi An"
+    },
+    "photos": [
+      "2024-11-07 09.35.59.jpg",
+      "2024-11-07 10.55.14.jpg",
+      "2024-11-07 10.55.48.jpg",
+      "2024-11-07 13.04.57.jpg",
+      "2024-11-07 13.17.32.jpg",
+      "2024-11-07 13.18.35.jpg",
+      "2024-11-07 14.39.02.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 28
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-08",
+    "date": "2024-11-08",
+    "type": "trip",
+    "title": "Hoi An — Strand",
+    "caption": "Pakkie kopen, brunchke en eerste strand/zee bezoek.",
+    "location": {
+      "lat": 15.8880397,
+      "lng": 108.3367883,
+      "name": "Hoi An"
+    },
+    "photos": [
+      "20241108_131128(1).jpg",
+      "20241108_135037.jpg",
+      "20241108_145800.jpg",
+      "2024-11-08 14.45.46.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 27
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-09",
+    "date": "2024-11-09",
+    "type": "trip",
+    "title": "Hanoi",
+    "caption": "Ho Chi Minh mausoleum. Caro mocht niet binnen omdat haar short niet lang genoeg was. Water Puppet Show, Chapter Dining.",
+    "location": {
+      "lat": 21.0283334,
+      "lng": 105.854041,
+      "name": "Hanoi"
+    },
+    "photos": [
+      "2024-11-09 12.21.44.jpg",
+      "2024-11-09 14.16.10.jpg",
+      "20241109_160727.jpg",
+      "20241109_222713.jpg",
+      "2024-11-09 09.24.11.jpg",
+      "2024-11-09 13.37.00.jpg",
+      "2024-11-09 14.53.18.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "cloud-sun",
+      "tempC": 29
+    },
+    "videos": [
+      "20241109_212511.mp4"
+    ],
+    "tags": [
+      "travel",
+      "restaurant"
+    ],
+    "transport": [
+      {
+        "mode": "plane",
+        "from": "Hoi An",
+        "to": "Hanoi"
+      }
+    ]
+  },
+  {
+    "id": "2024-11-10",
+    "date": "2024-11-10",
+    "type": "trip",
+    "title": "Da Lat — Crazy House",
+    "caption": "Crazy House bezoek.",
+    "location": {
+      "lat": 11.9402416,
+      "lng": 108.4375758,
+      "name": "Da Lat"
+    },
+    "photos": [
+      "20241110_161236.jpg",
+      "20241110_162158(1).jpg",
+      "20241110_162630.jpg",
+      "2024-11-11 02.56.41.jpg",
+      "2024-11-11 03.34.45.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 23
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-11",
+    "date": "2024-11-11",
+    "type": "trip",
+    "title": "Kayaking + Spa",
+    "caption": "Kayaking. Caro was verbrand en ik niet, ha!",
+    "location": {
+      "lat": 22.2513568,
+      "lng": 114.1437096,
+      "name": "Ha Long Bay area"
+    },
+    "photos": [
+      "20241111_172848.jpg",
+      "2024-11-11 05.07.23.jpg",
+      "2024-11-11 13.57.59.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 26
+    },
+    "videos": [],
+    "tags": [
+      "travel",
+      "massage"
+    ]
+  },
+  {
+    "id": "2024-11-12",
+    "date": "2024-11-12",
+    "type": "trip",
+    "title": "Mui Ne — Strand",
+    "caption": "Busreis naar Mui Ne. Stranddag.",
+    "location": {
+      "lat": 52.4235635,
+      "lng": 9.4324677,
+      "name": "Mui Ne"
+    },
+    "photos": [
+      "20241112_081625.jpg",
+      "20241112_152858.jpg",
+      "20241113_094509.jpg",
+      "2024-11-12 14.20.50.jpg",
+      "2024-11-12 14.38.26.jpg",
+      "20241112_092648.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 9
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-13",
+    "date": "2024-11-13",
+    "type": "trip",
+    "title": "The AO Show",
+    "caption": "The AO Show in de Saigon Opera.",
+    "location": {
+      "lat": 10.7755254,
+      "lng": 106.7021047,
+      "name": "Ho Chi Minh City"
+    },
+    "photos": [
+      "20241113_190650.jpg",
+      "20241113_191141.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 31
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2024-11-14",
+    "date": "2024-11-14",
+    "type": "trip",
+    "title": "Terug naar huis",
+    "caption": "Tricked into shoe 'repair'. En back!",
+    "location": {
+      "lat": 10.7755254,
+      "lng": 106.7021047,
+      "name": "Ho Chi Minh City"
+    },
+    "photos": [
+      "20241114_164705.jpg",
+      "20241114_214450.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 32
+    },
+    "videos": [],
+    "tags": [
+      "travel"
     ]
   },
   {
