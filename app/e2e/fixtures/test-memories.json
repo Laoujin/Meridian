@@ -1,0 +1,54 @@
+[
+  {
+    "id": "fix-0-zaventem",
+    "date": "2024-01-01",
+    "type": "date",
+    "title": "Fixture Memory 0",
+    "caption": "First fixture memory — Zaventem. Destination of the opening converging arcs; sits inside the Gent ↔ Herent frame as the opening camera expects.",
+    "location": { "lat": 50.8847, "lng": 4.4720, "name": "Zaventem" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "fix-1-herent",
+    "date": "2024-01-15",
+    "type": "date",
+    "title": "Fixture Memory 1",
+    "caption": "Close to Leuven — reserved for ease-in scenario.",
+    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "fix-2-paris",
+    "date": "2024-02-01",
+    "type": "date",
+    "title": "Fixture Memory 2",
+    "caption": "Far from Belgium — reserved for ease-out scenario.",
+    "location": { "lat": 48.8566, "lng": 2.3522, "name": "Paris" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "fix-3-versailles",
+    "date": "2024-02-02",
+    "type": "date",
+    "title": "Fixture Memory 3",
+    "caption": "Near Paris — reserved for zoom-in-from-wide scenario.",
+    "location": { "lat": 48.8049, "lng": 2.1204, "name": "Versailles" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  }
+]
