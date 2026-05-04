@@ -33,14 +33,14 @@ const train = `
   <rect x="9" y="20" width="6" height="1.4" fill="${STROKE}"/>
 </svg>`;
 
-// Walking couple: two figures from above, slightly offset, "holding hands"
+// Walking: two footprints side-by-side (his + hers), each = ball + heel.
+// His is a half-stride ahead of hers. Both face north so they rotate with bearing.
 const walking = `
 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M3.5 22 L3.5 13 Q3.5 9.5 7 9.5 Q10.5 9.5 10.5 13 L10.5 22 Z" fill="${FILL}" stroke="${STROKE}" stroke-width="${SW}"/>
-  <circle cx="7" cy="6" r="3" fill="${FILL}" stroke="${STROKE}" stroke-width="${SW}"/>
-  <path d="M13.5 22 L13.5 13 Q13.5 9.5 17 9.5 Q20.5 9.5 20.5 13 L20.5 22 Z" fill="#7b8db0" stroke="${STROKE}" stroke-width="${SW}"/>
-  <circle cx="17" cy="6" r="3" fill="#7b8db0" stroke="${STROKE}" stroke-width="${SW}"/>
-  <path d="M10.5 14 L13.5 14" stroke="${STROKE}" stroke-width="1.4" stroke-linecap="round"/>
+  <ellipse cx="8.5" cy="9" rx="2.6" ry="3.4" fill="${FILL}" stroke="${STROKE}" stroke-width="${SW}"/>
+  <ellipse cx="8.5" cy="13.6" rx="1.4" ry="1.1" fill="${FILL}" stroke="${STROKE}" stroke-width="${SW}"/>
+  <ellipse cx="15.5" cy="13" rx="2.4" ry="3.2" fill="#7b8db0" stroke="${STROKE}" stroke-width="${SW}"/>
+  <ellipse cx="15.5" cy="17.2" rx="1.3" ry="1" fill="#7b8db0" stroke="${STROKE}" stroke-width="${SW}"/>
 </svg>`;
 
 const boat = `

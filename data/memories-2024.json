@@ -608,16 +608,17 @@
     "id": "2024-10-29",
     "date": "2024-10-29",
     "type": "trip",
-    "title": "Vertrek naar Vietnam",
-    "caption": "Vlucht naar Vietnam via Turkije. Duurste biertjes ooit in Turkije (24 euro het stuk).",
+    "title": "Vietnam",
+    "caption": "Duurste biertjes ooit in Turkije.",
     "location": {
-      "lat": 15.9266657,
-      "lng": 107.9650855,
-      "name": "Vietnam"
+      "lat": 10.8179793,
+      "lng": 106.6562645,
+      "name": "Tan Son Nhat International Airport, Ho Chi Minh City, Vietnam"
     },
     "photos": [
       "2024-10-29 15.43.53.jpg",
-      "2024-10-29 22.11.19.jpg"
+      "2024-10-29 22.11.19.jpg",
+      "2024-10-30-Bier.png"
     ],
     "music": null,
     "weather": {
@@ -625,6 +626,7 @@
       "tempC": 20
     },
     "videos": [],
+    "transport": "plane",
     "tags": [
       "travel"
     ]
@@ -633,21 +635,18 @@
     "id": "2024-10-30",
     "date": "2024-10-30",
     "type": "trip",
-    "title": "Aankomst HCMC",
-    "caption": "Schoenen uiteengevallen op de luchthaven. Restaurant The Deck Saigon. 's nachts nog een foot-massage (marteling).",
+    "title": "Ho Chi Minh",
+    "caption": "Restaurant The Deck Saigon + foot-massage marteling.",
     "location": {
-      "lat": 10.7755254,
-      "lng": 106.7021047,
-      "name": "Ho Chi Minh City"
+      "lat": 10.8072710,
+      "lng": 106.7445900,
+      "name": "38 Nguyễn Ư Dĩ, St, An Khánh, Hồ Chí Minh 10000, Vietnam"
     },
     "photos": [
-      "2024-10-29-Vietnam.jpg",
-      "2024-10-29-Schoenen.jpg",
-      "2024-10-30-Bier.png",
-      "20241030_213557.jpg",
       "2024-10-30-DeckSaigon.png",
-      "2024-10-30 19.04.32.jpg",
-      "2024-10-30 17.25.00.jpg"
+      "20241030_213557.jpg",
+      "2024-10-30 17.25.00.jpg",
+      "2024-10-30 19.04.32.jpg"
     ],
     "music": null,
     "weather": {
@@ -664,26 +663,22 @@
     "id": "2024-10-31",
     "date": "2024-10-31",
     "type": "trip",
-    "title": "HCMC — Day 1",
+    "title": "Ho Chi Minh",
     "caption": "War Remnants Museum, Reunification Palace, Notre-Dame Cathedral, Bitexco Financial Tower.",
     "location": {
-      "lat": 10.7755254,
-      "lng": 106.7021047,
-      "name": "Ho Chi Minh City"
+      "lat": 10.7825,
+      "lng": 106.6830,
+      "name": "Phường 6, District 3, Ho Chi Minh 700000, Vietnam"
     },
     "photos": [
-      "2024-10-31 08.41.38.jpg",
-      "2024-10-31 09.42.13.jpg",
       "2024-10-31 12.16.26.jpg",
       "2024-10-31 13.27.09.jpg",
-      "2024-10-31 13.35.28.jpg",
-      "2024-10-31 14.31.16.jpg"
+      "2024-10-31 08.41.38.jpg",
+      "2024-10-31 09.42.13.jpg",
+      "2024-10-31 14.31.16.jpg",
+      "2024-10-31 13.35.28.jpg"
     ],
-    "music": {
-      "track": "shake-it-off.mp3",
-      "artist": "Taylor Swift",
-      "title": "Shake It Off"
-    },
+    "music": null,
     "weather": {
       "icon": "drizzle",
       "tempC": 31
@@ -692,25 +687,22 @@
     "tags": [
       "travel"
     ],
-    "transport": "plane"
+    "transport": "walking"
   },
   {
     "id": "2024-11-01",
     "date": "2024-11-01",
     "type": "trip",
     "title": "Cu Chi Tunnels",
-    "caption": "Cu Chi Tunnels. Caro was ook iedereen aan het trakteren tot al ons geld op was.",
+    "caption": "",
     "location": {
-      "lat": 10.9744159,
-      "lng": 106.4948968,
-      "name": "Cu Chi"
+      "lat": 11.1430373,
+      "lng": 106.4691686,
+      "name": "Phú Hiệp, Củ Chi, Ho Chi Minh, Vietnam"
     },
     "photos": [
       "2024-11-01 04.35.54.jpg",
-      "2024-11-01 11.09.22.jpg",
-      "2024-11-01 16.13.35.jpg",
-      "2024-11-01 18.07.47.jpg",
-      "2024-11-01 19.26.22.jpg"
+      "2024-11-01 11.09.22.jpg"
     ],
     "music": null,
     "weather": {
@@ -718,6 +710,7 @@
       "tempC": 31
     },
     "videos": [],
+    "transport": "bus",
     "tags": [
       "travel"
     ]
@@ -727,19 +720,52 @@
     "date": "2024-11-01",
     "type": "trip",
     "title": "Mekong Delta",
-    "caption": "Mekong delta. Caro een juwelenkistje gekocht.",
+    "caption": "",
     "location": {
-      "lat": 9.7508959,
-      "lng": 105.2224602,
-      "name": "Mekong Delta"
+      "lat": 10.3580671,
+      "lng": 106.3606351,
+      "name": "Mỹ Tho, Mekong Delta"
     },
-    "photos": [],
+    "photos": [
+      "2024-11-01 16.13.35.jpg"
+    ],
     "music": null,
     "weather": {
       "icon": "rain",
       "tempC": 31
     },
     "videos": [],
+    "transport": "boat",
+    "tags": [
+      "travel"
+    ]
+  },
+{
+    "id": "2024-11-01-3",
+    "date": "2024-11-01",
+    "type": "trip",
+    "title": "Bùi Viện Street",
+    "caption": "Caro haar trakteer-spree.",
+    "location": {
+      "lat": 10.7657414,
+      "lng": 106.6907571,
+      "name": "Bùi Viện Walking Street, District 1, Ho Chi Minh"
+    },
+    "photos": [
+      "2024-11-01 18.07.47.jpg",
+      "2024-11-01 19.26.22.jpg"
+    ],
+    "music": {
+      "track": "shake-it-off.mp3",
+      "artist": "Taylor Swift",
+      "title": "Shake It Off"
+    },
+    "weather": {
+      "icon": "rain",
+      "tempC": 31
+    },
+    "videos": [],
+    "transport": "bus",
     "tags": [
       "travel"
     ]
@@ -749,15 +775,15 @@
     "date": "2024-11-03",
     "type": "trip",
     "title": "Da Nang",
-    "caption": "Dragon Bridge fireworks. Caro had ook review gedaan voor gratis shots!",
+    "caption": "Dragon Bridge fireworks!! Caro had ook review gedaan voor gratis shots!",
     "location": {
       "lat": 16.068,
       "lng": 108.212,
       "name": "Da Nang"
     },
     "photos": [
-      "2024-11-03 15.03.38.jpg",
       "2024-11-03 13.26.59.jpg",
+      "2024-11-03 15.03.38.jpg",
       "2024-11-03 15.07.19.jpg",
       "2024-11-03 16.13.31.jpg"
     ],
@@ -776,12 +802,12 @@
     "id": "2024-11-04",
     "date": "2024-11-04",
     "type": "trip",
-    "title": "Marble Mountains + Hue",
-    "caption": "Train to Hue, Marble Mountains. Kijk Caro -- winkeltjes!",
+    "title": "Marble Mountains",
+    "caption": "",
     "location": {
-      "lat": 16.4639321,
-      "lng": 107.5863388,
-      "name": "Hue"
+      "lat": 16.0040200,
+      "lng": 108.2627745,
+      "name": "Marble Mountains (Ngũ Hành Sơn), Da Nang"
     },
     "photos": [
       "2024-11-04 04.49.33.jpg",
@@ -805,16 +831,15 @@
     "date": "2024-11-05",
     "type": "trip",
     "title": "Citadel + Tombs",
-    "caption": "Citadel bezoek in de regen. Daarna Tomb of Khai Dinh, Minh Mang & Tu Duc.",
+    "caption": "Tombs of Khai Dinh, Minh Mang & Tu Duc.",
     "location": {
-      "lat": 16.4639321,
-      "lng": 107.5863388,
-      "name": "Hue"
+      "lat": 16.4330399,
+      "lng": 107.5655159,
+      "name": "Tomb of Tự Đức (Lăng Tự Đức), Hue"
     },
     "photos": [
       "20241105_135342.jpg",
       "20241105_135651.jpg",
-      "20241105_165959.jpg",
       "20241105_161418.jpg",
       "20241105_163135.jpg",
       "2024-11-05 10.59.59.jpg",
@@ -895,9 +920,9 @@
     "title": "Hoi An — Strand",
     "caption": "Pakkie kopen, brunchke en eerste strand/zee bezoek.",
     "location": {
-      "lat": 15.8880397,
-      "lng": 108.3367883,
-      "name": "Hoi An"
+      "lat": 15.9117198,
+      "lng": 108.3411656,
+      "name": "An Bang Beach, Hội An"
     },
     "photos": [
       "20241108_131128(1).jpg",
@@ -911,6 +936,7 @@
       "tempC": 27
     },
     "videos": [],
+    "transport": "walking",
     "tags": [
       "travel"
     ]
@@ -920,20 +946,20 @@
     "date": "2024-11-09",
     "type": "trip",
     "title": "Hanoi",
-    "caption": "Ho Chi Minh mausoleum. Caro mocht niet binnen omdat haar short niet lang genoeg was. Water Puppet Show, Chapter Dining.",
+    "caption": "Water Puppet Show, Chapter Dining.",
     "location": {
       "lat": 21.0283334,
       "lng": 105.854041,
       "name": "Hanoi"
     },
     "photos": [
-      "2024-11-09 12.21.44.jpg",
-      "2024-11-09 14.16.10.jpg",
       "20241109_160727.jpg",
-      "20241109_222713.jpg",
       "2024-11-09 09.24.11.jpg",
+      "2024-11-09 14.53.18.jpg",
+      "2024-11-09 12.21.44.jpg",
       "2024-11-09 13.37.00.jpg",
-      "2024-11-09 14.53.18.jpg"
+      "2024-11-09 14.16.10.jpg",
+      "20241109_222713.jpg"
     ],
     "music": null,
     "weather": {
@@ -953,12 +979,12 @@
     "id": "2024-11-10",
     "date": "2024-11-10",
     "type": "trip",
-    "title": "Da Lat — Crazy House",
-    "caption": "Crazy House bezoek.",
+    "title": "Da Lat",
+    "caption": "Crazy House",
     "location": {
-      "lat": 11.9402416,
-      "lng": 108.4375758,
-      "name": "Da Lat"
+       "lat": 11.9346122,
+      "lng": 108.4306308,
+      "name": "Crazy House (Hằng Nga), Đà Lạt"
     },
     "photos": [
       "20241110_161236.jpg",
@@ -975,22 +1001,23 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "plane"
   },
   {
     "id": "2024-11-11",
     "date": "2024-11-11",
     "type": "trip",
     "title": "Kayaking + Spa",
-    "caption": "Kayaking. Caro was verbrand en ik niet, ha!",
+    "caption": "",
     "location": {
-      "lat": 22.2513568,
-      "lng": 114.1437096,
-      "name": "Ha Long Bay area"
+      "lat": 11.9402416,
+      "lng": 108.4375758,
+      "name": "Đà Lạt, Lâm Đồng"
     },
     "photos": [
-      "20241111_172848.jpg",
       "2024-11-11 05.07.23.jpg",
+      "20241111_172848.jpg",
       "2024-11-11 13.57.59.jpg"
     ],
     "music": null,
@@ -1008,12 +1035,12 @@
     "id": "2024-11-12",
     "date": "2024-11-12",
     "type": "trip",
-    "title": "Mui Ne — Strand",
-    "caption": "Busreis naar Mui Ne. Stranddag.",
+    "title": "Mui Ne Beach",
+    "caption": "",
     "location": {
-      "lat": 52.4235635,
-      "lng": 9.4324677,
-      "name": "Mui Ne"
+      "lat": 10.9717123,
+      "lng": 108.2661277,
+      "name": "Mũi Né Beach"
     },
     "photos": [
       "20241112_081625.jpg",
@@ -1031,18 +1058,19 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "bus"
   },
   {
     "id": "2024-11-13",
     "date": "2024-11-13",
     "type": "trip",
     "title": "The AO Show",
-    "caption": "The AO Show in de Saigon Opera.",
+    "caption": "Saigon Opera.",
     "location": {
-      "lat": 10.7755254,
-      "lng": 106.7021047,
-      "name": "Ho Chi Minh City"
+      "lat": 10.7767437,
+      "lng": 106.7032488,
+      "name": "Saigon Opera House (Nhà hát Thành phố)"
     },
     "photos": [
       "20241113_190650.jpg",
@@ -1056,18 +1084,19 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "bus"
   },
   {
     "id": "2024-11-14",
     "date": "2024-11-14",
     "type": "trip",
-    "title": "Terug naar huis",
+    "title": "The End",
     "caption": "Tricked into shoe 'repair'. En back!",
     "location": {
-      "lat": 10.7755254,
-      "lng": 106.7021047,
-      "name": "Ho Chi Minh City"
+      "lat": 10.8179793,
+      "lng": 106.6562645,
+      "name": "Tan Son Nhat International Airport, Ho Chi Minh City, Vietnam"
     },
     "photos": [
       "20241114_164705.jpg",
@@ -1095,9 +1124,9 @@
       "name": "Ahoyweg 10, 3084 BD Rotterdam, Netherlands"
     },
     "photos": [
-      "20241117_174910.jpg",
       "20241117_140416.jpg",
       "20241117_140908.jpg",
+      "20241117_174910.jpg",
       "20241117_164800.jpg"
     ],
     "music": null,
@@ -1113,14 +1142,15 @@
     "tags": [
       "restaurant",
       "show"
-    ]
+    ],
+    "transport": "plane"
   },
   {
     "id": "2024-11-23",
     "date": "2024-11-23",
     "type": "date",
-    "title": "Brugge bij Mini & Eli",
-    "caption": "Brugge bij Mini en Eli. Restaurant Bonte B. Het ontbijt heeft vreed lang geduurd, maar het was wel de moeite.",
+    "title": "Brugge",
+    "caption": " Restaurant Bonte B. Het ontbijt heeft vreed lang geduurd, maar het was wel de moeite.",
     "location": {
       "lat": 51.2062073,
       "lng": 3.2191122,
@@ -1146,8 +1176,8 @@
     "id": "2024-11-27",
     "date": "2024-11-27",
     "type": "date",
-    "title": "Bij Machteld & Tsjok",
-    "caption": "Eten met Caro bij Machteld en Tsjok.",
+    "title": "Machteld & Tsjok",
+    "caption": "No pictures!?",
     "location": {
       "lat": 51.0319708,
       "lng": 3.7097082,
@@ -1169,7 +1199,7 @@
     "date": "2024-12-03",
     "type": "date",
     "title": "MENMA",
-    "caption": "Restaurant MENMA in Ixelles.",
+    "caption": "Ramen!",
     "location": {
       "lat": 50.8517879,
       "lng": 4.3476389,
@@ -1192,8 +1222,8 @@
     "id": "2024-12-14",
     "date": "2024-12-14",
     "type": "date",
-    "title": "Terra Cotta Army + Kerstmarkt",
-    "caption": "Terra Cotta Army Expo Brussels. Daarna kerstmarkt Brussel.",
+    "title": "Terra Cotta Army",
+    "caption": "Daarna kerstmarkt Brussel.",
     "location": {
       "lat": 50.8648019,
       "lng": 4.3486628,
@@ -1221,7 +1251,7 @@
     "date": "2024-12-21",
     "type": "date",
     "title": "Sint-Amandsberg",
-    "caption": "",
+    "caption": "Hapjesplank!",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
@@ -1243,14 +1273,20 @@
     "id": "2024-12-24",
     "date": "2024-12-24",
     "type": "date",
-    "title": "Kerst bij Clarisse",
+    "title": "Clarisse",
     "caption": "Christmas at Clarisse. Caro had voor iedereen matching pyjamas gekocht.",
     "location": {
       "lat": 50.8612008,
       "lng": 4.6943622,
       "name": "Nachtegalenstraat 18, 3001 Heverlee"
     },
-    "photos": [],
+    "photos": [
+      "20241225_163243.jpg",
+      "20241225_203428.jpg",
+      "20241225_203736.jpg",
+      "20241225_203800.jpg",
+      "20241225_213937.jpg"
+    ],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -1263,37 +1299,11 @@
     ]
   },
   {
-    "id": "2024-12-25",
-    "date": "2024-12-25",
-    "type": "date",
-    "title": "Kerst bij Clarisse",
-    "caption": "",
-    "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
-    },
-    "photos": [
-      "20241225_163243.jpg",
-      "20241225_203428.jpg",
-      "20241225_203736.jpg",
-      "20241225_203800.jpg",
-      "20241225_213937.jpg"
-    ],
-    "music": null,
-    "weather": {
-      "icon": "rain",
-      "tempC": 28
-    },
-    "videos": [],
-    "tags": []
-  },
-  {
     "id": "2024-12-28",
     "date": "2024-12-28",
     "type": "date",
-    "title": "Kerst bij ouders",
-    "caption": "Kerst bij ouders. Cado voor Caro, mini-socks.",
+    "title": "Stichelen",
+    "caption": "Kerst bij ouders. Cado voor Caro: mini-socks.",
     "location": {
       "lat": 50.8823851,
       "lng": 3.9987941,
@@ -1323,9 +1333,9 @@
     "title": "Oudejaar",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 51.0478536,
+      "lng": 3.7541509,
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "2024-12-31 14.39.30.png",
