@@ -1,7 +1,7 @@
 import type { Memory } from '../types/memory';
 import { format, parseISO } from 'date-fns';
 import { nl } from 'date-fns/locale';
-import PhotoStack from './PhotoStack';
+import MediaStack from './MediaStack';
 import { weatherEmoji } from '../utils/weather';
 
 interface MemoryCardProps {
@@ -28,8 +28,8 @@ export default function MemoryCard({ memory, muted, onToggleMute }: MemoryCardPr
       )}
       <div className="memory-card__date">{dateStr}</div>
       <h2 className="memory-card__title">{memory.title}</h2>
-      {memory.photos.length > 0 && (
-        <PhotoStack photos={memory.photos} />
+      {(memory.photos.length > 0 || memory.videos.length > 0) && (
+        <MediaStack photos={memory.photos} videos={memory.videos} />
       )}
       <p className="memory-card__caption">{memory.caption}</p>
       {memory.weather?.note && (
