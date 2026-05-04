@@ -4,5 +4,7 @@ _bmad
 .worktrees
 app/test-results/
 
-scripts/
 working/
+app/public/photos
+app/public/music
+app/public/videos
