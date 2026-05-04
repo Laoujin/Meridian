@@ -30,29 +30,57 @@ function memoryLabel(memories: ReturnType<typeof loadMemories>, index: number): 
   return memories[index].title ?? '';
 }
 
+/** True iff the memory has real lat/lng coordinates. */
+function hasLocation(m: ReturnType<typeof loadMemories>[number]): boolean {
+  return m.location?.lat != null && m.location?.lng != null;
+}
+
 /**
  * Get the origin of the line shown during hold at memory index i.
  * For i=0: first memory has no "previous" line origin (opening transition handles it).
- * For i>0: location of the previous located memory (skipping milestones).
+ * For i>0: location of the most recent prior memory that has coordinates.
+ *   Milestones with locations count — see holdView for the rationale.
  */
 function lineOriginAt(memories: ReturnType<typeof loadMemories>, i: number): [number, number] {
-  if (i <= 0) return memoryLngLat(memories, 0); // memory 0 has no regular origin
+  if (i <= 0) return memoryLngLat(memories, 0);
   for (let j = i - 1; j >= 0; j--) {
-    if (memories[j].type !== 'milestone') return memoryLngLat(memories, j);
+    if (hasLocation(memories[j])) return memoryLngLat(memories, j);
   }
   return memoryLngLat(memories, 0);
+}
+
+/** Find the next memory (j > i) that has coordinates, or null if none. */
+function nextLocatedIndex(memories: ReturnType<typeof loadMemories>, i: number): number | null {
+  for (let j = i + 1; j < memories.length; j++) {
+    if (hasLocation(memories[j])) return j;
+  }
+  return null;
 }
 
 /**
  * The (viewA, viewB) bounds the map shows during hold at memory index i.
  * Source of truth for "what was on screen before a transition starts" — used
  * to feed transition cameras so they begin without a jump.
+ *
+ * Milestone holds are special: the map is dimmed and blurred (see isDimmed),
+ * so we use that invisible window to PRE-POSITION the camera for the upcoming
+ * transition. Frame [milestone-location, next-located-memory.location] so when
+ * the user scrolls past the dim, the line draws cleanly from the milestone.
  */
 function holdView(
   memories: ReturnType<typeof loadMemories>,
   i: number,
 ): { a: [number, number]; b: [number, number] } {
   if (i === 0) return { a: GENT, b: HERENT }; // hold-0 frames the opening anchors
+
+  const m = memories[i];
+  if (m?.type === 'milestone' && hasLocation(m)) {
+    const nextIdx = nextLocatedIndex(memories, i);
+    if (nextIdx !== null) {
+      return { a: memoryLngLat(memories, i), b: memoryLngLat(memories, nextIdx) };
+    }
+  }
+
   return { a: lineOriginAt(memories, i), b: memoryLngLat(memories, i) };
 }
 
@@ -133,16 +161,12 @@ export default function App() {
     }
 
     if (isTravelTransition) {
-      const prevViewA = lineOriginAt(memories, activeIndex - 1);
-      const nextViewA = lineOriginAt(memories, activeIndex);
-      return interpolateLine(prevViewA, nextViewA, progress);
+      const prev = holdView(memories, activeIndex - 1);
+      const next = holdView(memories, activeIndex);
+      return interpolateLine(prev.a, next.a, progress);
     }
 
-    // Hold at memory 0: use Gent as viewA so Gent, Herent and Zaventem are all visible
-    if (activeIndex === 0) return GENT;
-
-
-    return lineOriginAt(memories, activeIndex);
+    return holdView(memories, activeIndex).a;
   }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
   const viewB = useMemo<[number, number]>(() => {
@@ -153,16 +177,13 @@ export default function App() {
       return interpolateLine(HERENT, HERENT, progress); // stays at Herent during transition
     }
 
-    // Hold at memory 0: use Herent as viewB to match the target camera
-    if (activeIndex === 0) return HERENT;
-
     if (isTravelTransition) {
-      const prevViewB = memoryLngLat(memories, activeIndex - 1);
-      const nextViewB = memoryLngLat(memories, activeIndex);
-      return interpolateLine(prevViewB, nextViewB, progress);
+      const prev = holdView(memories, activeIndex - 1);
+      const next = holdView(memories, activeIndex);
+      return interpolateLine(prev.b, next.b, progress);
     }
 
-    return memoryLngLat(memories, activeIndex);
+    return holdView(memories, activeIndex).b;
   }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
   // Determine camera scenario for travel transitions.
@@ -193,7 +214,13 @@ export default function App() {
   }, [viewA, viewB, travelFrom, travelTo, lineProgress]);
 
   // --- Milestone dimming ---
-  const isDimmed = phase === 'hold' && activeMemory?.type === 'milestone';
+  // Dim engages from the start of the to-milestone transition through the
+  // milestone hold itself. The dim hides the camera reposition that happens
+  // at hold-start when MapCanvas re-runs with the milestone's pre-positioned
+  // viewA/viewB (see holdView).
+  const isDimmed =
+    (phase === 'hold' && activeMemory?.type === 'milestone') ||
+    (phase === 'transition' && transitionType === 'to-milestone');
 
   // --- Location markers ---
   const originCoords = travelFrom;
