@@ -476,16 +476,34 @@
     },
     "photos": [
       "20250504_122221.jpg",
-      "20250504_115906.jpg",
-      "20250504_103901.jpg",
       "20250504_095513.jpg",
       "20250504_095127.jpg",
-      "20250504_095052.jpg",
-      "20250504_131322.jpg",
-      "20250504_150319.jpg",
-      "20250504_152226.jpg",
-      "20250504_183917.jpg",
-      "20250504_184612.jpg"
+      "20250504_095052.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 18
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2025-05-04-2a",
+    "date": "2025-05-04",
+    "type": "trip",
+    "title": "Seixal",
+    "caption": "",
+    "location": {
+      "lat": 32.8256971,
+      "lng": -17.1066358,
+      "name": "Seixal, Madeira"
+    },
+    "photos": [
+      "20250504_115906.jpg",
+      "20250504_103901.jpg"
     ],
     "music": null,
     "weather": {
@@ -499,6 +517,32 @@
   },
   {
     "id": "2025-05-04-2",
+    "date": "2025-05-04",
+    "type": "trip",
+    "title": "Fanal Forest",
+    "caption": "",
+    "location": {
+      "lat": 32.8093980,
+      "lng": -17.1407318,
+      "name": "Fanal Forest (Floresta da Fanal), Madeira"
+    },
+    "photos": [
+      "20250504_131322.jpg",
+      "20250504_150319.jpg",
+      "20250504_152226.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 18
+    },
+    "videos": [],
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "2025-05-04-3",
     "date": "2025-05-04",
     "type": "trip",
     "title": "Flower Festival",
@@ -530,9 +574,9 @@
     "title": "Boot Uitstap",
     "caption": "Uitstap boot. Cafe met bier voor 1 euro!? En nog goeie tapas!",
     "location": {
-      "lat": 32.6496497,
-      "lng": -16.9086783,
-      "name": "Funchal"
+      "lat": 32.6425140,
+      "lng": -16.9159644,
+      "name": "Port of Funchal, Madeira"
     },
     "photos": [
       "20250505_173401.jpg",
@@ -548,14 +592,15 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "boat"
   },
   {
     "id": "2025-05-06",
     "date": "2025-05-06",
     "type": "trip",
     "title": "Verjaardag Caro!",
-    "caption": "Verjaardag Caro! Wandeling met speciale gids. Kleedje Caro. 's avonds restaurant Desarma (omg...).",
+    "caption": "Wandeling met speciale gids. Kleedje Caro. 's avonds Desarma!",
     "location": {
       "lat": 32.6496497,
       "lng": -16.9086783,
@@ -590,7 +635,7 @@
     "date": "2025-05-13",
     "type": "date",
     "title": "Barracuda",
-    "caption": "Restaurant Barracuda met Caro, zaten buiten.",
+    "caption": "",
     "location": {
       "lat": 50.8271923,
       "lng": 4.3728435,
@@ -607,7 +652,8 @@
     "videos": [],
     "tags": [
       "restaurant"
-    ]
+    ],
+    "transport": "plane"
   },
   {
     "id": "2025-05-18",
@@ -640,9 +686,9 @@
     "title": "Trouw Sarah",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 51.0538286,
+      "lng": 3.7250121,
+      "name": "Gent"
     },
     "photos": [
       "20250524_114528.jpg",
@@ -664,7 +710,7 @@
     "date": "2025-05-27",
     "type": "date",
     "title": "Ruger",
-    "caption": "Optreden Ruger. Ben haar niet kwijt geraakt ;)",
+    "caption": "Ben je net niet kwijt geraakt ;)",
     "location": {
       "lat": 50.8472533,
       "lng": 4.3487556,
@@ -674,9 +720,9 @@
       "20250527_214219.jpg"
     ],
     "music": {
-      "track": "ruger.mp3",
+      "track": "ruger-asiwaju.m4a",
       "artist": "Ruger",
-      "title": ""
+      "title": "Asiwaju"
     },
     "weather": {
       "icon": "rain",
@@ -688,7 +734,8 @@
     ],
     "tags": [
       "concert"
-    ]
+    ],
+    "transport": "train"
   },
   {
     "id": "2025-06-07",
@@ -722,9 +769,9 @@
     "title": "Nerdland",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 51.1484991,
+      "lng": 3.8837718,
+      "name": "Provinciaal Domein Puyenbroeck, Wachtebeke"
     },
     "photos": [
       "20250608_134139.jpg",
@@ -743,7 +790,7 @@
     "date": "2025-06-14",
     "type": "date",
     "title": "Gin + Pizza Brutal",
-    "caption": "Gin opdrinken met zus en Stijn. Gimlets, French 75. Restaurant Pizza Brutal. Kaaskroketten en cake met appel, mascarpone en speculaas.",
+    "caption": "Met de kaaskroketten",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
@@ -773,9 +820,9 @@
     "title": "Efteling",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 51.6499584,
+      "lng": 5.0477212,
+      "name": "Efteling, Kaatsheuvel"
     },
     "photos": [
       "20250615_111348.jpg",
@@ -794,8 +841,8 @@
     "id": "2025-06-21",
     "date": "2025-06-21",
     "type": "date",
-    "title": "Van Der Valk + Jazz",
-    "caption": "Restaurant Van Der Valk (Drongen). Kreeft + live Jazz optreden.",
+    "title": "Van Der Valk",
+    "caption": "Met Jazz optreden",
     "location": {
       "lat": 51.0394426,
       "lng": 3.62647,
@@ -822,9 +869,9 @@
     "title": "Van Schandevijlen feest",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 50.8658718,
+      "lng": 3.9972637,
+      "name": "Lebeke, Denderhoutem"
     },
     "photos": [
       "20250628_131027.jpg",
@@ -843,7 +890,7 @@
     "date": "2025-06-29",
     "type": "date",
     "title": "Couleur Cafe",
-    "caption": "Couleur Cafe festival in Brussel. Ik was Bob. Davido kwam.",
+    "caption": "Met Davido",
     "location": {
       "lat": 50.8954743,
       "lng": 4.3461271,
@@ -870,8 +917,8 @@
     "id": "2025-07-02",
     "date": "2025-07-02",
     "type": "date",
-    "title": "Comedy Josh",
-    "caption": "Comedy Josh. Heleen was er een paar maand later ook naar gaan kijken!",
+    "title": "Josh",
+    "caption": "",
     "location": {
       "lat": 51.2211097,
       "lng": 4.3997081,
@@ -896,7 +943,7 @@
     "date": "2025-07-04",
     "type": "date",
     "title": "Rock Werchter",
-    "caption": "Rock Werchter! Thee Sacred Souls (vree leuk), Mark Ambor (bah), Arsenal (konden niet meer binnen!), Green Day.",
+    "caption": "Thee Sacred Souls",
     "location": {
       "lat": 50.970584,
       "lng": 4.6937963,
@@ -909,9 +956,9 @@
       "20250705_001602.jpg"
     ],
     "music": {
-      "track": "green-day.mp3",
-      "artist": "Green Day",
-      "title": ""
+      "track": "thee-sacred-souls-can-i-call-you-rose.m4a",
+      "artist": "Thee Sacred Souls",
+      "title": "Can I Call You Rose?"
     },
     "weather": {
       "icon": "cloud",
