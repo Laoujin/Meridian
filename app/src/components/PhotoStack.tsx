@@ -56,7 +56,7 @@ export default function PhotoStack({ photos }: PhotoStackProps) {
         </div>
       ))}
       {photos.length > 1 && (
-        <div className="photo-stack__count">{photos.length} foto's</div>
+        <div className="photo-stack__count">{topIndex + 1} / {photos.length}</div>
       )}
     </div>
   );
