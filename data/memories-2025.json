@@ -19,7 +19,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 3°C"
+      "icon": "cloud",
+      "tempC": 3
     },
     "videos": [],
     "tags": [
@@ -45,7 +46,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 5°C"
+      "icon": "cloud",
+      "tempC": 5
     },
     "videos": [],
     "tags": [
@@ -81,6 +83,8 @@
     ],
     "music": null,
     "weather": {
+      "icon": "cloud",
+      "tempC": 6,
       "note": "Het was vree warm"
     },
     "videos": [],
@@ -117,7 +121,10 @@
       "20250118_222146.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 28
+    },
     "videos": [],
     "tags": []
   },
@@ -142,7 +149,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 3°C"
+      "icon": "drizzle",
+      "tempC": 3
     },
     "videos": [],
     "tags": [
@@ -170,7 +178,10 @@
       "2025-02-15 19.08.07.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -190,7 +201,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 18°C"
+      "icon": "cloud",
+      "tempC": 18
     },
     "videos": [],
     "tags": [
@@ -214,7 +226,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 7°C"
+      "icon": "cloud",
+      "tempC": 7
     },
     "videos": [],
     "tags": [
@@ -237,7 +250,10 @@
       "20250406_172429.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -259,7 +275,10 @@
       "20250413_153159.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 30
+    },
     "videos": [],
     "tags": []
   },
@@ -288,7 +307,8 @@
       "title": ""
     },
     "weather": {
-      "note": "Bewolkt, 19°C"
+      "icon": "cloud",
+      "tempC": 19
     },
     "videos": [
       "20250418_180728-1.mp4"
@@ -321,7 +341,10 @@
       "20250419_115321.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -341,7 +364,10 @@
       "20250421_155736.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -359,7 +385,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 18°C"
+      "icon": "cloud",
+      "tempC": 18
     },
     "videos": [],
     "tags": [
@@ -380,7 +407,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 18°C"
+      "icon": "drizzle",
+      "tempC": 18
     },
     "videos": [],
     "tags": [
@@ -404,7 +432,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Zonnig, 21°C"
+      "icon": "sun",
+      "tempC": 21
     },
     "videos": [],
     "tags": [
@@ -427,7 +456,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 21°C"
+      "icon": "drizzle",
+      "tempC": 21
     },
     "videos": [],
     "tags": [
@@ -606,7 +636,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Meestal helder, 25°C"
+      "icon": "cloud-sun",
+      "tempC": 25
     },
     "videos": [],
     "tags": [
@@ -629,7 +660,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 17°C"
+      "icon": "drizzle",
+      "tempC": 17
     },
     "videos": [],
     "tags": [
@@ -653,7 +685,10 @@
       "20250524_115912.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 28
+    },
     "videos": [
       "20250524_170344.mp4"
     ],
@@ -679,7 +714,8 @@
       "title": ""
     },
     "weather": {
-      "note": "Lichte regen, 17°C"
+      "icon": "rain",
+      "tempC": 17
     },
     "videos": [
       "20250527_215915.mp4",
@@ -706,7 +742,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Regen, 18°C"
+      "icon": "rain",
+      "tempC": 18
     },
     "videos": [],
     "tags": [
@@ -729,7 +766,10 @@
       "20250608_135948.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 27
+    },
     "videos": [],
     "tags": []
   },
@@ -750,7 +790,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 28°C"
+      "icon": "drizzle",
+      "tempC": 28
     },
     "videos": [],
     "tags": [
@@ -777,7 +818,10 @@
       "2025-06-15 12.28.43.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 25
+    },
     "videos": [],
     "tags": []
   },
@@ -798,7 +842,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 31°C"
+      "icon": "cloud",
+      "tempC": 31
     },
     "videos": [],
     "tags": [
@@ -821,7 +866,10 @@
       "20250628_200054.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 25
+    },
     "videos": [],
     "tags": []
   },
@@ -842,7 +890,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 29°C"
+      "icon": "cloud",
+      "tempC": 29
     },
     "videos": [
       "20250629_190016.mp4",
@@ -869,7 +918,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 33°C"
+      "icon": "rain",
+      "tempC": 33
     },
     "videos": [],
     "tags": [
@@ -899,7 +949,8 @@
       "title": ""
     },
     "weather": {
-      "note": "Bewolkt, 25°C"
+      "icon": "cloud",
+      "tempC": 25
     },
     "videos": [
       "20250705_001608.mp4"
@@ -925,7 +976,10 @@
       "20250705_201011.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 24
+    },
     "videos": [],
     "tags": []
   },
@@ -946,7 +1000,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 26°C"
+      "icon": "cloud",
+      "tempC": 26
     },
     "videos": [
       "20250713_153211.mp4"
@@ -973,7 +1028,10 @@
       "20250717_203619.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 25
+    },
     "videos": [],
     "tags": []
   },
@@ -995,7 +1053,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 25°C"
+      "icon": "drizzle",
+      "tempC": 25
     },
     "videos": [],
     "tags": [
@@ -1021,7 +1080,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 20°C"
+      "icon": "drizzle",
+      "tempC": 20
     },
     "videos": [],
     "tags": [
@@ -1046,7 +1106,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 24°C"
+      "icon": "drizzle",
+      "tempC": 24
     },
     "videos": [],
     "tags": [
@@ -1075,7 +1136,8 @@
       "title": ""
     },
     "weather": {
-      "note": "Bewolkt, 24°C"
+      "icon": "cloud",
+      "tempC": 24
     },
     "videos": [],
     "tags": [
@@ -1097,7 +1159,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Half bewolkt, 27°C"
+      "icon": "cloud-sun",
+      "tempC": 27
     },
     "videos": [],
     "tags": [
@@ -1123,7 +1186,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 28°C"
+      "icon": "cloud",
+      "tempC": 28
     },
     "videos": [
       "20250815_200604.mp4"
@@ -1151,7 +1215,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 19°C"
+      "icon": "drizzle",
+      "tempC": 19
     },
     "videos": [],
     "tags": [
@@ -1178,7 +1243,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 21°C"
+      "icon": "cloud",
+      "tempC": 21
     },
     "videos": [],
     "tags": [
@@ -1205,7 +1271,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 22°C"
+      "icon": "drizzle",
+      "tempC": 22
     },
     "videos": [],
     "tags": [
@@ -1232,7 +1299,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 23°C"
+      "icon": "drizzle",
+      "tempC": 23
     },
     "videos": [],
     "tags": [
@@ -1255,7 +1323,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 24°C"
+      "icon": "cloud",
+      "tempC": 24
     },
     "videos": [],
     "tags": [
@@ -1279,7 +1348,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 31°C"
+      "icon": "cloud",
+      "tempC": 31
     },
     "videos": [],
     "tags": [
@@ -1305,7 +1375,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Regen, 17°C"
+      "icon": "rain",
+      "tempC": 17
     },
     "videos": [],
     "tags": [
@@ -1329,7 +1400,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 19°C"
+      "icon": "drizzle",
+      "tempC": 19
     },
     "videos": [],
     "tags": [
@@ -1356,7 +1428,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 21°C"
+      "icon": "cloud",
+      "tempC": 21
     },
     "videos": [],
     "tags": [
@@ -1379,7 +1452,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 27°C"
+      "icon": "cloud",
+      "tempC": 27
     },
     "videos": [],
     "tags": [
@@ -1402,7 +1476,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 23°C"
+      "icon": "rain",
+      "tempC": 23
     },
     "videos": [],
     "tags": [
@@ -1426,7 +1501,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 20°C"
+      "icon": "drizzle",
+      "tempC": 20
     },
     "videos": [
       "20250921_163903.mp4",
@@ -1451,7 +1527,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 20°C"
+      "icon": "drizzle",
+      "tempC": 20
     },
     "videos": [],
     "tags": [
@@ -1473,7 +1550,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 16°C"
+      "icon": "cloud",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -1510,7 +1588,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 18°C"
+      "icon": "cloud",
+      "tempC": 18
     },
     "videos": [],
     "tags": [
@@ -1534,7 +1613,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 19°C"
+      "icon": "cloud",
+      "tempC": 19
     },
     "videos": [],
     "tags": [
@@ -1559,7 +1639,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 18°C"
+      "icon": "drizzle",
+      "tempC": 18
     },
     "videos": [],
     "tags": [
@@ -1588,7 +1669,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 14°C"
+      "icon": "drizzle",
+      "tempC": 14
     },
     "videos": [],
     "tags": [
@@ -1615,7 +1697,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Regen, 14°C"
+      "icon": "rain",
+      "tempC": 14
     },
     "videos": [],
     "tags": [
@@ -1644,7 +1727,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 16°C"
+      "icon": "cloud",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -1669,7 +1753,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 16°C"
+      "icon": "cloud",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -1697,7 +1782,8 @@
       "title": ""
     },
     "weather": {
-      "note": "Motregen, 16°C"
+      "icon": "drizzle",
+      "tempC": 16
     },
     "videos": [
       "20251013_211746.mp4"
@@ -1729,7 +1815,8 @@
       "title": ""
     },
     "weather": {
-      "note": "Motregen, 16°C"
+      "icon": "drizzle",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -1754,7 +1841,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 15°C"
+      "icon": "drizzle",
+      "tempC": 15
     },
     "videos": [],
     "tags": [
@@ -1777,7 +1865,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Regen, 30°C"
+      "icon": "rain",
+      "tempC": 30
     },
     "videos": [],
     "tags": [
@@ -2272,6 +2361,8 @@
     ],
     "music": null,
     "weather": {
+      "icon": "drizzle",
+      "tempC": 15,
       "note": "Begon koud te worden"
     },
     "videos": [],
@@ -2295,7 +2386,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 16°C"
+      "icon": "drizzle",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -2403,7 +2495,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 2°C"
+      "icon": "cloud",
+      "tempC": 2
     },
     "videos": [],
     "tags": [
@@ -2429,7 +2522,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 7°C"
+      "icon": "rain",
+      "tempC": 7
     },
     "videos": [],
     "tags": [
@@ -2450,7 +2544,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 11°C"
+      "icon": "drizzle",
+      "tempC": 11
     },
     "videos": [],
     "tags": [
@@ -2475,7 +2570,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 8°C"
+      "icon": "cloud",
+      "tempC": 8
     },
     "videos": [],
     "tags": [
@@ -2498,7 +2594,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 14°C"
+      "icon": "drizzle",
+      "tempC": 14
     },
     "videos": [],
     "tags": [
@@ -2521,7 +2618,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 6°C"
+      "icon": "cloud",
+      "tempC": 6
     },
     "videos": [],
     "tags": [
@@ -2612,7 +2710,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 8°C"
+      "icon": "cloud",
+      "tempC": 8
     },
     "videos": [],
     "tags": [
@@ -2639,7 +2738,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 7°C"
+      "icon": "drizzle",
+      "tempC": 7
     },
     "videos": [
       "2025-12-20 20.57.21.mp4"
@@ -2668,7 +2768,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 8°C"
+      "icon": "drizzle",
+      "tempC": 8
     },
     "videos": [
       "WhatsApp Video 2025-12-20 at 20.12.13.mp4"
@@ -2696,7 +2797,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 5°C"
+      "icon": "cloud",
+      "tempC": 5
     },
     "videos": [],
     "tags": [
@@ -2723,7 +2825,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Half bewolkt, 0°C"
+      "icon": "cloud-sun",
+      "tempC": 0
     },
     "videos": [],
     "tags": [
@@ -2745,7 +2848,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Meestal helder, 2°C"
+      "icon": "cloud-sun",
+      "tempC": 2
     },
     "videos": [],
     "tags": [
@@ -2778,7 +2882,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 3°C"
+      "icon": "cloud",
+      "tempC": 3
     },
     "videos": [],
     "tags": [
@@ -2805,7 +2910,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 4°C"
+      "icon": "drizzle",
+      "tempC": 4
     },
     "videos": [
       "20251231_215851.mp4"

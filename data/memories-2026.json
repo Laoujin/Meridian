@@ -15,7 +15,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Lichte sneeuw, 4°C"
+      "icon": "snow",
+      "tempC": 4
     },
     "videos": [],
     "tags": [
@@ -36,7 +37,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Sneeuw, 2°C"
+      "icon": "snow",
+      "tempC": 2
     },
     "videos": [],
     "tags": [
@@ -64,7 +66,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 10°C"
+      "icon": "drizzle",
+      "tempC": 10
     },
     "videos": [],
     "tags": [
@@ -88,7 +91,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 11°C"
+      "icon": "drizzle",
+      "tempC": 11
     },
     "videos": [],
     "tags": [
@@ -113,7 +117,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 10°C"
+      "icon": "drizzle",
+      "tempC": 10
     },
     "videos": [],
     "tags": [
@@ -136,7 +141,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 9°C"
+      "icon": "drizzle",
+      "tempC": 9
     },
     "videos": [],
     "tags": [
@@ -157,7 +163,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 3°C"
+      "icon": "cloud",
+      "tempC": 3
     },
     "videos": [],
     "tags": [
@@ -178,7 +185,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 10°C"
+      "icon": "rain",
+      "tempC": 10
     },
     "videos": [],
     "tags": [
@@ -202,7 +210,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 9°C"
+      "icon": "drizzle",
+      "tempC": 9
     },
     "videos": [],
     "tags": [
@@ -227,7 +236,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 12°C"
+      "icon": "cloud",
+      "tempC": 12
     },
     "videos": [],
     "tags": [
@@ -253,7 +263,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 12°C"
+      "icon": "cloud",
+      "tempC": 12
     },
     "videos": [],
     "tags": [
@@ -277,6 +288,8 @@
     ],
     "music": null,
     "weather": {
+      "icon": "cloud",
+      "tempC": 4,
       "note": "Sneeuw"
     },
     "videos": [],
@@ -304,7 +317,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 6°C"
+      "icon": "drizzle",
+      "tempC": 6
     },
     "videos": [],
     "tags": [
@@ -329,7 +343,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 10°C"
+      "icon": "drizzle",
+      "tempC": 10
     },
     "videos": [],
     "tags": [
@@ -354,7 +369,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 12°C"
+      "icon": "rain",
+      "tempC": 12
     },
     "videos": [],
     "tags": [
@@ -378,7 +394,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 12°C"
+      "icon": "rain",
+      "tempC": 12
     },
     "videos": [],
     "tags": [
@@ -403,7 +420,10 @@
       "20260228_181208.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -423,7 +443,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 19°C"
+      "icon": "drizzle",
+      "tempC": 19
     },
     "videos": [],
     "tags": [
@@ -609,7 +630,10 @@
       "20260312_202700.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -630,7 +654,10 @@
       "20260314_161424.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 28
+    },
     "videos": [],
     "tags": []
   },
@@ -649,7 +676,10 @@
       "2026-03-15 10.51.53.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -668,7 +698,10 @@
       "20260318_182002.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -685,7 +718,10 @@
     },
     "photos": [],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 30
+    },
     "videos": [],
     "tags": []
   },
@@ -705,7 +741,10 @@
       "20260322_120540.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 30
+    },
     "videos": [],
     "tags": []
   },
@@ -727,7 +766,10 @@
       "2026-04-02 21.06.30.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 28
+    },
     "videos": [],
     "tags": []
   },
@@ -748,7 +790,10 @@
       "20260404_203709.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -768,7 +813,10 @@
       "2026-04-06 00.08.57.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [
       "20260405_165849.mp4"
     ],
@@ -791,7 +839,10 @@
       "2026-04-15 21.13.14.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 30
+    },
     "videos": [],
     "tags": []
   },
@@ -810,7 +861,10 @@
       "2026-04-22 20.20.46.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   },
@@ -829,7 +883,10 @@
       "2026-04-26 13.48.09.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 29
+    },
     "videos": [],
     "tags": []
   }

@@ -10,10 +10,13 @@
       "lng": 4.4730008,
       "name": "Zaventem"
     },
-    "photos": ["2024-06-12-zaventem.png"],
+    "photos": [
+      "2024-06-12-zaventem.png"
+    ],
     "music": null,
     "weather": {
-      "note": "Motregen, 15°C"
+      "icon": "drizzle",
+      "tempC": 15
     },
     "videos": [],
     "tags": [
@@ -37,7 +40,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 18°C"
+      "icon": "drizzle",
+      "tempC": 18
     },
     "videos": [],
     "tags": [
@@ -59,7 +63,11 @@
       "2024-06-29-UitnodigingCaro.png"
     ],
     "music": null,
-    "weather": "raining",
+    "weather": {
+      "icon": "rain",
+      "tempC": 25,
+      "note": "raining"
+    },
     "videos": [],
     "tags": [
       "family"
@@ -81,7 +89,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 19°C"
+      "icon": "drizzle",
+      "tempC": 19
     },
     "videos": [],
     "tags": [
@@ -93,7 +102,7 @@
     "date": "2024-07-20",
     "type": "trip",
     "title": "Moulin Rouge",
-    "caption": "Olympische Spelen, Hotel Jeanne d'Arc le Marais, Boot Cafe, Coulée Verte.",
+    "caption": "Tijdens Olympische Spelen met dure tram tickets!",
     "location": {
       "lat": 48.8841094,
       "lng": 2.3323564,
@@ -102,15 +111,46 @@
     "photos": [
       "2024-07-20-MoulinRouge.png",
       "2024-07-20-moulin-rouge.jpg",
-      "2024-07-20-boot-cafe.jpg",
-      "2024-07-20.jpg",
-      "2024-07-20-coulee-verte.jpg",
       "20240720_224347(0).jpg",
+      "2024-07-20.jpg"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 30
+    },
+    "videos": [],
+    "tags": [
+      "city-trip"
+    ],
+    "transport": [
+      {
+        "mode": "car",
+        "from": "Gent",
+        "to": "Paris"
+      }
+    ]
+  },
+  {
+    "id": "2024-07-21",
+    "date": "2024-07-21",
+    "type": "trip",
+    "title": "Coulée Verte",
+    "caption": "Boot Cafe & Coulée Verte.",
+    "location": {
+      "lat": 48.8414237,
+      "lng": 2.4129002,
+      "name": "23 Av. Emile Laurent, 75012 Paris, France"
+    },
+    "photos": [
+      "2024-07-20-boot-cafe.jpg",
+      "2024-07-20-coulee-verte.jpg",
       "20240720_135801.jpg"
     ],
     "music": null,
     "weather": {
-      "note": "Regen, 30°C"
+      "icon": "rain",
+      "tempC": 25
     },
     "videos": [],
     "tags": [
@@ -140,7 +180,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Regen, 23°C"
+      "icon": "rain",
+      "tempC": 23
     },
     "videos": [
       "20240726_233756.mp4"
@@ -167,7 +208,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 24°C"
+      "icon": "drizzle",
+      "tempC": 24
     },
     "videos": [],
     "tags": []
@@ -189,7 +231,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 22°C"
+      "icon": "cloud",
+      "tempC": 22
     },
     "videos": [],
     "tags": []
@@ -210,7 +253,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 25°C"
+      "icon": "cloud",
+      "tempC": 25
     },
     "videos": [],
     "tags": []
@@ -231,7 +275,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Hevige regen, 26°C"
+      "icon": "rain-heavy",
+      "tempC": 26
     },
     "videos": [],
     "tags": [
@@ -254,7 +299,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Regen, 15°C"
+      "icon": "rain",
+      "tempC": 15
     },
     "videos": [],
     "tags": [
@@ -278,7 +324,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 14°C"
+      "icon": "rain",
+      "tempC": 14
     },
     "videos": [],
     "tags": [
@@ -299,7 +346,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 16°C"
+      "icon": "drizzle",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -322,7 +370,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 16°C"
+      "icon": "cloud",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -349,7 +398,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 22°C"
+      "icon": "cloud",
+      "tempC": 22
     },
     "videos": [],
     "tags": [
@@ -374,7 +424,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 22°C"
+      "icon": "cloud",
+      "tempC": 22
     },
     "videos": [],
     "tags": [
@@ -399,7 +450,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 24°C"
+      "icon": "cloud",
+      "tempC": 24
     },
     "videos": [],
     "tags": [
@@ -423,7 +475,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 14°C"
+      "icon": "cloud",
+      "tempC": 14
     },
     "videos": [],
     "tags": [
@@ -448,7 +501,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 15°C"
+      "icon": "cloud",
+      "tempC": 15
     },
     "videos": [],
     "tags": [
@@ -474,7 +528,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 21°C"
+      "icon": "drizzle",
+      "tempC": 21
     },
     "videos": [],
     "tags": [
@@ -501,7 +556,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 16°C"
+      "icon": "drizzle",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -527,7 +583,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 16°C"
+      "icon": "drizzle",
+      "tempC": 16
     },
     "videos": [],
     "tags": [
@@ -553,7 +610,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 20°C"
+      "icon": "cloud",
+      "tempC": 20
     },
     "videos": [
       "20241026_234557.mp4"
@@ -582,7 +640,8 @@
       "title": "Dancing On My Own"
     },
     "weather": {
-      "note": "Motregen, 31°C"
+      "icon": "drizzle",
+      "tempC": 31
     },
     "videos": [],
     "tags": [
@@ -995,7 +1054,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Sneeuw, 11°C"
+      "icon": "snow",
+      "tempC": 11
     },
     "videos": [
       "20241117_164805.mp4",
@@ -1025,7 +1085,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 11°C"
+      "icon": "rain",
+      "tempC": 11
     },
     "videos": [],
     "tags": [
@@ -1047,7 +1108,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Lichte regen, 12°C"
+      "icon": "rain",
+      "tempC": 12
     },
     "videos": [],
     "tags": [
@@ -1070,7 +1132,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 8°C"
+      "icon": "drizzle",
+      "tempC": 8
     },
     "videos": [],
     "tags": [
@@ -1096,7 +1159,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Motregen, 5°C"
+      "icon": "drizzle",
+      "tempC": 5
     },
     "videos": [],
     "tags": [
@@ -1121,7 +1185,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Regen, 11°C"
+      "icon": "rain",
+      "tempC": 11
     },
     "videos": [],
     "tags": []
@@ -1140,7 +1205,8 @@
     "photos": [],
     "music": null,
     "weather": {
-      "note": "Motregen, 7°C"
+      "icon": "drizzle",
+      "tempC": 7
     },
     "videos": [],
     "tags": [
@@ -1167,7 +1233,10 @@
       "20241225_213937.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 28
+    },
     "videos": [],
     "tags": []
   },
@@ -1190,7 +1259,8 @@
     ],
     "music": null,
     "weather": {
-      "note": "Bewolkt, 4°C"
+      "icon": "cloud",
+      "tempC": 4
     },
     "videos": [],
     "tags": [
@@ -1216,7 +1286,10 @@
       "2024-12-31 23.24.19.jpg"
     ],
     "music": null,
-    "weather": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 28
+    },
     "videos": [
       "20250101_000213.mp4"
     ],
