@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
-import { haversineDistance, generateArc, sliceLine, interpolateLine } from '../utils/geo';
+import { haversineDistance, generateArc, sliceLine } from '../utils/geo';
 
 const SOURCE_ID = 'travel-line-source';
 const LAYER_ID = 'travel-line-layer';

@@ -3,6 +3,7 @@ _bmad
 .superpowers
 .worktrees
 app/test-results/
+test-results/
 
 working/
 app/public/photos
