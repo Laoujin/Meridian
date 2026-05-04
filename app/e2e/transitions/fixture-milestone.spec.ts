@@ -99,7 +99,12 @@ test.describe('Fixture: Milestone — dim repositions, line draws from milestone
       JSON.stringify({ milestoneFrame, frames }, null, 2),
     );
 
-    const first = frames[0];
+    // The "prime" step of scrollThroughTransition can land right on the
+    // hold/transition boundary, leaving frames[0] still in the prior hold.
+    // Filter to the frames where we're truly inside the transition.
+    const transFrames = frames.filter((f) => f.scroll.phase === 'transition');
+    expect(transFrames.length, 'No transition frames captured').toBeGreaterThan(0);
+    const first = transFrames[0];
 
     // Lock-in #3: the post-milestone line starts AT the milestone's location
     // (lineOriginAt no longer skips milestones-with-locations).
@@ -122,7 +127,7 @@ test.describe('Fixture: Milestone — dim repositions, line draws from milestone
     // Lock-in #5: smoothness across the transition AND both endpoints stay
     // visible. Because priorView == new hold target, the camera is essentially
     // motionless throughout; the line just draws.
-    assertCameraSmooth(frames, { maxZoomDelta: 0.4, maxCenterPxDelta: 200 });
-    assertDotsVisible(frames, 'both');
+    assertCameraSmooth(transFrames, { maxZoomDelta: 0.4, maxCenterPxDelta: 200 });
+    assertDotsVisible(transFrames, 'both');
   });
 });
