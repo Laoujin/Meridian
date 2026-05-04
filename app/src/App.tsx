@@ -43,6 +43,19 @@ function lineOriginAt(memories: ReturnType<typeof loadMemories>, i: number): [nu
   return memoryLngLat(memories, 0);
 }
 
+/**
+ * The (viewA, viewB) bounds the map shows during hold at memory index i.
+ * Source of truth for "what was on screen before a transition starts" — used
+ * to feed transition cameras so they begin without a jump.
+ */
+function holdView(
+  memories: ReturnType<typeof loadMemories>,
+  i: number,
+): { a: [number, number]; b: [number, number] } {
+  if (i === 0) return { a: GENT, b: HERENT }; // hold-0 frames the opening anchors
+  return { a: lineOriginAt(memories, i), b: memoryLngLat(memories, i) };
+}
+
 export default function App() {
   const memories = useMemo(() => loadMemories(), []);
   const { activeIndex, phase, progress, transitionType, sections } = useScrollTimeline(memories);
@@ -226,9 +239,19 @@ export default function App() {
       {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-in' && (
         <EaseInCamera map={mapInstance} dotFrom={travelFrom} dotTo={travelTo} progress={progress} />
       )}
-      {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-out' && (
-        <EaseOutCamera map={mapInstance} dotFrom={travelFrom} dotTo={travelTo} progress={progress} />
-      )}
+      {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-out' && (() => {
+        const prior = holdView(memories, activeIndex - 1);
+        return (
+          <EaseOutCamera
+            map={mapInstance}
+            dotFrom={travelFrom}
+            dotTo={travelTo}
+            progress={progress}
+            priorViewA={prior.a}
+            priorViewB={prior.b}
+          />
+        );
+      })()}
 
       <OpeningArc map={mapInstance} visible={isOpening} />
 

@@ -1,40 +1,56 @@
 import { useEffect } from 'react';
 import maplibregl from 'maplibre-gl';
 import { computeTargetCamera } from '../utils/camera';
+import { interpolateLine } from '../utils/geo';
 
 interface EaseOutCameraProps {
   map: maplibregl.Map | null;
   dotFrom: [number, number];
   dotTo: [number, number];
   progress: number;
+  /** The viewA/viewB the prior hold was framing. Required for continuity at p=0. */
+  priorViewA: [number, number];
+  priorViewB: [number, number];
 }
 
 /**
  * Scenario: the destination dot is NOT visible on the current map view.
  *
- * Strategy: frame dotFrom and the current line tip on every frame.
- * As the line extends, the viewport naturally widens to follow it.
- * - At p=0: camera stays on dotFrom (line hasn't started)
- * - At p=0.5: camera frames dotFrom → line midpoint
- * - At p=1: camera frames dotFrom → dotTo
+ * Strategy: at every frame, frame two interpolated points so the bounds
+ * smoothly slide from the prior hold's framing to the new hold's framing.
+ *   boundsFrom: priorViewA → dotFrom    (over progress)
+ *   boundsTo:   priorViewB → dotTo      (over progress)
  *
- * dotFrom is always visible because it's always one of the framed points.
+ * - At p=0: bounds = [priorViewA, priorViewB]   (identical to prior hold — no jump)
+ * - At p=1: bounds = [dotFrom, dotTo]            (target hold framing)
+ * - In between: continuous slide of both endpoints, so the camera moves only
+ *   as the line draws.
+ *
+ * For non-special prior holds, priorViewB == dotFrom, so boundsTo collapses
+ * to interpolate(dotFrom, dotTo, p) = the line tip — matching the spec in
+ * docs/map-scroll-behavior.md exactly. The priorViewB indirection only
+ * matters for transitioning out of the special hold-0 framing.
  */
-export default function EaseOutCamera({ map, dotFrom, dotTo, progress }: EaseOutCameraProps) {
+export default function EaseOutCamera({
+  map,
+  dotFrom,
+  dotTo,
+  progress,
+  priorViewA,
+  priorViewB,
+}: EaseOutCameraProps) {
   useEffect(() => {
     if (!map) return;
     const h = map.getContainer().clientHeight;
 
-    // The line tip at the current progress
-    const tipLng = dotFrom[0] + (dotTo[0] - dotFrom[0]) * progress;
-    const tipLat = dotFrom[1] + (dotTo[1] - dotFrom[1]) * progress;
-    const lineTip: [number, number] = [tipLng, tipLat];
+    const boundsFrom = interpolateLine(priorViewA, dotFrom, progress);
+    const boundsTo = interpolateLine(priorViewB, dotTo, progress);
 
-    const camera = computeTargetCamera(map, dotFrom, lineTip, h);
+    const camera = computeTargetCamera(map, boundsFrom, boundsTo, h);
     if (camera) {
       map.jumpTo({ center: camera.center, zoom: camera.zoom });
     }
-  }, [map, dotFrom, dotTo, progress]);
+  }, [map, dotFrom, dotTo, progress, priorViewA, priorViewB]);
 
   return null;
 }

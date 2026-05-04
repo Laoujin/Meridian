@@ -13,12 +13,12 @@
     "tags": []
   },
   {
-    "id": "fix-1-herent",
+    "id": "fix-1-leuven",
     "date": "2024-01-15",
     "type": "date",
     "title": "Fixture Memory 1",
-    "caption": "Close to Leuven — reserved for ease-in scenario.",
-    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
+    "caption": "Leuven — ~17 km east of Zaventem. Tests transition continuity from hold-0 into the first travel transition.",
+    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
     "photos": [],
     "music": null,
     "weather": null,
