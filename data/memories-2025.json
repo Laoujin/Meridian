@@ -4,7 +4,7 @@
     "date": "2025-01-03",
     "type": "date",
     "title": "Sofie Au Cabaret",
-    "caption": "Sofie Au Cabaret in BXL.",
+    "caption": "",
     "location": {
       "lat": 50.8648019,
       "lng": 4.3486628,
@@ -59,7 +59,7 @@
     "date": "2025-01-17",
     "type": "trip",
     "title": "London",
-    "caption": "London! Lego Store, Wax Museum, Hamilton. GEEN London Eye!",
+    "caption": "Lego Store, Wax Museum, Hamilton. GEEN London Eye!",
     "location": {
       "lat": 51.4965738,
       "lng": -0.1426172,
