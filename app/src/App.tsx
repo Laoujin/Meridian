@@ -295,6 +295,7 @@ export default function App() {
         progress={lineProgress}
         visible={travelVisible}
         fadeOutProgress={0}
+        transport={activeMemory?.transport ?? 'car'}
       />
 
       <LocationMarker map={mapInstance} coordinates={originCoords} label={originLabel} pulse={false} />

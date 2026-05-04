@@ -90,13 +90,7 @@
       "city-trip",
       "show"
     ],
-    "transport": [
-      {
-        "mode": "train",
-        "from": "Gent",
-        "to": "London"
-      }
-    ]
+    "transport": "train"
   },
   {
     "id": "2025-01-18",
@@ -313,13 +307,6 @@
       "city-trip",
       "food",
       "concert"
-    ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Paris"
-      }
     ]
   },
   {
@@ -460,18 +447,7 @@
       "travel",
       "verjaardag-caro"
     ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Brussels Charleroi Airport"
-      },
-      {
-        "mode": "plane",
-        "from": "Brussels Charleroi",
-        "to": "Funchal, Madeira"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2025-05-03",
@@ -1912,18 +1888,7 @@
     "tags": [
       "travel"
     ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Brussels Airport"
-      },
-      {
-        "mode": "plane",
-        "from": "Brussels",
-        "to": "Manila"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2025-10-28",
@@ -1955,13 +1920,7 @@
     "tags": [
       "travel"
     ],
-    "transport": [
-      {
-        "mode": "plane",
-        "from": "Manila",
-        "to": "El Nido"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2025-10-29",
@@ -2204,13 +2163,7 @@
     "tags": [
       "travel"
     ],
-    "transport": [
-      {
-        "mode": "plane",
-        "from": "El Nido",
-        "to": "Manila"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2025-11-05",
@@ -2510,13 +2463,6 @@
     "tags": [
       "city-trip",
       "family"
-    ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Lambersart / Lille"
-      }
     ]
   },
   {
@@ -2757,13 +2703,6 @@
     ],
     "tags": [
       "city-trip"
-    ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Brussels",
-        "to": "Berlin"
-      }
     ]
   },
   {

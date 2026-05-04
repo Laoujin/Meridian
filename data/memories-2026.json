@@ -455,18 +455,7 @@
     "tags": [
       "travel"
     ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Chaleroi Airport"
-      },
-      {
-        "mode": "plane",
-        "from": "Chaleroi Airport",
-        "to": "Marrakesh"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2026-03-02",

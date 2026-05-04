@@ -5,11 +5,7 @@ export interface Location {
   text?: string;
 }
 
-export interface Transport {
-  mode: 'car' | 'plane' | 'train' | 'bus' | 'boat' | 'walk' | 'bike';
-  from: string;
-  to: string;
-}
+export type TransportMode = 'car' | 'plane' | 'train' | 'metro' | 'walking' | 'boat' | 'bike' | 'bus';
 
 export type WeatherIcon =
   | 'sun'
@@ -47,8 +43,8 @@ export interface Memory {
   videos: string[];
   tags: string[];
 
-  // Trip-specific
-  transport?: Transport[];
+  // How you arrived at this location (defaults to 'car' when omitted)
+  transport?: TransportMode;
 
   // Special
   linkedTo?: string;

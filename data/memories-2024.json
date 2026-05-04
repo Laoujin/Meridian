@@ -121,13 +121,6 @@
     "videos": [],
     "tags": [
       "city-trip"
-    ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Paris"
-      }
     ]
   },
   {
@@ -152,15 +145,9 @@
       "tempC": 25
     },
     "videos": [],
+    "transport": "walking",
     "tags": [
       "city-trip"
-    ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Paris"
-      }
     ]
   },
   {
@@ -705,18 +692,7 @@
     "tags": [
       "travel"
     ],
-    "transport": [
-      {
-        "mode": "car",
-        "from": "Gent",
-        "to": "Brussels Airport"
-      },
-      {
-        "mode": "plane",
-        "from": "Brussels",
-        "to": "Ho Chi Minh City"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2024-11-01",
@@ -794,13 +770,7 @@
     "tags": [
       "travel"
     ],
-    "transport": [
-      {
-        "mode": "plane",
-        "from": "Ho Chi Minh City",
-        "to": "Da Nang"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2024-11-04",
@@ -828,13 +798,7 @@
     "tags": [
       "travel"
     ],
-    "transport": [
-      {
-        "mode": "train",
-        "from": "Da Nang",
-        "to": "Hue"
-      }
-    ]
+    "transport": "train"
   },
   {
     "id": "2024-11-05",
@@ -983,13 +947,7 @@
       "travel",
       "restaurant"
     ],
-    "transport": [
-      {
-        "mode": "plane",
-        "from": "Hoi An",
-        "to": "Hanoi"
-      }
-    ]
+    "transport": "plane"
   },
   {
     "id": "2024-11-10",
