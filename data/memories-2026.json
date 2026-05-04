@@ -108,7 +108,8 @@
       "name": "Haringsteeg 7, 9000 Gent"
     },
     "photos": [
-      "1770199441659-2026-01-21.png"
+      "1770199441659-2026-01-21.png",
+      "2026-01-21 20.23.11.jpg"
     ],
     "music": null,
     "weather": {
@@ -174,9 +175,7 @@
       "lng": 3.7546362,
       "name": "Gentbruggestraat 238, 9040 Gent"
     },
-    "photos": [
-      "1770199000309-2026-01-31.png"
-    ],
+    "photos": [],
     "music": null,
     "weather": {
       "note": "Lichte regen, 10°C"
@@ -222,7 +221,9 @@
       "name": "Monseigneur Ladeuzeplein 32, 3000 Leuven"
     },
     "photos": [
-      "1772990823687-2026-02-07.png"
+      "1772990823687-2026-02-07.png",
+      "20260207_163634.jpg",
+      "20260207_163717.jpg"
     ],
     "music": null,
     "weather": {
@@ -246,7 +247,9 @@
       "name": "Brabantdam 33, 9000 Gent"
     },
     "photos": [
-      "1772990874137-2026-02-08.png"
+      "1772990874137-2026-02-08.png",
+      "20260208_125816.jpg",
+      "2026-02-08 12.52.44.jpg"
     ],
     "music": null,
     "weather": {
@@ -296,7 +299,8 @@
     "photos": [
       "1772991437243-2026-02-18.png",
       "1772991476867-2026-02-18.png",
-      "1772991577050-2026-02-18.png"
+      "1772991577050-2026-02-18.png",
+      "20260218_192148.jpg"
     ],
     "music": null,
     "weather": {
@@ -321,8 +325,6 @@
       "name": "Ham 39, 9000 Gent"
     },
     "photos": [
-      "1772992363561-2026-02-20.png",
-      "1772992388236-2026-02-20.png",
       "1772992705573-2026-02-20.png"
     ],
     "music": null,
@@ -383,6 +385,27 @@
       "restaurant",
       "massage"
     ]
+  },
+  {
+    "id": "2026-02-28",
+    "date": "2026-02-28",
+    "type": "date",
+    "title": "Verjaardag Oceane",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "20260228_141014.jpg",
+      "20260228_165224.jpg",
+      "20260228_181208.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
   },
   {
     "id": "2026-03-01",
@@ -566,5 +589,248 @@
         ]
       }
     ]
+  },
+  {
+    "id": "2026-03-12",
+    "date": "2026-03-12",
+    "type": "date",
+    "title": "Verjaardag Oceane (fotos) + De Abt",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "2026-03-12 22.15.25-1.jpg",
+      "2026-03-12 22.15.26-2.jpg",
+      "2026-03-12 22.15.28.jpg",
+      "20260312_202655.jpg",
+      "20260312_202700.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-03-14",
+    "date": "2026-03-14",
+    "type": "date",
+    "title": "Trouw",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "20260314_231407(0)(1)(1)(1).jpg",
+      "20260314_194059.jpg",
+      "20260314_161424.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-03-15",
+    "date": "2026-03-15",
+    "type": "date",
+    "title": "Trouw",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "2026-03-15 10.51.53.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-03-18",
+    "date": "2026-03-18",
+    "type": "date",
+    "title": "Yalo + Wim Helsen",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "20260318_182002.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-03-20",
+    "date": "2026-03-20",
+    "type": "date",
+    "title": "Sofie Lemaire + Polé Polé",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-03-22",
+    "date": "2026-03-22",
+    "type": "date",
+    "title": "Jef",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "20260322_120402.jpg",
+      "20260322_120540.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-04-02",
+    "date": "2026-04-02",
+    "type": "date",
+    "title": "Kook workshop",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "2026-04-02 19.30.38.jpg",
+      "2026-04-02 19.51.07.jpg",
+      "2026-04-02 21.06.08.jpg",
+      "2026-04-02 21.06.30.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-04-04",
+    "date": "2026-04-04",
+    "type": "date",
+    "title": "Pasen Mediatrice",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "20260404_215846.jpg",
+      "20260404_203628.jpg",
+      "20260404_203709.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-04-05",
+    "date": "2026-04-05",
+    "type": "date",
+    "title": "Haantjes",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "20260406_000904.jpg",
+      "2026-04-06 00.08.57.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [
+      "20260405_165849.mp4"
+    ],
+    "tags": []
+  },
+  {
+    "id": "2026-04-15",
+    "date": "2026-04-15",
+    "type": "date",
+    "title": "Sakas",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "2026-04-15 20.02.59.jpg",
+      "2026-04-15 20.07.09.jpg",
+      "2026-04-15 21.13.14.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-04-22",
+    "date": "2026-04-22",
+    "type": "date",
+    "title": "Why Not",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "2026-04-22 20.20.46.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "2026-04-26",
+    "date": "2026-04-26",
+    "type": "date",
+    "title": "Interstellar",
+    "caption": "",
+    "location": {
+      "lat": 0,
+      "lng": 0,
+      "name": ""
+    },
+    "photos": [
+      "2026-04-26 13.48.09.jpg"
+    ],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
   }
 ]
