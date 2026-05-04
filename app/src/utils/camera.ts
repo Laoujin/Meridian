@@ -12,13 +12,31 @@ export function computeTargetCamera(
   pointB: [number, number],
   containerHeight: number,
 ): Camera | null {
+  return computeTargetCameraForPoints(map, [pointA, pointB], containerHeight);
+}
+
+/**
+ * Like `computeTargetCamera` but accepts any number of points. Used by
+ * transition cameras that must include three points (interpolated prior view
+ * endpoints PLUS the line origin) to keep the line origin in frame throughout.
+ */
+export function computeTargetCameraForPoints(
+  map: maplibregl.Map,
+  points: [number, number][],
+  containerHeight: number,
+): Camera | null {
+  if (points.length === 0) return null;
   const minSpread = 0.01;
-  const lngs = [pointA[0], pointB[0]];
-  const lats = [pointA[1], pointB[1]];
-  const lngSpread = Math.max(Math.abs(lngs[1] - lngs[0]), minSpread);
-  const latSpread = Math.max(Math.abs(lats[1] - lats[0]), minSpread);
-  const cLng = (lngs[0] + lngs[1]) / 2;
-  const cLat = (lats[0] + lats[1]) / 2;
+  const lngs = points.map((p) => p[0]);
+  const lats = points.map((p) => p[1]);
+  const minLng = Math.min(...lngs);
+  const maxLng = Math.max(...lngs);
+  const minLat = Math.min(...lats);
+  const maxLat = Math.max(...lats);
+  const lngSpread = Math.max(maxLng - minLng, minSpread);
+  const latSpread = Math.max(maxLat - minLat, minSpread);
+  const cLng = (minLng + maxLng) / 2;
+  const cLat = (minLat + maxLat) / 2;
 
   const bounds: [[number, number], [number, number]] = [
     [cLng - lngSpread / 2, cLat - latSpread / 2],

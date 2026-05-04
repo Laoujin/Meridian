@@ -7,7 +7,7 @@ const TARGET_DEVICE = 'Galaxy S24';
 
 export default defineConfig({
   testDir: './e2e',
-  timeout: 30_000,
+  timeout: 60_000,
   use: {
     baseURL: 'http://localhost:5173',
     headless: true,

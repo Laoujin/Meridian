@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import maplibregl from 'maplibre-gl';
-import { computeTargetCamera } from '../utils/camera';
+import { computeTargetCameraForPoints } from '../utils/camera';
 import { interpolateLine } from '../utils/geo';
 
 interface EaseOutCameraProps {
@@ -16,20 +16,10 @@ interface EaseOutCameraProps {
 /**
  * Scenario: the destination dot is NOT visible on the current map view.
  *
- * Strategy: at every frame, frame two interpolated points so the bounds
- * smoothly slide from the prior hold's framing to the new hold's framing.
- *   boundsFrom: priorViewA → dotFrom    (over progress)
- *   boundsTo:   priorViewB → dotTo      (over progress)
- *
- * - At p=0: bounds = [priorViewA, priorViewB]   (identical to prior hold — no jump)
- * - At p=1: bounds = [dotFrom, dotTo]            (target hold framing)
- * - In between: continuous slide of both endpoints, so the camera moves only
- *   as the line draws.
- *
- * For non-special prior holds, priorViewB == dotFrom, so boundsTo collapses
- * to interpolate(dotFrom, dotTo, p) = the line tip — matching the spec in
- * docs/map-scroll-behavior.md exactly. The priorViewB indirection only
- * matters for transitioning out of the special hold-0 framing.
+ * Same bounds-from-three-points formulation as EaseInCamera (see that file
+ * for the rationale). Kept as a separate component for scenario clarity and
+ * so future per-scenario tuning (different padding, different easing) can
+ * diverge here without touching the ease-in case.
  */
 export default function EaseOutCamera({
   map,
@@ -42,11 +32,15 @@ export default function EaseOutCamera({
   useEffect(() => {
     if (!map) return;
     const h = map.getContainer().clientHeight;
-
-    const boundsFrom = interpolateLine(priorViewA, dotFrom, progress);
-    const boundsTo = interpolateLine(priorViewB, dotTo, progress);
-
-    const camera = computeTargetCamera(map, boundsFrom, boundsTo, h);
+    const camera = computeTargetCameraForPoints(
+      map,
+      [
+        interpolateLine(priorViewA, dotFrom, progress),
+        interpolateLine(priorViewB, dotTo, progress),
+        dotFrom,
+      ],
+      h,
+    );
     if (camera) {
       map.jumpTo({ center: camera.center, zoom: camera.zoom });
     }

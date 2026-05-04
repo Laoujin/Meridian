@@ -157,8 +157,11 @@ export default function App() {
     const key = `${activeIndex}-transition`;
     if (key !== prevTransitionRef.current) {
       prevTransitionRef.current = key;
-      const fromVis = isPointVisible(mapInstance, travelFrom);
-      const toVis = isPointVisible(mapInstance, travelTo);
+      // margin=10 (not the default 40) — the camera's own fitBounds padding
+      // is 40px, so dots placed at the padding boundary fail isPointVisible
+      // at margin=40 by sub-pixel rounding and get misclassified as off-screen.
+      const fromVis = isPointVisible(mapInstance, travelFrom, 10);
+      const toVis = isPointVisible(mapInstance, travelTo, 10);
       cameraScenarioRef.current = fromVis && toVis ? 'ease-in' : 'ease-out';
     }
   }
@@ -236,9 +239,19 @@ export default function App() {
       {isOpeningTransition && (
         <OpeningCamera map={mapInstance} destination={memoryLngLat(memories, 0)} progress={progress} />
       )}
-      {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-in' && (
-        <EaseInCamera map={mapInstance} dotFrom={travelFrom} dotTo={travelTo} progress={progress} />
-      )}
+      {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-in' && (() => {
+        const prior = holdView(memories, activeIndex - 1);
+        return (
+          <EaseInCamera
+            map={mapInstance}
+            dotFrom={travelFrom}
+            dotTo={travelTo}
+            progress={progress}
+            priorViewA={prior.a}
+            priorViewB={prior.b}
+          />
+        );
+      })()}
       {isTravelTransition && travelFrom && travelTo && cameraScenario === 'ease-out' && (() => {
         const prior = holdView(memories, activeIndex - 1);
         return (

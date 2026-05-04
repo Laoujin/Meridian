@@ -16,7 +16,7 @@
     "id": "fix-1-leuven",
     "date": "2024-01-15",
     "type": "date",
-    "title": "Fixture Memory 1",
+    "title": "Fixture Memory 1 (Octobar)",
     "caption": "Leuven — ~17 km east of Zaventem. Tests transition continuity from hold-0 into the first travel transition.",
     "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
     "photos": [],
@@ -26,10 +26,23 @@
     "tags": []
   },
   {
-    "id": "fix-2-paris",
+    "id": "fix-2-herent",
     "date": "2024-02-01",
     "type": "date",
-    "title": "Fixture Memory 2",
+    "title": "Fixture Memory 2 (Picknick)",
+    "caption": "Herent — ~5 km west of Leuven. Both dots visible at hold-1 ⇒ ease-in scenario. Locks the no-jump-on-first-pass behavior of EaseInCamera.",
+    "location": { "lat": 50.8985, "lng": 4.6717, "name": "Herent" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "fix-3-paris",
+    "date": "2024-03-01",
+    "type": "date",
+    "title": "Fixture Memory 3",
     "caption": "Far from Belgium — reserved for ease-out scenario.",
     "location": { "lat": 48.8566, "lng": 2.3522, "name": "Paris" },
     "photos": [],
@@ -39,10 +52,10 @@
     "tags": []
   },
   {
-    "id": "fix-3-versailles",
-    "date": "2024-02-02",
+    "id": "fix-4-versailles",
+    "date": "2024-03-02",
     "type": "date",
-    "title": "Fixture Memory 3",
+    "title": "Fixture Memory 4",
     "caption": "Near Paris — reserved for zoom-in-from-wide scenario.",
     "location": { "lat": 48.8049, "lng": 2.1204, "name": "Versailles" },
     "photos": [],
