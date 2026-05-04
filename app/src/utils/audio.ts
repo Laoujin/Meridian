@@ -3,6 +3,17 @@
 const audio = new Audio();
 audio.preload = 'auto';
 
+const preloadedTracks = new Set<string>();
+
+export function preloadTracks(tracks: string[]): void {
+  for (const t of tracks) {
+    if (preloadedTracks.has(t)) continue;
+    preloadedTracks.add(t);
+    // Warm the HTTP cache; subsequent <audio src> hits will be instant.
+    fetch(`/music/${t}`).catch(() => { /* file may be missing */ });
+  }
+}
+
 export function getAudio(): HTMLAudioElement {
   return audio;
 }
