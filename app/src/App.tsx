@@ -57,7 +57,11 @@ function holdView(
 
 export default function App() {
   const memories = useMemo(() => loadMemories(), []);
-  const { activeIndex, phase, progress, transitionType, sections } = useScrollTimeline(memories);
+  const { activeIndex, phase, progress, transitionType, sections, lenisRef } = useScrollTimeline(memories);
+
+  const handleYearClick = useCallback((memoryIndex: number) => {
+    lenisRef.current?.scrollTo(`#section-hold-${memoryIndex}`);
+  }, [lenisRef]);
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
 
   const handleMapReady = useCallback((map: maplibregl.Map) => {
@@ -301,7 +305,7 @@ export default function App() {
       <LocationMarker map={mapInstance} coordinates={originCoords} label={originLabel} pulse={false} />
       <LocationMarker map={mapInstance} coordinates={destCoords} label={destLabel} pulse={destPulse} />
 
-      <TimelineStrip memories={memories} activeIndex={timelineIndex} />
+      <TimelineStrip memories={memories} activeIndex={timelineIndex} onYearClick={handleYearClick} />
 
       <CardOverlay
         activeIndex={activeIndex}
