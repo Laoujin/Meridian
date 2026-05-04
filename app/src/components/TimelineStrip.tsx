@@ -3,10 +3,10 @@ import type { Memory } from '../types/memory';
 interface TimelineStripProps {
   memories: Memory[];
   activeIndex: number;
+  onYearClick?: (memoryIndex: number) => void;
 }
 
-export default function TimelineStrip({ memories, activeIndex }: TimelineStripProps) {
-  // Extract unique years
+export default function TimelineStrip({ memories, activeIndex, onYearClick }: TimelineStripProps) {
   const years = [...new Set(memories.map(m => m.date.substring(0, 4)))];
   const progress = memories.length > 1 ? activeIndex / (memories.length - 1) : 0;
 
@@ -21,13 +21,15 @@ export default function TimelineStrip({ memories, activeIndex }: TimelineStripPr
           const yearIndex = memories.findIndex(m => m.date.startsWith(year));
           const yearPos = memories.length > 1 ? (yearIndex / (memories.length - 1)) * 100 : 0;
           return (
-            <span
+            <button
               key={year}
+              type="button"
               className="timeline-year"
               style={{ left: `${yearPos}%` }}
+              onClick={() => onYearClick?.(yearIndex)}
             >
               {year}
-            </span>
+            </button>
           );
         })}
       </div>

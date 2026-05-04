@@ -16,6 +16,7 @@ import TravelLine from './components/TravelLine';
 import LocationMarker from './components/LocationMarker';
 import MilestoneEffect from './components/MilestoneEffect';
 import ClosingSequence from './components/ClosingSequence';
+import { playTrack, stopAudio, setMuted as setAudioMuted } from './utils/audio';
 import './styles/global.css';
 
 function memoryLngLat(memories: ReturnType<typeof loadMemories>, index: number): [number, number] {
@@ -76,6 +77,23 @@ export default function App() {
   const isOpening = activeIndex < 0;
   const isClosing = activeIndex >= memories.length;
   const activeMemory = activeIndex >= 0 && activeIndex < memories.length ? memories[activeIndex] : null;
+
+  const [muted, setMuted] = useState(false);
+  const toggleMuted = useCallback(() => setMuted((m) => !m), []);
+
+  // Play / stop based on the active memory's music
+  useEffect(() => {
+    if (activeMemory?.music) {
+      playTrack(activeMemory.music.track);
+    } else {
+      stopAudio();
+    }
+  }, [activeMemory?.music?.track]);
+
+  // Sync mute state to the audio element
+  useEffect(() => {
+    setAudioMuted(muted);
+  }, [muted]);
 
   // Is this the special opening→memory0 transition?
   const isOpeningTransition = phase === 'transition' && transitionType === 'opening';
@@ -312,6 +330,8 @@ export default function App() {
         memories={memories}
         phase={phase}
         progress={progress}
+        muted={muted}
+        onToggleMute={toggleMuted}
       />
 
       {showMilestoneEffect && (
