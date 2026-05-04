@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
-import { loadMemories, getLocation, getCityLabel } from './data/loader';
+import { loadMemories, getLocation } from './data/loader';
 import { useScrollTimeline } from './hooks/useScrollTimeline';
 import { interpolateLine } from './utils/geo';
 import { isPointVisible } from './utils/camera';
@@ -27,7 +27,7 @@ function memoryLngLat(memories: ReturnType<typeof loadMemories>, index: number):
 
 function memoryLabel(memories: ReturnType<typeof loadMemories>, index: number): string {
   if (index < 0 || index >= memories.length) return '';
-  return getCityLabel(memories[index].location?.name);
+  return memories[index].title ?? '';
 }
 
 /**

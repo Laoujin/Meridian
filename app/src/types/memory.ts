@@ -2,6 +2,7 @@ export interface Location {
   lat: number | null;
   lng: number | null;
   name: string;
+  text?: string;
 }
 
 export interface Transport {

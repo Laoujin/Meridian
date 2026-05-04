@@ -8,7 +8,7 @@
     "location": {
       "lat": 50.8806207,
       "lng": 4.4730008,
-      "name": "Zaventem"
+      "text": "Zaventem"
     },
     "photos": [
       "2024-06-12-zaventem.png"
@@ -65,8 +65,7 @@
     "music": null,
     "weather": {
       "icon": "rain",
-      "tempC": 25,
-      "note": "raining"
+      "tempC": 25
     },
     "videos": [],
     "tags": [
@@ -343,7 +342,7 @@
       "lng": 3.9987941,
       "name": "Stichelen 70, Haaltert"
     },
-    "photos": [],
+    "photos": ["2024-09-13-ouders.png"],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -392,9 +391,7 @@
     },
     "photos": [
       "nyyo.jpg",
-      "20240918_155826.jpg",
-      "20240918_211113.jpg",
-      "2024-09-18 22.41.58.jpg"
+      "20240918_211113.jpg"
     ],
     "music": null,
     "weather": {
@@ -419,8 +416,8 @@
       "name": "Gladiolenlaan, Herent"
     },
     "photos": [
-      "2024-09-18-birthday.jpg",
-      "2024-09-18-42.jpg"
+      "2024-09-18-42.jpg",
+      "2024-09-18 22.41.58.jpg"
     ],
     "music": null,
     "weather": {
@@ -437,7 +434,7 @@
     "date": "2024-09-21",
     "type": "date",
     "title": "Verjaardagsfeest",
-    "caption": "Waarvan iedereen dacht dat Caro alles gedaan had.",
+    "caption": "Taart was volledig door Caro gemaakt.",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
@@ -514,8 +511,8 @@
     "id": "2024-10-16",
     "date": "2024-10-16",
     "type": "date",
-    "title": "Las Manas + Mo Gilligan",
-    "caption": "Restaurant Las Manas met live optreden. Zwarte paella. Daarna comedy show Mo Gilligan in Arenberg, Antwerpen. 5000 euro Tequila ;)",
+    "title": "Mo Gilligan",
+    "caption": "Las Manas met live optreden. Zwarte paella. 5000 euro Tequila ;)",
     "location": {
       "lat": 51.2152454,
       "lng": 4.4079628,
@@ -523,8 +520,8 @@
     },
     "photos": [
       "20241016_174712.jpg",
-      "20241016_215819.jpg",
-      "20241016_191158.jpg"
+      "20241016_191158.jpg",
+      "20241016_215819.jpg"
     ],
     "music": null,
     "weather": {
@@ -551,8 +548,7 @@
     "photos": [
       "20241019_152202.jpg",
       "20241019_152352.jpg",
-      "20241019_154958.jpg",
-      "20241019_223809.jpg"
+      "20241019_154958.jpg"
     ],
     "music": null,
     "weather": {
@@ -571,15 +567,14 @@
     "date": "2024-10-19",
     "type": "date",
     "title": "De Rare Vos",
-    "caption": "Gaan eten bij Nikolaas in De Rare Vos met ouders en zus/Stijn.",
+    "caption": "Gaan eten bij Nikolaas in De Rare Vos",
     "location": {
       "lat": 50.8359035,
       "lng": 4.1923923,
       "name": "22, Marktplein, 1703 Dilbeek"
     },
     "photos": [
-      "20241019_223809.jpg",
-      "2024-10-19-HeleenCado.png"
+      "20241019_223809.jpg"
     ],
     "music": null,
     "weather": {
@@ -635,9 +630,9 @@
     },
     "photos": [],
     "music": {
-      "track": "dancing-on-my-own.mp3",
+      "track": "shake-it-off.mp3",
       "artist": "Taylor Swift",
-      "title": "Dancing On My Own"
+      "title": "Shake It Off"
     },
     "weather": {
       "icon": "drizzle",
