@@ -16,7 +16,6 @@ import TravelLine from './components/TravelLine';
 import LocationMarker from './components/LocationMarker';
 import MilestoneEffect from './components/MilestoneEffect';
 import ClosingSequence from './components/ClosingSequence';
-import DetailOverlay from './components/DetailOverlay';
 import './styles/global.css';
 
 function memoryLngLat(memories: ReturnType<typeof loadMemories>, index: number): [number, number] {
@@ -60,7 +59,6 @@ export default function App() {
   const memories = useMemo(() => loadMemories(), []);
   const { activeIndex, phase, progress, transitionType, sections } = useScrollTimeline(memories);
   const [mapInstance, setMapInstance] = useState<maplibregl.Map | null>(null);
-  const [detailMemory, setDetailMemory] = useState<ReturnType<typeof loadMemories>[number] | null>(null);
 
   const handleMapReady = useCallback((map: maplibregl.Map) => {
     setMapInstance(map);
@@ -216,10 +214,6 @@ export default function App() {
   }, [memories]);
 
   // --- Detail overlay ---
-  const handleShowDetails = useCallback((memoryIndex: number) => {
-    setDetailMemory(memories[memoryIndex]);
-  }, [memories]);
-
   const timelineIndex = Math.max(0, Math.min(activeIndex, memories.length - 1));
 
   return (
@@ -313,7 +307,6 @@ export default function App() {
         memories={memories}
         phase={phase}
         progress={progress}
-        onShowDetails={handleShowDetails}
       />
 
       {showMilestoneEffect && (
@@ -345,12 +338,6 @@ export default function App() {
         ))}
       </div>
 
-      {detailMemory && (
-        <DetailOverlay
-          memory={detailMemory}
-          onClose={() => setDetailMemory(null)}
-        />
-      )}
     </>
   );
 }

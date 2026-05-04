@@ -6,10 +6,9 @@ import { weatherEmoji } from '../utils/weather';
 
 interface MemoryCardProps {
   memory: Memory;
-  onShowDetails?: () => void;
 }
 
-export default function MemoryCard({ memory, onShowDetails }: MemoryCardProps) {
+export default function MemoryCard({ memory }: MemoryCardProps) {
   const dateStr = format(parseISO(memory.date), 'd MMMM yyyy', { locale: nl });
 
   const isMilestone = memory.type === 'milestone';
@@ -36,11 +35,6 @@ export default function MemoryCard({ memory, onShowDetails }: MemoryCardProps) {
       )}
       {memory.location?.text && (
         <div className="memory-card__location">📍 {memory.location.text}</div>
-      )}
-      {memory.type === 'trip' && memory.days && memory.days.length > 0 && onShowDetails && (
-        <button className="memory-card__details-btn" onClick={onShowDetails}>
-          Meer details
-        </button>
       )}
     </div>
   );
