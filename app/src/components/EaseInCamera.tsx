@@ -1,52 +1,61 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import maplibregl from 'maplibre-gl';
-import { computeTargetCamera } from '../utils/camera';
+import { computeTargetCameraForPoints } from '../utils/camera';
+import { interpolateLine } from '../utils/geo';
 
 interface EaseInCameraProps {
   map: maplibregl.Map | null;
   dotFrom: [number, number];
   dotTo: [number, number];
   progress: number;
+  /** The viewA/viewB the prior hold was framing. Required for continuity at p=0. */
+  priorViewA: [number, number];
+  priorViewB: [number, number];
 }
 
 /**
  * Scenario: both dots are already visible on the current map view.
- * Gradually zoom in until dots are comfortably framed in the bottom area.
- * The line draws while we smoothly ease toward the target framing.
+ *
+ * Bounds are computed from THREE points so the line origin (`dotFrom`) is
+ * always inside the frame, no matter the geometry:
+ *   1. interpolate(priorViewA, dotFrom, p) — prior view's "left side" sliding to the new origin
+ *   2. interpolate(priorViewB, dotTo,   p) — prior view's "right side" sliding to the new destination (= line tip when priorViewB == dotFrom)
+ *   3. dotFrom                              — anchor; the origin must stay visible the whole way
+ *
+ * - At p=0: bounds = enclosure of {priorViewA, priorViewB, dotFrom}. For
+ *   normal transitions priorViewB == dotFrom so this collapses to
+ *   [priorViewA, priorViewB] (the prior hold framing). For the special
+ *   hold-0 transition it includes Zaventem alongside the Gent/Herent anchors,
+ *   which Zaventem is already inside — so still equals the prior hold view.
+ * - At p=1: bounds = enclosure of {dotFrom, dotTo, dotFrom} = [dotFrom, dotTo]
+ *   (the new hold framing).
+ * - In between: dotFrom is always one of the bounding-box corners (or inside),
+ *   so the line origin never drops off-screen.
  */
-export default function EaseInCamera({ map, dotFrom, dotTo, progress }: EaseInCameraProps) {
-  const startCameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null);
-  const targetCameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null);
-  const initializedRef = useRef(false);
-
+export default function EaseInCamera({
+  map,
+  dotFrom,
+  dotTo,
+  progress,
+  priorViewA,
+  priorViewB,
+}: EaseInCameraProps) {
   useEffect(() => {
     if (!map) return;
     const h = map.getContainer().clientHeight;
-
-    // Capture start camera once
-    if (!initializedRef.current) {
-      const center = map.getCenter();
-      startCameraRef.current = { center: [center.lng, center.lat], zoom: map.getZoom() };
-      targetCameraRef.current = computeTargetCamera(map, dotFrom, dotTo, h);
-      initializedRef.current = true;
+    const camera = computeTargetCameraForPoints(
+      map,
+      [
+        interpolateLine(priorViewA, dotFrom, progress),
+        interpolateLine(priorViewB, dotTo, progress),
+        dotFrom,
+      ],
+      h,
+    );
+    if (camera) {
+      map.jumpTo({ center: camera.center, zoom: camera.zoom });
     }
-
-    const start = startCameraRef.current;
-    const target = targetCameraRef.current;
-    if (!start || !target) return;
-
-    // Smooth ease-in: linear lerp from current wide view toward tight framing
-    const p = progress;
-    const lng = start.center[0] + (target.center[0] - start.center[0]) * p;
-    const lat = start.center[1] + (target.center[1] - start.center[1]) * p;
-    const zoom = start.zoom + (target.zoom - start.zoom) * p;
-    map.jumpTo({ center: [lng, lat], zoom });
-  }, [map, dotFrom, dotTo, progress]);
-
-  // Reset when dots change (new transition)
-  useEffect(() => {
-    initializedRef.current = false;
-  }, [dotFrom[0], dotFrom[1], dotTo[0], dotTo[1]]);
+  }, [map, dotFrom, dotTo, progress, priorViewA, priorViewB]);
 
   return null;
 }
