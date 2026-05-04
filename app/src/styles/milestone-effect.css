@@ -3,35 +3,37 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
+  width: min(80vw, 800px);
+  height: min(80vh, 800px);
   pointer-events: none;
   z-index: -1;
 }
 
 .milestone-effect__particle {
   position: absolute;
-  top: 50%;
-  left: 50%;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  animation: sparkle 1.2s ease-out forwards;
+  animation-name: sparkle;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
 }
 
 @keyframes sparkle {
   0% {
     transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
+    opacity: 0;
   }
-  50% {
+  10% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
     transform: translate(
       calc(-50% + var(--dx)),
       calc(-50% + var(--dy))
-    ) scale(0.5);
+    ) scale(0.4);
     opacity: 0;
   }
 }
