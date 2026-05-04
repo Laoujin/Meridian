@@ -39,10 +39,36 @@
     "tags": []
   },
   {
-    "id": "fix-3-paris",
+    "id": "fix-3-verhuis-fictief",
+    "date": "2024-02-15",
+    "type": "milestone",
+    "title": "Fixture Milestone (Verhuis fictief)",
+    "caption": "Mock milestone with a real location — uses the dim period to pre-position the camera for the next line.",
+    "location": { "lat": 50.9056, "lng": 4.7060, "name": "Herent (verhuis)" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "fix-4-verrassingsbord",
+    "date": "2024-02-20",
+    "type": "date",
+    "title": "Fixture Memory 4 (Verrassingsbord fictief)",
+    "caption": "Gent — line should draw cleanly from the milestone (Herent) to here, with the camera already framing both throughout.",
+    "location": { "lat": 51.0538, "lng": 3.7250, "name": "Gent" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "fix-5-paris",
     "date": "2024-03-01",
     "type": "date",
-    "title": "Fixture Memory 3",
+    "title": "Fixture Memory 5",
     "caption": "Far from Belgium — reserved for ease-out scenario.",
     "location": { "lat": 48.8566, "lng": 2.3522, "name": "Paris" },
     "photos": [],
@@ -52,10 +78,10 @@
     "tags": []
   },
   {
-    "id": "fix-4-versailles",
+    "id": "fix-6-versailles",
     "date": "2024-03-02",
     "type": "date",
-    "title": "Fixture Memory 4",
+    "title": "Fixture Memory 6",
     "caption": "Near Paris — reserved for zoom-in-from-wide scenario.",
     "location": { "lat": 48.8049, "lng": 2.1204, "name": "Versailles" },
     "photos": [],

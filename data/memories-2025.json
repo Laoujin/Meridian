@@ -363,7 +363,9 @@
       "lng": 4.6257737,
       "name": "Gladiolenlaan, Herent"
     },
-    "photos": [],
+    "photos": [
+      "move1.png"
+    ],
     "music": null,
     "weather": {
       "icon": "cloud",
@@ -403,12 +405,12 @@
     "id": "2025-05-02",
     "date": "2025-05-02",
     "type": "trip",
-    "title": "Arrival",
-    "caption": "Flight FR 398 naar Madeira. TURIM Santa Maria Hotel.",
+    "title": "Madeira",
+    "caption": "",
     "location": {
-      "lat": 32.6496497,
-      "lng": -16.9086783,
-      "name": "Funchal"
+       "lat": 32.6512219,
+      "lng": -16.9034849,
+      "name": "TURIM Santa Maria Hotel, Funchal, Madeira"
     },
     "photos": [
       "20250502_184246.jpg"
@@ -430,7 +432,7 @@
     "date": "2025-05-03",
     "type": "trip",
     "title": "Monte Cable Car + Il Gallo d'Oro",
-    "caption": "Funchal Monte Cable Car. Monte Palace Tropical Garden. Dan weer naar beneden met de Toboggan Ride. 's avonds restaurant Il Gallo d'Oro.",
+    "caption": "+ Monte Palace Tropical Garden + Toboggan Ride",
     "location": {
       "lat": 32.6496497,
       "lng": -16.9086783,
@@ -438,6 +440,7 @@
     },
     "photos": [
       "20250503_113409.jpg",
+      "20250503_113648.jpg",
       "20250503_125730.jpg",
       "20250503_130118.jpg",
       "20250503_125232.jpg",
@@ -445,11 +448,8 @@
       "20250503_231958.jpg",
       "20250503_192507.jpg",
       "20250503_210557.jpg",
-      "20250503_113648.jpg",
-      "20250503_130121.jpg",
       "20250503_193542.jpg",
-      "20250503_193545.jpg",
-      "20250503_231956.jpg"
+      "20250503_193545.jpg"
     ],
     "music": null,
     "weather": {
@@ -460,14 +460,15 @@
     "tags": [
       "travel",
       "restaurant"
-    ]
+    ],
+    "transport": "walking"
   },
   {
     "id": "2025-05-04",
     "date": "2025-05-04",
     "type": "trip",
     "title": "Cabo Girao",
-    "caption": "Mega voituur gehuurd. Seixal — maar zwembroek vergeten. Cabo Girao.",
+    "caption": "Mega voituur gehuurd!",
     "location": {
       "lat": 32.6564809,
       "lng": -17.0044527,

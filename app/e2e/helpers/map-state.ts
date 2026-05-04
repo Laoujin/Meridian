@@ -35,6 +35,12 @@ export interface Frame {
 }
 
 export async function waitForMapReady(page: Page): Promise<void> {
+  // Dismiss the Welcome screen if present — the map only mounts after the
+  // user clicks "Let's start".
+  const startBtn = page.locator('button.welcome__btn');
+  if (await startBtn.count()) {
+    await startBtn.click();
+  }
   await page.locator('.maplibregl-canvas').first().waitFor({ timeout: 10_000 });
   await page.waitForFunction(() => (window as any).__mlMap?.loaded?.() === true, {
     timeout: 10_000,
