@@ -59,7 +59,7 @@
     "date": "2025-01-17",
     "type": "trip",
     "title": "London",
-    "caption": "Lego Store, Wax Museum, Hamilton. GEEN London Eye!",
+    "caption": "Lego Store, GEEN London Eye; wel Hamilton!",
     "location": {
       "lat": 51.4965738,
       "lng": -0.1426172,
@@ -72,12 +72,8 @@
       "20250117_122708.jpg",
       "20250117_121635.jpg",
       "20250117_122952.jpg",
-      "20250118_122255.jpg",
-      "20250118_122937.jpg",
-      "20250118_133219.jpg",
       "20250118_190649.jpg",
-      "20250118_222146.jpg",
-      "20250117_122956.jpg"
+      "20250118_222146.jpg"
     ],
     "music": null,
     "weather": {
@@ -99,9 +95,9 @@
     "title": "Tussauds",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 51.5229231,
+      "lng": -0.1548516,
+      "name": "Madame Tussauds, London"
     },
     "photos": [
       "20250118_121931.jpg",
@@ -109,8 +105,7 @@
       "20250118_122939.jpg",
       "20250118_123519.jpg",
       "20250118_123830.jpg",
-      "20250118_190645.jpg",
-      "20250118_222146.jpg"
+      "20250118_133219.jpg"
     ],
     "music": null,
     "weather": {
@@ -118,14 +113,15 @@
       "tempC": 28
     },
     "videos": [],
-    "tags": []
+    "tags": [],
+    "transport": "walking"
   },
   {
     "id": "2025-02-13",
     "date": "2025-02-13",
     "type": "date",
-    "title": "The Jane + Valentijn",
-    "caption": "Restaurant The Jane. Anton Chocolaatjes.",
+    "title": "The Jane",
+    "caption": "+ Anton Chocolaatjes.",
     "location": {
       "lat": 51.2343679,
       "lng": 4.4048738,
@@ -148,7 +144,8 @@
     "tags": [
       "restaurant",
       "valentijn"
-    ]
+    ],
+    "transport": "train"
   },
   {
     "id": "2025-02-15",
@@ -157,17 +154,17 @@
     "title": "Verjaardag Sjarel",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 50.9383226,
+      "lng": 4.0392147,
+      "name": "Aalst"
     },
     "photos": [
+      "2025-02-15 19.08.07.jpg",
       "20250215_212605.jpg",
       "20250215_213444.jpg",
       "20250216_010122.jpg",
       "20250216_010307.jpg",
-      "20250216_010617.jpg",
-      "2025-02-15 19.08.07.jpg"
+      "20250216_010617.jpg"
     ],
     "music": null,
     "weather": {
@@ -182,7 +179,7 @@
     "date": "2025-03-08",
     "type": "date",
     "title": "Zuru Zuru Ramen",
-    "caption": "Restaurant Zuru Zuru Ramen. Daar ook sake gekocht, maar niet zo lekker!",
+    "caption": "",
     "location": {
       "lat": 51.0406178,
       "lng": 3.7171149,
@@ -233,9 +230,9 @@
     "title": "BBQ Jan",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 50.9233941,
+      "lng": 3.8646150,
+      "name": "Molenkouter 19, Sint Lievens Houtem"
     },
     "photos": [
       "20250406_144525.jpg",
@@ -254,11 +251,11 @@
     "date": "2025-04-13",
     "type": "date",
     "title": "Double Date",
-    "caption": "",
+    "caption": "Pixar for kids!",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 50.8998743,
+      "lng": 4.3378542,
+      "name": "Brussels Expo (Pixar Mundo)"
     },
     "photos": [
       "20250413_150708.jpg",
@@ -278,23 +275,21 @@
     "id": "2025-04-18",
     "date": "2025-04-18",
     "type": "trip",
-    "title": "Paris — Burna Boy",
-    "caption": "Burna Boy. Louis Vuitton. Brunch met die vree lekkere toast met Munster kaas. Hotel des Pavillons",
+    "title": "Burna Boy",
+    "caption": "",
     "location": {
       "lat": 48.9244726,
       "lng": 2.3601325,
       "name": "Stade De France, 93200 Saint-Denis, France"
     },
     "photos": [
-      "20250419_223756.jpg",
       "20250418_222212.jpg",
-      "20250418_230321.jpg",
-      "20250418_180726.jpg"
+      "20250418_230321.jpg"
     ],
     "music": {
-      "track": "burna-boy.mp3",
+      "track": "burna-boy-4-kampe-ii.mp3",
       "artist": "Burna Boy",
-      "title": ""
+      "title": "4 Kampe II"
     },
     "weather": {
       "icon": "cloud",
@@ -314,14 +309,16 @@
     "date": "2025-04-19",
     "type": "date",
     "title": "Best Brunch Ever",
-    "caption": "",
+    "caption": "Munster toast.",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 48.8716418,
+      "lng": 2.3005258,
+      "name": "Louis Vuitton, Champs-Élysées, Paris"
     },
     "photos": [
-      "20250419_115321.jpg"
+      "20250419_115321.jpg",
+      "20250418_180726.jpg",
+      "20250419_223756.jpg"
     ],
     "music": null,
     "weather": {
@@ -329,7 +326,8 @@
       "tempC": 29
     },
     "videos": [],
-    "tags": []
+    "tags": [],
+    "transport": "walking"
   },
   {
     "id": "2025-04-21",
@@ -338,9 +336,9 @@
     "title": "Mediatrice Bezoekt",
     "caption": "",
     "location": {
-      "lat": 0,
-      "lng": 0,
-      "name": ""
+      "lat": 51.0478536,
+      "lng": 3.7541509,
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
       "20250421_154824.jpg",
@@ -359,7 +357,7 @@
     "date": "2025-04-26",
     "type": "milestone",
     "title": "Verhuis Caro",
-    "caption": "Caro verhuist naar Gent! Spullen ophalen in Herent.",
+    "caption": "Caro verhuist naar Gent!",
     "location": {
       "lat": 50.905557,
       "lng": 4.6257737,
@@ -369,28 +367,6 @@
     "music": null,
     "weather": {
       "icon": "cloud",
-      "tempC": 18
-    },
-    "videos": [],
-    "tags": [
-      "milestone"
-    ]
-  },
-  {
-    "id": "2025-04-26-2",
-    "date": "2025-04-26",
-    "type": "milestone",
-    "title": "Verhuis Caro naar Gent",
-    "caption": "Caro verhuist naar Gent!",
-    "location": {
-      "lat": 51.0478536,
-      "lng": 3.7541509,
-      "name": "Gentbruggestraat 204, Sint-Amandsberg"
-    },
-    "photos": [],
-    "music": null,
-    "weather": {
-      "icon": "drizzle",
       "tempC": 18
     },
     "videos": [],
