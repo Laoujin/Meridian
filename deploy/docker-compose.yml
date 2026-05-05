@@ -1,0 +1,14 @@
+services:
+  meridian:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: meridian:latest
+    container_name: meridian
+    restart: unless-stopped
+    ports:
+      - "6988:80"
+    volumes:
+      - ../app/public/photos:/usr/share/nginx/html/photos:ro
+      - ../app/public/music:/usr/share/nginx/html/music:ro
+      - ../app/public/videos:/usr/share/nginx/html/videos:ro

@@ -1,0 +1,23 @@
+# Heavy media — bind-mounted at runtime, not baked into image
+app/public/photos
+app/public/music
+app/public/videos
+
+# Build artifacts and deps
+app/node_modules
+app/dist
+app/test-results
+
+# Git / IDE / docs
+.git
+.github
+.vscode
+.idea
+*.log
+test-results
+working
+_bmad
+_bmad-output
+docs
+README.md
+TestingInfrastructureSetupPrompt.md
