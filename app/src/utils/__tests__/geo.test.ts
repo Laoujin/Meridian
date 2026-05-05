@@ -61,6 +61,12 @@ describe('generateArc', () => {
     const mid = arc[5];
     expect(mid[1]).toBeGreaterThan(0);
   });
+
+  it('returns single point when start equals end', () => {
+    const arc = generateArc([3.75, 51.05], [3.75, 51.05], 50, 0.15);
+    expect(arc).toHaveLength(1);
+    expect(arc[0]).toEqual([3.75, 51.05]);
+  });
 });
 
 describe('sliceLine', () => {
