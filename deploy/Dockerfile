@@ -1,7 +1,7 @@
 FROM oven/bun:1-alpine AS builder
 WORKDIR /build
 
-COPY app/package.json app/bun.lock ./app/
+COPY app/package.json ./app/
 RUN cd app && bun install
 
 COPY app ./app
