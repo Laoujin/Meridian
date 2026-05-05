@@ -10,6 +10,7 @@ interface ClosingSequenceProps {
   memories: Memory[];
   phase: ClosingPhase;
   progress: number;
+  onWhatsNext?: () => void;
 }
 
 interface StatDisplay {
@@ -29,13 +30,20 @@ function buildStatDisplays(stats: JourneyStats): StatDisplay[] {
   ];
 }
 
-export default function ClosingSequence({ memories, phase, progress }: ClosingSequenceProps) {
+export default function ClosingSequence({ memories, phase, progress, onWhatsNext }: ClosingSequenceProps) {
   const stats = useMemo(() => computeStats(memories), [memories]);
   const displays = useMemo(() => buildStatDisplays(stats), [stats]);
 
   if (phase === 'overview') {
-    // The map handles the overview visuals (zoom out, pins).
-    return null;
+    return (
+      <div className="closing-sequence closing-sequence--bottom">
+        <div className="closing-whats-next">
+          <button className="closing-whats-next__btn" onClick={onWhatsNext}>
+            what's next? ✨
+          </button>
+        </div>
+      </div>
+    );
   }
 
   if (phase === 'stats') {
