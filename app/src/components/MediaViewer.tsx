@@ -60,9 +60,9 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
     else goPrev();
   }, [goNext, goPrev]);
 
-  // Close on backdrop click (not on the media itself)
-  const onBackdropClick = useCallback((e: React.MouseEvent) => {
-    if (e.target === containerRef.current) onClose();
+  // Close on any click that bubbles up (media + buttons stop propagation)
+  const onBackdropClick = useCallback(() => {
+    onClose();
   }, [onClose]);
 
   // Prevent body scroll while viewer is open
@@ -80,15 +80,13 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <button className="media-viewer__close" onClick={onClose} aria-label="Close">
+      <button
+        className="media-viewer__close"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        aria-label="Close"
+      >
         ✕
       </button>
-
-      {total > 1 && (
-        <div className="media-viewer__counter">
-          {current + 1} / {total}
-        </div>
-      )}
 
       <div className="media-viewer__stage">
         {item.kind === 'photo' ? (
@@ -97,6 +95,7 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
             className="media-viewer__img"
             src={`/photos/full/${item.filename}`}
             alt=""
+            onClick={(e) => e.stopPropagation()}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               if (!target.src.includes('/thumb/')) {
@@ -118,11 +117,25 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
       </div>
 
       {total > 1 && (
+        <div className="media-viewer__counter">
+          {current + 1} / {total}
+        </div>
+      )}
+
+      {total > 1 && (
         <>
-          <button className="media-viewer__nav media-viewer__nav--prev" onClick={goPrev} aria-label="Previous">
+          <button
+            className="media-viewer__nav media-viewer__nav--prev"
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            aria-label="Previous"
+          >
             ‹
           </button>
-          <button className="media-viewer__nav media-viewer__nav--next" onClick={goNext} aria-label="Next">
+          <button
+            className="media-viewer__nav media-viewer__nav--next"
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            aria-label="Next"
+          >
             ›
           </button>
         </>

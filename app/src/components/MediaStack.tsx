@@ -16,15 +16,24 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
     ...videos.map((f) => ({ kind: 'video' as const, filename: f })),
   ];
 
+  const [topIndex, setTopIndex] = useState(0);
   const [viewerOpen, setViewerOpen] = useState(false);
 
   if (items.length === 0) return null;
 
+  const isMulti = items.length > 1;
   const handleTap = () => {
-    setViewerOpen(true);
+    if (isMulti) {
+      setTopIndex((prev) => (prev + 1) % items.length);
+    } else {
+      setViewerOpen(true);
+    }
   };
 
-  const topIndex = 0;
+  const handleExpand = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setViewerOpen(true);
+  };
 
   const stackSize = Math.min(items.length, 3);
   const visible = [];
@@ -82,7 +91,17 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
             )}
           </div>
         ))}
-        {items.length > 1 && (
+        {isMulti && (
+          <button
+            type="button"
+            className="photo-stack__expand"
+            onClick={handleExpand}
+            aria-label="View fullscreen"
+          >
+            ⛶
+          </button>
+        )}
+        {isMulti && (
           <div className="photo-stack__count">{topIndex + 1} / {items.length}</div>
         )}
       </div>

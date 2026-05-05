@@ -322,6 +322,31 @@ body {
   display: block;
 }
 
+.photo-stack__expand {
+  position: absolute;
+  top: 8px;
+  right: calc(50% - 86px);
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.photo-stack__expand:hover {
+  background: rgba(0, 0, 0, 0.78);
+}
+
 .photo-stack__count {
   position: absolute;
   bottom: 4px;
