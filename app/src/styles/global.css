@@ -240,12 +240,12 @@ body {
 }
 
 .memory-card__emoji--left {
-  left: -18px;
+  left: -28px;
   transform: rotate(-14deg);
 }
 
 .memory-card__emoji--right {
-  right: -18px;
+  right: -28px;
   transform: rotate(14deg);
 }
 
