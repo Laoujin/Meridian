@@ -3,10 +3,18 @@
   position: fixed;
   inset: 0;
   z-index: 300;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   animation: mediaViewerFadeIn 0.2s ease;
   -webkit-user-select: none;
   user-select: none;
+}
+
+/* Hide the underlying memory card while the viewer is open — modal is
+   portaled to <body>, so :has() resolves with both elements as siblings. */
+body:has(.media-viewer) .card-overlay {
+  visibility: hidden;
 }
 
 @keyframes mediaViewerFadeIn {
