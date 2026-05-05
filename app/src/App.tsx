@@ -37,6 +37,11 @@ function hasLocation(m: ReturnType<typeof loadMemories>[number]): boolean {
   return m.location?.lat != null && m.location?.lng != null;
 }
 
+/** True when two [lng, lat] tuples refer to the same map position. */
+function isSameLocation(a: [number, number], b: [number, number]): boolean {
+  return a[0] === b[0] && a[1] === b[1];
+}
+
 /**
  * Get the origin of the line shown during hold at memory index i.
  * For i=0: first memory has no "previous" line origin (opening transition handles it).
@@ -140,14 +145,20 @@ export default function App() {
     if (isOpening || isOpeningTransition) return null;
     if (isClosing) return null;
     if (activeMemory?.type === 'milestone') return null;
-    return lineOriginAt(memories, activeIndex);
+    const origin = lineOriginAt(memories, activeIndex);
+    const dest = memoryLngLat(memories, activeIndex);
+    if (isSameLocation(origin, dest)) return null;
+    return origin;
   }, [isOpening, isOpeningTransition, isClosing, activeMemory, activeIndex, memories]);
 
   const travelTo = useMemo<[number, number] | null>(() => {
     if (isOpening || isOpeningTransition) return null;
     if (isClosing) return null;
     if (activeMemory?.type === 'milestone') return null;
-    return memoryLngLat(memories, activeIndex);
+    const origin = lineOriginAt(memories, activeIndex);
+    const dest = memoryLngLat(memories, activeIndex);
+    if (isSameLocation(origin, dest)) return null;
+    return dest;
   }, [isOpening, isOpeningTransition, isClosing, activeMemory, activeIndex, memories]);
 
   const lineProgress = isTravelTransition ? progress : (travelFrom ? 1 : 0);

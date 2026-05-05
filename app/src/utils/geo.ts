@@ -29,6 +29,8 @@ export function generateArc(
   segments: number = 50,
   bowAmount: number = 0.15,
 ): [number, number][] {
+  if (start[0] === end[0] && start[1] === end[1]) return [start];
+
   const coords: [number, number][] = [];
   for (let i = 0; i <= segments; i++) {
     const t = i / segments;
