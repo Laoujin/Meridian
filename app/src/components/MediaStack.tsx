@@ -91,16 +91,14 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
             )}
           </div>
         ))}
-        {isMulti && (
-          <button
-            type="button"
-            className="photo-stack__expand"
-            onClick={handleExpand}
-            aria-label="View fullscreen"
-          >
-            ⛶
-          </button>
-        )}
+        <button
+          type="button"
+          className="photo-stack__expand"
+          onClick={handleExpand}
+          aria-label="View fullscreen"
+        >
+          ⛶
+        </button>
         {isMulti && (
           <div className="photo-stack__count">{topIndex + 1} / {items.length}</div>
         )}

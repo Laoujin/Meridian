@@ -114,13 +114,12 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
             onClick={(e) => e.stopPropagation()}
           />
         )}
+        {total > 1 && (
+          <div className="media-viewer__counter">
+            {current + 1} / {total}
+          </div>
+        )}
       </div>
-
-      {total > 1 && (
-        <div className="media-viewer__counter">
-          {current + 1} / {total}
-        </div>
-      )}
 
       {total > 1 && (
         <>
