@@ -638,8 +638,8 @@
     "title": "Ho Chi Minh",
     "caption": "Restaurant The Deck Saigon + foot-massage marteling.",
     "location": {
-      "lat": 10.8072710,
-      "lng": 106.7445900,
+      "lat": 10.807271,
+      "lng": 106.74459,
       "name": "38 Nguyễn Ư Dĩ, St, An Khánh, Hồ Chí Minh 10000, Vietnam"
     },
     "photos": [
@@ -667,7 +667,7 @@
     "caption": "War Remnants Museum, Reunification Palace, Notre-Dame Cathedral, Bitexco Financial Tower.",
     "location": {
       "lat": 10.7825,
-      "lng": 106.6830,
+      "lng": 106.683,
       "name": "Phường 6, District 3, Ho Chi Minh 700000, Vietnam"
     },
     "photos": [
@@ -740,7 +740,7 @@
       "travel"
     ]
   },
-{
+  {
     "id": "2024-11-01-3",
     "date": "2024-11-01",
     "type": "trip",
@@ -805,7 +805,7 @@
     "title": "Marble Mountains",
     "caption": "",
     "location": {
-      "lat": 16.0040200,
+      "lat": 16.00402,
       "lng": 108.2627745,
       "name": "Marble Mountains (Ngũ Hành Sơn), Da Nang"
     },
@@ -982,7 +982,7 @@
     "title": "Da Lat",
     "caption": "Crazy House",
     "location": {
-       "lat": 11.9346122,
+      "lat": 11.9346122,
       "lng": 108.4306308,
       "name": "Crazy House (Hằng Nga), Đà Lạt"
     },
@@ -1135,8 +1135,6 @@
       "tempC": 11
     },
     "videos": [
-      "20241117_164805.mp4",
-      "20241117_162721.mp4",
       "20241117_162306.mp4"
     ],
     "tags": [

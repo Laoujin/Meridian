@@ -231,7 +231,7 @@
     "caption": "",
     "location": {
       "lat": 50.9233941,
-      "lng": 3.8646150,
+      "lng": 3.864615,
       "name": "Molenkouter 19, Sint Lievens Houtem"
     },
     "photos": [
@@ -295,9 +295,7 @@
       "icon": "cloud",
       "tempC": 19
     },
-    "videos": [
-      "20250418_180728-1.mp4"
-    ],
+    "videos": [],
     "tags": [
       "city-trip",
       "food",
@@ -408,7 +406,7 @@
     "title": "Madeira",
     "caption": "",
     "location": {
-       "lat": 32.6512219,
+      "lat": 32.6512219,
       "lng": -16.9034849,
       "name": "TURIM Santa Maria Hotel, Funchal, Madeira"
     },
@@ -522,7 +520,7 @@
     "title": "Fanal Forest",
     "caption": "",
     "location": {
-      "lat": 32.8093980,
+      "lat": 32.809398,
       "lng": -17.1407318,
       "name": "Fanal Forest (Floresta da Fanal), Madeira"
     },
@@ -574,7 +572,7 @@
     "title": "Boot Uitstap",
     "caption": "Uitstap boot. Cafe met bier voor 1 euro!? En nog goeie tapas!",
     "location": {
-      "lat": 32.6425140,
+      "lat": 32.642514,
       "lng": -16.9159644,
       "name": "Port of Funchal, Madeira"
     },
@@ -978,7 +976,7 @@
     "title": "Bord voor Wouter",
     "caption": "",
     "location": {
-      "lat": 50.9055570,
+      "lat": 50.905557,
       "lng": 4.6257737,
       "name": "Gladiolenlaan, Herent"
     },
@@ -1209,8 +1207,8 @@
     "id": "2025-08-20",
     "date": "2025-08-20",
     "type": "date",
-    "title": "Aan Zee bij Metj",
-    "caption": "Trip to the sea at Metj's. Caro ribbetjes, ik vispannetje.",
+    "title": "Bij Metj",
+    "caption": "",
     "location": {
       "lat": 51.1864843,
       "lng": 2.8229746,
@@ -1237,7 +1235,7 @@
     "date": "2025-08-23",
     "type": "date",
     "title": "25ste Verjaardagsfeest",
-    "caption": "Verjaardagsfeest. Caro grote blauwe 25 cijfers gekocht. Quiche zalm door Caro.",
+    "caption": "Caro grote blauwe 25 cijfers gekocht!",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
@@ -1320,7 +1318,7 @@
     "date": "2025-09-06",
     "type": "date",
     "title": "Dinner Karel & Liesbet",
-    "caption": "Eten bij Karel en Liesbet. Caro achteraf: 'Ik snap wel dat zijn broer hem een blauw oog geslagen heeft.'",
+    "caption": "'Ik snap wel dat zijn broer hem een blauw oog geslagen heeft.'",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
@@ -1421,8 +1419,8 @@
     "id": "2025-09-18",
     "date": "2025-09-18",
     "type": "date",
-    "title": "Verjaardag Wouter",
-    "caption": "Surprise van Caro naar restaurant Atelier Gist. Birthday presents.",
+    "title": "Atelier Gist",
+    "caption": "3e verjaardag, nu 27 jaar!",
     "location": {
       "lat": 50.7660771,
       "lng": 3.8428709,
@@ -1447,41 +1445,19 @@
     ]
   },
   {
-    "id": "2025-09-19",
-    "date": "2025-09-19",
-    "type": "date",
-    "title": "Chill Avond",
-    "caption": "Caro dit aan het doen in de zetel. Hamburgers.",
-    "location": {
-      "lat": 51.0478536,
-      "lng": 3.7541509,
-      "name": "Gentbruggestraat 204, Sint-Amandsberg"
-    },
-    "photos": [],
-    "music": null,
-    "weather": {
-      "icon": "cloud",
-      "tempC": 27
-    },
-    "videos": [],
-    "tags": [
-      "pingpong",
-      "cocktail",
-      "itenium"
-    ]
-  },
-  {
     "id": "2025-09-20",
     "date": "2025-09-20",
     "type": "date",
-    "title": "Steamy Windows met Familie",
-    "caption": "Steamy Windows met familie. Cocktails.",
+    "title": "Steamy Windows",
+    "caption": "Met familie & de tassen",
     "location": {
       "lat": 51.0556782,
       "lng": 3.7233746,
       "name": "Hoogpoort 9, 9000 Gent"
     },
-    "photos": [],
+    "photos": [
+      "steamy-windows.webp"
+    ],
     "music": null,
     "weather": {
       "icon": "rain",
@@ -1497,16 +1473,14 @@
     "id": "2025-09-21",
     "date": "2025-09-21",
     "type": "date",
-    "title": "20km Refugee Walk",
-    "caption": "20km refugee walk. Caro had koekjes van Vietnam mee.",
+    "title": "Refugee Walk",
+    "caption": "Caro had koekjes van Vietnam mee.",
     "location": {
       "lat": 51.0538286,
       "lng": 3.7250121,
       "name": "Gent"
     },
-    "photos": [
-      "20250921_203100.jpg"
-    ],
+    "photos": [],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -1525,14 +1499,16 @@
     "id": "2025-09-21-2",
     "date": "2025-09-21",
     "type": "date",
-    "title": "Hamburgers met zus",
+    "title": "Hamburgers",
     "caption": "Daarna hamburgers met zus en Stijn.",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
       "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
-    "photos": [],
+    "photos": [
+      "20250921_203100.jpg"
+    ],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -1549,13 +1525,15 @@
     "date": "2025-09-24",
     "type": "date",
     "title": "Babette Tapas",
-    "caption": "Auto keuring voor Caro. Restaurant Babette (tapas).",
+    "caption": "",
     "location": {
       "lat": 50.9984396,
       "lng": 3.6076458,
       "name": "Pontstraat 2, 9831 Sint-Martens-Latem"
     },
-    "photos": [],
+    "photos": [
+      "babette.jpg"
+    ],
     "music": null,
     "weather": {
       "icon": "cloud",
@@ -1580,15 +1558,12 @@
       "name": "L'Esplanade 161, 1020 Bruxelles"
     },
     "photos": [
-      "2025-09-Zara3.jpg",
       "ZooOfTheFuture.jpg",
       "2025-09-ZooOfTheFuture.png",
       "2025-09-ZooOfTheFuture3.png",
-      "2025-09-ZooOfTheFuture2.png",
       "2025-09-ZooOfTheFuture.jpg",
       "2025-09-ZooOfTheFuture4.jpg",
       "2025-09-ZooOfTheFuture2.jpg",
-      "2025-09-ZooOfTheFuture3.jpg",
       "2025-09-TourEnTaxis.jpg",
       "2025-09-TourEnTaxis2.jpg",
       "2025-09-Alegria.png",
@@ -1609,7 +1584,7 @@
     "id": "2025-09-28",
     "date": "2025-09-28",
     "type": "date",
-    "title": "BBQ Chicken Caro",
+    "title": "BBQ Chicken",
     "caption": "Caro maakt bbq chicken met de bbq saus van toen zus en Stijn waren komen eten!",
     "location": {
       "lat": 51.0478536,
@@ -1634,7 +1609,7 @@
     "date": "2025-10-02",
     "type": "date",
     "title": "Rizoom",
-    "caption": "Restaurant Rizoom. Caro haar GSM vergeten, de mijne leeg. Aangepaste wijnen en sake van kaori.be — echt super lekker.",
+    "caption": "",
     "location": {
       "lat": 51.0552209,
       "lng": 3.7068009,
@@ -1661,7 +1636,7 @@
     "date": "2025-10-05",
     "type": "date",
     "title": "Jules Verne",
-    "caption": "Jules Verne expo Brussel. Duurste wafel ooit maar wel lekker.",
+    "caption": "+ Duurste wafel ooit maar wel lekker.",
     "location": {
       "lat": 50.8460309,
       "lng": 4.355844,
@@ -1670,10 +1645,7 @@
     "photos": [
       "2025-10-05-JulesVerne.jpg",
       "2025-10-08-WafelWouter.jpg",
-      "2025-10-08-WafelCaro.jpg",
-      "20251005_183836.jpg",
-      "20251005_192042.jpg",
-      "20251005_203534.jpg"
+      "2025-10-08-WafelCaro.jpg"
     ],
     "music": null,
     "weather": {
@@ -1750,7 +1722,7 @@
     "date": "2025-10-12",
     "type": "date",
     "title": "Zalm Quiche",
-    "caption": "Heel rustige zondag! Caro maakt haar alomgekende Zalm Quiche!",
+    "caption": "Caro maakt haar alomgekende Zalm Quiche!",
     "location": {
       "lat": 51.0478536,
       "lng": 3.7541509,
@@ -1774,7 +1746,7 @@
     "date": "2025-10-13",
     "type": "date",
     "title": "The Cat Empire",
-    "caption": "The Cat Empire at AB. Zelfs Caro vond het goed want ze was wat aan het twijfelen.",
+    "caption": "Zelfs Caro vond het goed :D",
     "location": {
       "lat": 50.8472533,
       "lng": 4.3487556,
@@ -1784,11 +1756,7 @@
       "20251013_200715.jpg",
       "20251013_203127.jpg"
     ],
-    "music": {
-      "track": "cat-empire.mp3",
-      "artist": "The Cat Empire",
-      "title": ""
-    },
+    "music": null,
     "weather": {
       "icon": "drizzle",
       "tempC": 16
@@ -1807,7 +1775,7 @@
     "date": "2025-10-19",
     "type": "date",
     "title": "Studio Ghibli in Concert",
-    "caption": "Studio Ghibli in concert at Capitole Gent.",
+    "caption": "",
     "location": {
       "lat": 51.0481537,
       "lng": 3.7324553,
@@ -1817,11 +1785,7 @@
       "20251019_165244.jpg",
       "20251019_184733.jpg"
     ],
-    "music": {
-      "track": "ghibli.mp3",
-      "artist": "Studio Ghibli",
-      "title": ""
-    },
+    "music": null,
     "weather": {
       "icon": "drizzle",
       "tempC": 16
@@ -1838,7 +1802,7 @@
     "date": "2025-10-22",
     "type": "date",
     "title": "Table 22",
-    "caption": "Table 22 voor de beste vol-au-vent van Belgie. Caro: Rib-eye Holstein. De garcon noemde de vol-au-vent meermaals de slechtste van Belgie.",
+    "caption": "De beste vol-au-vent van Belgie.",
     "location": {
       "lat": 50.9022386,
       "lng": 4.0475637,
@@ -1861,12 +1825,12 @@
     "id": "2025-10-26",
     "date": "2025-10-26",
     "type": "trip",
-    "title": "Vlucht naar Manila",
-    "caption": "Etihad vlucht van Brussel naar Manila. Films: Crazy Rich Asians, Wreck-It Ralph, Freakier Friday, The Bad Guys 2, Jurassic World Rebirth, The Luckiest Man in America.",
+    "title": "Manila",
+    "caption": "",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 14.5122467,
+      "lng": 121.0219223,
+      "name": "Ninoy Aquino International Airport (NAIA), Manila"
     },
     "photos": [
       "1763931128212-2025-10-26.png",
@@ -1881,18 +1845,19 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "plane"
   },
   {
     "id": "2025-10-27",
     "date": "2025-10-27",
     "type": "trip",
-    "title": "Manila — Fort Santiago",
-    "caption": "Fort Santiago, Barbara's Heritage Restaurant. Caro probeert mij wakker te maken maar het lukte niet. Caro deed mee en kon goed op tempo dansen.",
+    "title": "Manila",
+    "caption": "Barbara's Heritage Restaurant. Caro was in slaap gevallen en niet wakker te krijgen.",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 14.5896576,
+      "lng": 120.9754356,
+      "name": "Barbara's Heritage Restaurant, Plaza San Luis, Intramuros, Manila"
     },
     "photos": [
       "20251027_185605.jpg",
@@ -1908,14 +1873,14 @@
     "tags": [
       "travel"
     ],
-    "transport": "plane"
+    "transport": "walking"
   },
   {
     "id": "2025-10-28",
     "date": "2025-10-28",
     "type": "trip",
     "title": "El Nido",
-    "caption": "Robot Barista, Artcafe. Caro had teveel werk met haar scampis.",
+    "caption": "Robot Barista, Artcafe.",
     "location": {
       "lat": 11.1800395,
       "lng": 119.390496,
@@ -1950,8 +1915,8 @@
     "caption": "Eerste keer snorkelen met Caro! Piece of Sky. Caro ging niet drinken maar het was dan happy hour.",
     "location": {
       "lat": 11.1800395,
-      "lng": 119.390496,
-      "name": "El Nido, Philippines"
+      "lng": 119.3904960,
+      "name": "Piece of Sky, El Nido"
     },
     "photos": [
       "20251029_090543.jpg",
@@ -1973,7 +1938,8 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "boat"
   },
   {
     "id": "2025-10-30",
@@ -1982,9 +1948,9 @@
     "title": "Canopy Walk El Nido",
     "caption": "Regen in de voormiddag. Taraw Cliff Climb bleek dicht te zijn. Canopy Walk gedaan, veel foto's voor Instagram. Uitzicht op El Nido bay. Zipline was ook al dicht. Wijntje en pannekoek.",
     "location": {
-      "lat": 11.1800395,
-      "lng": 119.390496,
-      "name": "El Nido, Philippines"
+      "lat": 11.1776413,
+      "lng": 119.3886515,
+      "name": "Taraw Cliff Canopy Walk, El Nido"
     },
     "photos": [
       "1763933782330-2025-10-30.png",
@@ -2006,7 +1972,8 @@
     ],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "walking"
   },
   {
     "id": "2025-10-31",
@@ -2015,9 +1982,9 @@
     "title": "El Nido Zipline",
     "caption": "Zipline! Caro foot massage.",
     "location": {
-      "lat": 11.1800395,
-      "lng": 119.390496,
-      "name": "El Nido, Philippines"
+      "lat": 11.1456551,
+      "lng": 119.3958072,
+      "name": "Las Cabañas Zipline, El Nido"
     },
     "photos": [
       "20251031_160347.jpg",
@@ -2035,14 +2002,15 @@
     ],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "bike"
   },
   {
     "id": "2025-11-01",
     "date": "2025-11-01",
     "type": "trip",
     "title": "Tour C El Nido",
-    "caption": "Tour C met minder volk op de boot. Swimming, ondiepe lagoon, Hidden Beach. Snorkeling. Motor issue op terugweg. Halloween burger gegeten.",
+    "caption": "",
     "location": {
       "lat": 11.1800395,
       "lng": 119.390496,
@@ -2063,11 +2031,7 @@
       "1763935341022-2025-11-01.png",
       "1763935390367-2025-11-01.png",
       "1763935521446-2025-11-01.png",
-      "1763941762392-2025-11-01.png",
-      "20251101_095450(1).jpg",
-      "20251101_133008.jpg",
-      "2025-11-01 11.33.00.jpg",
-      "20251101_202935.jpg"
+      "1763941762392-2025-11-01.png"
     ],
     "music": null,
     "weather": {
@@ -2077,18 +2041,19 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "walking"
   },
   {
     "id": "2025-11-02",
     "date": "2025-11-02",
     "type": "trip",
     "title": "Massage + Big Bad Thai",
-    "caption": "Regendag. Massage gedaan. Big Bad Thai, vree lekker. Super warm door BBQ joint op eerste verdiep.",
+    "caption": "",
     "location": {
-      "lat": 11.1800395,
-      "lng": 119.390496,
-      "name": "El Nido, Philippines"
+      "lat": 11.1812307,
+      "lng": 119.3910668,
+      "name": "Big Bad Thai, El Nido"
     },
     "photos": [
       "1763935621136-2025-11-02.png",
@@ -2112,14 +2077,14 @@
     "title": "El Nido Departure",
     "caption": "Coron tour gecancelled door Typhoon Kalmaegi. Ferry ook gecancelled. Bus naar Puerto Princesa.",
     "location": {
-      "lat": 11.1800395,
-      "lng": 119.390496,
-      "name": "El Nido, Philippines"
+      "lat": 9.7423851,
+      "lng": 118.7583514,
+      "name": "Puerto Princesa International Airport"
     },
     "photos": [
-      "1763936392479-2025-11-03.png",
       "20251103_102431.jpg",
-      "20251103_095528.jpg"
+      "20251103_095528.jpg",
+      "1763936392479-2025-11-03.png"
     ],
     "music": null,
     "weather": {
@@ -2129,18 +2094,19 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "bus"
   },
   {
     "id": "2025-11-03-2",
     "date": "2025-11-03",
     "type": "trip",
-    "title": "Terug naar Manila",
-    "caption": "Vlieger terug naar Manila. City Garden Grand Hotel.",
+    "title": "Manila",
+    "caption": "City Garden Grand Hotel.",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 14.5647660,
+      "lng": 121.0291458,
+      "name": "City Garden Grand Hotel, Makati, Manila"
     },
     "photos": [
       "1763941995483-2025-11-03.png"
@@ -2153,26 +2119,27 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "plane"
   },
   {
     "id": "2025-11-04",
     "date": "2025-11-04",
     "type": "trip",
-    "title": "Manila Shopping",
-    "caption": "Greenbelt shopping centre dat Caro wou doen. HALONG restaurant.",
+    "title": "Greenbelt Shopping",
+    "caption": "HALONG restaurant.",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 14.5531295,
+      "lng": 121.0190248,
+      "name": "Hálong Restaurant, 109 Gamboa St, Legazpi Village, Makati"
     },
     "photos": [
       "2025-11-04 10.19.12.jpg",
+      "2025-11-04 14.59.29.jpg",
       "20251104_164007.jpg",
       "20251104_164640.jpg",
       "20251104_191037.jpg",
-      "20251104_195301.jpg",
-      "2025-11-04 14.59.29.jpg"
+      "20251104_195301.jpg"
     ],
     "music": null,
     "weather": {
@@ -2183,14 +2150,14 @@
     "tags": [
       "travel"
     ],
-    "transport": "plane"
+    "transport": "walking"
   },
   {
     "id": "2025-11-05",
     "date": "2025-11-05",
     "type": "trip",
     "title": "Intramuros",
-    "caption": "Power Plant mall. Spaanse Intramuros: Fort Santiago, Cathedral of Manila, Casa Manila, Museo de Intramuros. Harbor View. Rooftop bar hotel.",
+    "caption": "Power Plant mall. Cathedral of Manila, Casa Manila, Museo de Intramuros. Harbor View.",
     "location": {
       "lat": 14.5904492,
       "lng": 120.9803621,
@@ -2202,16 +2169,14 @@
       "1763937136756-2025-11-05.png",
       "1763936942244-2025-11-05.png",
       "1763936953329-2025-11-05.png",
+      "20251105_151634.jpg",
       "1763937030530-2025-11-05.png",
       "1763941948358-2025-11-05.png",
       "1763937061590-2025-11-05.png",
       "1763937094340-2025-11-05.png",
       "1763937192228-2025-11-05.png",
       "1763937254105-2025-11-05.png",
-      "1763937305921-2025-11-05.png",
-      "20251105_122308.jpg",
-      "20251105_151634.jpg",
-      "20251105_163122.jpg"
+      "1763937305921-2025-11-05.png"
     ],
     "music": null,
     "weather": {
@@ -2221,30 +2186,31 @@
     "videos": [],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "walking"
   },
   {
     "id": "2025-11-06",
     "date": "2025-11-06",
     "type": "trip",
     "title": "Taal Vulcano",
-    "caption": "Taal Vulcano day trip. Wat was Caro haar wens???",
+    "caption": "Wat was Caro haar wens???",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 14.0106736,
+      "lng": 120.9985863,
+      "name": "Taal Volcano"
     },
     "photos": [
       "20251106_103119.jpg",
       "20251106_110918.jpg",
-      "20251106_123056.jpg",
-      "20251106_173137.jpg",
       "2025-11-06 11.07.32.jpg",
       "2025-11-06 10.36.10.jpg",
       "2025-11-06 11.27.55.jpg",
       "2025-11-06 12.36.23.jpg",
+      "20251106_123056.jpg",
       "2025-11-06 13.08.37.jpg",
-      "2025-11-06 14.42.34.jpg"
+      "2025-11-06 14.42.34.jpg",
+      "20251106_173137.jpg"
     ],
     "music": null,
     "weather": {
@@ -2261,7 +2227,7 @@
     "date": "2025-11-07",
     "type": "trip",
     "title": "Greenbelt + Toyo Eatery",
-    "caption": "Greenbelt Christmas decorations. Facials. Toyo Eatery (waar Caro gereserveerd had). Skydeck.",
+    "caption": "",
     "location": {
       "lat": 14.5904492,
       "lng": 120.9803621,
@@ -2292,11 +2258,11 @@
     "date": "2025-11-08",
     "type": "trip",
     "title": "Pagsanjan Falls",
-    "caption": "Pagsanjan Falls. Caro begon te veel te schreeuwen. Halo-Halo (Caro: daarna niet meer gekust). Ember restaurant.",
+    "caption": "",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 14.2625628,
+      "lng": 121.4999861,
+      "name": "Pagsanjan Falls"
     },
     "photos": [
       "20251108_114057.jpg",
@@ -2356,11 +2322,11 @@
     "date": "2025-11-10",
     "type": "trip",
     "title": "Last Day Manila",
-    "caption": "Nieuw sjakoske voor Caro. Ring Side midget boxing (wou Caro absoluut naar).",
+    "caption": "Ring Side Boxing -- wou Caro absoluut zien.",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 14.5637323,
+      "lng": 121.0308199,
+      "name": "Ringside, Makati, Manila"
     },
     "photos": [
       "20251110_151533.jpg",
@@ -2383,7 +2349,8 @@
     ],
     "tags": [
       "travel"
-    ]
+    ],
+    "transport": "walking"
   },
   {
     "id": "2025-11-11",
@@ -2417,11 +2384,11 @@
     "date": "2025-11-12",
     "type": "trip",
     "title": "Back in Belgium",
-    "caption": "Back in Belgium! Nog snel GSM opladen voor Dark War, het zombiespel waar ik aan begonnen was door Fung-wong.",
+    "caption": "Nog snel GSM opladen voor Dark War!",
     "location": {
-      "lat": 14.5904492,
-      "lng": 120.9803621,
-      "name": "Manila, Philippines"
+      "lat": 50.8806207,
+      "lng": 4.4730008,
+      "name": "Zaventem"
     },
     "photos": [
       "1763940654699-2025-11-12.png"
@@ -2441,7 +2408,7 @@
     "date": "2025-11-13",
     "type": "date",
     "title": "Koen & Marijke",
-    "caption": "Verassing van Caro. Americain, lekker steakje op het open vuur. Het was blijkbaar toch nodig om te betalen voor parkeren na 19u ;)",
+    "caption": "Het was blijkbaar toch nodig om te betalen voor parkeren na 19u ;)",
     "location": {
       "lat": 51.2078761,
       "lng": 3.2360891,
@@ -2454,8 +2421,7 @@
     "music": null,
     "weather": {
       "icon": "drizzle",
-      "tempC": 15,
-      "note": "Begon koud te worden"
+      "tempC": 15
     },
     "videos": [],
     "tags": [
@@ -2490,7 +2456,7 @@
     "date": "2025-11-15",
     "type": "trip",
     "title": "Villa Cavrois + La Piscine",
-    "caption": "Villa Cavrois — Huizenjacht voor Caro en mezelf. La Piscine. Caro was er niet over te spreken dat ik mijn kreeft salade niet gevraagd had.",
+    "caption": "Huizenjacht voor Caro en mezelf.",
     "location": {
       "lat": 50.6858756,
       "lng": 3.1614562,
@@ -2519,7 +2485,7 @@
     "date": "2025-11-16",
     "type": "trip",
     "title": "Lille Walk",
-    "caption": "Walk through Lille. Winkel van Caro haar ring.",
+    "caption": "Passeerden aan winkel van Caro haar ring.",
     "location": {
       "lat": 50.6477924,
       "lng": 3.0223644,
@@ -2547,13 +2513,15 @@
     "date": "2025-11-16",
     "type": "trip",
     "title": "Martin Kohlstedt",
-    "caption": "Martin Kohlstedt concert — Caro was een beetje in slaap gevallen.",
+    "caption": "Dutjestime",
     "location": {
       "lat": 51.2085526,
       "lng": 3.226772,
       "name": "Brugge"
     },
-    "photos": [],
+    "photos": [
+      "martin.webp"
+    ],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -2570,7 +2538,7 @@
     "date": "2025-11-22",
     "type": "date",
     "title": "Allegro Moderato",
-    "caption": "Gaan eten in Allegro Moderato na 7 restaurants gecheckt te hebben die vol zaten.",
+    "caption": "",
     "location": {
       "lat": 51.0552703,
       "lng": 3.7201795,
@@ -2596,7 +2564,7 @@
     "date": "2025-11-25",
     "type": "date",
     "title": "Oak",
-    "caption": "Samen naar Oak. De mais en cesar salad waren super.",
+    "caption": "De mais en cesar salad waren super.",
     "location": {
       "lat": 51.056801,
       "lng": 3.7191556,
@@ -2627,7 +2595,9 @@
       "lng": 4.1923923,
       "name": "22, Marktplein, 1703 Dilbeek"
     },
-    "photos": [],
+    "photos": [
+      "de-rare-vos.jpg"
+    ],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -2651,8 +2621,8 @@
       "name": "Ter Platen 12, 9000 Gent"
     },
     "photos": [
-      "20251130_150259.jpg",
-      "20251130_193423.jpg"
+      "20251130_193423.jpg",
+      "20251130_150259.jpg"
     ],
     "music": null,
     "weather": {
@@ -2669,7 +2639,7 @@
     "date": "2025-12-09",
     "type": "date",
     "title": "Carmina Burana (oeps)",
-    "caption": "Naar Capitole voor Black Swan, maar verkeerde tickets gekocht! Het was Carmina Burana. Daarna smoutebollen aan het Zuid.",
+    "caption": "Black Swan. Daarna smoutebollen aan het Zuid.",
     "location": {
       "lat": 51.0481537,
       "lng": 3.7324553,
@@ -2693,7 +2663,7 @@
     "date": "2025-12-12",
     "type": "trip",
     "title": "Magicum + Walking Tour",
-    "caption": "Magicum (Caro had 'Music'). WW2 walking tour: Checkpoint Charlie, Holocaust Museum, Brandenburg Gate. Bavaria Berlin. Kerstmarkt (Caro net 4 euro mee had).",
+    "caption": "Magicum. Checkpoint Charlie, Holocaust Museum, Brandenburg Gate. Bavaria Berlin. Kerstmarkt (Caro had net 4 euro mee).",
     "location": {
       "lat": 52.5247784,
       "lng": 13.399017,
@@ -2707,8 +2677,8 @@
       "20251212_150549.jpg",
       "20251212_164034.jpg",
       "20251212_160300.jpg",
-      "20251212_192208.jpg",
       "20251212_170644.jpg",
+      "20251212_192208.jpg",
       "20251212_204643.jpg",
       "2025-12-12 20.32.25.jpg",
       "2025-12-12 21.24.49.jpg"
@@ -2730,7 +2700,7 @@
     "date": "2025-12-13",
     "type": "trip",
     "title": "KaDeWe + Nobelhart & Schmutzig",
-    "caption": "KaDeWe (Caro zich kunnen inhouden). Kaiser-Wilhelm Church. Nobelhart & Schmutzig. Gibson Bar (Caro haar 'Rocket Woman'). Totaal niet omdat Caro zat was ofzo...",
+    "caption": "+ Gibson Bar. Caro was mss een beetje zat...",
     "location": {
       "lat": 52.5053879,
       "lng": 13.3905401,
@@ -2741,6 +2711,7 @@
       "20251213_135424.jpg",
       "20251213_140514.jpg",
       "20251213_142850.jpg",
+      "2025-12-13 14.30.08.jpg",
       "20251213_143226.jpg",
       "20251213_152717.jpg",
       "20251213_153038.jpg",
@@ -2748,8 +2719,7 @@
       "20251213_164941.jpg",
       "20251213_210122.jpg",
       "20251213_214324.jpg",
-      "20251213_223600.jpg",
-      "2025-12-13 14.30.08.jpg"
+      "20251213_223600.jpg"
     ],
     "music": null,
     "weather": {
@@ -2759,14 +2729,15 @@
     "videos": [],
     "tags": [
       "city-trip"
-    ]
+    ],
+    "transport": "walking"
   },
   {
     "id": "2025-12-14",
     "date": "2025-12-14",
     "type": "date",
     "title": "De Lint",
-    "caption": "Terugkeer met de auto. Restaurant De Lint met hun iets te lopende Creme Brulee. 's avonds nog The Running Man gekeken.",
+    "caption": "",
     "location": {
       "lat": 51.3025239,
       "lng": 5.0200754,
@@ -2797,20 +2768,14 @@
       "name": "Gentbruggestraat 204, Sint-Amandsberg"
     },
     "photos": [
-      "1766427222415-2025-12-20.png",
-      "1766427233284-2025-12-20.png",
-      "20251220_203020.jpg",
-      "20251220_203415.jpg",
-      "2025-12-20 22.20.20.jpg"
+      "1766427222415-2025-12-20.png"
     ],
     "music": null,
     "weather": {
       "icon": "drizzle",
       "tempC": 7
     },
-    "videos": [
-      "2025-12-20 20.57.21.mp4"
-    ],
+    "videos": [],
     "tags": [
       "family",
       "show"
@@ -2828,7 +2793,9 @@
       "name": "Av. du Port 86C, 1000 Bruxelles"
     },
     "photos": [
+      "1766427233284-2025-12-20.png",
       "1766427287316-2025-12-20.png",
+      "20251220_203415.jpg",
       "1766427699993-2025-12-20.png",
       "1766427714341-2025-12-20.png",
       "1766428377610-2025-12-20.png"
@@ -2839,7 +2806,7 @@
       "tempC": 8
     },
     "videos": [
-      "WhatsApp Video 2025-12-20 at 20.12.13.mp4"
+      "2025-12-20 20.57.21.mp4"
     ],
     "tags": [
       "family"
@@ -2912,7 +2879,9 @@
       "lng": 3.6076458,
       "name": "Pontstraat 2, 9831 Sint-Martens-Latem"
     },
-    "photos": [],
+    "photos": [
+      "babette.jpg"
+    ],
     "music": null,
     "weather": {
       "icon": "cloud-sun",
