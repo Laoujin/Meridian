@@ -784,6 +784,32 @@
     "tags": []
   },
   {
+    "id": "2025-06-12",
+    "date": "2025-06-12",
+    "type": "milestone",
+    "title": "1 Jaar Samen",
+    "caption": "365 dagen, 1 avontuur. Van Bumble tot Gent. Van eerste date in Zaventem tot samenwonen. Ons eerste jaar samen ❤️",
+    "location": {
+      "lat": 51.0478536,
+      "lng": 3.7541509,
+      "name": "Gentbruggestraat 204, Sint-Amandsberg"
+    },
+    "photos": [
+      "1year1.png",
+      "1year2.png"
+    ],
+    "music": null,
+    "weather": {
+      "icon": "sun",
+      "tempC": 22
+    },
+    "videos": [],
+    "tags": [
+      "milestone",
+      "anniversary"
+    ]
+  },
+  {
     "id": "2025-06-14",
     "date": "2025-06-14",
     "type": "date",
