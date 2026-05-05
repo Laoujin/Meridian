@@ -69,10 +69,12 @@ export function buildSections(memories: Memory[]): SectionDef[] {
     memoryIndex: memories.length,
     transitionType: 'closing-overview',
   });
-  // Closing phases — tagged with transitionType so App can distinguish them
+  // Closing-overview hold + extra scroll buffer. All three are tagged with the
+  // same transitionType so scrolling through them is a no-op visually — the
+  // overview map stays fixed. The user advances via the "what's next" button.
   sections.push({ id: 'section-closing-overview', type: 'hold', heightVh: 60, memoryIndex: memories.length, transitionType: 'closing-overview' });
-  sections.push({ id: 'section-closing-stats', type: 'hold', heightVh: 50, memoryIndex: memories.length, transitionType: 'closing-stats' });
-  sections.push({ id: 'section-closing-gift', type: 'hold', heightVh: 40, memoryIndex: memories.length, transitionType: 'closing-gift' });
+  sections.push({ id: 'section-closing-buffer-1', type: 'hold', heightVh: 50, memoryIndex: memories.length, transitionType: 'closing-overview' });
+  sections.push({ id: 'section-closing-buffer-2', type: 'hold', heightVh: 40, memoryIndex: memories.length, transitionType: 'closing-overview' });
 
   return sections;
 }

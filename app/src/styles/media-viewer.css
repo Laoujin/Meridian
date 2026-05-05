@@ -23,7 +23,7 @@
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.65);
   color: #fff;
   font-size: 20px;
   line-height: 1;
@@ -35,38 +35,40 @@
 }
 
 .media-viewer__close:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.85);
 }
 
 .media-viewer__counter {
-  background: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
   padding: 4px 14px;
   border-radius: 999px;
   font-family: 'Caveat', cursive;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.85);
+  color: #fff;
   pointer-events: none;
 }
 
 .media-viewer__stage {
   position: absolute;
-  top: 60px;
-  bottom: 12px;
+  top: 56px;
+  bottom: 50px;
   left: 0;
   right: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
 }
 
 .media-viewer__img,
 .media-viewer__video {
   display: block;
-  box-sizing: border-box;
   max-width: 100vw;
-  max-height: calc(100vh - 110px);
+  max-height: calc(100vh - 106px);
   width: auto;
   height: auto;
   object-fit: contain;

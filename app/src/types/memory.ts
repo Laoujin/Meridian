@@ -42,6 +42,7 @@ export interface Memory {
   weather: Weather | null;
   videos: string[];
   tags: string[];
+  emojis?: string[];
 
   // How you arrived at this location (defaults to 'car' when omitted)
   transport?: TransportMode;

@@ -115,6 +115,7 @@ export default function App() {
 
   const [muted, setMuted] = useState(false);
   const [showGift, setShowGift] = useState(false);
+  const handleWhatsNext = useCallback(() => setShowGift(true), []);
   const toggleMuted = useCallback(() => setMuted((m) => !m), []);
 
   // Play / stop based on the active memory's music
@@ -293,7 +294,7 @@ export default function App() {
       <OverviewDots
         map={mapInstance}
         locations={allLocations}
-        visible={isClosing && transitionType === 'closing-overview'}
+        visible={isClosing}
       />
 
       {/* Camera control during transitions — scenario-specific */}
@@ -385,17 +386,8 @@ export default function App() {
         </div>
       )}
 
-      {isClosing && transitionType && transitionType.startsWith('closing-') && (
-        <ClosingSequence
-          memories={memories}
-          phase={
-            transitionType === 'closing-overview' ? 'overview'
-            : transitionType === 'closing-stats' ? 'stats'
-            : 'gift'
-          }
-          progress={progress}
-          onWhatsNext={() => setShowGift(true)}
-        />
+      {isClosing && (
+        <ClosingSequence onWhatsNext={handleWhatsNext} />
       )}
 
       <GiftReveal open={showGift} onClose={() => setShowGift(false)} />

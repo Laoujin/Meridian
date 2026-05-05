@@ -28,6 +28,16 @@ export default function MemoryCard({ memory, muted, onToggleMute }: MemoryCardPr
       )}
       <div className="memory-card__date">{dateStr}</div>
       <h2 className="memory-card__title">{memory.title}</h2>
+      {memory.emojis?.[0] && (
+        <div className="memory-card__emoji memory-card__emoji--left" aria-hidden="true">
+          {memory.emojis[0]}
+        </div>
+      )}
+      {memory.emojis?.[1] && (
+        <div className="memory-card__emoji memory-card__emoji--right" aria-hidden="true">
+          {memory.emojis[1]}
+        </div>
+      )}
       {(memory.photos.length > 0 || memory.videos.length > 0) && (
         <MediaStack photos={memory.photos} videos={memory.videos} />
       )}

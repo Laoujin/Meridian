@@ -1,0 +1,28 @@
+[
+  {
+    "id": "fix-portrait",
+    "date": "2024-06-01",
+    "type": "date",
+    "title": "Portrait photo card",
+    "caption": "Card with a portrait-aspect photo for media viewer sizing tests.",
+    "location": { "lat": 50.8798, "lng": 4.7005, "name": "Leuven" },
+    "photos": ["test-portrait.png"],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  },
+  {
+    "id": "fix-landscape",
+    "date": "2024-06-15",
+    "type": "date",
+    "title": "Landscape photo card",
+    "caption": "Card with a wide landscape photo for media viewer sizing tests.",
+    "location": { "lat": 51.0538, "lng": 3.7250, "name": "Gent" },
+    "photos": ["test-landscape.png"],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": []
+  }
+]

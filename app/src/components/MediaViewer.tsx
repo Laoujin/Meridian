@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import '../styles/media-viewer.css';
 
 type MediaItem =
@@ -72,7 +73,7 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
     return () => { document.body.style.overflow = prev; };
   }, []);
 
-  return (
+  return createPortal(
     <div
       ref={containerRef}
       className="media-viewer"
@@ -114,12 +115,13 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
             onClick={(e) => e.stopPropagation()}
           />
         )}
-        {total > 1 && (
-          <div className="media-viewer__counter">
-            {current + 1} / {total}
-          </div>
-        )}
       </div>
+
+      {total > 1 && (
+        <div className="media-viewer__counter">
+          {current + 1} / {total}
+        </div>
+      )}
 
       {total > 1 && (
         <>
@@ -139,6 +141,7 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
           </button>
         </>
       )}
-    </div>
+    </div>,
+    document.body,
   );
 }
