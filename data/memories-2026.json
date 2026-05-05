@@ -3,7 +3,7 @@
     "id": "2026-01-02",
     "date": "2026-01-02",
     "type": "date",
-    "title": "Yalo",
+    "title": "🍕 Yalo",
     "caption": "De Chili Fries (omg!!) met de zandwortel + entrecote!!",
     "location": {
       "lat": 51.0505667,
@@ -27,7 +27,7 @@
     "id": "2026-01-10",
     "date": "2026-01-10",
     "type": "milestone",
-    "title": "Wettelijk Samenwonend",
+    "title": "📜 🍝 Wettelijk Samenwonend",
     "caption": "Ik hou papier goed bij met instructies hoe te verbreken! + Yalo. 's avonds Dimitri jubileum",
     "location": {
       "lat": 51.0472122,
@@ -54,7 +54,7 @@
     "id": "2026-01-14",
     "date": "2026-01-14",
     "type": "date",
-    "title": "Chez Jean",
+    "title": "🧇 🍜 Chez Jean",
     "caption": "Caro naar Chez Jean voor de beste wafel van de wereld.",
     "location": {
       "lat": 51.0206598,
@@ -78,7 +78,7 @@
     "id": "2026-01-17",
     "date": "2026-01-17",
     "type": "date",
-    "title": "Verjaardag Guido",
+    "title": "🎂 🫶 Verjaardag Guido",
     "caption": "Erg uitgestelde verjaardag Guido.",
     "location": {
       "lat": 51.0478536,
@@ -104,7 +104,7 @@
     "id": "2026-01-21",
     "date": "2026-01-21",
     "type": "date",
-    "title": "La Malcontenta",
+    "title": "🥘 🫕 La Malcontenta",
     "caption": "Tapasbar van op Caro haar lijst. Vooral de humus met lam en de gambas. Goeie cocktails.",
     "location": {
       "lat": 51.0575997,
@@ -129,7 +129,7 @@
     "id": "2026-01-23",
     "date": "2026-01-23",
     "type": "date",
-    "title": "Surprise na Pingpong",
+    "title": "😮 🏓 Surprise na Pingpong",
     "caption": "Surprise for Caro na pingpong. Ze dacht dat het, je weet wel wat was, maar:",
     "location": {
       "lat": 51.0478536,
@@ -153,7 +153,7 @@
     "id": "2026-01-29",
     "date": "2026-01-29",
     "type": "date",
-    "title": "Cinema Culinaire: Chef",
+    "title": "🎬 Cinema Culinaire: Chef",
     "caption": "",
     "location": {
       "lat": 51.2205817,
@@ -177,7 +177,7 @@
     "id": "2026-02-01",
     "date": "2026-02-01",
     "type": "date",
-    "title": "Ontbijt voor Zieke Caro",
+    "title": "🥐 🥘 Ontbijt voor Zieke Caro",
     "caption": "",
     "location": {
       "lat": 51.0478536,
@@ -201,7 +201,7 @@
     "id": "2026-02-07",
     "date": "2026-02-07",
     "type": "date",
-    "title": "Double Date Leuven",
+    "title": "💑 🍲 Double Date Leuven",
     "caption": "Restaurant Nirvana. Bes Tof van Urbanus.",
     "location": {
       "lat": 50.8782841,
@@ -228,7 +228,7 @@
     "id": "2026-02-08",
     "date": "2026-02-08",
     "type": "date",
-    "title": "Yalo",
+    "title": "🥩 Yalo",
     "caption": "We hebben de mega dure sardinnen geproefd. Ze waren wel lekker!",
     "location": {
       "lat": 51.0505667,
@@ -254,7 +254,7 @@
     "id": "2026-02-14",
     "date": "2026-02-14",
     "type": "date",
-    "title": "Valentijn FOM",
+    "title": "🎮 ❤️ Valentijn FOM",
     "caption": "Valentijn at FOM 2026. Ondertussen Caro alleen thuis in de sneeuw!",
     "location": {
       "lat": 50.9778989,
@@ -280,7 +280,7 @@
     "id": "2026-02-18",
     "date": "2026-02-18",
     "type": "date",
-    "title": "Nuance",
+    "title": "🍾 🍣 Nuance",
     "caption": "Valentijn make-up. Eten was ongeloofelijk. Dé Champagne geprobeerd.",
     "location": {
       "lat": 51.0952975,
@@ -309,7 +309,7 @@
     "id": "2026-02-20",
     "date": "2026-02-20",
     "type": "date",
-    "title": "Publiek",
+    "title": "👨‍👩‍👧‍👦 🥡 Publiek",
     "caption": "Ons dieet in 2026 is zeer goed bezig!",
     "location": {
       "lat": 51.0577912,
@@ -334,7 +334,7 @@
     "id": "2026-02-21",
     "date": "2026-02-21",
     "type": "date",
-    "title": "Amai Comedy Club",
+    "title": "😆 Amai Comedy Club",
     "caption": "'Any Color You Like' door Karan Karthik. Ondertussen doen Lieve en Metj de plafond van onze badkamer ;)",
     "location": {
       "lat": 51.0561395,
@@ -359,7 +359,7 @@
     "id": "2026-02-22",
     "date": "2026-02-22",
     "type": "date",
-    "title": "Massage + Nepal Delight",
+    "title": "🧆 💆‍♀️ Massage + Nepal Delight",
     "caption": "Goeie score maar viel toch een beetje tegen.",
     "location": {
       "lat": 51.0380271,
@@ -385,10 +385,10 @@
     "id": "2026-02-28",
     "date": "2026-02-28",
     "type": "date",
-    "title": "Verjaardag Oceane",
+    "title": "🎈 Verjaardag Oceane",
     "caption": "",
     "location": {
-      "lat": 50.8792020,
+      "lat": 50.879202,
       "lng": 4.7011675,
       "name": "Leuven"
     },
@@ -412,7 +412,7 @@
     "id": "2026-03-01",
     "date": "2026-03-01",
     "type": "trip",
-    "title": "Riad Mazaj",
+    "title": "🌏 Riad Mazaj",
     "caption": "Le Slimana",
     "location": {
       "lat": 31.6311251,
@@ -440,7 +440,7 @@
     "id": "2026-03-02",
     "date": "2026-03-02",
     "type": "trip",
-    "title": "Souks, Bahia Palace + Ben Jamil",
+    "title": "🏰 🏝️ Souks, Bahia Palace + Ben Jamil",
     "caption": "De Souks, altijd rechtdoor! Koutoubia Mosque, Bahia Palace.",
     "location": {
       "lat": 31.6258257,
@@ -477,7 +477,7 @@
     "id": "2026-03-03",
     "date": "2026-03-03",
     "type": "trip",
-    "title": "Shopping + Hamam",
+    "title": "🛍️ ⛰️ Shopping + Hamam",
     "caption": "Caro was ondertussen gaan shoppen en Hamam. Caro aan het onderhandelen over de prijs. Nomad restaurant.",
     "location": {
       "lat": 31.6286777,
@@ -507,7 +507,7 @@
     "id": "2026-03-04",
     "date": "2026-03-04",
     "type": "trip",
-    "title": "Museums + Otto",
+    "title": "🖼️ ✈️ Museums + Otto",
     "caption": "Als het aan Caro lag, dan waren we het nu nog aan het zoeken.",
     "location": {
       "lat": 31.6235,
@@ -538,7 +538,7 @@
     "id": "2026-03-05",
     "date": "2026-03-05",
     "type": "trip",
-    "title": "Atlas Mountains + Le Bistro Arabe",
+    "title": "⛰️ 🌍 Atlas Mountains + Le Bistro Arabe",
     "caption": "Vallee de l'Ourika",
     "location": {
       "lat": 31.1964127,
@@ -567,7 +567,7 @@
     "id": "2026-03-06",
     "date": "2026-03-06",
     "type": "trip",
-    "title": "Jardin Majorelle + YSL",
+    "title": "🌿 🧭 Jardin Majorelle + YSL",
     "caption": "Caro had zin in vis: Fish House Al Aachabe. La Kamounya.",
     "location": {
       "lat": 31.6414746,
@@ -601,11 +601,11 @@
     "id": "2026-03-12",
     "date": "2026-03-12",
     "type": "date",
-    "title": "De Abt",
+    "title": "🍽️ De Abt",
     "caption": "",
     "location": {
       "lat": 51.0528527,
-      "lng": 3.7257480,
+      "lng": 3.725748,
       "name": "De Abt, Gent"
     },
     "photos": [
@@ -627,10 +627,10 @@
     "id": "2026-03-14",
     "date": "2026-03-14",
     "type": "date",
-    "title": "Trouw",
+    "title": "💍 Trouw",
     "caption": "Feestzaal Kattebroek",
     "location": {
-      "lat": 50.8576150,
+      "lat": 50.857615,
       "lng": 4.2667551,
       "name": "Elegemstraat 160, Dilbeek"
     },
@@ -652,7 +652,7 @@
     "id": "2026-03-18",
     "date": "2026-03-18",
     "type": "date",
-    "title": "Yalo + Wim Helsen",
+    "title": "💫 Yalo + Wim Helsen",
     "caption": "",
     "location": {
       "lat": 51.0505667,
@@ -674,7 +674,7 @@
     "id": "2026-03-20",
     "date": "2026-03-20",
     "type": "date",
-    "title": "Sofie Lemaire + Polé Polé",
+    "title": "✨ Sofie Lemaire + Polé Polé",
     "caption": "",
     "location": {
       "lat": 51.0475823,
@@ -694,7 +694,7 @@
     "id": "2026-03-22",
     "date": "2026-03-22",
     "type": "date",
-    "title": "Jef",
+    "title": "💜 Jef",
     "caption": "",
     "location": {
       "lat": 51.0478536,
@@ -717,7 +717,7 @@
     "id": "2026-04-02",
     "date": "2026-04-02",
     "type": "date",
-    "title": "Kook workshop",
+    "title": "👨‍🍳 Kook workshop",
     "caption": "",
     "location": {
       "lat": 0,
@@ -742,7 +742,7 @@
     "id": "2026-04-04",
     "date": "2026-04-04",
     "type": "date",
-    "title": "Pasen Mediatrice",
+    "title": "🐰 Pasen Mediatrice",
     "caption": "",
     "location": {
       "lat": 51.0478536,
@@ -766,7 +766,7 @@
     "id": "2026-04-05",
     "date": "2026-04-05",
     "type": "date",
-    "title": "Haantjes",
+    "title": "🐔 Haantjes",
     "caption": "",
     "location": {
       "lat": 51.0478536,
@@ -791,7 +791,7 @@
     "id": "2026-04-15",
     "date": "2026-04-15",
     "type": "date",
-    "title": "Sakas",
+    "title": "🫶 Sakas",
     "caption": "",
     "location": {
       "lat": 51.0480165,
@@ -815,7 +815,7 @@
     "id": "2026-04-22",
     "date": "2026-04-22",
     "type": "date",
-    "title": "Why Not",
+    "title": "💑 Why Not",
     "caption": "",
     "location": {
       "lat": 51.0603301,
@@ -837,7 +837,7 @@
     "id": "2026-04-26",
     "date": "2026-04-26",
     "type": "date",
-    "title": "Interstellar",
+    "title": "🚀 Interstellar",
     "caption": "",
     "location": {
       "lat": 50.8096462,
