@@ -69,12 +69,10 @@ export function buildSections(memories: Memory[]): SectionDef[] {
     memoryIndex: memories.length,
     transitionType: 'closing-overview',
   });
-  // Closing-overview hold + extra scroll buffer. All three are tagged with the
-  // same transitionType so scrolling through them is a no-op visually — the
-  // overview map stays fixed. The user advances via the "what's next" button.
+  // Closing overview MUST be the final section — that natural page-bottom is
+  // the scroll lock. The "what's next" button is the only way forward from here.
+  // See buildSections.test.ts for the invariant.
   sections.push({ id: 'section-closing-overview', type: 'hold', heightVh: 60, memoryIndex: memories.length, transitionType: 'closing-overview' });
-  sections.push({ id: 'section-closing-buffer-1', type: 'hold', heightVh: 50, memoryIndex: memories.length, transitionType: 'closing-overview' });
-  sections.push({ id: 'section-closing-buffer-2', type: 'hold', heightVh: 40, memoryIndex: memories.length, transitionType: 'closing-overview' });
 
   return sections;
 }

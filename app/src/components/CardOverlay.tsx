@@ -30,6 +30,10 @@ function incomingOpacity(progress: number): number {
 }
 
 export default function CardOverlay({ activeIndex, memories, phase, progress, muted, onToggleMute }: CardOverlayProps) {
+  // Once we've reached the closing-overview, no card should be rendered —
+  // not even a fading-out previous card. The overview map owns the screen.
+  if (activeIndex >= memories.length) return null;
+
   if (phase === 'hold') {
     const idx = activeIndex;
     if (idx >= memories.length) return null;

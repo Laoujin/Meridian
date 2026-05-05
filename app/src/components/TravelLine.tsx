@@ -116,6 +116,7 @@ export default function TravelLine({
       if (marker && iconEl) {
         const wrapper = marker.getElement() as HTMLElement;
         wrapper.style.opacity = '0';
+        wrapper.style.display = 'none'; // belt-and-braces: ensure it's gone, not just transparent
       }
       return;
     }
@@ -141,6 +142,7 @@ export default function TravelLine({
       marker.setLngLat(tip);
       iconEl.style.transform = `rotate(${deg}deg)`;
       const wrapper = marker.getElement() as HTMLElement;
+      wrapper.style.display = ''; // re-show after a hide
       wrapper.style.opacity = String(opacity);
     }
   }, [map, fullPath, progress, visible, fadeOutProgress, ensureSource]);
