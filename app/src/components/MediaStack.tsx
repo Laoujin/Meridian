@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MediaViewer from './MediaViewer';
 
 interface MediaStackProps {
   photos: string[];
@@ -15,14 +16,15 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
     ...videos.map((f) => ({ kind: 'video' as const, filename: f })),
   ];
 
-  const [topIndex, setTopIndex] = useState(0);
+  const [viewerOpen, setViewerOpen] = useState(false);
 
   if (items.length === 0) return null;
 
-  const isInteractive = items.length > 1;
   const handleTap = () => {
-    setTopIndex((prev) => (prev + 1) % items.length);
+    setViewerOpen(true);
   };
+
+  const topIndex = 0;
 
   const stackSize = Math.min(items.length, 3);
   const visible = [];
@@ -33,55 +35,65 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
   visible.reverse(); // bottom of stack renders first
 
   return (
-    <div
-      className={`photo-stack${isInteractive ? '' : ' photo-stack--static'}`}
-      onClick={isInteractive ? handleTap : undefined}
-    >
-      {visible.map(({ index, item, stackPos }) => (
-        <div
-          key={index}
-          className="photo-stack__photo"
-          style={{
-            zIndex: stackSize - stackPos,
-            transform: `rotate(${(stackPos - 1) * 3}deg) translate(${stackPos * 4}px, ${stackPos * -4}px)`,
-          }}
-        >
-          {item.kind === 'photo' ? (
-            <img
-              src={`/photos/thumb/${item.filename}`}
-              alt=""
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                if (!target.src.includes('/full/')) {
-                  target.src = `/photos/full/${item.filename}`;
-                } else {
-                  target.style.display = 'none';
-                }
-              }}
-            />
-          ) : (
-            <video
-              src={`/videos/${item.filename}`}
-              controls
-              preload="metadata"
-              playsInline
-              onClick={(e) => e.stopPropagation()}
-              onError={(e) => {
-                const target = e.target as HTMLVideoElement;
-                if (!target.src.includes('/photos/full/')) {
-                  target.src = `/photos/full/${item.filename}`;
-                } else {
-                  target.style.display = 'none';
-                }
-              }}
-            />
-          )}
-        </div>
-      ))}
-      {items.length > 1 && (
-        <div className="photo-stack__count">{topIndex + 1} / {items.length}</div>
+    <>
+      <div
+        className="photo-stack"
+        onClick={handleTap}
+      >
+        {visible.map(({ index, item, stackPos }) => (
+          <div
+            key={index}
+            className="photo-stack__photo"
+            style={{
+              zIndex: stackSize - stackPos,
+              transform: `rotate(${(stackPos - 1) * 3}deg) translate(${stackPos * 4}px, ${stackPos * -4}px)`,
+            }}
+          >
+            {item.kind === 'photo' ? (
+              <img
+                src={`/photos/thumb/${item.filename}`}
+                alt=""
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (!target.src.includes('/full/')) {
+                    target.src = `/photos/full/${item.filename}`;
+                  } else {
+                    target.style.display = 'none';
+                  }
+                }}
+              />
+            ) : (
+              <video
+                src={`/videos/${item.filename}`}
+                controls
+                preload="metadata"
+                playsInline
+                onClick={(e) => e.stopPropagation()}
+                onError={(e) => {
+                  const target = e.target as HTMLVideoElement;
+                  if (!target.src.includes('/photos/full/')) {
+                    target.src = `/photos/full/${item.filename}`;
+                  } else {
+                    target.style.display = 'none';
+                  }
+                }}
+              />
+            )}
+          </div>
+        ))}
+        {items.length > 1 && (
+          <div className="photo-stack__count">{topIndex + 1} / {items.length}</div>
+        )}
+      </div>
+
+      {viewerOpen && (
+        <MediaViewer
+          items={items}
+          initialIndex={topIndex}
+          onClose={() => setViewerOpen(false)}
+        />
       )}
-    </div>
+    </>
   );
 }
