@@ -1,12 +1,12 @@
-FROM oven/bun:1 AS builder
+FROM node:22 AS builder
 WORKDIR /build
 
 COPY app/package.json ./app/
-RUN cd app && bun install
+RUN cd app && npm install
 
 COPY app ./app
 COPY data ./data
-RUN cd app && bun run build
+RUN cd app && npm run build
 
 FROM nginx:alpine
 COPY --from=builder /build/app/dist /usr/share/nginx/html
