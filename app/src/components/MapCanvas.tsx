@@ -11,8 +11,6 @@ interface MapCanvasProps {
   showOpeningLine?: boolean;
   dimmed?: boolean;
   onMapReady?: (map: maplibregl.Map) => void;
-  overviewLocations?: [number, number][];
-  showOverview?: boolean;
 }
 
 const MAP_STYLE: maplibregl.StyleSpecification = {
@@ -35,10 +33,9 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
 
 const INITIAL_CENTER: [number, number] = [(HERENT[0] + GENT[0]) / 2, (HERENT[1] + GENT[1]) / 2];
 
-function MapCanvas({ viewA, viewB, phase, showOpeningLine, dimmed, onMapReady, overviewLocations, showOverview }: MapCanvasProps) {
+function MapCanvas({ viewA, viewB, phase, showOpeningLine, dimmed, onMapReady }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const overviewMarkersRef = useRef<maplibregl.Marker[]>([]);
   const onMapReadyRef = useRef(onMapReady);
 
   useEffect(() => { onMapReadyRef.current = onMapReady; });
@@ -76,35 +73,6 @@ function MapCanvas({ viewA, viewB, phase, showOpeningLine, dimmed, onMapReady, o
     container.style.transition = 'filter 300ms ease';
     container.style.filter = dimmed ? 'brightness(0.4) blur(8px)' : 'none';
   }, [dimmed]);
-
-  // Closing overview
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map || !showOverview || !overviewLocations?.length) {
-      overviewMarkersRef.current.forEach(m => m.remove());
-      overviewMarkersRef.current = [];
-      return;
-    }
-
-    const bounds = new maplibregl.LngLatBounds();
-    for (const [lng, lat] of overviewLocations) bounds.extend([lng, lat]);
-    map.fitBounds(bounds, { padding: 60, duration: 1500 });
-
-    overviewLocations.forEach(([lng, lat], i) => {
-      const el = document.createElement('div');
-      el.className = 'location-marker location-marker--pulse';
-      el.style.opacity = '0';
-      el.style.transition = 'opacity 0.3s ease';
-      const marker = new maplibregl.Marker({ element: el }).setLngLat([lng, lat]).addTo(map);
-      setTimeout(() => { el.style.opacity = '1'; }, i * 100);
-      overviewMarkersRef.current.push(marker);
-    });
-
-    return () => {
-      overviewMarkersRef.current.forEach(m => m.remove());
-      overviewMarkersRef.current = [];
-    };
-  }, [showOverview, overviewLocations]);
 
   // Camera: opening + hold only. Transitions are handled by EaseIn/EaseOutCamera.
   useEffect(() => {

@@ -16,6 +16,8 @@ import TravelLine from './components/TravelLine';
 import LocationMarker from './components/LocationMarker';
 import MilestoneEffect from './components/MilestoneEffect';
 import ClosingSequence from './components/ClosingSequence';
+import OverviewDots from './components/OverviewDots';
+import GiftReveal from './components/GiftReveal';
 import { playTrack, stopAudio, setMuted as setAudioMuted } from './utils/audio';
 import './styles/global.css';
 
@@ -107,6 +109,7 @@ export default function App() {
   const activeMemory = activeIndex >= 0 && activeIndex < memories.length ? memories[activeIndex] : null;
 
   const [muted, setMuted] = useState(false);
+  const [showGift, setShowGift] = useState(false);
   const toggleMuted = useCallback(() => setMuted((m) => !m), []);
 
   // Play / stop based on the active memory's music
@@ -274,8 +277,12 @@ export default function App() {
         showOpeningLine={isOpening}
         dimmed={isDimmed}
         onMapReady={handleMapReady}
-        overviewLocations={allLocations}
-        showOverview={isClosing && transitionType === 'closing-overview'}
+      />
+
+      <OverviewDots
+        map={mapInstance}
+        locations={allLocations}
+        visible={isClosing && transitionType === 'closing-overview'}
       />
 
       {/* Camera control during transitions — scenario-specific */}
@@ -376,8 +383,11 @@ export default function App() {
             : 'gift'
           }
           progress={progress}
+          onWhatsNext={() => setShowGift(true)}
         />
       )}
+
+      <GiftReveal open={showGift} onClose={() => setShowGift(false)} />
 
       <div className="scroll-track">
         {sections.map((section) => (
