@@ -13,7 +13,12 @@
     "arcOrigin": { "lat": 34.0522, "lng": -118.2437, "label": "Los Angeles" },
     "welcomeTitle": "Welcome",
     "welcomeSubtitle": "A scroll-driven memory timeline.",
-    "heroImage": "/start1.jpg"
+    "heroImage": "/start1.jpg",
+    "card": {
+      "icon": "❤",
+      "date": "September 2024",
+      "text": "Where it began"
+    }
   },
   "closing": {
     "giftReveal": false,

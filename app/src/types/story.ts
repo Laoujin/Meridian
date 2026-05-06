@@ -16,6 +16,11 @@ export interface Story {
     welcomeTitle: string;
     welcomeSubtitle?: string;
     heroImage?: string;
+    card?: {
+      icon?: string;
+      date?: string;
+      text?: string;
+    };
   };
   closing: {
     giftReveal: boolean;
