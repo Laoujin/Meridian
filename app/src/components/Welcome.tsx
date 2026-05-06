@@ -7,7 +7,9 @@ interface WelcomeProps {
 export default function Welcome({ onStart }: WelcomeProps) {
   return (
     <div className="welcome">
-      <img className="welcome__hero" src={story.opening.heroImage ?? '/start1.png'} alt="" />
+      {story.opening.heroImage && (
+        <img className="welcome__hero" src={story.opening.heroImage} alt="" />
+      )}
       <h1 className="welcome__title">{story.opening.welcomeTitle}</h1>
       {story.opening.welcomeSubtitle && (
         <p className="welcome__joke">{story.opening.welcomeSubtitle}</p>
