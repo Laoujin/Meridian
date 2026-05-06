@@ -17,7 +17,8 @@
 **Working assumptions** (flag at start; ask if any are wrong):
 1. Trip window: **2024-09-23 → 2024-09-27** (5 days). Real historical weather will be looked up.
 2. Rebrand name: **Meridian** (per spec coordination note).
-3. Watercolour images: **Wouter generates them in Midjourney**. Claude C's deliverable is a set of detailed, cohesive-palette Midjourney prompts in `data/demo/README.md`, plus tiny solid-colour stub JPGs at the right filenames so the schema test passes; Wouter drops the real MJ output over the stubs.
+3. Watercolour images: **Wouter generates them in Midjourney**. Claude C's deliverable is two prompt files — `data/demo/MIDJOURNEY.md` (10 prompts for the trip photos) and `marketing/MIDJOURNEY.md` (3 prompts for hero, OG image, favicon) — plus stub JPGs at the right filenames so tests pass and the marketing site renders without broken-image icons. Wouter drops real MJ output over the stubs.
+7. Live-demo deploy is **out of scope this branch**. The app's photo loader uses absolute `/photos/...` paths (`MediaStack.tsx`, `MediaViewer.tsx`) which break under any subpath deploy; fixing requires `app/src/` changes in Claude A's lane. Marketing ships now with a documented `marketing/README.md` TODO covering the unblock steps.
 4. Hand-author memory entries (do not depend on Claude B's `meridian-triage` CLI being ready).
 5. Music field: omit (`null`). Adding real Spotify metadata is scope creep.
 6. Acceptance check "app renders the 10 entries cleanly" is **manual visual verification** by Wouter — Claude C's lane forbids modifying `app/src/data/loader.ts`, so we cannot wire up an automated end-to-end test that loads `data/demo/memories.json` from disk.
@@ -31,25 +32,21 @@ data/demo/
   memories.json                       # Memory[] — hand-authored, weather filled by build.ts
   build.ts                            # one-shot Open-Meteo weather fetcher
   photos/
-    01-jfk-arrival.jpg
-    02-hotel-checkin.jpg
-    03-first-night-dinner.jpg
-    04-liberty-by-boat.jpg
-    05-times-square.jpg
-    06-central-park.jpg
-    07-brooklyn-bridge.jpg
-    08-moma.jpg
-    09-final-dinner.jpg
-    10-wheels-up.jpg
-  README.md                           # what this is + AI image-gen prompt + how to regenerate
+    01-jfk-arrival.jpg                # … 10-wheels-up.jpg (10 stub JPGs, MJ output replaces)
+  README.md                           # short overview + how to regenerate weather + test cmd
+  MIDJOURNEY.md                       # 10 watercolour prompts for the trip photos
   __tests__/
     memories.test.ts                  # schema + integrity test (bun test)
 marketing/
   index.html
   styles.css
-  README.md                           # GitHub Pages deploy instructions
+  hero.jpg                            # stub — replaced by MJ hero image (1920×1080)
+  og.jpg                              # stub — replaced by MJ Open Graph image (1200×630)
+  favicon.png                         # stub — replaced by MJ favicon (512×512)
+  README.md                           # GH Pages deploy + demo-deploy TODO
+  MIDJOURNEY.md                       # 3 prompts (hero, OG, favicon) on the same palette
   __tests__/
-    structure.test.ts                 # asserts required sections exist (bun test)
+    structure.test.ts                 # asserts required sections + asset references (bun test)
 ```
 
 **Responsibility split:**
@@ -499,9 +496,9 @@ git commit -m "chore: add stub photos so demo schema test passes"
 
 ---
 
-## Task 5: data/demo/README.md — Midjourney prompts (the real image deliverable)
+## Task 5: data/demo/README.md — short dataset overview
 
-This is the central artifact for the demo's visual identity: 10 Midjourney prompts that share a palette/style suffix so the rendered set reads as a coherent watercolour series.
+Slim README. Image-generation prompts live in their own file (Task 5b) so the README stays focused on "what is this and how do I run it".
 
 **Files:**
 - Create: `data/demo/README.md`
@@ -510,7 +507,7 @@ This is the central artifact for the demo's visual identity: 10 Midjourney promp
 
 Create `data/demo/README.md`:
 
-`````markdown
+````markdown
 # Meridian — Demo Dataset
 
 A fake 5-day NY trip (2024-09-23 → 2024-09-27) used as the public-facing example. Loaded as the default dataset when running the app from a fresh clone.
@@ -520,7 +517,8 @@ A fake 5-day NY trip (2024-09-23 → 2024-09-27) used as the public-facing examp
 ```
 memories.json    — Memory[] (10 entries), conforms to app/src/types/memory.ts
 build.ts         — re-runs Open-Meteo lookups to refresh the `weather` field
-photos/          — 10 watercolour JPGs (Midjourney output; stubs ship by default)
+photos/          — 10 watercolour JPGs (stubs ship by default; replace via Midjourney)
+MIDJOURNEY.md    — prompts for regenerating the photo set
 ```
 
 ## Regenerating weather
@@ -532,11 +530,50 @@ bun run build.ts
 
 Hits the Open-Meteo Archive API once per entry (~1.5s total). Idempotent — overwrites the `weather` field on every entry.
 
-## Generating the watercolour images (Midjourney)
+## Replacing the placeholder images
 
-Photos shipped in this folder are tiny solid-colour stubs. Replace each one with a Midjourney render using the prompts below.
+See [MIDJOURNEY.md](./MIDJOURNEY.md) for ten Midjourney prompts (one per photo). Generate, save the upscales over the matching `photos/<NN>-*.jpg` filenames.
 
-### Shared style suffix
+## Schema
+
+See `app/src/types/memory.ts` for the canonical `Memory` interface.
+
+## Tests
+
+```bash
+cd data/demo
+bun test
+```
+
+Validates: 10 entries, chronological order, NYC bounding box, all referenced photos exist on disk, schema conformance.
+````
+
+- [ ] **Step 2: Commit**
+
+```bash
+git add data/demo/README.md
+git commit -m "docs: add demo dataset README"
+```
+
+---
+
+## Task 5b: data/demo/MIDJOURNEY.md — 10 watercolour prompts
+
+The real visual identity of the demo. 10 prompts sharing a style suffix so the rendered images read as a single series.
+
+**Files:**
+- Create: `data/demo/MIDJOURNEY.md`
+
+- [ ] **Step 1: Write the prompts file**
+
+Create `data/demo/MIDJOURNEY.md`:
+
+`````markdown
+# Demo photos — Midjourney prompts
+
+Ten prompts for the public-facing demo trip. Run each in Midjourney `/imagine`, save the chosen upscale as the listed filename in `data/demo/photos/`.
+
+## Shared style suffix
 
 Append this to every prompt so the 10 images read as a cohesive series:
 
@@ -549,9 +586,7 @@ gentle bleeding edges, hand-painted illustration, no photorealism --ar 3:2 --sty
 
 `--ar 3:2` matches the existing `app/public/photos/full/` aspect (1152×768). `--style raw` keeps the model from over-stylizing.
 
-### Per-image prompts
-
-Run each one through `/imagine` in Midjourney and save the chosen upscale as the listed filename.
+## Per-image prompts
 
 **1 · `01-jfk-arrival.jpg`**
 ```
@@ -623,32 +658,19 @@ washes (no readable words), a single suitcase silhouette in the foreground, larg
 behind showing pre-dawn ramp lighting · [shared style suffix]
 ```
 
-### Constraints recap
+## Constraints recap
 
 - Landscape, **1152×768** (or close — `--ar 3:2`).
 - **No human figures, faces, or hands** (enforced by `--no` clause; spot-check each upscale).
-- Web-optimized JPG, target **200–400 KB**. After saving from Midjourney, run e.g. `convert in.png -quality 82 out.jpg` if needed.
+- Web-optimized JPG, target **200–400 KB**. After saving from Midjourney: `convert in.png -quality 82 out.jpg`.
 - Filenames must match `photos[]` references in `memories.json` exactly.
-
-## Schema
-
-See `app/src/types/memory.ts` for the canonical `Memory` interface.
-
-## Tests
-
-```bash
-cd data/demo
-bun test
-```
-
-Validates: 10 entries, chronological order, NYC bounding box, all referenced photos exist on disk, schema conformance.
 `````
 
 - [ ] **Step 2: Commit**
 
 ```bash
-git add data/demo/README.md
-git commit -m "docs: document demo dataset + Midjourney watercolour prompts"
+git add data/demo/MIDJOURNEY.md
+git commit -m "docs: add Midjourney prompts for demo photos"
 ```
 
 ---
@@ -680,9 +702,21 @@ describe("marketing/index.html structure", () => {
     expect(html).toMatch(/href="styles\.css"/);
   });
 
-  test("contains hero with Meridian title", () => {
+  test("contains hero with Meridian title and hero image", () => {
     expect(html).toMatch(/<section[^>]*id="hero"/i);
     expect(html).toMatch(/Meridian/);
+    expect(html).toMatch(/<img[^>]+src="hero\.jpg"/);
+  });
+
+  test("declares Open Graph + Twitter card meta with og.jpg", () => {
+    expect(html).toMatch(/<meta\s+property="og:title"/i);
+    expect(html).toMatch(/<meta\s+property="og:description"/i);
+    expect(html).toMatch(/<meta\s+property="og:image"[^>]+content="[^"]*og\.jpg"/i);
+    expect(html).toMatch(/<meta\s+name="twitter:card"/i);
+  });
+
+  test("references a favicon", () => {
+    expect(html).toMatch(/<link[^>]+rel="icon"[^>]+href="favicon\.png"/i);
   });
 
   test("contains 'what is this' section", () => {
@@ -761,6 +795,13 @@ Create `marketing/index.html`:
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meridian — a scroll-driven memory timeline</title>
   <meta name="description" content="Open-source scroll-driven timeline that draws travel lines on a map between your photos." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta property="og:title" content="Meridian — a scroll-driven memory timeline" />
+  <meta property="og:description" content="Drop in photos, get a beautiful scrollable trip-map you can host anywhere." />
+  <meta property="og:image" content="og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="og.jpg" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -777,11 +818,14 @@ Create `marketing/index.html`:
   </header>
 
   <section id="hero" class="hero">
-    <h1 class="hero__title">Meridian</h1>
-    <p class="hero__tagline">A scroll-driven memory timeline. Cards with photos appear as you scroll; a map in the background draws travel lines between them.</p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="#demo">See the demo</a>
-      <a class="btn btn--ghost" href="https://github.com/Laoujin/meridian" target="_blank" rel="noopener">View source</a>
+    <img class="hero__image" src="hero.jpg" alt="" aria-hidden="true" />
+    <div class="hero__content">
+      <h1 class="hero__title">Meridian</h1>
+      <p class="hero__tagline">A scroll-driven memory timeline. Cards with photos appear as you scroll; a map in the background draws travel lines between them.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#demo">See the demo</a>
+        <a class="btn btn--ghost" href="https://github.com/Laoujin/meridian" target="_blank" rel="noopener">View source</a>
+      </div>
     </div>
   </section>
 
@@ -892,22 +936,36 @@ a:hover { text-decoration: underline; }
 }
 
 .hero {
+  position: relative;
   text-align: center;
   padding: 96px 24px 64px;
   background: linear-gradient(180deg, var(--accent-soft) 0%, var(--accent-soft-2) 100%);
+  overflow: hidden;
+  isolation: isolate;
 }
+.hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  z-index: -1;
+}
+.hero__content { position: relative; z-index: 1; }
 .hero__title {
   font-family: 'Caveat', cursive;
   font-size: clamp(56px, 12vw, 120px);
   color: var(--accent);
   line-height: 1;
   margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(255,255,255,0.6);
 }
 .hero__tagline {
   font-size: 20px;
   max-width: 640px;
   margin: 0 auto 32px;
-  color: #444;
+  color: #2c2c2c;
 }
 .hero__cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
@@ -1038,6 +1096,140 @@ git commit -m "feat: add marketing landing page"
 
 ---
 
+## Task 7b: Marketing visual stubs (hero, OG, favicon)
+
+Three placeholder image files so the marketing site renders without broken-image icons before MJ output is dropped in.
+
+**Files:**
+- Create: `marketing/hero.jpg`
+- Create: `marketing/og.jpg`
+- Create: `marketing/favicon.png`
+
+- [ ] **Step 1: Generate stubs with ImageMagick**
+
+```bash
+cd marketing && \
+convert -size 1920x1080 gradient:'#ffe8de-#fff5f0' \
+  -gravity center -pointsize 64 -fill "#e8836b80" \
+  -annotate +0+0 "Meridian" \
+  -gravity south -pointsize 22 -fill "#a89888" \
+  -annotate +0+60 "stub hero — replace with Midjourney output" \
+  hero.jpg && \
+convert -size 1200x630 gradient:'#fff5f0-#ffe8de' \
+  -gravity center -pointsize 84 -fill "#e8836b" \
+  -annotate +0+0 "Meridian" \
+  -gravity south -pointsize 20 -fill "#a89888" \
+  -annotate +0+50 "stub OG image — replace with Midjourney output" \
+  og.jpg && \
+convert -size 512x512 xc:'#e8836b' \
+  -gravity center -pointsize 320 -fill "#fff5f0" \
+  -annotate +0+30 "M" \
+  favicon.png && \
+ls -1 hero.jpg og.jpg favicon.png
+```
+
+Expected: 3 filenames listed.
+
+- [ ] **Step 2: Run structure test — should still pass**
+
+```bash
+bun test
+```
+
+Expected: all tests PASS.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add marketing/hero.jpg marketing/og.jpg marketing/favicon.png
+git commit -m "chore: add marketing visual stubs (hero, OG, favicon)"
+```
+
+---
+
+## Task 7c: marketing/MIDJOURNEY.md — hero/OG/favicon prompts
+
+Three Midjourney prompts on the same shared style suffix as the demo photos, so all marketing visuals plus the trip photos read as one family.
+
+**Files:**
+- Create: `marketing/MIDJOURNEY.md`
+
+- [ ] **Step 1: Write the prompts file**
+
+Create `marketing/MIDJOURNEY.md`:
+
+`````markdown
+# Marketing visuals — Midjourney prompts
+
+Three prompts for the marketing site, shipped as stubs and meant to be replaced with Midjourney renders. They share the same shared style suffix as `data/demo/MIDJOURNEY.md` so the whole project reads as one visual family.
+
+## Shared style suffix
+
+```
+watercolour painting, loose brushwork, visible paper texture, soft pastel washes,
+muted palette of dusty terracotta, sage green, soft slate blue, warm cream,
+gentle bleeding edges, hand-painted illustration, no photorealism --style raw
+--no people, faces, hands, text, signature, watermark, logos, photorealistic
+```
+
+## Per-asset prompts
+
+### `hero.jpg` — full-bleed hero background
+
+Wide cinematic banner sitting under the hero copy. Watercolour with low contrast so headline text overlays cleanly.
+
+```
+A wide panoramic dreamy travel scene — winding coastal road, distant mountains, scattered
+warm lights of a small harbour town, faintly drawn route line tracing across the landscape,
+late afternoon golden hour, evocative of memory and journey, atmospheric haze
+· [shared style suffix] --ar 16:9
+```
+
+Save as **`marketing/hero.jpg`**, target 1920×1080, web-optimized JPG ~150–250 KB.
+
+### `og.jpg` — Open Graph / Twitter card image
+
+Used in link previews on Slack, Twitter, Discord etc. Square-ish 1.91:1.
+
+```
+Centred composition: a soft watercolour map of a coastline with a hand-painted route line
+threading between four warm-glow markers, postcard-feel, slight paper grain edges, decorative
+without text, balanced negative space for overlay typography · [shared style suffix] --ar 1.91:1
+```
+
+Save as **`marketing/og.jpg`**, target 1200×630, web-optimized JPG ~150 KB.
+
+### `favicon.png` — browser tab icon
+
+Tiny but legible at 16×16. Render at 512×512, browsers downscale.
+
+```
+Minimalist hand-painted watercolour mark — a stylised compass meridian (single vertical arc
+crossed by a horizon line) in dusty terracotta on a warm cream background, small painted
+dot at the apex, balanced inside a square, square framing · [shared style suffix] --ar 1:1
+```
+
+Save as **`marketing/favicon.png`**, 512×512, transparent or cream background.
+
+## After saving
+
+```bash
+# Re-run the structure test — references unchanged, files updated:
+cd marketing && bun test
+# Open the page and visually check the hero crop:
+python3 -m http.server 8080
+```
+`````
+
+- [ ] **Step 2: Commit**
+
+```bash
+git add marketing/MIDJOURNEY.md
+git commit -m "docs: add Midjourney prompts for marketing visuals"
+```
+
+---
+
 ## Task 8: Manual browser smoke test
 
 This task has no code changes — it's a verification gate.
@@ -1095,9 +1287,35 @@ Open `http://localhost:8080`.
 
 ## Deploy via GitHub Pages
 
-Settings → Pages → Source: **Deploy from a branch** → Branch: `main`, folder: `/marketing`. Save.
+GitHub UI: **Settings → Pages → Source: Deploy from a branch → Branch: `main`, folder: `/marketing` → Save.**
 
-The site is reachable at `https://<user>.github.io/<repo>/`.
+The site goes live at `https://<user>.github.io/<repo>/`. Pushes to `main` redeploy automatically.
+
+The folder is **fully self-contained** — `index.html`, `styles.css`, `hero.jpg`, `og.jpg`, `favicon.png`, `MIDJOURNEY.md`, `README.md`. No build step, no asset paths leaving the directory.
+
+## Replacing the visuals
+
+See [MIDJOURNEY.md](./MIDJOURNEY.md) for the three prompts (hero, OG image, favicon). Generated stubs ship by default; replace with Midjourney upscales when ready.
+
+## TODO — Live demo deploy
+
+Currently the **"Open the demo →"** button on the landing page points at the GitHub Pages URL above, where only the marketing site lives. Wiring up an actual live React-app demo at `/demo/` requires two upstream changes that sit in Claude A's lane:
+
+1. **Loader rewrite** (`app/src/data/loader.ts`) — must read from `data/demo/memories.json` instead of the hardcoded year files. Claude A is already removing the personal-data files; this swap will land in the same change.
+2. **Photo path fix** (`app/src/components/MediaStack.tsx`, `app/src/components/MediaViewer.tsx`) — change hardcoded `/photos/full/${filename}` to `${import.meta.env.BASE_URL}photos/full/${filename}` so a subpath deploy (e.g. `/<repo>/demo/`) resolves correctly.
+
+Once both land, deploying the demo is roughly:
+
+```yaml
+# .github/workflows/deploy-pages.yml (sketch — write when unblocked)
+- run: cp -r data/demo/photos/* app/public/photos/full/
+- run: cd app && bun install && bun run build -- --base /<repo>/demo/
+- run: mkdir -p _site && cp -r marketing/* _site/ && cp -r app/dist _site/demo
+- uses: actions/deploy-pages@v4
+  with: { path: _site }
+```
+
+Then change the GH Pages source from `/marketing` to "GitHub Actions" and update the demo button's `href` to `/demo/`.
 
 ## Tests
 
@@ -1106,7 +1324,7 @@ cd marketing
 bun test
 ```
 
-Validates required sections and palette.
+Validates required sections, asset references, and palette.
 ````
 
 - [ ] **Step 2: Commit**
@@ -1143,14 +1361,15 @@ Expected: empty output.
 - [ ] `data/demo/photos/` has 10 JPGs matching `photos[]` references. Stubs trivially satisfy "no human likenesses"; once Wouter swaps in Midjourney output, spot-check each one.
 - [ ] `marketing/index.html` renders in browser with no console errors (manual check, Task 8).
 - [ ] All 6 required sections present: hero, what-is, how-it-works, live demo, install snippet, footer.
-- [ ] `marketing/` is a self-contained GitHub Pages source.
-- [ ] `data/demo/README.md` documents the AI prompt + per-image scene prompts.
+- [ ] `marketing/` is a self-contained GitHub Pages source (verify: `ls marketing/` shows `index.html`, `styles.css`, `hero.jpg`, `og.jpg`, `favicon.png`, `MIDJOURNEY.md`, `README.md`).
+- [ ] `data/demo/MIDJOURNEY.md` has 10 prompts + shared style suffix; `marketing/MIDJOURNEY.md` has 3 prompts on the same suffix.
 
 - [ ] **Step 4: Write a handoff note for Wouter**
 
 Summarize in chat:
 - What landed (commit list).
-- Outstanding work for Wouter: run the 10 Midjourney prompts in `data/demo/README.md`, save the upscales over the stubs at `data/demo/photos/<NN>-<slug>.jpg`.
+- Outstanding image work: run the 10 prompts in `data/demo/MIDJOURNEY.md` and save over the photo stubs; run the 3 prompts in `marketing/MIDJOURNEY.md` and save over `hero.jpg`/`og.jpg`/`favicon.png`.
+- Live demo deploy: blocked on Claude A's loader + photo-path changes — full unblock recipe is in `marketing/README.md` "TODO — Live demo deploy".
 - Manual acceptance still owed: load `data/demo/memories.json` in the running app once Claude A has rewired `loader.ts`.
 
 No commit for this task.
@@ -1160,8 +1379,9 @@ No commit for this task.
 ## Self-Review (executed before handing this plan to the executor)
 
 **Spec coverage:**
-- Demo content (≥10 memories, real coords, real weather, watercolour images, fake pronouns/no real people, README with prompt) — Tasks 1–5 ✓
-- Marketing site (hero, what-is, how-it-works, demo link, install snippet, footer; plain HTML/CSS/JS; mobile-friendly; GitHub Pages-ready; reuses app palette) — Tasks 6–9 ✓
+- Demo content (≥10 memories, real coords, real weather, watercolour images, fake pronouns/no real people, README, MJ prompts) — Tasks 1–5b ✓
+- Marketing site (hero w/ image, what-is, how-it-works, demo link, install snippet, footer, OG/favicon meta; plain HTML/CSS/JS; mobile-friendly; GitHub Pages-ready; reuses app palette; MJ prompts for visuals) — Tasks 6–9 ✓
+- Live demo deploy explicitly out of scope this branch; unblock recipe documented in `marketing/README.md` (Task 9) ✓
 - Acceptance: schema parses, fields populated, ≥10 photos match references, no console errors, sections render, self-contained, prompts documented — Task 10 ✓
 - Definition of done: app plays through 10 entries (manual, flagged in Task 10 step 4); marketing serves locally (Task 8) ✓
 - Coordination: no changes outside `data/demo/` and `marketing/` (verified Task 10 step 2) ✓
