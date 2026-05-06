@@ -88,6 +88,11 @@
     <textarea id="json-editor" spellcheck="false" placeholder="Pick a day to view/edit its memory entry."></textarea>
   </div>
 </main>
+<div class="lightbox" id="lightbox"></div>
+<div class="emoji-popup" id="emoji-popup" hidden>
+  <emoji-picker></emoji-picker>
+</div>
+<div class="toasts" id="toasts"></div>
 <script>
 const $ = (id) => document.getElementById(id);
 
@@ -719,10 +724,5 @@ $('lightbox').addEventListener('click', closeLightbox);
 
 loadState();
 </script>
-<div class="lightbox" id="lightbox"></div>
-<div class="emoji-popup" id="emoji-popup" hidden>
-  <emoji-picker></emoji-picker>
-</div>
-<div class="toasts" id="toasts"></div>
 </body>
 </html>
