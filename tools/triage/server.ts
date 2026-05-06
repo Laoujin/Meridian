@@ -2,10 +2,10 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const ROOT = join(import.meta.dir, "..");
+const ROOT = join(import.meta.dir, "..", "..");
 const DATA_DIR = join(ROOT, "data");
 const PHOTOS_DEST = join(ROOT, "app", "public", "photos", "full");
-const HTML = join(import.meta.dir, "triage.html");
+const HTML = join(import.meta.dir, "public", "index.html");
 
 const SOURCES: Record<string, { dir: string; trash: string }> = {
   meridian: {
