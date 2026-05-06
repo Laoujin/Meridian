@@ -28,7 +28,7 @@
   .day .titles { color: #444; font-size: 11px; margin-top: 2px; padding-left: 6px; }
   .section-h { font-size: 12px; font-weight: 600; color: #555; margin: 8px 0 4px; padding: 4px 6px; border-radius: 4px; display: flex; align-items: center; gap: 6px; }
   .section-h.selected { background: #e6f4ea; color: #1a7f37; }
-  .section-h.demo { background: #fde8e8; color: #b22222; }
+  .section-h.meridian { background: #fde8e8; color: #b22222; }
   .section-h.wouter { background: #e8eafd; color: #2a3a8a; }
   .section-h .num { font-weight: normal; color: #888; font-size: 11px; }
   .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
@@ -42,7 +42,7 @@
   .photo.selected .check { display: inline-block; }
   .photo .badge { position: absolute; top: 4px; left: 4px; background: rgba(0,0,0,0.7); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
   .photo .src-badge { position: absolute; bottom: 22px; right: 4px; padding: 1px 5px; border-radius: 3px; font-size: 10px; font-weight: 600; }
-  .photo .src-badge.demo { background: #fde8e8; color: #b22222; }
+  .photo .src-badge.meridian { background: #fde8e8; color: #b22222; }
   .photo .src-badge.wouter { background: #e8eafd; color: #2a3a8a; }
   .photo .src-badge.used { background: #e6f4ea; color: #1a7f37; }
   textarea { font-family: ui-monospace, Consolas, monospace; font-size: 12px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: none; flex: 1; min-height: 0; tab-size: 2; }
@@ -62,7 +62,7 @@
   <button class="year" data-year="2024">2024</button>
   <button class="year" data-year="2025">2025</button>
   <button class="year" data-year="2026">2026</button>
-  <label><input type="checkbox" id="src-demo" checked> demo</label>
+  <label><input type="checkbox" id="src-meridian" checked> meridian</label>
   <label><input type="checkbox" id="src-wouter" checked> wouter</label>
   <button id="save-btn">💾 Save</button>
   <span class="status clean" id="status">saved</span>
@@ -96,12 +96,12 @@ const state = {
   selectedPath: null,
   dirty: new Set(),
   lastEntryRefRendered: null,
-  srcFilter: { demo: true, wouter: true },
+  srcFilter: { meridian: true, wouter: true },
 };
 
 // ---- date parsing: handles both filename formats ----
 function parsePhotoDate(name) {
-  // demo:  20240624_091716.jpg
+  // meridian:  20240624_091716.jpg
   let m = name.match(/^(\d{4})(\d{2})(\d{2})_(\d{2})/);
   if (m) return { date: `${m[1]}-${m[2]}-${m[3]}`, hour: +m[4] };
   // wouter: 2024-07-15 17.02.49.jpg  (also accept _ separator)
@@ -228,7 +228,7 @@ function selectDate(d) {
   render();
 }
 
-// Build a lookup: filename -> source it came from (demo|wouter|undefined)
+// Build a lookup: filename -> source it came from (meridian|wouter|undefined)
 function fileSrcMap() {
   const m = new Map();
   for (const f of state.files) m.set(f.name, f.src);
@@ -259,7 +259,7 @@ function renderPhotos() {
   const candidates = (groupPhotos(state.files.filter((f) => state.srcFilter[f.src])).get(state.selectedDate) || [])
     .filter((f) => !inEntry.has(f.name));
 
-  const candidatesBySrc = { demo: [], wouter: [] };
+  const candidatesBySrc = { meridian: [], wouter: [] };
   for (const c of candidates) (candidatesBySrc[c.src] ||= []).push(c);
 
   const usedElsewhere = collectAllUsedMedia();
@@ -292,7 +292,7 @@ function renderPhotos() {
   }
 
   // Section B: candidates per source
-  for (const src of ['demo', 'wouter']) {
+  for (const src of ['meridian', 'wouter']) {
     if (!state.srcFilter[src]) continue;
     const list = candidatesBySrc[src] || [];
     html.push(`<div class="section-h ${src}">Candidates · ${src} <span class="num">${list.length}</span></div>`);
@@ -585,7 +585,7 @@ document.querySelectorAll('header button.year').forEach((b) => {
 });
 document.querySelector(`header button.year[data-year="${state.year}"]`).classList.add('active');
 
-$('src-demo').addEventListener('change', (e) => { state.srcFilter.demo = e.target.checked; render(); });
+$('src-meridian').addEventListener('change', (e) => { state.srcFilter.meridian = e.target.checked; render(); });
 $('src-wouter').addEventListener('change', (e) => { state.srcFilter.wouter = e.target.checked; render(); });
 
 $('save-btn').addEventListener('click', saveAll);

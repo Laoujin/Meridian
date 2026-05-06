@@ -7,7 +7,7 @@ type Entry = { location?: Loc; days?: Entry[]; title?: string; id?: string };
 
 const FILES = ["memories-2024.json", "memories-2025.json", "memories-2026.json"];
 const DATA_DIR = join(import.meta.dir, "..", "data");
-const UA = "demo-memories-geocoder/1.0 (personal project)";
+const UA = "meridian-memories-geocoder/1.0 (personal project)";
 
 const cache = new Map<string, { lat: number; lng: number } | null>();
 const failures: { file: string; id?: string; title?: string; name: string }[] = [];

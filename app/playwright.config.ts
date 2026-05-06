@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-// Demo views the gift on her Samsung Galaxy. Run all tests in that device's
+// The device of the gift receiver. Run all tests in that device's
 // viewport — desktop framing assumptions break in portrait.
 // Swap to another preset (e.g. 'Galaxy A55', 'Galaxy S9+') if needed.
 const TARGET_DEVICE = 'Galaxy S24';

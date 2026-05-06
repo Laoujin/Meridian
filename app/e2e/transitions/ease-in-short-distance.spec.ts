@@ -13,9 +13,9 @@ import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SHOTS_DIR = path.join(__dirname, '..', 'screenshots', 'beleuvenissen-operatie');
+const SHOTS_DIR = path.join(__dirname, '..', 'screenshots', 'ease-in-short-distance');
 
-test.describe('Beleuvenissen → Operatie Demo (ease-in, short distance)', () => {
+test.describe('(ease-in, short distance)', () => {
   test.beforeAll(() => {
     fs.mkdirSync(SHOTS_DIR, { recursive: true });
   });
@@ -24,22 +24,22 @@ test.describe('Beleuvenissen → Operatie Demo (ease-in, short distance)', () =>
     await page.goto('/');
     await waitForMapReady(page);
 
-    const operatie = await getMemoryIndexByTitle(page, 'Operatie Demo');
-    const beleuvenissen = await getMemoryIndexByTitle(page, 'Beleuvenissen');
-    if (operatie !== beleuvenissen + 1) {
+    const endPos = await getMemoryIndexByTitle(page, 'endPos');
+    const startPos = await getMemoryIndexByTitle(page, 'startPos');
+    if (endPos !== startPos + 1) {
       throw new Error(
-        `Expected Operatie Demo directly after Beleuvenissen, got ${beleuvenissen} → ${operatie}`,
+        `Expected endPos directly after startPos, got ${startPos} → ${endPos}`,
       );
     }
 
-    await smoothScrollToSection(page, `section-hold-${beleuvenissen}`, 0.5, {
+    await smoothScrollToSection(page, `section-hold-${startPos}`, 0.5, {
       steps: 6,
       stepDelay: 50,
     });
 
     const frames = await scrollThroughTransition(
       page,
-      `section-transition-${operatie}`,
+      `section-transition-${endPos}`,
       { steps: 30, stepDelay: 50 },
     );
 

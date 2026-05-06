@@ -8,9 +8,9 @@ const PHOTOS_DEST = join(ROOT, "app", "public", "photos", "full");
 const HTML = join(import.meta.dir, "triage.html");
 
 const SOURCES: Record<string, { dir: string; trash: string }> = {
-  demo: {
-    dir: join(ROOT, "working", "demo-images", "toselect"),
-    trash: join(ROOT, "working", "demo-images", "trash"),
+  meridian: {
+    dir: join(ROOT, "working", "meridian-images", "toselect"),
+    trash: join(ROOT, "working", "meridian-images", "trash"),
   },
   wouter: {
     dir: join(ROOT, "working", "wouter-images"),
