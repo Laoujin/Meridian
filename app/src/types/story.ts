@@ -20,6 +20,7 @@ export interface Story {
       icon?: string;
       date?: string;
       text?: string;
+      animate?: 'heartbeat' | 'bounce' | 'pulse';
     };
   };
   closing: {

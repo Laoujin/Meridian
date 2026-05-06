@@ -93,12 +93,23 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-.opening-card__heart {
+.opening-card__icon {
   font-size: 72px;
   line-height: 1;
   margin-bottom: 12px;
+}
+
+.opening-card__icon--heartbeat {
   color: #e60000;
   animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.opening-card__icon--bounce {
+  animation: card-icon-bounce 1.5s ease-in-out infinite;
+}
+
+.opening-card__icon--pulse {
+  animation: card-icon-pulse 2s ease-in-out infinite;
 }
 
 @keyframes heartbeat {
@@ -107,6 +118,16 @@ body {
   30% { transform: scale(1); }
   45% { transform: scale(1.1); }
   60% { transform: scale(1); }
+}
+
+@keyframes card-icon-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes card-icon-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 .opening-card__date {

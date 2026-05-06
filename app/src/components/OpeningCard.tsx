@@ -6,7 +6,13 @@ export default function OpeningCard() {
 
   return (
     <div className="opening-card">
-      {card.icon && <div className="opening-card__heart">{card.icon}</div>}
+      {card.icon && (
+        <div
+          className={`opening-card__icon${card.animate ? ` opening-card__icon--${card.animate}` : ''}`}
+        >
+          {card.icon}
+        </div>
+      )}
       {card.date && <div className="opening-card__date">{card.date}</div>}
       {card.text && <div className="opening-card__text">{card.text}</div>}
     </div>
