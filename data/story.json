@@ -2,7 +2,8 @@
   "app": {
     "title": "Meridian",
     "description": "A scroll-driven memory timeline",
-    "faviconHref": "/favicons/watercolour.png"
+    "faviconHref": "/favicons/watercolour.png",
+    "temperatureUnit": "fahrenheit"
   },
   "home": {
     "lat": 40.7128,

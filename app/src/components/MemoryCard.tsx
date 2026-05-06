@@ -2,7 +2,7 @@ import type { Memory } from '../types/memory';
 import { format, parseISO } from 'date-fns';
 import { nl } from 'date-fns/locale';
 import MediaStack from './MediaStack';
-import { weatherEmoji } from '../utils/weather';
+import { weatherEmoji, formatTemperature } from '../utils/weather';
 
 interface MemoryCardProps {
   memory: Memory;
@@ -23,7 +23,7 @@ export default function MemoryCard({ memory, muted, onToggleMute }: MemoryCardPr
       {memory.weather && (
         <div className="memory-card__weather-badge" title={memory.weather.note ?? ''}>
           <span className="memory-card__weather-icon">{weatherEmoji(memory.weather.icon)}</span>
-          <span className="memory-card__weather-temp">{memory.weather.tempC}°</span>
+          <span className="memory-card__weather-temp">{formatTemperature(memory.weather.tempC)}</span>
         </div>
       )}
       <div className="memory-card__date">{dateStr}</div>

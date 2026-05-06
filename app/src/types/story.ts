@@ -9,6 +9,7 @@ export interface Story {
     title: string;
     description?: string;
     faviconHref?: string;
+    temperatureUnit?: 'celsius' | 'fahrenheit';
   };
   home: StoryPlace;
   opening: {
