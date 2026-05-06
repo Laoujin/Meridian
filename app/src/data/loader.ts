@@ -2,9 +2,9 @@ import type { Memory } from '../types/memory';
 import memories2024 from '../../../data/memories-2024.json';
 import memories2025 from '../../../data/memories-2025.json';
 import memories2026 from '../../../data/memories-2026.json';
+import { story } from './story';
 
-// Default location for entries without coordinates (home in Gent)
-const DEFAULT_LOCATION = { lat: 51.0597, lng: 3.7527, name: 'Gent' };
+const DEFAULT_LOCATION = { lat: story.home.lat, lng: story.home.lng, name: story.home.label };
 
 export function loadMemories(): Memory[] {
   // E2E fixture override: Playwright addInitScript can set this before nav.

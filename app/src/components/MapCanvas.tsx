@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { HERENT, GENT } from './OpeningArc';
+import { HERENT, GENT } from '../data/story';
 import { computeTargetCamera } from '../utils/camera';
 
 interface MapCanvasProps {

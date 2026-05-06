@@ -5,7 +5,8 @@ import { useScrollTimeline } from './hooks/useScrollTimeline';
 import { interpolateLine } from './utils/geo';
 import { isPointVisible } from './utils/camera';
 import MapCanvas from './components/MapCanvas';
-import OpeningArc, { HERENT, GENT } from './components/OpeningArc';
+import OpeningArc from './components/OpeningArc';
+import { story, HERENT, GENT } from './data/story';
 import OpeningTransition from './components/OpeningTransition';
 import EaseInCamera from './components/EaseInCamera';
 import EaseOutCamera from './components/EaseOutCamera';
@@ -334,13 +335,13 @@ export default function App() {
       <LocationMarker
         map={mapInstance}
         coordinates={HERENT}
-        label="Herent"
+        label={story.opening.arcOrigin.label}
         opacity={isOpening ? 1 : 0}
       />
       <LocationMarker
         map={mapInstance}
         coordinates={GENT}
-        label="Gent"
+        label={story.home.label}
         opacity={isOpening ? 1 : 0}
       />
 

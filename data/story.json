@@ -1,0 +1,21 @@
+{
+  "app": {
+    "title": "Meridian",
+    "description": "A scroll-driven memory timeline"
+  },
+  "home": {
+    "lat": 40.7128,
+    "lng": -74.0060,
+    "label": "New York"
+  },
+  "opening": {
+    "arcOrigin": { "lat": 34.0522, "lng": -118.2437, "label": "Los Angeles" },
+    "welcomeTitle": "Welcome",
+    "welcomeSubtitle": "A scroll-driven memory timeline.",
+    "heroImage": "/start1.png"
+  },
+  "closing": {
+    "giftReveal": false,
+    "giftRevealText": "A surprise..."
+  }
+}

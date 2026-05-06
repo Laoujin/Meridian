@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { computeTargetCamera } from '../utils/camera';
-import { HERENT, GENT } from './OpeningArc';
+import { HERENT, GENT } from '../data/story';
 
 interface OpeningCameraProps {
   map: maplibregl.Map | null;

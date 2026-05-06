@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useCallback, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { generateArc, sliceLine } from '../utils/geo';
-import { HERENT, GENT } from './OpeningArc';
+import { HERENT, GENT } from '../data/story';
 
 const SRC_HERENT = 'opening-trans-herent-src';
 const LYR_HERENT = 'opening-trans-herent-lyr';

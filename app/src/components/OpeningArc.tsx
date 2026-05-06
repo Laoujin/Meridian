@@ -1,8 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
-
-export const HERENT: [number, number] = [4.6717, 50.8985];
-export const GENT: [number, number] = [3.7527, 51.0597]; // Sint-Amandsberg
+import { HERENT, GENT } from '../data/story';
 
 function generateOpeningArc(
   start: [number, number],

@@ -1,4 +1,5 @@
 import '../styles/closing.css';
+import { story } from '../data/story';
 
 interface GiftRevealProps {
   open: boolean;
@@ -12,7 +13,7 @@ export default function GiftReveal({ open, onClose }: GiftRevealProps) {
     <div className="gift-reveal" onClick={onClose}>
       <div className="gift-reveal__content">
         <div className="gift-reveal__box">🎁</div>
-        <div className="gift-reveal__text">A Present?</div>
+        <div className="gift-reveal__text">{story.closing.giftRevealText ?? 'A Present?'}</div>
       </div>
     </div>
   );
