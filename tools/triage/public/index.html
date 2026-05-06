@@ -53,7 +53,10 @@
   .switcher { display: flex; gap: 4px; flex-wrap: wrap; font-size: 11px; }
   .switcher button { padding: 2px 6px; font-size: 11px; cursor: pointer; }
   .switcher button.active { background: #1a3a7f; color: white; border-color: #1a3a7f; }
+  .emoji-popup { position: fixed; right: 20px; top: 100px; z-index: 50; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .emoji-popup[hidden] { display: none; }
 </style>
+<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
 </head>
 <body>
 <header>
@@ -71,6 +74,7 @@
     <div class="switcher" id="entry-switcher"></div>
     <div class="json-toolbar">
       <button id="add-entry-btn" disabled>+ Add entry</button>
+      <button id="emoji-btn" disabled>+ Emoji</button>
       <button id="apply-btn" disabled>Apply edit</button>
       <button id="revert-btn" disabled>Revert</button>
       <button id="delete-btn" disabled>Delete entry</button>
@@ -460,11 +464,13 @@ function renderJson() {
   if (!state.selectedDate) {
     ed.value = ''; ed.disabled = true;
     addEntry.disabled = true; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    $('emoji-btn').disabled = true;
     return;
   }
   if (!state.selectedPath) {
     ed.value = ''; ed.disabled = true; ed.placeholder = 'No entry yet for this day. Click "+ Add entry".';
     addEntry.disabled = false; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    $('emoji-btn').disabled = true;
     return;
   }
 
@@ -478,6 +484,7 @@ function renderJson() {
   apply.disabled = false;
   revert.disabled = false;
   del.disabled = false;
+  $('emoji-btn').disabled = false;
 }
 
 function autoApplyJson() {
@@ -581,6 +588,26 @@ $('revert-btn').addEventListener('click', () => { state.lastEntryRefRendered = n
 $('add-entry-btn').addEventListener('click', addNewEntry);
 $('delete-btn').addEventListener('click', deleteCurrentEntry);
 
+const emojiPopup = $('emoji-popup');
+$('emoji-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  emojiPopup.hidden = !emojiPopup.hidden;
+});
+emojiPopup.querySelector('emoji-picker').addEventListener('emoji-click', (e) => {
+  const entry = currentEntry();
+  if (!entry) return;
+  if (!Array.isArray(entry.emojis)) entry.emojis = [];
+  entry.emojis.push(e.detail.unicode);
+  markDirty(state.year);
+  state.lastEntryRefRendered = null;
+  render();
+});
+document.addEventListener('click', (e) => {
+  if (!emojiPopup.hidden && !emojiPopup.contains(e.target) && e.target.id !== 'emoji-btn') {
+    emojiPopup.hidden = true;
+  }
+});
+
 window.addEventListener('beforeunload', (e) => {
   if (state.dirty.size) { e.preventDefault(); e.returnValue = ''; }
 });
@@ -593,5 +620,8 @@ $('lightbox').addEventListener('click', closeLightbox);
 loadState();
 </script>
 <div class="lightbox" id="lightbox"></div>
+<div class="emoji-popup" id="emoji-popup" hidden>
+  <emoji-picker></emoji-picker>
+</div>
 </body>
 </html>
