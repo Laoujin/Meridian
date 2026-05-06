@@ -6,20 +6,10 @@ A fake 5-day NY trip (2024-09-23 → 2024-09-27) used as the default dataset whe
 
 ```
 memories.json    — Memory[] (10 entries), conforms to app/src/types/memory.ts
-build.ts         — re-runs Open-Meteo lookups to refresh the `weather` field
 MIDJOURNEY.md    — prompts for regenerating the photo set
 ```
 
 Photos for these entries live at `app/public/photos/full/<filename>` (the path the app serves them from).
-
-## Regenerating weather
-
-```bash
-cd data
-bun run build.ts
-```
-
-Hits the Open-Meteo Archive API once per entry (~1.5s total). Idempotent — overwrites the `weather` field on every entry.
 
 ## Replacing the photos
 
