@@ -246,10 +246,9 @@ function renderPhotos() {
   ]);
 
   // Section A: media currently in entry (any date)
-  const selectedItems = entry
-    ? [...(entry.photos || []).map((n) => ({ name: n, kind: 'photo' })),
-       ...(entry.videos || []).map((n) => ({ name: n, kind: 'video' }))]
-    : [];
+  const photos = (entry?.photos ?? []).map((name, idx) => ({ name, kind: 'photo', idx }));
+  const videos = (entry?.videos ?? []).map((name, idx) => ({ name, kind: 'video', idx }));
+  const selectedItems = entry ? [...photos, ...videos] : [];
 
   // Section B: candidates for selectedDate, NOT already in entry
   const candidates = (groupPhotos(state.files).get(state.selectedDate) || [])
@@ -272,7 +271,7 @@ function renderPhotos() {
       const media = isVideo
         ? `<video src="/photo?name=${encodeURIComponent(item.name)}" muted preload="metadata"></video>`
         : `<img src="/photo?name=${encodeURIComponent(item.name)}" loading="lazy" decoding="async">`;
-      html.push(`<div class="photo selected" data-name="${escapeAttr(item.name)}" data-loc="entry">
+      html.push(`<div class="photo selected" data-name="${escapeAttr(item.name)}" data-loc="entry" draggable="true" data-index="${item.idx}" data-kind="${item.kind}">
         ${media}
         <span class="check">✓</span>
         <button class="zoom" data-zoom="${escapeAttr(item.name)}" data-zoom-video="${isVideo}" title="View full size">🔍</button>
@@ -331,6 +330,41 @@ function renderPhotos() {
     el.addEventListener('click', (e) => {
       e.stopPropagation();
       openLightbox(el.dataset.zoom, el.dataset.zoomVideo === 'true');
+    });
+  });
+  setupReorderHandlers(pane);
+}
+
+let dragState = null; // { kind: 'photo'|'video', from: number }
+
+function setupReorderHandlers(pane) {
+  pane.querySelectorAll('.photo.selected[draggable="true"]').forEach(el => {
+    el.addEventListener('dragstart', (e) => {
+      dragState = { kind: el.dataset.kind, from: parseInt(el.dataset.index, 10) };
+      e.dataTransfer.effectAllowed = 'move';
+      el.style.opacity = '0.5';
+    });
+    el.addEventListener('dragend', (e) => {
+      el.style.opacity = '';
+      dragState = null;
+    });
+    el.addEventListener('dragover', (e) => {
+      if (!dragState || dragState.kind !== el.dataset.kind) return;
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+    });
+    el.addEventListener('drop', (e) => {
+      e.preventDefault();
+      if (!dragState) return;
+      const to = parseInt(el.dataset.index, 10);
+      if (dragState.kind !== el.dataset.kind || dragState.from === to) return;
+      const entry = currentEntry();
+      const arr = dragState.kind === 'video' ? entry.videos : entry.photos;
+      const [moved] = arr.splice(dragState.from, 1);
+      arr.splice(to, 0, moved);
+      markDirty(state.year);
+      state.lastEntryRefRendered = null;
+      render();
     });
   });
 }
