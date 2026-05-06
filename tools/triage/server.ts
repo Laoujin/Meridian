@@ -25,8 +25,8 @@ const HTML = join(import.meta.dir, 'public', 'index.html');
 const PORT = 5174;
 const MEDIA_RX = /\.(jpe?g|png|mp4|mov)$/i;
 
-mkdirSync(PHOTOS_DEST, { recursive: true });
-mkdirSync(TRASH, { recursive: true });
+if (!existsSync(PHOTOS_DEST)) mkdirSync(PHOTOS_DEST, { recursive: true });
+if (!existsSync(TRASH)) mkdirSync(TRASH, { recursive: true });
 
 const geocoder = createGeocoder();
 
