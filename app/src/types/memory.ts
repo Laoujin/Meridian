@@ -33,7 +33,7 @@ export interface Music {
 export interface Memory {
   id: string;
   date: string;
-  type: 'date' | 'trip' | 'milestone' | 'special';
+  type: 'date' | 'trip' | 'milestone';
   title: string;
   caption: string;
   location: Location | null;
@@ -46,9 +46,4 @@ export interface Memory {
 
   // How you arrived at this location (defaults to 'car' when omitted)
   transport?: TransportMode;
-
-  // Special
-  linkedTo?: string;
-  relatedNote?: string;
-  attachments?: string[];
 }
