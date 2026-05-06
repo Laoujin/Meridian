@@ -27,11 +27,11 @@ describe('forward', () => {
   });
 
   it('sends User-Agent header', async () => {
-    let captured: HeadersInit | undefined;
-    const f = ((_u: string, init?: RequestInit) => { captured = init?.headers; return ok([]); }) as unknown as typeof fetch;
+    let captured: Record<string, string> | undefined;
+    const f = ((_u: string, init?: { headers?: Record<string, string> }) => { captured = init?.headers; return ok([]); }) as unknown as typeof fetch;
     const g = createGeocoder({ fetch: f, throttleMs: 0 });
     await g.forward('X');
-    expect((captured as Record<string, string>)['User-Agent']).toContain('meridian-triage');
+    expect(captured?.['User-Agent']).toContain('meridian-triage');
   });
 });
 
