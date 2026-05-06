@@ -55,6 +55,11 @@
   .switcher button.active { background: #1a3a7f; color: white; border-color: #1a3a7f; }
   .emoji-popup { position: fixed; right: 20px; top: 100px; z-index: 50; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
   .emoji-popup[hidden] { display: none; }
+  .toasts { position: fixed; top: 16px; right: 16px; z-index: 200; display: flex; flex-direction: column; gap: 8px; max-width: 320px; }
+  .toast { background: #333; color: white; padding: 10px 14px; border-radius: 6px; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); cursor: pointer; display: flex; gap: 10px; align-items: center; justify-content: space-between; }
+  .toast.error { background: #b22222; }
+  .toast.success { background: #1a7f37; }
+  .toast button { background: rgba(255,255,255,0.2); color: white; border: none; padding: 2px 8px; border-radius: 3px; cursor: pointer; font-size: 11px; }
 </style>
 <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
 </head>
@@ -410,14 +415,92 @@ async function selectIntoEntry(name) {
   const isVideo = /\.(mp4|mov)$/i.test(name);
   const key = isVideo ? 'videos' : 'photos';
   if (!Array.isArray(entry[key])) entry[key] = [];
-  if (!entry[key].includes(name)) {
-    const r = await fetch('/api/copy', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name }) });
-    if (!r.ok) { alert('copy failed: ' + await r.text()); return; }
-    entry[key].push(name);
+  if (entry[key].includes(name)) return;
+
+  const r = await fetch('/api/copy', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ name }),
+  });
+  if (!r.ok) {
+    toast('copy failed: ' + await r.text(), 'error');
+    return;
   }
+  const data = await r.json();
+
+  entry[key].push(name);
+
+  // Auto-fill: only if entry field is empty/default
+  if (!isVideo && data.exif) {
+    if (!entry.date && data.exif.date) entry.date = data.exif.date;
+
+    if (!entry.location && data.exif.gps) {
+      entry.location = {
+        lat: data.exif.gps.lat,
+        lng: data.exif.gps.lng,
+        name: data.geocoded?.name ?? '',
+      };
+    }
+
+    if (!entry.weather && data.weather) entry.weather = data.weather;
+
+    // Surface failures as retryable toasts
+    if (data.exif.gps && !data.geocoded) {
+      const lat = data.exif.gps.lat, lng = data.exif.gps.lng;
+      toast(`geocode failed for ${name}`, 'error', () => retryGeocode(entry, lat, lng));
+    }
+    if (data.exif.gps && (entry.date || data.exif.date) && !data.weather) {
+      const lat = data.exif.gps.lat, lng = data.exif.gps.lng;
+      const date = entry.date || data.exif.date;
+      toast(`weather failed for ${name}`, 'error', () => retryWeather(entry, lat, lng, date));
+    }
+    if (!data.exif.gps) toast(`no GPS in EXIF for ${name}`, 'info');
+  }
+
   markDirty(state.year);
   state.lastEntryRefRendered = null;
   render();
+}
+
+async function retryGeocode(entry, lat, lng) {
+  try {
+    const r = await fetch('/api/geocode', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ lat, lng }),
+    });
+    if (!r.ok) { toast('geocode retry failed', 'error'); return; }
+    const { name } = await r.json();
+    if (entry.location) {
+      entry.location.name = name;
+    } else {
+      entry.location = { lat, lng, name };
+    }
+    markDirty(state.year);
+    state.lastEntryRefRendered = null;
+    render();
+    toast('geocode ok', 'success');
+  } catch (e) {
+    toast('geocode error: ' + e.message, 'error');
+  }
+}
+
+async function retryWeather(entry, lat, lng, date) {
+  try {
+    const r = await fetch('/api/weather', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ lat, lng, date }),
+    });
+    if (!r.ok) { toast('weather retry failed', 'error'); return; }
+    entry.weather = await r.json();
+    markDirty(state.year);
+    state.lastEntryRefRendered = null;
+    render();
+    toast('weather ok', 'success');
+  } catch (e) {
+    toast('weather error: ' + e.message, 'error');
+  }
 }
 
 function deselectFromEntry(name) {
@@ -518,7 +601,7 @@ function addNewEntry() {
     type: 'date',
     title: '',
     caption: '',
-    location: { lat: 0, lng: 0, name: '' },
+    location: null,
     photos: [],
     music: null,
     weather: null,
@@ -568,6 +651,23 @@ function escapeHtml(s) {
   return String(s).replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
 }
 function escapeAttr(s) { return escapeHtml(s); }
+
+function toast(msg, kind = 'info', retry = null) {
+  const el = document.createElement('div');
+  el.className = `toast ${kind}`;
+  const span = document.createElement('span');
+  span.textContent = msg;
+  el.appendChild(span);
+  if (retry) {
+    const btn = document.createElement('button');
+    btn.textContent = 'Retry';
+    btn.addEventListener('click', (e) => { e.stopPropagation(); el.remove(); retry(); });
+    el.appendChild(btn);
+  }
+  el.addEventListener('click', () => el.remove());
+  $('toasts').appendChild(el);
+  setTimeout(() => { if (el.parentNode) el.remove(); }, 6000);
+}
 
 function openLightbox(name, isVideo) {
   const lb = $('lightbox');
@@ -623,5 +723,6 @@ loadState();
 <div class="emoji-popup" id="emoji-popup" hidden>
   <emoji-picker></emoji-picker>
 </div>
+<div class="toasts" id="toasts"></div>
 </body>
 </html>
