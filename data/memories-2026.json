@@ -1,0 +1,16 @@
+[
+  {
+    "id": "demo-2026-05-06",
+    "date": "2026-05-06",
+    "type": "date",
+    "title": "Hello, Meridian",
+    "caption": "A placeholder memory. Replace data/memories-*.json with your own — see README.md.",
+    "location": { "lat": 40.7831, "lng": -73.9712, "name": "New York" },
+    "photos": [],
+    "music": null,
+    "weather": null,
+    "videos": [],
+    "tags": ["demo"],
+    "emojis": ["🗽"]
+  }
+]
