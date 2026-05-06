@@ -1,7 +1,5 @@
 import type { Memory } from '../types/memory';
-import memories2024 from '../../../data/memories-2024.json';
-import memories2025 from '../../../data/memories-2025.json';
-import memories2026 from '../../../data/memories-2026.json';
+import memories from '../../../data/memories.json';
 import { story } from './story';
 
 const DEFAULT_LOCATION = { lat: story.home.lat, lng: story.home.lng, name: story.home.label };
@@ -9,13 +7,7 @@ const DEFAULT_LOCATION = { lat: story.home.lat, lng: story.home.lng, name: story
 export function loadMemories(): Memory[] {
   // E2E fixture override: Playwright addInitScript can set this before nav.
   const fixture = (globalThis as { __FIXTURE_MEMORIES?: Memory[] }).__FIXTURE_MEMORIES;
-  const all = fixture
-    ? [...fixture]
-    : [
-        ...(memories2024 as Memory[]),
-        ...(memories2025 as Memory[]),
-        ...(memories2026 as Memory[]),
-      ];
+  const all = fixture ? [...fixture] : [...(memories as Memory[])];
 
   // Sort chronologically
   all.sort((a, b) => a.date.localeCompare(b.date));

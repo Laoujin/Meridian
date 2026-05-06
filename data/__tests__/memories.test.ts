@@ -22,12 +22,13 @@ interface Memory {
 }
 
 const ROOT = join(import.meta.dir, "..");
+const PHOTO_DIR = join(ROOT, "..", "app", "public", "photos", "full");
 const memories: Memory[] = JSON.parse(readFileSync(join(ROOT, "memories.json"), "utf-8"));
 
 const VALID_TRANSPORT: TransportMode[] = ["car", "plane", "train", "metro", "walking", "boat", "bike", "bus"];
 const VALID_ICONS: WeatherIcon[] = ["sun", "cloud-sun", "cloud", "fog", "drizzle", "rain", "rain-heavy", "snow", "storm"];
 
-describe("data/demo/memories.json", () => {
+describe("data/memories.json", () => {
   test("contains exactly 10 entries", () => {
     expect(memories).toHaveLength(10);
   });
@@ -56,10 +57,10 @@ describe("data/demo/memories.json", () => {
     }
   });
 
-  test("each photo reference resolves to a file in photos/", () => {
+  test("each photo reference resolves to a file in app/public/photos/full/", () => {
     for (const m of memories) {
       for (const photo of m.photos) {
-        const path = join(ROOT, "photos", photo);
+        const path = join(PHOTO_DIR, photo);
         expect(existsSync(path), `${m.id}: missing photo ${photo}`).toBe(true);
       }
     }
