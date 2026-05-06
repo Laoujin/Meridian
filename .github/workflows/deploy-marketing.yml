@@ -1,10 +1,12 @@
-name: Deploy marketing site
+name: Deploy site (marketing + demo app)
 
 on:
   push:
     branches: [main]
     paths:
       - marketing/**
+      - app/**
+      - data/**
       - .github/workflows/deploy-marketing.yml
   workflow_dispatch:
 
@@ -25,9 +27,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Build app for /Meridian/demo/
+        working-directory: app
+        run: |
+          bun install --frozen-lockfile
+          bun run build -- --base /Meridian/demo/
+
+      - name: Compose site (marketing at /, demo app at /demo/)
+        run: |
+          mkdir -p _site
+          cp -r marketing/. _site/
+          cp -r app/dist _site/demo
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./marketing
+          path: ./_site
       - id: deployment
         uses: actions/deploy-pages@v4
