@@ -1,7 +1,8 @@
 {
   "app": {
     "title": "Meridian",
-    "description": "A scroll-driven memory timeline"
+    "description": "A scroll-driven memory timeline",
+    "faviconHref": "/favicons/watercolour.png"
   },
   "home": {
     "lat": 40.7128,

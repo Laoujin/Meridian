@@ -8,6 +8,7 @@ export interface Story {
   app: {
     title: string;
     description?: string;
+    faviconHref?: string;
   };
   home: StoryPlace;
   opening: {
