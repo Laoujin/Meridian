@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import { computeTargetCamera } from '../utils/camera';
-import { HERENT, GENT } from '../data/story';
+import { ORIGIN, ANCHOR } from '../data/story';
 
 interface OpeningCameraProps {
   map: maplibregl.Map | null;
@@ -11,7 +11,7 @@ interface OpeningCameraProps {
 
 /**
  * Camera for the opening → first memory transition.
- * Lerps from the opening arc view to framing Gent + Herent + destination.
+ * Lerps from the opening arc view to framing anchor + origin + destination.
  */
 export default function OpeningCamera({ map, destination, progress }: OpeningCameraProps) {
   const startCameraRef = useRef<{ center: [number, number]; zoom: number } | null>(null);
@@ -25,8 +25,8 @@ export default function OpeningCamera({ map, destination, progress }: OpeningCam
     if (!initializedRef.current) {
       const center = map.getCenter();
       startCameraRef.current = { center: [center.lng, center.lat], zoom: map.getZoom() };
-      // Target: frame the widest pair (Gent ↔ Herent), which also contains Zaventem
-      targetCameraRef.current = computeTargetCamera(map, GENT, HERENT, h);
+      // Target: frame the widest pair (anchor ↔ origin), which encloses the destination
+      targetCameraRef.current = computeTargetCamera(map, ANCHOR, ORIGIN, h);
       initializedRef.current = true;
     }
 

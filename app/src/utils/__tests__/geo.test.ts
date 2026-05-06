@@ -6,13 +6,13 @@ describe('haversineDistance', () => {
     expect(haversineDistance([3.75, 51.05], [3.75, 51.05])).toBe(0);
   });
 
-  it('calculates distance between Gent and Herent (~60km)', () => {
+  it('calculates ~60km between two nearby points', () => {
     const d = haversineDistance([3.7527, 51.0597], [4.6717, 50.8985]);
     expect(d).toBeGreaterThan(55);
     expect(d).toBeLessThan(70);
   });
 
-  it('calculates distance between Gent and Paris (~260km)', () => {
+  it('calculates ~260km between distant points', () => {
     const d = haversineDistance([3.7527, 51.0597], [2.3522, 48.8566]);
     expect(d).toBeGreaterThan(240);
     expect(d).toBeLessThan(280);

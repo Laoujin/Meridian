@@ -2,7 +2,7 @@ import type { Memory } from '../types/memory';
 import memories from '../../../data/memories.json';
 import { story } from './story';
 
-const DEFAULT_LOCATION = { lat: story.home.lat, lng: story.home.lng, name: story.home.label };
+const DEFAULT_LOCATION = { lat: story.anchor.lat, lng: story.anchor.lng, name: story.anchor.label };
 
 export function loadMemories(): Memory[] {
   // E2E fixture override: Playwright addInitScript can set this before nav.

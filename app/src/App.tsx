@@ -6,7 +6,7 @@ import { interpolateLine } from './utils/geo';
 import { isPointVisible } from './utils/camera';
 import MapCanvas from './components/MapCanvas';
 import OpeningArc from './components/OpeningArc';
-import { story, HERENT, GENT } from './data/story';
+import { story, ORIGIN, ANCHOR } from './data/story';
 import OpeningTransition from './components/OpeningTransition';
 import EaseInCamera from './components/EaseInCamera';
 import EaseOutCamera from './components/EaseOutCamera';
@@ -23,7 +23,7 @@ import { playTrack, stopAudio, setMuted as setAudioMuted } from './utils/audio';
 import './styles/global.css';
 
 function memoryLngLat(memories: ReturnType<typeof loadMemories>, index: number): [number, number] {
-  if (index < 0 || index >= memories.length) return HERENT; // fallback
+  if (index < 0 || index >= memories.length) return ORIGIN; // fallback
   const loc = getLocation(memories[index]);
   return [loc.lng, loc.lat];
 }
@@ -79,7 +79,7 @@ function holdView(
   memories: ReturnType<typeof loadMemories>,
   i: number,
 ): { a: [number, number]; b: [number, number] } {
-  if (i === 0) return { a: GENT, b: HERENT }; // hold-0 frames the opening anchors
+  if (i === 0) return { a: ANCHOR, b: ORIGIN }; // hold-0 frames the opening anchors
 
   const m = memories[i];
   if (m?.type === 'milestone' && hasLocation(m)) {
@@ -168,12 +168,12 @@ export default function App() {
 
   // --- Map view (two points for fitBounds) ---
   const viewA = useMemo<[number, number]>(() => {
-    if (isOpening) return HERENT;
+    if (isOpening) return ORIGIN;
     if (isClosing) return memoryLngLat(memories, memories.length - 1);
 
     if (isOpeningTransition) {
-      // Interpolate from opening view (Gent-Herent area) toward first memory
-      return interpolateLine(GENT, memoryLngLat(memories, 0), progress);
+      // Interpolate from opening view (anchor-origin area) toward first memory
+      return interpolateLine(ANCHOR, memoryLngLat(memories, 0), progress);
     }
 
     if (isTravelTransition) {
@@ -186,11 +186,11 @@ export default function App() {
   }, [isOpening, isClosing, isOpeningTransition, isTravelTransition, activeIndex, memories, progress]);
 
   const viewB = useMemo<[number, number]>(() => {
-    if (isOpening) return HERENT;
+    if (isOpening) return ORIGIN;
     if (isClosing) return memoryLngLat(memories, memories.length - 1);
 
     if (isOpeningTransition) {
-      return interpolateLine(HERENT, HERENT, progress); // stays at Herent during transition
+      return interpolateLine(ORIGIN, ORIGIN, progress); // stays at origin during transition
     }
 
     if (isTravelTransition) {
@@ -335,15 +335,15 @@ export default function App() {
       {story.opening.arcOrigin && (
         <LocationMarker
           map={mapInstance}
-          coordinates={HERENT}
+          coordinates={ORIGIN}
           label={story.opening.arcOrigin.label}
           opacity={isOpening ? 1 : 0}
         />
       )}
       <LocationMarker
         map={mapInstance}
-        coordinates={GENT}
-        label={story.home.label}
+        coordinates={ANCHOR}
+        label={story.anchor.label}
         opacity={isOpening ? 1 : 0}
       />
 

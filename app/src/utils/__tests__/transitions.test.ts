@@ -5,7 +5,7 @@ import type { Memory } from '../../types/memory';
 function makeMemory(overrides: Partial<Memory> = {}): Memory {
   return {
     id: 'test', date: '2024-06-12', type: 'date', title: 'Test',
-    caption: '', location: { lat: 51.05, lng: 3.75, name: 'Gent' },
+    caption: '', location: { lat: 51.05, lng: 3.75, name: 'Place A' },
     photos: [], music: null,
     weather: null, videos: [], tags: [],
     ...overrides,
@@ -14,14 +14,14 @@ function makeMemory(overrides: Partial<Memory> = {}): Memory {
 
 describe('getTransitionType', () => {
   it('returns "standard" for different locations', () => {
-    const from = makeMemory({ location: { lat: 51.05, lng: 3.75, name: 'Gent' } });
-    const to = makeMemory({ location: { lat: 50.88, lng: 4.47, name: 'Zaventem' } });
+    const from = makeMemory({ location: { lat: 51.05, lng: 3.75, name: 'Place A' } });
+    const to = makeMemory({ location: { lat: 50.88, lng: 4.47, name: 'Place B' } });
     expect(getTransitionType(from, to)).toBe('standard');
   });
 
   it('returns "same-location" for same coordinates', () => {
-    const from = makeMemory({ location: { lat: 51.05, lng: 3.75, name: 'Gent' } });
-    const to = makeMemory({ location: { lat: 51.05, lng: 3.75, name: 'Gent' } });
+    const from = makeMemory({ location: { lat: 51.05, lng: 3.75, name: 'Place A' } });
+    const to = makeMemory({ location: { lat: 51.05, lng: 3.75, name: 'Place A' } });
     expect(getTransitionType(from, to)).toBe('same-location');
   });
 

@@ -11,7 +11,7 @@ export interface Story {
     faviconHref?: string;
     temperatureUnit?: 'celsius' | 'fahrenheit';
   };
-  home: StoryPlace;
+  anchor: StoryPlace;
   opening: {
     arcOrigin?: StoryPlace;
     welcomeTitle: string;

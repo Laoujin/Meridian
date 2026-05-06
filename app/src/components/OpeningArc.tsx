@@ -1,6 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
-import { HERENT, GENT } from '../data/story';
+import { ORIGIN, ANCHOR } from '../data/story';
 
 function generateOpeningArc(
   start: [number, number],
@@ -19,7 +19,7 @@ function generateOpeningArc(
   return coords;
 }
 
-const ARC_COORDS = generateOpeningArc(HERENT, GENT);
+const ARC_COORDS = generateOpeningArc(ORIGIN, ANCHOR);
 
 interface OpeningArcProps {
   map: maplibregl.Map | null;

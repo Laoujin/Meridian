@@ -25,8 +25,8 @@ interface EaseInCameraProps {
  * - At p=0: bounds = enclosure of {priorViewA, priorViewB, dotFrom}. For
  *   normal transitions priorViewB == dotFrom so this collapses to
  *   [priorViewA, priorViewB] (the prior hold framing). For the special
- *   hold-0 transition it includes Zaventem alongside the Gent/Herent anchors,
- *   which Zaventem is already inside — so still equals the prior hold view.
+ *   hold-0 transition it includes the first memory's location alongside the
+ *   opening anchors, which already enclose it — so still equals the prior hold view.
  * - At p=1: bounds = enclosure of {dotFrom, dotTo, dotFrom} = [dotFrom, dotTo]
  *   (the new hold framing).
  * - In between: dotFrom is always one of the bounding-box corners (or inside),

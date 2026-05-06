@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { HERENT, GENT } from '../data/story';
+import { ORIGIN, ANCHOR } from '../data/story';
 import { computeTargetCamera } from '../utils/camera';
 
 interface MapCanvasProps {
@@ -31,7 +31,7 @@ const MAP_STYLE: maplibregl.StyleSpecification = {
   }],
 };
 
-const INITIAL_CENTER: [number, number] = [(HERENT[0] + GENT[0]) / 2, (HERENT[1] + GENT[1]) / 2];
+const INITIAL_CENTER: [number, number] = [(ORIGIN[0] + ANCHOR[0]) / 2, (ORIGIN[1] + ANCHOR[1]) / 2];
 
 function MapCanvas({ viewA, viewB, phase, showOpeningLine, dimmed, onMapReady }: MapCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -83,8 +83,8 @@ function MapCanvas({ viewA, viewB, phase, showOpeningLine, dimmed, onMapReady }:
     if (showOpeningLine) {
       map.fitBounds(
         [
-          [GENT[0] - 0.05, Math.min(GENT[1], HERENT[1]) - 0.05],
-          [HERENT[0] + 0.05, Math.max(GENT[1], HERENT[1]) + 0.15],
+          [ANCHOR[0] - 0.05, Math.min(ANCHOR[1], ORIGIN[1]) - 0.05],
+          [ORIGIN[0] + 0.05, Math.max(ANCHOR[1], ORIGIN[1]) + 0.15],
         ],
         { padding: { top: Math.round(h * 0.72), bottom: 40, left: 40, right: 40 }, duration: 0 },
       );
