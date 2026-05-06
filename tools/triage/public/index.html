@@ -28,8 +28,6 @@
   .day .titles { color: #444; font-size: 11px; margin-top: 2px; padding-left: 6px; }
   .section-h { font-size: 12px; font-weight: 600; color: #555; margin: 8px 0 4px; padding: 4px 6px; border-radius: 4px; display: flex; align-items: center; gap: 6px; }
   .section-h.selected { background: #e6f4ea; color: #1a7f37; }
-  .section-h.meridian { background: #fde8e8; color: #b22222; }
-  .section-h.wouter { background: #e8eafd; color: #2a3a8a; }
   .section-h .num { font-weight: normal; color: #888; font-size: 11px; }
   .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
   .photo { position: relative; cursor: pointer; border: 3px solid transparent; border-radius: 6px; overflow: hidden; background: #222; }
@@ -41,10 +39,6 @@
   .photo .check { position: absolute; top: 4px; left: 4px; background: #1a7f37; color: white; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; display: none; }
   .photo.selected .check { display: inline-block; }
   .photo .badge { position: absolute; top: 4px; left: 4px; background: rgba(0,0,0,0.7); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
-  .photo .src-badge { position: absolute; bottom: 22px; right: 4px; padding: 1px 5px; border-radius: 3px; font-size: 10px; font-weight: 600; }
-  .photo .src-badge.meridian { background: #fde8e8; color: #b22222; }
-  .photo .src-badge.wouter { background: #e8eafd; color: #2a3a8a; }
-  .photo .src-badge.used { background: #e6f4ea; color: #1a7f37; }
   textarea { font-family: ui-monospace, Consolas, monospace; font-size: 12px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: none; flex: 1; min-height: 0; tab-size: 2; }
   textarea.error { border-color: #c00; background: #fff5f5; }
   .json-toolbar { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -59,11 +53,7 @@
 <body>
 <header>
   <strong>Memories Triage</strong>
-  <button class="year" data-year="2024">2024</button>
-  <button class="year" data-year="2025">2025</button>
-  <button class="year" data-year="2026">2026</button>
-  <label><input type="checkbox" id="src-meridian" checked> meridian</label>
-  <label><input type="checkbox" id="src-wouter" checked> wouter</label>
+  <span id="year-buttons"></span>
   <button id="save-btn">💾 Save</button>
   <span class="status clean" id="status">saved</span>
 </header>
@@ -76,7 +66,6 @@
     <div class="switcher" id="entry-switcher"></div>
     <div class="json-toolbar">
       <button id="add-entry-btn" disabled>+ Add entry</button>
-      <button id="add-day-btn" disabled>+ Add sub-day</button>
       <button id="apply-btn" disabled>Apply edit</button>
       <button id="revert-btn" disabled>Revert</button>
       <button id="delete-btn" disabled>Delete entry</button>
@@ -89,14 +78,14 @@
 const $ = (id) => document.getElementById(id);
 
 const state = {
-  year: '2024',
+  year: '',
+  years: [],
   memories: {},
-  files: [], // [{src, name}]
+  files: [], // string[]
   selectedDate: null,
   selectedPath: null,
   dirty: new Set(),
   lastEntryRefRendered: null,
-  srcFilter: { meridian: true, wouter: true },
 };
 
 // ---- date parsing: handles both filename formats ----
@@ -116,30 +105,23 @@ function effectiveDate(p) {
   dt.setUTCDate(dt.getUTCDate() - 1);
   return dt.toISOString().slice(0, 10);
 }
-// returns Map<date, [{src, name}, ...]>
+// returns Map<date, string[]>
 function groupPhotos(files) {
   const m = new Map();
-  for (const f of files) {
-    const ed = effectiveDate(parsePhotoDate(f.name));
+  for (const name of files) {
+    const ed = effectiveDate(parsePhotoDate(name));
     if (!ed) continue;
     if (!m.has(ed)) m.set(ed, []);
-    m.get(ed).push(f);
+    m.get(ed).push(name);
   }
-  for (const a of m.values()) a.sort((x, y) => x.name.localeCompare(y.name));
+  for (const a of m.values()) a.sort((x, y) => x.localeCompare(y));
   return m;
 }
 
 // ---- memory traversal ----
 function flattenForYear(memories, year) {
   const list = memories[year] || [];
-  const flat = [];
-  list.forEach((e, i) => {
-    if (Array.isArray(e.days)) {
-      e.days.forEach((d, j) => flat.push({ date: d.date, entry: d, path: [i, 'days', j], kind: 'sub-day' }));
-    }
-    if (e.date) flat.push({ date: e.date, entry: e, path: [i], kind: e.days ? 'parent' : 'entry' });
-  });
-  return flat;
+  return list.map((entry, i) => ({ date: entry.date, entry, path: [i], kind: 'entry' }));
 }
 function entriesByDate(flat) {
   const m = new Map();
@@ -156,11 +138,9 @@ function getEntryAtPath(memories, year, path) {
 }
 function setEntryAtPath(memories, year, path, value) {
   if (path.length === 1) memories[year][path[0]] = value;
-  else if (path.length === 3) memories[year][path[0]][path[1]][path[2]] = value;
 }
 function deleteEntryAtPath(memories, year, path) {
   if (path.length === 1) memories[year].splice(path[0], 1);
-  else if (path.length === 3) memories[year][path[0]][path[1]].splice(path[2], 1);
 }
 function pathsEqual(a, b) {
   if (!a || !b) return a === b;
@@ -178,21 +158,40 @@ async function loadState() {
   const r = await fetch('/api/state');
   const data = await r.json();
   state.memories = data.memories;
+  state.years = data.years || [];
+  state.year = data.years[data.years.length - 1] || '';
   state.files = data.files;
   render();
 }
 
 function render() {
+  renderYearButtons();
   renderDays();
   renderPhotos();
   renderJson();
   renderStatus();
 }
 
+function renderYearButtons() {
+  const c = $('year-buttons');
+  c.innerHTML = state.years.map(y =>
+    `<button class="year ${y === state.year ? 'active' : ''}" data-year="${y}">${y}</button>`
+  ).join('');
+  c.querySelectorAll('button.year').forEach(b => {
+    b.addEventListener('click', () => {
+      if (!autoApplyJson()) return;
+      state.year = b.dataset.year;
+      state.selectedDate = null;
+      state.selectedPath = null;
+      state.lastEntryRefRendered = null;
+      render();
+    });
+  });
+}
+
 function renderDays() {
   const pane = $('days-pane');
-  const filteredFiles = state.files.filter((f) => state.srcFilter[f.src]);
-  const groups = groupPhotos(filteredFiles);
+  const groups = groupPhotos(state.files);
   const flat = flattenForYear(state.memories, state.year);
   const byDate = entriesByDate(flat);
 
@@ -228,13 +227,6 @@ function selectDate(d) {
   render();
 }
 
-// Build a lookup: filename -> source it came from (meridian|wouter|undefined)
-function fileSrcMap() {
-  const m = new Map();
-  for (const f of state.files) m.set(f.name, f.src);
-  return m;
-}
-
 function renderPhotos() {
   const pane = $('photos-pane');
   if (!state.selectedDate) {
@@ -247,20 +239,16 @@ function renderPhotos() {
     ...((entry && entry.photos) || []),
     ...((entry && entry.videos) || []),
   ]);
-  const srcMap = fileSrcMap();
 
-  // Section A: media currently in entry (any source, any date)
+  // Section A: media currently in entry (any date)
   const selectedItems = entry
     ? [...(entry.photos || []).map((n) => ({ name: n, kind: 'photo' })),
        ...(entry.videos || []).map((n) => ({ name: n, kind: 'video' }))]
     : [];
 
-  // Section B: candidates for selectedDate from active sources, NOT already in entry
-  const candidates = (groupPhotos(state.files.filter((f) => state.srcFilter[f.src])).get(state.selectedDate) || [])
-    .filter((f) => !inEntry.has(f.name));
-
-  const candidatesBySrc = { meridian: [], wouter: [] };
-  for (const c of candidates) (candidatesBySrc[c.src] ||= []).push(c);
+  // Section B: candidates for selectedDate, NOT already in entry
+  const candidates = (groupPhotos(state.files).get(state.selectedDate) || [])
+    .filter((name) => !inEntry.has(name));
 
   const usedElsewhere = collectAllUsedMedia();
 
@@ -276,44 +264,36 @@ function renderPhotos() {
     html.push('<div class="photos">');
     for (const item of selectedItems) {
       const isVideo = item.kind === 'video' || /\.(mp4|mov)$/i.test(item.name);
-      const fromSrc = srcMap.get(item.name); // may be undefined for manually-named photos
       const media = isVideo
         ? `<video src="/photo?name=${encodeURIComponent(item.name)}" muted preload="metadata"></video>`
         : `<img src="/photo?name=${encodeURIComponent(item.name)}" loading="lazy" decoding="async">`;
       html.push(`<div class="photo selected" data-name="${escapeAttr(item.name)}" data-loc="entry">
         ${media}
         <span class="check">✓</span>
-        <span class="src-badge used">in entry</span>
         <span class="fn" title="${escapeAttr(item.name)}">${escapeHtml(item.name)}</span>
       </div>`);
-      void fromSrc;
     }
     html.push('</div>');
   }
 
-  // Section B: candidates per source
-  for (const src of ['meridian', 'wouter']) {
-    if (!state.srcFilter[src]) continue;
-    const list = candidatesBySrc[src] || [];
-    html.push(`<div class="section-h ${src}">Candidates · ${src} <span class="num">${list.length}</span></div>`);
-    if (list.length === 0) {
-      html.push('<div class="empty">No new candidates for this day.</div>');
-      continue;
-    }
+  // Section B: candidates
+  html.push(`<div class="section-h selected">Candidates <span class="num">${candidates.length}</span></div>`);
+  if (candidates.length === 0) {
+    html.push('<div class="empty">No new candidates for this day.</div>');
+  } else {
     html.push('<div class="photos">');
-    for (const f of list) {
-      const isVideo = /\.(mp4|mov)$/i.test(f.name);
-      const elseUsed = usedElsewhere.has(f.name);
+    for (const name of candidates) {
+      const isVideo = /\.(mp4|mov)$/i.test(name);
+      const elseUsed = usedElsewhere.has(name);
       const media = isVideo
-        ? `<video src="/media?src=${f.src}&name=${encodeURIComponent(f.name)}" muted preload="metadata"></video>`
-        : `<img src="/media?src=${f.src}&name=${encodeURIComponent(f.name)}" loading="lazy" decoding="async">`;
-      html.push(`<div class="photo" data-name="${escapeAttr(f.name)}" data-src="${f.src}" data-loc="candidate">
+        ? `<video src="/media?name=${encodeURIComponent(name)}" muted preload="metadata"></video>`
+        : `<img src="/media?name=${encodeURIComponent(name)}" loading="lazy" decoding="async">`;
+      html.push(`<div class="photo" data-name="${escapeAttr(name)}" data-loc="candidate">
         ${media}
         <span class="check">✓</span>
         ${elseUsed ? '<span class="badge" title="already used in another entry">↗</span>' : ''}
-        <span class="src-badge ${src}">${src}</span>
-        <button class="trash" data-trash="${escapeAttr(f.name)}" data-trash-src="${f.src}" title="Move to trash">×</button>
-        <span class="fn" title="${escapeAttr(f.name)}">${escapeHtml(f.name)}</span>
+        <button class="trash" data-trash="${escapeAttr(name)}" title="Move to trash">×</button>
+        <span class="fn" title="${escapeAttr(name)}">${escapeHtml(name)}</span>
       </div>`);
     }
     html.push('</div>');
@@ -327,18 +307,17 @@ function renderPhotos() {
       const name = el.dataset.name;
       const loc = el.dataset.loc;
       if (loc === 'entry') deselectFromEntry(name);
-      else selectIntoEntry(name, el.dataset.src);
+      else selectIntoEntry(name);
     });
   });
   pane.querySelectorAll('.trash').forEach((el) => {
     el.addEventListener('click', async (e) => {
       e.stopPropagation();
       const name = el.dataset.trash;
-      const src = el.dataset.trashSrc;
-      const r = await fetch('/api/trash', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ src, name }) });
+      const r = await fetch('/api/trash', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name }) });
       if (!r.ok) { alert('trash failed: ' + await r.text()); return; }
       removeMediaFromAllEntries(name);
-      state.files = state.files.filter((f) => !(f.src === src && f.name === name));
+      state.files = state.files.filter((f) => f !== name);
       render();
     });
   });
@@ -351,12 +330,6 @@ function collectAllUsedMedia() {
     for (const e of list) {
       if (Array.isArray(e.photos)) for (const p of e.photos) s.add(p);
       if (Array.isArray(e.videos)) for (const v of e.videos) s.add(v);
-      if (Array.isArray(e.days)) {
-        for (const d of e.days) {
-          if (Array.isArray(d.photos)) for (const p of d.photos) s.add(p);
-          if (Array.isArray(d.videos)) for (const v of d.videos) s.add(v);
-        }
-      }
     }
   }
   return s;
@@ -372,13 +345,12 @@ function removeMediaFromAllEntries(name) {
     };
     for (const e of list) {
       strip(e);
-      if (Array.isArray(e.days)) for (const d of e.days) strip(d);
     }
     if (changed) markDirty(year);
   }
 }
 
-async function selectIntoEntry(name, src) {
+async function selectIntoEntry(name) {
   if (!state.selectedPath) {
     alert('No memory entry for this day. Click "+ Add entry" first.');
     return;
@@ -389,7 +361,7 @@ async function selectIntoEntry(name, src) {
   const key = isVideo ? 'videos' : 'photos';
   if (!Array.isArray(entry[key])) entry[key] = [];
   if (!entry[key].includes(name)) {
-    const r = await fetch('/api/copy', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ src, name }) });
+    const r = await fetch('/api/copy', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name }) });
     if (!r.ok) { alert('copy failed: ' + await r.text()); return; }
     entry[key].push(name);
   }
@@ -413,7 +385,6 @@ function renderJson() {
   const ed = $('json-editor');
   const switcher = $('entry-switcher');
   const addEntry = $('add-entry-btn');
-  const addDay = $('add-day-btn');
   const apply = $('apply-btn');
   const revert = $('revert-btn');
   const del = $('delete-btn');
@@ -427,7 +398,7 @@ function renderJson() {
     if (matches.length > 1) {
       matches.forEach((m) => {
         const b = document.createElement('button');
-        b.textContent = `${m.kind === 'sub-day' ? '⤷ ' : ''}${m.entry.title || '(untitled)'}`;
+        b.textContent = m.entry.title || '(untitled)';
         if (pathsEqual(m.path, state.selectedPath)) b.classList.add('active');
         b.addEventListener('click', () => {
           if (!autoApplyJson()) return;
@@ -442,12 +413,12 @@ function renderJson() {
 
   if (!state.selectedDate) {
     ed.value = ''; ed.disabled = true;
-    addEntry.disabled = true; addDay.disabled = true; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    addEntry.disabled = true; apply.disabled = true; revert.disabled = true; del.disabled = true;
     return;
   }
   if (!state.selectedPath) {
     ed.value = ''; ed.disabled = true; ed.placeholder = 'No entry yet for this day. Click "+ Add entry".';
-    addEntry.disabled = false; addDay.disabled = true; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    addEntry.disabled = false; apply.disabled = true; revert.disabled = true; del.disabled = true;
     return;
   }
 
@@ -458,7 +429,6 @@ function renderJson() {
   }
   ed.disabled = false;
   addEntry.disabled = false;
-  addDay.disabled = !Array.isArray(entry.days) && state.selectedPath.length > 1;
   apply.disabled = false;
   revert.disabled = false;
   del.disabled = false;
@@ -487,9 +457,8 @@ function autoApplyJson() {
 
 function addNewEntry() {
   const date = state.selectedDate;
-  const year = date.slice(0, 4);
-  if (!state.memories[year]) { alert(`Year ${year} not loaded`); return; }
-  const list = state.memories[year];
+  if (!state.memories[state.year]) { alert(`Year ${state.year} not loaded`); return; }
+  const list = state.memories[state.year];
   const newEntry = {
     id: date,
     date,
@@ -505,35 +474,10 @@ function addNewEntry() {
   };
   let insertAt = list.length;
   for (let i = 0; i < list.length; i++) {
-    const ed = list[i].date || (list[i].days && list[i].days[0] && list[i].days[0].date);
-    if (ed && ed > date) { insertAt = i; break; }
+    if (list[i].date && list[i].date > date) { insertAt = i; break; }
   }
   list.splice(insertAt, 0, newEntry);
-  if (year === state.year) state.selectedPath = [insertAt];
-  state.year = year;
-  document.querySelectorAll('header button.year').forEach((x) => x.classList.toggle('active', x.dataset.year === state.year));
-  state.lastEntryRefRendered = null;
-  markDirty(year);
-  render();
-}
-
-function addSubDay() {
-  if (!state.selectedPath || state.selectedPath.length !== 1) return;
-  const parent = currentEntry();
-  if (!Array.isArray(parent.days)) parent.days = [];
-  const date = state.selectedDate;
-  parent.days.push({
-    date,
-    title: '',
-    caption: '',
-    location: { lat: 0, lng: 0, name: '' },
-    photos: [],
-    videos: [],
-    tags: [],
-  });
-  parent.days.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
-  const j = parent.days.findIndex((d) => d.date === date);
-  state.selectedPath = [state.selectedPath[0], 'days', j];
+  state.selectedPath = [insertAt];
   state.lastEntryRefRendered = null;
   markDirty(state.year);
   render();
@@ -572,27 +516,10 @@ function escapeHtml(s) {
 }
 function escapeAttr(s) { return escapeHtml(s); }
 
-document.querySelectorAll('header button.year').forEach((b) => {
-  b.addEventListener('click', () => {
-    if (!autoApplyJson()) return;
-    state.year = b.dataset.year;
-    state.selectedDate = null;
-    state.selectedPath = null;
-    state.lastEntryRefRendered = null;
-    document.querySelectorAll('header button.year').forEach((x) => x.classList.toggle('active', x.dataset.year === state.year));
-    render();
-  });
-});
-document.querySelector(`header button.year[data-year="${state.year}"]`).classList.add('active');
-
-$('src-meridian').addEventListener('change', (e) => { state.srcFilter.meridian = e.target.checked; render(); });
-$('src-wouter').addEventListener('change', (e) => { state.srcFilter.wouter = e.target.checked; render(); });
-
 $('save-btn').addEventListener('click', saveAll);
 $('apply-btn').addEventListener('click', () => { if (autoApplyJson()) render(); });
 $('revert-btn').addEventListener('click', () => { state.lastEntryRefRendered = null; render(); });
 $('add-entry-btn').addEventListener('click', addNewEntry);
-$('add-day-btn').addEventListener('click', addSubDay);
 $('delete-btn').addEventListener('click', deleteCurrentEntry);
 
 window.addEventListener('beforeunload', (e) => {
