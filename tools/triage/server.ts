@@ -1,7 +1,8 @@
 #!/usr/bin/env bun
 import { existsSync, mkdirSync, readdirSync, renameSync } from 'node:fs';
 import { join, basename } from 'node:path';
-import { listYears, readYear, writeYear } from './src/memories';
+import { loadAll, saveAll } from './src/memories';
+import type { Memory } from '@meridian/schema';
 import { copyToPhotosFull } from './src/photo-copy';
 import { readExif } from './src/exif';
 import { createGeocoder } from './src/geocode';
@@ -12,7 +13,7 @@ const SOURCE = process.argv[2];
 if (!SOURCE || !existsSync(SOURCE)) {
   console.error('Usage: bun run server.ts <photo-folder>\n');
   console.error('  <photo-folder>: directory of JPEG/PNG/MP4/MOV files to triage.');
-  console.error('  Output: data/memories-YYYY.json (year derived from photo dates).');
+  console.error('  Output: data/memories*.json (auto-detects consolidated vs per-year layout).');
   console.error('  UI: http://localhost:5174');
   process.exit(1);
 }
@@ -39,9 +40,13 @@ function listSourceFiles(): string[] {
 }
 
 async function loadAllMemories() {
-  const years = await listYears(DATA_DIR);
-  const memories: Record<string, unknown> = {};
-  for (const y of years) memories[y] = await readYear(DATA_DIR, y);
+  const { entries } = await loadAll(DATA_DIR);
+  const memories: Record<string, Memory[]> = {};
+  for (const m of entries) {
+    const y = m.date.slice(0, 4);
+    (memories[y] ??= []).push(m);
+  }
+  const years = Object.keys(memories).sort();
   return { memories, years };
 }
 
@@ -90,9 +95,11 @@ Bun.serve({
     }
 
     if (p === '/api/save' && req.method === 'POST') {
-      const { year, memories } = await req.json() as { year: string; memories: unknown };
+      const { year, memories } = await req.json() as { year: string; memories: Memory[] };
       if (!/^\d{4}$/.test(year)) return new Response('bad year', { status: 400 });
-      await writeYear(DATA_DIR, year, memories as never);
+      const { entries, origin } = await loadAll(DATA_DIR);
+      const others = entries.filter(m => m.date.slice(0, 4) !== year);
+      await saveAll(DATA_DIR, [...others, ...memories], origin);
       return Response.json({ ok: true });
     }
 

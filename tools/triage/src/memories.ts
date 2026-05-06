@@ -3,27 +3,51 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Memory } from '@meridian/schema';
 
-const YEAR_RX = /^memories-(\d{4})\.json$/;
+const MEMORIES_RX = /^memories(?:-[A-Za-z0-9_-]+)?\.json$/;
 
-export async function listYears(dataDir: string): Promise<string[]> {
-  if (!existsSync(dataDir)) return [];
-  const entries = await readdir(dataDir);
-  const years: string[] = [];
-  for (const name of entries) {
-    const m = name.match(YEAR_RX);
-    if (m) years.push(m[1]);
+export interface Origin {
+  fileById: Map<string, string>;
+  files: string[];
+}
+
+export async function loadAll(dataDir: string): Promise<{ entries: Memory[]; origin: Origin }> {
+  if (!existsSync(dataDir)) return { entries: [], origin: { fileById: new Map(), files: [] } };
+  const files = (await readdir(dataDir)).filter(n => MEMORIES_RX.test(n)).sort();
+  const entries: Memory[] = [];
+  const fileById = new Map<string, string>();
+  for (const file of files) {
+    const list = JSON.parse(await readFile(join(dataDir, file), 'utf-8')) as Memory[];
+    for (const m of list) {
+      entries.push(m);
+      fileById.set(m.id, file);
+    }
   }
-  return years.sort();
+  return { entries, origin: { fileById, files } };
 }
 
-export async function readYear(dataDir: string, year: string): Promise<Memory[]> {
-  const path = join(dataDir, `memories-${year}.json`);
-  if (!existsSync(path)) return [];
-  return JSON.parse(await readFile(path, 'utf-8'));
+// Where a brand-new entry should land. Prefer the consolidated memories.json
+// when it already exists; otherwise fall back to per-year sharding.
+export function pickTargetFile(origin: Origin, year: string): string {
+  if (origin.files.includes('memories.json')) return 'memories.json';
+  return `memories-${year}.json`;
 }
 
-export async function writeYear(dataDir: string, year: string, memories: Memory[]): Promise<void> {
-  if (!/^\d{4}$/.test(year)) throw new Error(`Invalid year: ${year}`);
-  const path = join(dataDir, `memories-${year}.json`);
-  await writeFile(path, JSON.stringify(memories, null, 2) + '\n');
+export async function saveAll(dataDir: string, entries: Memory[], origin: Origin): Promise<void> {
+  const buckets = new Map<string, Memory[]>();
+  for (const file of origin.files) buckets.set(file, []);
+
+  for (const m of entries) {
+    const year = m.date.slice(0, 4);
+    const target = origin.fileById.get(m.id) ?? pickTargetFile(origin, year);
+    if (!buckets.has(target)) {
+      buckets.set(target, []);
+      origin.files.push(target);
+    }
+    buckets.get(target)!.push(m);
+    origin.fileById.set(m.id, target);
+  }
+
+  for (const [file, list] of buckets) {
+    await writeFile(join(dataDir, file), JSON.stringify(list, null, 2) + '\n');
+  }
 }
