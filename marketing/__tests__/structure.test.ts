@@ -18,13 +18,13 @@ describe("marketing/index.html structure", () => {
   test("contains hero with Meridian title and hero image", () => {
     expect(html).toMatch(/<section[^>]*id="hero"/i);
     expect(html).toMatch(/Meridian/);
-    expect(html).toMatch(/<img[^>]+src="hero\.png"/);
+    expect(html).toMatch(/<img[^>]+src="hero\.jpg"/);
   });
 
   test("declares Open Graph + Twitter card meta with og.png", () => {
     expect(html).toMatch(/<meta\s+property="og:title"/i);
     expect(html).toMatch(/<meta\s+property="og:description"/i);
-    expect(html).toMatch(/<meta\s+property="og:image"[^>]+content="[^"]*og\.png"/i);
+    expect(html).toMatch(/<meta\s+property="og:image"[^>]+content="[^"]*og\.jpg"/i);
     expect(html).toMatch(/<meta\s+name="twitter:card"/i);
   });
 
