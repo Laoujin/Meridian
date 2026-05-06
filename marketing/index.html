@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meridian — a scroll-driven memory timeline</title>
+  <meta name="description" content="Open-source scroll-driven timeline that draws travel lines on a map between your photos." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta property="og:title" content="Meridian — a scroll-driven memory timeline" />
+  <meta property="og:description" content="Drop in photos, get a beautiful scrollable trip-map you can host anywhere." />
+  <meta property="og:image" content="og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="og.jpg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500&display=swap" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#hero">Meridian</a>
+    <nav>
+      <a href="#how">How</a>
+      <a href="#demo">Demo</a>
+      <a href="https://github.com/Laoujin/meridian" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <section id="hero" class="hero">
+    <img class="hero__image" src="hero.jpg" alt="" aria-hidden="true" />
+    <div class="hero__content">
+      <h1 class="hero__title">Meridian</h1>
+      <p class="hero__tagline">A scroll-driven memory timeline. Cards with photos appear as you scroll; a map in the background draws travel lines between them.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#demo">See the demo</a>
+        <a class="btn btn--ghost" href="https://github.com/Laoujin/meridian" target="_blank" rel="noopener">View source</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="what" class="section">
+    <h2>What is this</h2>
+    <p>Drop a folder of photos in, get a beautiful scrollable trip-map you can host anywhere.</p>
+    <p class="muted">Built originally as a personal birthday gift. Now open source.</p>
+  </section>
+
+  <section id="how" class="section section--steps">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>
+        <div class="step__num">1</div>
+        <h3>Drop in photos</h3>
+        <p>Point at a folder of trip photos. EXIF gets you dates and coordinates for free.</p>
+      </li>
+      <li>
+        <div class="step__num">2</div>
+        <h3>Run <code>meridian-triage</code></h3>
+        <p>The CLI extracts metadata, geocodes locations, and looks up historical weather. Outputs a <code>Memory[]</code> JSON.</p>
+      </li>
+      <li>
+        <div class="step__num">3</div>
+        <h3>Host</h3>
+        <p>Point the app at the JSON, run <code>bun run dev</code>, and ship to any static host.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="demo" class="section section--demo">
+    <h2>Live demo</h2>
+    <p>A fake 5-day NY trip in watercolour, walking through the full feature set.</p>
+    <a class="btn btn--primary" href="https://laoujin.github.io/meridian/" target="_blank" rel="noopener">Open the demo →</a>
+  </section>
+
+  <section id="install" class="section section--install">
+    <h2>Install</h2>
+    <pre><code>git clone https://github.com/Laoujin/meridian
+cd meridian/app
+bun install
+bun run dev</code></pre>
+    <p class="muted">Requires <a href="https://bun.sh" target="_blank" rel="noopener">bun</a>.</p>
+  </section>
+
+  <footer>
+    <p>
+      <a href="https://github.com/Laoujin/meridian" target="_blank" rel="noopener">GitHub</a>
+      &middot;
+      MIT License
+    </p>
+  </footer>
+</body>
+</html>
