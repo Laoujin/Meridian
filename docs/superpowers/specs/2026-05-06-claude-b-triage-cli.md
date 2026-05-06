@@ -1,5 +1,10 @@
 # Claude B — Triage CLI v2
 
+**Status:** SUPERSEDED 2026-05-06 by [`2026-05-06-claude-b-triage-ui.md`](./2026-05-06-claude-b-triage-ui.md).
+Brainstorm revealed the actual goal is improving the existing UI (`scripts/triage-server.ts` + `triage.html`), not building a parallel CLI. This spec is preserved for context.
+
+---
+
 **Status:** Spec drafted 2026-05-06. Awaiting review before implementation.
 **Lane:** Independent. Can start as soon as Claude A publishes the rebrand name.
 
