@@ -33,7 +33,7 @@ Used in link previews on Slack, Twitter, Discord etc. Square-ish 1.91:1.
 ```
 Centred composition: a soft watercolour map of a coastline with a hand-painted route line
 threading between four warm-glow markers, postcard-feel, slight paper grain edges, decorative
-without text, balanced negative space for overlay typography · [shared style suffix] --ar 1.91:1
+without text, balanced negative space for overlay typography
 ```
 
 Save as **`marketing/og.jpg`**, target 1200×630, web-optimized JPG ~150 KB.
