@@ -23,7 +23,9 @@
     }
   },
   "closing": {
-    "giftReveal": false,
+    "giftReveal": true,
+    "giftRevealButton": "what's next? ✨",
+    "giftRevealIcon": "🎁",
     "giftRevealText": "A surprise..."
   }
 }

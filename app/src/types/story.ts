@@ -26,6 +26,8 @@ export interface Story {
   };
   closing: {
     giftReveal: boolean;
+    giftRevealButton?: string;
+    giftRevealIcon?: string;
     giftRevealText?: string;
   };
 }

@@ -1,4 +1,5 @@
 import '../styles/closing.css';
+import { story } from '../data/story';
 
 interface ClosingSequenceProps {
   onWhatsNext: () => void;
@@ -9,7 +10,7 @@ export default function ClosingSequence({ onWhatsNext }: ClosingSequenceProps) {
     <div className="closing-sequence closing-sequence--bottom">
       <div className="closing-whats-next">
         <button className="closing-whats-next__btn" onClick={onWhatsNext}>
-          what's next? ✨
+          {story.closing.giftRevealButton ?? "what's next? ✨"}
         </button>
       </div>
     </div>

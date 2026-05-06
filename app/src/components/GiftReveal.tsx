@@ -12,7 +12,7 @@ export default function GiftReveal({ open, onClose }: GiftRevealProps) {
   return (
     <div className="gift-reveal" onClick={onClose}>
       <div className="gift-reveal__content">
-        <div className="gift-reveal__box">🎁</div>
+        <div className="gift-reveal__box">{story.closing.giftRevealIcon ?? '🎁'}</div>
         <div className="gift-reveal__text">{story.closing.giftRevealText ?? 'A Present?'}</div>
       </div>
     </div>

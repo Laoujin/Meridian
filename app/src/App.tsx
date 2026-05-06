@@ -389,11 +389,13 @@ export default function App() {
         </div>
       )}
 
-      {isClosing && (
+      {isClosing && story.closing.giftReveal && (
         <ClosingSequence onWhatsNext={handleWhatsNext} />
       )}
 
-      <GiftReveal open={showGift} onClose={() => setShowGift(false)} />
+      {story.closing.giftReveal && (
+        <GiftReveal open={showGift} onClose={() => setShowGift(false)} />
+      )}
 
       <div className="scroll-track">
         {sections.map((section) => (
