@@ -12,7 +12,7 @@ export interface Story {
   };
   home: StoryPlace;
   opening: {
-    arcOrigin: StoryPlace;
+    arcOrigin?: StoryPlace;
     welcomeTitle: string;
     welcomeSubtitle?: string;
     heroImage?: string;

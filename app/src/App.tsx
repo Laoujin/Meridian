@@ -329,15 +329,17 @@ export default function App() {
         );
       })()}
 
-      <OpeningArc map={mapInstance} visible={isOpening} />
+      {story.opening.arcOrigin && <OpeningArc map={mapInstance} visible={isOpening} />}
 
-      {/* Opening endpoints: Herent + Gent dots with labels, fade with opening sequence */}
-      <LocationMarker
-        map={mapInstance}
-        coordinates={HERENT}
-        label={story.opening.arcOrigin.label}
-        opacity={isOpening ? 1 : 0}
-      />
+      {/* Opening endpoints: arc-origin + home dots with labels (origin only when arcOrigin is set) */}
+      {story.opening.arcOrigin && (
+        <LocationMarker
+          map={mapInstance}
+          coordinates={HERENT}
+          label={story.opening.arcOrigin.label}
+          opacity={isOpening ? 1 : 0}
+        />
+      )}
       <LocationMarker
         map={mapInstance}
         coordinates={GENT}

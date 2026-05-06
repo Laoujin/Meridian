@@ -27,8 +27,9 @@ interface OpeningArcProps {
 }
 
 /**
- * Renders the Gent-Herent arc line. Endpoint dots + labels are drawn by
- * <LocationMarker> instances in App.tsx — keep this component focused on the line.
+ * Renders the opening arc line between arcOrigin and home. Endpoint dots +
+ * labels are drawn by <LocationMarker> instances in App.tsx. Parent gates this
+ * on story.opening.arcOrigin being set.
  */
 export default function OpeningArc({ map, visible }: OpeningArcProps) {
   const addedRef = useRef(false);
