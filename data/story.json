@@ -10,6 +10,7 @@
     "label": "New York"
   },
   "opening": {
+    "arcOrigin": { "lat": 48.8566, "lng": 2.3522, "label": "Paris" },
     "welcomeTitle": "Welcome",
     "welcomeSubtitle": "A scroll-driven memory timeline.",
     "heroImage": "/start1.jpg",
