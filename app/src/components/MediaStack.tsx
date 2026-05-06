@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MediaViewer from './MediaViewer';
+import { asset } from '../utils/asset';
 
 interface MediaStackProps {
   photos: string[];
@@ -60,13 +61,13 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
           >
             {item.kind === 'photo' ? (
               <img
-                src={`/photos/thumb/${item.filename}`}
+                src={asset(`/photos/thumb/${item.filename}`)}
                 alt=""
                 loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   if (!target.src.includes('/full/')) {
-                    target.src = `/photos/full/${item.filename}`;
+                    target.src = asset(`/photos/full/${item.filename}`);
                   } else {
                     target.style.display = 'none';
                   }
@@ -74,7 +75,7 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
               />
             ) : (
               <video
-                src={`/videos/${item.filename}`}
+                src={asset(`/videos/${item.filename}`)}
                 controls
                 preload="metadata"
                 playsInline
@@ -82,7 +83,7 @@ export default function MediaStack({ photos, videos }: MediaStackProps) {
                 onError={(e) => {
                   const target = e.target as HTMLVideoElement;
                   if (!target.src.includes('/photos/full/')) {
-                    target.src = `/photos/full/${item.filename}`;
+                    target.src = asset(`/photos/full/${item.filename}`);
                   } else {
                     target.style.display = 'none';
                   }

@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { asset } from '../utils/asset';
 import '../styles/media-viewer.css';
 
 type MediaItem =
@@ -94,13 +95,13 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
           <img
             key={item.filename}
             className="media-viewer__img"
-            src={`/photos/full/${item.filename}`}
+            src={asset(`/photos/full/${item.filename}`)}
             alt=""
             onClick={(e) => e.stopPropagation()}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               if (!target.src.includes('/thumb/')) {
-                target.src = `/photos/thumb/${item.filename}`;
+                target.src = asset(`/photos/thumb/${item.filename}`);
               }
             }}
           />
@@ -108,7 +109,7 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
           <video
             key={item.filename}
             className="media-viewer__video"
-            src={`/videos/${item.filename}`}
+            src={asset(`/videos/${item.filename}`)}
             controls
             autoPlay
             playsInline
