@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["bun-types"],
+    "lib": ["ESNext"],
+    "baseUrl": ".",
+    "paths": {
+      "@meridian/schema": ["../../app/src/types/memory.ts"]
+    }
+  },
+  "include": ["src", "tests", "server.ts"]
+}
