@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:love": "MERIDIAN_DATA=data/love vite --port 5174",
+    "dev:story": "MERIDIAN_DATA=data/love-story vite --port 5174",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

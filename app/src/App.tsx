@@ -255,9 +255,12 @@ export default function App() {
   }
   const destLabel = destCoords ? memoryLabel(memories, activeIndex) : '';
 
-  // For opening transition, show the destination dot at memory 0
-  const openingDestCoords = isOpeningTransition ? memoryLngLat(memories, 0) : null;
-  const openingDestLabel = isOpeningTransition ? memoryLabel(memories, 0) : '';
+  // For opening transition AND memory 0 hold, show the destination dot at memory 0
+  // (memory 0's regular dest dot is null because lineOriginAt(0) == memory 0,
+  // so there's no "previous" to draw from — the opening pair fills that role).
+  const openingEndpointsVisible = isOpeningTransition || (activeIndex === 0 && phase === 'hold');
+  const openingDestCoords = openingEndpointsVisible ? memoryLngLat(memories, 0) : null;
+  const openingDestLabel = openingEndpointsVisible ? memoryLabel(memories, 0) : '';
 
   // --- Milestone effect ---
   const showMilestoneEffect = phase === 'hold' && activeMemory?.type === 'milestone';
@@ -331,28 +334,31 @@ export default function App() {
 
       {story.opening.arcOrigin && <OpeningArc map={mapInstance} visible={isOpening} />}
 
-      {/* Opening endpoints: arc-origin + home dots with labels (origin only when arcOrigin is set) */}
+      {/* Opening endpoints: arc-origin + home dots with labels (origin only when arcOrigin is set).
+          Persist through the opening transition AND memory 0 hold so the first line(s) match
+          the rest of the timeline (origin dot stays put after the vehicle arrives). */}
       {story.opening.arcOrigin && (
         <LocationMarker
           map={mapInstance}
           coordinates={ORIGIN}
           label={story.opening.arcOrigin.label}
-          opacity={isOpening ? 1 : 0}
+          opacity={isOpening || openingEndpointsVisible ? 1 : 0}
         />
       )}
       <LocationMarker
         map={mapInstance}
         coordinates={ANCHOR}
         label={story.anchor.label}
-        opacity={isOpening ? 1 : 0}
+        opacity={isOpening || openingEndpointsVisible ? 1 : 0}
       />
 
-      {(isOpeningTransition || (activeIndex === 0 && phase === 'hold')) && (
+      {openingEndpointsVisible && (
         <OpeningTransition
           map={mapInstance}
           destination={memoryLngLat(memories, 0)}
           progress={isOpeningTransition ? progress : 1}
           visible
+          transport={memories[0]?.transport ?? 'car'}
         />
       )}
 

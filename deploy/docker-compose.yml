@@ -9,6 +9,6 @@ services:
     ports:
       - "6988:80"
     volumes:
-      - ../app/public/photos:/usr/share/nginx/html/photos:ro
-      - ../app/public/music:/usr/share/nginx/html/music:ro
-      - ../app/public/videos:/usr/share/nginx/html/videos:ro
+      - ../data/ny-trip/photos:/usr/share/nginx/html/photos:ro
+      - ../data/ny-trip/music:/usr/share/nginx/html/music:ro
+      - ../data/ny-trip/videos:/usr/share/nginx/html/videos:ro

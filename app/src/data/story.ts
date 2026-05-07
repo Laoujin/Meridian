@@ -1,4 +1,4 @@
-import storyJson from '../../../data/story.json';
+import storyJson from '../../../data/ny-trip/story.json';
 import type { Story } from '../types/story';
 
 export const story = storyJson as Story;

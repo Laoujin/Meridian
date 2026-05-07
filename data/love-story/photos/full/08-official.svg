@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <radialGradient id="g8" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#ffe0eb"/>
+      <stop offset="100%" stop-color="#e89cb6"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g8)"/>
+  <text x="200" y="180" font-size="160" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">💞</text>
+  <text x="200" y="265" font-size="22" text-anchor="middle" fill="#7a3a55" font-family="serif" font-style="italic">Us.</text>
+</svg>

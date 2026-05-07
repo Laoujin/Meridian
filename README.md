@@ -15,7 +15,8 @@ Memories are loaded from `data/memories-*.json` by `app/src/data/loader.ts`, sor
 ## Marketing Site
 
 Online at [laoujin.github.io/Meridian](https://laoujin.github.io/Meridian/),
-the [NY Demo](https://laoujin.github.io/Meridian/demo/) is there too.
+with two live demos: [NY Trip](https://laoujin.github.io/Meridian/NY-Trip/)
+and [Love Story](https://laoujin.github.io/Meridian/Love-Story/).
 
 ```bash
 cd marketing

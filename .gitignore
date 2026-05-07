@@ -10,10 +10,13 @@ app/public/photos
 app/public/music
 app/public/videos
 
-# MERIDIAN_DATA media folders — never tracked, even on private branches.
+# MERIDIAN_DATA media folders — never tracked, except for the public demo
+# datasets whose media ships with the repo so CI can deploy the demos.
 data/*/photos
 data/*/music
 data/*/videos
+!data/ny-trip/**
+!data/love-story/**
 
 # Local env overrides (Vite convention).
 .env.local

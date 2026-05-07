@@ -29,17 +29,28 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
 
-      - name: Build app for /Meridian/demo/
+      - name: Install app deps
         working-directory: app
-        run: |
-          bun install --frozen-lockfile
-          bun run build -- --base /Meridian/demo/
+        run: bun install --frozen-lockfile
 
-      - name: Compose site (marketing at /, demo app at /demo/)
+      - name: Build NY Trip demo
+        working-directory: app
+        env:
+          MERIDIAN_DATA: data/ny-trip
+        run: bun run build -- --base /Meridian/NY-Trip/ --outDir dist-ny
+
+      - name: Build Love Story demo
+        working-directory: app
+        env:
+          MERIDIAN_DATA: data/love-story
+        run: bun run build -- --base /Meridian/Love-Story/ --outDir dist-love
+
+      - name: Compose site (marketing at /, two demos under /NY-Trip/ and /Love-Story/)
         run: |
           mkdir -p _site
           cp -r marketing/. _site/
-          cp -r app/dist _site/demo
+          cp -r app/dist-ny _site/NY-Trip
+          cp -r app/dist-love _site/Love-Story
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

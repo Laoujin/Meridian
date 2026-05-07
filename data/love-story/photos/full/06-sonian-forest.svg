@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="g6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfe1c9"/>
+      <stop offset="100%" stop-color="#6e8b6a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g6)"/>
+  <g fill="#3d5739" opacity="0.4">
+    <rect x="60" y="200" width="3" height="60"/>
+    <rect x="110" y="190" width="3" height="70"/>
+    <rect x="290" y="195" width="3" height="65"/>
+    <rect x="340" y="200" width="3" height="60"/>
+  </g>
+  <text x="200" y="180" font-size="140" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🌲</text>
+  <text x="200" y="265" font-size="20" text-anchor="middle" fill="#2c4429" font-family="serif" font-style="italic">Zoniënwoud</text>
+</svg>

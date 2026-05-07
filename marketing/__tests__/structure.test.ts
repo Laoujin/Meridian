@@ -41,8 +41,12 @@ describe("marketing/index.html structure", () => {
     expect(html).toMatch(/meridian-triage/);
   });
 
-  test("contains a live-demo link", () => {
+  test("contains a live-demo section with both NY-Trip and Love-Story links", () => {
     expect(html).toMatch(/<section[^>]*id="demo"/i);
+    expect(html).toMatch(/href="[^"]*\/NY-Trip\/?"/i);
+    expect(html).toMatch(/href="[^"]*\/Love-Story\/?"/i);
+    expect(html).toMatch(/NY Trip/i);
+    expect(html).toMatch(/Love Story/i);
   });
 
   test("contains an install snippet with bun install + bun run dev", () => {

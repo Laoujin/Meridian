@@ -1,12 +1,12 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import { resolve, dirname, extname } from 'node:path'
+import { resolve, dirname, extname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { existsSync, readdirSync, readFileSync, statSync, createReadStream } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, statSync, createReadStream, mkdirSync, copyFileSync } from 'node:fs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = resolve(__dirname, '..')
-const defaultDataDir = resolve(repoRoot, 'data')
+const defaultDataDir = resolve(repoRoot, 'data', 'ny-trip')
 
 const MEMORIES_VIRTUAL = 'virtual:meridian-memories'
 const MEMORIES_RESOLVED = '\0' + MEMORIES_VIRTUAL
@@ -22,17 +22,16 @@ const MIME: Record<string, string> = {
 // Synthesize a virtual module that concatenates every memories*.json under
 // the chosen data dir. The loader does `import memories from 'virtual:meridian-memories'`
 // and gets a single Memory[] regardless of how the dataset is sharded.
-// Also redirects `data/story.json` imports to the override folder when present
-// (so themed copy travels with the dataset).
-function meridianMemoriesPlugin(root: string, isOverride: boolean): Plugin {
+// Also redirects the canonical `data/ny-trip/story.json` import to the active
+// dataset's story.json so themed copy travels with the dataset.
+function meridianMemoriesPlugin(root: string): Plugin {
   return {
     name: 'meridian-memories',
     enforce: 'pre',
     resolveId(id) {
       if (id === MEMORIES_VIRTUAL) return MEMORIES_RESOLVED
-      if (!isOverride) return
       const normalized = id.replace(/\\/g, '/')
-      if (normalized.endsWith('/data/story.json')) {
+      if (normalized.endsWith('/data/ny-trip/story.json')) {
         const overrideStory = resolve(root, 'story.json')
         if (existsSync(overrideStory)) return overrideStory
       }
@@ -50,14 +49,22 @@ function meridianMemoriesPlugin(root: string, isOverride: boolean): Plugin {
   }
 }
 
-// Serves any file under MERIDIAN_DATA when its URL path matches a real file
-// there. Falls through to Vite's normal public-dir lookup for anything not
-// in the override root, so demo-only assets (favicons, etc.) keep working.
-// Only intercepts URLs with a known media/static extension to avoid clashing
-// with Vite internals (/@vite/client, /src/..., /node_modules/...).
+// In dev: serve any media file under the active data dir whose URL path
+// matches a real file there. Falls through to Vite's normal public-dir lookup
+// for anything not in the data root, so shared scaffolding (favicons,
+// start1.jpg) keeps working. Only intercepts URLs with a known media
+// extension to avoid clashing with Vite internals.
+//
+// In build: copy the same media files into outDir so the deployed site has
+// them at the expected paths (mirrors what the dev middleware would have
+// served).
 function meridianMediaPlugin(root: string): Plugin {
+  let outDir = ''
   return {
     name: 'meridian-media',
+    configResolved(config) {
+      outDir = resolve(config.root, config.build.outDir)
+    },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         const url = req.url?.split('?')[0]
@@ -74,12 +81,28 @@ function meridianMediaPlugin(root: string): Plugin {
         createReadStream(file).pipe(res)
       })
     },
+    writeBundle() {
+      if (!outDir) return
+      const walk = (dir: string) => {
+        for (const entry of readdirSync(dir, { withFileTypes: true })) {
+          const src = resolve(dir, entry.name)
+          if (entry.isDirectory()) { walk(src); continue }
+          const ext = extname(entry.name).toLowerCase()
+          if (!MIME[ext]) continue
+          const dest = resolve(outDir, relative(root, src))
+          mkdirSync(dirname(dest), { recursive: true })
+          copyFileSync(src, dest)
+        }
+      }
+      walk(root)
+    },
   }
 }
 
-// MERIDIAN_DATA points at a folder containing memories*.json + photos/ + videos/ + music/.
-// Resolved from the worktree root, so MERIDIAN_DATA=data/caro works from any cwd.
-// Read from process.env (shell) and/or .env.local (Vite convention, gitignored).
+// MERIDIAN_DATA points at a folder containing memories*.json + story.json + photos/.
+// Resolved from the worktree root, so MERIDIAN_DATA=data/love-story works from any cwd.
+// Defaults to data/ny-trip when unset. Read from process.env (shell) and/or
+// .env.local (Vite convention, gitignored).
 export default defineConfig(({ mode }) => {
   const env = { ...loadEnv(mode, __dirname, ''), ...process.env }
   const dataDir = env.MERIDIAN_DATA?.trim()
@@ -87,8 +110,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
-      meridianMemoriesPlugin(root, !!dataDir),
-      ...(dataDir ? [meridianMediaPlugin(root)] : []),
+      meridianMemoriesPlugin(root),
+      meridianMediaPlugin(root),
     ],
   }
 })

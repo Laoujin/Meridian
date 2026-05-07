@@ -22,13 +22,13 @@ interface Memory {
 }
 
 const ROOT = join(import.meta.dir, "..");
-const PHOTO_DIR = join(ROOT, "..", "app", "public", "photos", "full");
+const PHOTO_DIR = join(ROOT, "photos", "full");
 const memories: Memory[] = JSON.parse(readFileSync(join(ROOT, "memories.json"), "utf-8"));
 
 const VALID_TRANSPORT: TransportMode[] = ["car", "plane", "train", "metro", "walking", "boat", "bike", "bus"];
 const VALID_ICONS: WeatherIcon[] = ["sun", "cloud-sun", "cloud", "fog", "drizzle", "rain", "rain-heavy", "snow", "storm"];
 
-describe("data/memories.json", () => {
+describe("data/ny-trip/memories.json", () => {
   test("contains exactly 10 entries", () => {
     expect(memories).toHaveLength(10);
   });
@@ -57,7 +57,7 @@ describe("data/memories.json", () => {
     }
   });
 
-  test("each photo reference resolves to a file in app/public/photos/full/", () => {
+  test("each photo reference resolves to a file in photos/full/", () => {
     for (const m of memories) {
       for (const photo of m.photos) {
         const path = join(PHOTO_DIR, photo);
