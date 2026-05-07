@@ -7,10 +7,14 @@ A self-hosted scroll-driven memory timeline. Cards with photos appear as you scr
 ```bash
 cd app
 bun install
-bun run dev          # http://localhost:5173
+bun run dev             # http://localhost:5173 — reads MERIDIAN_DATA from .env
+bun run dev:ny-trip     # http://localhost:5174 — loads data/ny-trip
+bun run dev:love-story  # http://localhost:5175 — loads data/love-story
 ```
 
-Memories are loaded from `data/memories-*.json` by `app/src/data/loader.ts`, sorted chronologically, then rendered as a vertical scroll timeline in `App.tsx`.
+Datasets live under `data/<story>/` (e.g. `ny-trip`, `love-story`).
+The dev server picks one via `MERIDIAN_DATA`.
+
 
 ## Marketing Site
 

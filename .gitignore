@@ -17,7 +17,13 @@ data/*/music
 data/*/videos
 !data/ny-trip/**
 !data/love-story/**
+data/our-story
 
-# Local env overrides (Vite convention).
+# Local env overrides (Vite convention). .env holds MERIDIAN_DATA for the
+# triage tool / `bun run dev`; it's per-checkout, never committed.
+.env
 .env.local
 .env.*.local
+
+# Triage tool's per-checkout config (active story + photo folder).
+tools/triage/triage.config.json
