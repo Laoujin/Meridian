@@ -19,6 +19,7 @@ import MilestoneEffect from './components/MilestoneEffect';
 import ClosingSequence from './components/ClosingSequence';
 import OverviewDots from './components/OverviewDots';
 import GiftReveal from './components/GiftReveal';
+import ScrollHint from './components/ScrollHint';
 import { playTrack, stopAudio, setMuted as setAudioMuted } from './utils/audio';
 import './styles/global.css';
 
@@ -390,6 +391,8 @@ export default function App() {
         muted={muted}
         onToggleMute={toggleMuted}
       />
+
+      <ScrollHint visible={isOpening} />
 
       {showMilestoneEffect && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 49, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>

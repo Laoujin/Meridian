@@ -144,6 +144,42 @@ body {
   color: #2c2c2c;
 }
 
+/* ===== Scroll hint (shown during opening hold) ===== */
+.scroll-hint {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: rgba(44, 44, 44, 0.75);
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  z-index: 90;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.scroll-hint--hidden {
+  opacity: 0;
+}
+
+.scroll-hint__chev {
+  font-size: 32px;
+  line-height: 0.6;
+  animation: scroll-hint-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+
 /* ===== Welcome screen ===== */
 .welcome {
   position: fixed;
