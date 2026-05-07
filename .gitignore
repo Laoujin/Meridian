@@ -26,4 +26,4 @@ data/our-story
 .env.*.local
 
 # Triage tool's per-checkout config (active story + photo folder).
-tools/triage/triage.config.json
+triage/triage.config.json
