@@ -10,7 +10,7 @@
       "lng": 4.3997,
       "name": "Steenplein, Antwerp"
     },
-    "photos": ["05-ice-skating.svg"],
+    "photos": ["05-ice-skating.jpg"],
     "music": null,
     "weather": {
       "icon": "snow",
@@ -37,7 +37,7 @@
       "lng": 4.4150,
       "name": "Zoniënwoud / Forêt de Soignes"
     },
-    "photos": ["06-sonian-forest.svg"],
+    "photos": ["06-sonian-forest.jpg"],
     "music": null,
     "weather": {
       "icon": "fog",
@@ -64,7 +64,7 @@
       "lng": 3.2247,
       "name": "Markt, Bruges"
     },
-    "photos": ["07-bruges.svg"],
+    "photos": ["07-bruges.jpg"],
     "music": null,
     "weather": {
       "icon": "cloud-sun",
@@ -91,7 +91,7 @@
       "lng": 4.4025,
       "name": "Antwerp"
     },
-    "photos": ["08-official.svg"],
+    "photos": ["08-official.jpg"],
     "music": null,
     "weather": {
       "icon": "snow",
@@ -117,7 +117,7 @@
       "lng": 4.4181,
       "name": "Het Zuid, Antwerp"
     },
-    "photos": ["09-friends-brunch.svg"],
+    "photos": ["09-friends-brunch.jpg"],
     "music": null,
     "weather": {
       "icon": "cloud-sun",
@@ -144,7 +144,7 @@
       "lng": 4.7005,
       "name": "Leuven"
     },
-    "photos": ["10-valentines.svg"],
+    "photos": ["10-valentines.jpg"],
     "music": null,
     "weather": {
       "icon": "rain",

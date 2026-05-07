@@ -37,7 +37,7 @@
       "lng": 4.7016,
       "name": "Grote Markt, Leuven"
     },
-    "photos": ["02-leuven-xmas.svg"],
+    "photos": ["02-leuven-xmas.jpg"],
     "music": null,
     "weather": {
       "icon": "cloud",
@@ -64,7 +64,7 @@
       "lng": 4.4025,
       "name": "Antwerp"
     },
-    "photos": ["03-cooking.svg"],
+    "photos": ["03-cooking.jpg"],
     "music": null,
     "weather": {
       "icon": "rain",
@@ -90,7 +90,7 @@
       "lng": 4.3525,
       "name": "Grand Place, Brussels"
     },
-    "photos": ["04-nye-grand-place.svg"],
+    "photos": ["04-nye-grand-place.jpg"],
     "music": null,
     "weather": {
       "icon": "cloud",
