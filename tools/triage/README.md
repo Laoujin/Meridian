@@ -12,17 +12,22 @@ bun install
 ## Usage
 
 ```sh
-bun run triage <photo-folder>
+bun run triage
 ```
 
-Then open <http://localhost:5174>.
+Then open <http://localhost:5273>.
 
-`<photo-folder>` is any directory of `.jpg` / `.jpeg` / `.png` / `.mp4` / `.mov` files.
+On first run, you'll be prompted to:
+
+1. Pick an existing story (any subdir of `data/` containing `memories*.json` or `story.json`) **or** create a new one.
+2. Point at a photo folder — any directory of `.jpg` / `.jpeg` / `.png` / `.mp4` / `.mov` files.
+
+Both choices are saved to `tools/triage/triage.config.json` (gitignored). Subsequent runs skip the prompts. To switch story or photo folder, edit the config or delete it.
 
 ## What it does
 
-- Lists photo days from the source folder, matched against existing memories in any `data/memories*.json` (auto-detects consolidated `memories.json` or sharded `memories-YYYY.json` layout).
-- Drag a photo into a memory entry: the file is copied to `app/public/photos/full/`, EXIF is read, GPS is reverse-geocoded, weather is looked up. Empty entry fields auto-fill; user edits stick.
+- Lists photo days from the source folder, matched against existing memories in any `data/<slug>/memories*.json` (auto-detects consolidated `memories.json` or sharded `memories-YYYY.json` layout).
+- Drag a photo into a memory entry: the file is copied to `data/<slug>/photos/full/`, EXIF is read, GPS is reverse-geocoded, weather is looked up. Empty entry fields auto-fill; user edits stick.
 - Reorder photos within an entry by drag-and-drop.
 - Click 🔍 on an in-entry photo to view it full size.
 - Click "+ Emoji" to pick decorative emojis (rendered on the memory card).

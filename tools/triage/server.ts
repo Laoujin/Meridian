@@ -8,22 +8,28 @@ import { readExif } from './src/exif';
 import { createGeocoder } from './src/geocode';
 import { fetchWeather } from './src/weather';
 import type { Weather } from '@meridian/schema';
-
-const SOURCE = process.argv[2];
-if (!SOURCE || !existsSync(SOURCE)) {
-  console.error('Usage: bun run server.ts <photo-folder>\n');
-  console.error('  <photo-folder>: directory of JPEG/PNG/MP4/MOV files to triage.');
-  console.error('  Output: data/memories*.json (auto-detects consolidated vs per-year layout).');
-  console.error('  UI: http://localhost:5174');
-  process.exit(1);
-}
+import { listStories, loadConfig, saveConfig, scaffoldStory } from './src/config';
+import { resolveStartup } from './src/startup';
 
 const ROOT = join(import.meta.dir, '..', '..');
-const DATA_DIR = join(ROOT, 'data');
-const PHOTOS_DEST = join(ROOT, 'app', 'public', 'photos', 'full');
+const DATA_ROOT = join(ROOT, 'data');
+const CONFIG_PATH = join(import.meta.dir, 'triage.config.json');
+
+const { slug, photoFolder } = await resolveStartup({
+  configPath: CONFIG_PATH,
+  dataRoot: DATA_ROOT,
+  listStories: () => listStories(DATA_ROOT),
+  loadConfig: () => loadConfig(CONFIG_PATH),
+  saveConfig: (c) => saveConfig(CONFIG_PATH, c),
+  scaffoldStory: (s) => scaffoldStory(DATA_ROOT, s),
+});
+
+const SOURCE = photoFolder;
+const DATA_DIR = join(DATA_ROOT, slug);
+const PHOTOS_DEST = join(DATA_DIR, 'photos', 'full');
 const TRASH = join(SOURCE, '.trash');
 const HTML = join(import.meta.dir, 'public', 'index.html');
-const PORT = 5174;
+const PORT = 5273;
 const MEDIA_RX = /\.(jpe?g|png|mp4|mov)$/i;
 
 if (!existsSync(PHOTOS_DEST)) mkdirSync(PHOTOS_DEST, { recursive: true });
@@ -166,7 +172,8 @@ Bun.serve({
   },
 });
 
-console.log(`Triage UI: http://localhost:${PORT}`);
+console.log(`\nTriage UI: http://localhost:${PORT}`);
+console.log(`  story:  ${slug}  (data/${slug}/)`);
 console.log(`  source: ${SOURCE}`);
 console.log(`  trash:  ${TRASH}`);
-console.log(`  photos copied to: ${PHOTOS_DEST}`);
+console.log(`  photos: ${PHOTOS_DEST}`);
