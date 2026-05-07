@@ -10,6 +10,7 @@ import { fetchWeather } from './src/weather';
 import type { Weather } from '@meridian/schema';
 import { listStories, loadConfig, saveConfig, scaffoldStory } from './src/config';
 import { resolveStartup } from './src/startup';
+import { loadStory, saveStory, parseStory } from './src/story';
 
 const ROOT = join(import.meta.dir, '..', '..');
 const DATA_ROOT = join(ROOT, 'data');
@@ -107,6 +108,19 @@ Bun.serve({
       const others = entries.filter(m => m.date.slice(0, 4) !== year);
       await saveAll(DATA_DIR, [...others, ...memories], origin);
       return Response.json({ ok: true });
+    }
+
+    if (p === '/api/story' && req.method === 'GET') {
+      try { return Response.json(await loadStory(join(DATA_DIR, 'story.json'))); }
+      catch (e) { return Response.json({ error: String(e) }, { status: 500 }); }
+    }
+
+    if (p === '/api/story' && req.method === 'POST') {
+      try {
+        const story = parseStory(await req.json());
+        await saveStory(join(DATA_DIR, 'story.json'), story);
+        return Response.json({ ok: true });
+      } catch (e) { return Response.json({ error: String(e) }, { status: 400 }); }
     }
 
     if (p === '/api/copy' && req.method === 'POST') {

@@ -60,6 +60,27 @@
   .toast.error { background: #b22222; }
   .toast.success { background: #1a7f37; }
   .toast button { background: rgba(255,255,255,0.2); color: white; border: none; padding: 2px 8px; border-radius: 3px; cursor: pointer; font-size: 11px; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 150; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow: auto; }
+  .modal.open { display: flex; }
+  .modal-card { background: white; border-radius: 8px; width: 100%; max-width: 720px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); display: flex; flex-direction: column; max-height: calc(100vh - 80px); }
+  .modal-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #e1e1e1; }
+  .modal-head h2 { margin: 0; font-size: 16px; }
+  .modal-head button { background: transparent; border: none; cursor: pointer; font-size: 22px; line-height: 1; padding: 0 4px; color: #666; }
+  .modal-head button:hover { color: #000; }
+  .modal-body { padding: 14px 18px; overflow: auto; }
+  .modal-foot { display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-top: 1px solid #e1e1e1; background: #fafafa; border-radius: 0 0 8px 8px; }
+  .modal-foot .err { flex: 1; }
+  .modal-foot button { padding: 6px 14px; cursor: pointer; }
+  .modal-foot button[type=submit] { background: #1a3a7f; color: white; border-color: #1a3a7f; }
+  fieldset.story { border: 1px solid #d0d0d0; border-radius: 6px; padding: 10px 14px 12px; margin: 0 0 12px; }
+  fieldset.story legend { font-weight: 600; font-size: 12px; padding: 0 6px; color: #444; }
+  fieldset.story fieldset.story { background: #f7f7f7; margin-top: 8px; }
+  .field-row { display: grid; grid-template-columns: 140px 1fr; gap: 10px; align-items: center; margin: 6px 0; }
+  .field-row label { font-size: 12px; color: #444; }
+  .field-row input[type=text], .field-row input[type=number], .field-row select { width: 100%; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; font: inherit; }
+  .field-row.checkbox { grid-template-columns: auto 1fr; }
+  .field-row .req { color: #c00; }
+  .field-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 </style>
 <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
 </head>
@@ -67,6 +88,7 @@
 <header>
   <strong>Memories Triage</strong>
   <span id="year-buttons"></span>
+  <button id="story-btn">⚙ Story</button>
   <button id="save-btn">💾 Save</button>
   <span class="status clean" id="status">saved</span>
 </header>
@@ -93,6 +115,78 @@
   <emoji-picker></emoji-picker>
 </div>
 <div class="toasts" id="toasts"></div>
+<div class="modal" id="story-modal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2>Story Settings</h2>
+      <button type="button" id="story-close" title="Close">×</button>
+    </div>
+    <form id="story-form" class="modal-body">
+      <fieldset class="story">
+        <legend>App</legend>
+        <div class="field-row"><label>Title <span class="req">*</span></label><input type="text" name="app.title" required></div>
+        <div class="field-row"><label>Description</label><input type="text" name="app.description"></div>
+        <div class="field-row"><label>Favicon path</label><input type="text" name="app.faviconHref" placeholder="/favicons/watercolour.png"></div>
+        <div class="field-row"><label>Temperature unit</label>
+          <select name="app.temperatureUnit">
+            <option value="">(default)</option>
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset class="story">
+        <legend>Anchor (home location)</legend>
+        <div class="field-row"><label>Label <span class="req">*</span></label><input type="text" name="anchor.label" required></div>
+        <div class="field-row"><label>Latitude <span class="req">*</span></label><input type="number" step="any" name="anchor.lat" required></div>
+        <div class="field-row"><label>Longitude <span class="req">*</span></label><input type="number" step="any" name="anchor.lng" required></div>
+      </fieldset>
+      <fieldset class="story">
+        <legend>Opening</legend>
+        <div class="field-row"><label>Welcome title <span class="req">*</span></label><input type="text" name="opening.welcomeTitle" required></div>
+        <div class="field-row"><label>Welcome subtitle</label><input type="text" name="opening.welcomeSubtitle"></div>
+        <div class="field-row"><label>Hero image</label><input type="text" name="opening.heroImage" placeholder="/start1.jpg"></div>
+        <div class="field-row"><label>Anchor transport</label>
+          <select name="opening.anchorTransport">
+            <option value="">(none)</option>
+            <option>car</option><option>plane</option><option>train</option><option>metro</option>
+            <option>walking</option><option>boat</option><option>bike</option><option>bus</option>
+          </select>
+        </div>
+        <fieldset class="story">
+          <legend>Arc origin (optional — opening flies from here to memory 0)</legend>
+          <div class="field-row"><label>Label</label><input type="text" name="opening.arcOrigin.label"></div>
+          <div class="field-row"><label>Latitude</label><input type="number" step="any" name="opening.arcOrigin.lat"></div>
+          <div class="field-row"><label>Longitude</label><input type="number" step="any" name="opening.arcOrigin.lng"></div>
+        </fieldset>
+        <fieldset class="story">
+          <legend>Card (optional)</legend>
+          <div class="field-row"><label>Icon</label><input type="text" name="opening.card.icon" placeholder="✨"></div>
+          <div class="field-row"><label>Date</label><input type="text" name="opening.card.date" placeholder="December 2025"></div>
+          <div class="field-row"><label>Text</label><input type="text" name="opening.card.text"></div>
+          <div class="field-row"><label>Animate</label>
+            <select name="opening.card.animate">
+              <option value="">(none)</option>
+              <option>heartbeat</option><option>bounce</option><option>pulse</option>
+            </select>
+          </div>
+        </fieldset>
+      </fieldset>
+      <fieldset class="story">
+        <legend>Closing</legend>
+        <div class="field-row checkbox"><input type="checkbox" name="closing.giftReveal" id="closing-giftReveal"><label for="closing-giftReveal">Show gift reveal at the end</label></div>
+        <div class="field-row"><label>Reveal button text</label><input type="text" name="closing.giftRevealButton" placeholder="and then... ✨"></div>
+        <div class="field-row"><label>Reveal icon</label><input type="text" name="closing.giftRevealIcon"></div>
+        <div class="field-row"><label>Reveal text</label><input type="text" name="closing.giftRevealText"></div>
+      </fieldset>
+    </form>
+    <div class="modal-foot">
+      <span class="err" id="story-err"></span>
+      <button type="button" id="story-cancel">Cancel</button>
+      <button type="button" id="story-save">Save</button>
+    </div>
+  </div>
+</div>
 <script>
 const $ = (id) => document.getElementById(id);
 
@@ -718,9 +812,103 @@ window.addEventListener('beforeunload', (e) => {
 });
 window.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveAll(); }
-  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'Escape') { closeLightbox(); closeStoryModal(); }
 });
 $('lightbox').addEventListener('click', closeLightbox);
+
+// ---- Story Settings modal ----
+const storyModal = $('story-modal');
+const storyForm = $('story-form');
+
+function openStoryModal() {
+  $('story-err').textContent = '';
+  fetch('/api/story').then(r => r.json()).then((data) => {
+    if (data && !data.error) populateStoryForm(data);
+    storyModal.classList.add('open');
+  }).catch((e) => toast('error', `Load story failed: ${e}`));
+}
+
+function closeStoryModal() {
+  storyModal.classList.remove('open');
+}
+
+function populateStoryForm(s) {
+  storyForm.reset();
+  for (const el of storyForm.querySelectorAll('input, select')) {
+    const v = readPath(s, el.name);
+    if (el.type === 'checkbox') el.checked = !!v;
+    else el.value = v == null ? '' : String(v);
+  }
+}
+
+function readPath(obj, dotted) {
+  return dotted.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
+}
+
+function setPath(obj, dotted, value) {
+  const keys = dotted.split('.');
+  let cur = obj;
+  for (let i = 0; i < keys.length - 1; i++) {
+    cur[keys[i]] = cur[keys[i]] || {};
+    cur = cur[keys[i]];
+  }
+  cur[keys[keys.length - 1]] = value;
+}
+
+function storyFormToObject() {
+  const out = {};
+  for (const el of storyForm.querySelectorAll('input, select')) {
+    if (el.type === 'checkbox') {
+      setPath(out, el.name, el.checked);
+    } else if (el.type === 'number') {
+      const t = el.value.trim();
+      if (t === '') continue;
+      const n = Number(t);
+      if (Number.isFinite(n)) setPath(out, el.name, n);
+    } else {
+      const v = el.value.trim();
+      if (v === '') continue;
+      setPath(out, el.name, v);
+    }
+  }
+  // arcOrigin and card are all-or-nothing groups: drop if incomplete/empty.
+  if (out.opening) {
+    if (out.opening.arcOrigin) {
+      const ao = out.opening.arcOrigin;
+      if (typeof ao.lat !== 'number' || typeof ao.lng !== 'number' || !ao.label) delete out.opening.arcOrigin;
+    }
+    if (out.opening.card && Object.keys(out.opening.card).length === 0) delete out.opening.card;
+  }
+  return out;
+}
+
+async function saveStoryForm() {
+  $('story-err').textContent = '';
+  const story = storyFormToObject();
+  try {
+    const r = await fetch('/api/story', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(story),
+    });
+    if (!r.ok) {
+      const data = await r.json().catch(() => ({}));
+      $('story-err').textContent = data.error || `HTTP ${r.status}`;
+      return;
+    }
+    closeStoryModal();
+    toast('success', 'Story saved');
+  } catch (e) {
+    $('story-err').textContent = String(e);
+  }
+}
+
+$('story-btn').addEventListener('click', openStoryModal);
+$('story-close').addEventListener('click', closeStoryModal);
+$('story-cancel').addEventListener('click', closeStoryModal);
+$('story-save').addEventListener('click', saveStoryForm);
+storyForm.addEventListener('submit', (e) => { e.preventDefault(); saveStoryForm(); });
+storyModal.addEventListener('click', (e) => { if (e.target === storyModal) closeStoryModal(); });
 
 loadState();
 </script>
