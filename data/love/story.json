@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Us",
+    "description": "How we met",
+    "faviconHref": "/favicons/rings.svg",
+    "temperatureUnit": "celsius"
+  },
+  "anchor": {
+    "lat": 51.2194,
+    "lng": 4.4025,
+    "label": "Antwerp"
+  },
+  "opening": {
+    "arcOrigin": { "lat": 50.8798, "lng": 4.7005, "label": "Leuven" },
+    "welcomeTitle": "Us",
+    "welcomeSubtitle": "Two lives, two cities, one swipe.",
+    "heroImage": "/start1.jpg",
+    "card": {
+      "icon": "💘",
+      "date": "December 2025 — January 2026",
+      "text": "How we found each other",
+      "animate": "heartbeat"
+    }
+  },
+  "closing": {
+    "giftReveal": true,
+    "giftRevealButton": "and then... ✨",
+    "giftRevealIcon": "💞",
+    "giftRevealText": "To be continued"
+  }
+}

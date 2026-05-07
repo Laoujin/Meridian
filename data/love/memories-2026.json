@@ -1,0 +1,163 @@
+[
+  {
+    "id": "love-2026-01-10-ice-skating",
+    "date": "2026-01-10",
+    "type": "date",
+    "title": "Ice skating, Steenplein",
+    "caption": "I can't skate. She can. She held both my hands and skated backwards while I tried not to take her down with me.",
+    "location": {
+      "lat": 51.2213,
+      "lng": 4.3997,
+      "name": "Steenplein, Antwerp"
+    },
+    "photos": ["05-ice-skating.svg"],
+    "music": null,
+    "weather": {
+      "icon": "snow",
+      "tempC": -1
+    },
+    "videos": [],
+    "tags": [
+      "skating",
+      "antwerp"
+    ],
+    "emojis": [
+      "⛸️"
+    ],
+    "transport": "train"
+  },
+  {
+    "id": "love-2026-01-18-forest-walk",
+    "date": "2026-01-18",
+    "type": "date",
+    "title": "Sonian Forest",
+    "caption": "Beech trees, frost on the path, no one else around. Talked about everything and nothing for four hours.",
+    "location": {
+      "lat": 50.7670,
+      "lng": 4.4150,
+      "name": "Zoniënwoud / Forêt de Soignes"
+    },
+    "photos": ["06-sonian-forest.svg"],
+    "music": null,
+    "weather": {
+      "icon": "fog",
+      "tempC": 2
+    },
+    "videos": [],
+    "tags": [
+      "walk",
+      "forest"
+    ],
+    "emojis": [
+      "🌲"
+    ],
+    "transport": "train"
+  },
+  {
+    "id": "love-2026-01-25-bruges",
+    "date": "2026-01-25",
+    "type": "date",
+    "title": "A weekend in Bruges",
+    "caption": "Tiny canal-side hotel. Belfry, frites, the Groeningemuseum, a chocolatier who let her taste-test six pralines for free. First trip together.",
+    "location": {
+      "lat": 51.2089,
+      "lng": 3.2247,
+      "name": "Markt, Bruges"
+    },
+    "photos": ["07-bruges.svg"],
+    "music": null,
+    "weather": {
+      "icon": "cloud-sun",
+      "tempC": 4
+    },
+    "videos": [],
+    "tags": [
+      "weekend-trip",
+      "bruges"
+    ],
+    "emojis": [
+      "🏰"
+    ],
+    "transport": "train"
+  },
+  {
+    "id": "love-2026-01-31-official",
+    "date": "2026-01-31",
+    "type": "milestone",
+    "title": "Made it official",
+    "caption": "Both of us deleted the app. Sat on her sofa with the cat (who finally came out). \"So… us?\" \"Us.\"",
+    "location": {
+      "lat": 51.2194,
+      "lng": 4.4025,
+      "name": "Antwerp"
+    },
+    "photos": ["08-official.svg"],
+    "music": null,
+    "weather": {
+      "icon": "snow",
+      "tempC": 0
+    },
+    "videos": [],
+    "tags": [
+      "milestone",
+      "us"
+    ],
+    "emojis": [
+      "💞"
+    ]
+  },
+  {
+    "id": "love-2026-02-08-friends-brunch",
+    "date": "2026-02-08",
+    "type": "date",
+    "title": "Brunch with her friends",
+    "caption": "Sunday brunch at Native, three of her oldest friends sizing me up between bites of avocado toast. They liked me. She told me later, in the tram.",
+    "location": {
+      "lat": 51.2174,
+      "lng": 4.4181,
+      "name": "Het Zuid, Antwerp"
+    },
+    "photos": ["09-friends-brunch.svg"],
+    "music": null,
+    "weather": {
+      "icon": "cloud-sun",
+      "tempC": 6
+    },
+    "videos": [],
+    "tags": [
+      "friends",
+      "brunch"
+    ],
+    "emojis": [
+      "🥑"
+    ],
+    "transport": "train"
+  },
+  {
+    "id": "love-2026-02-14-valentines",
+    "date": "2026-02-14",
+    "type": "date",
+    "title": "Valentine's, his turn to cook",
+    "caption": "Mussels, white wine, candles he'd forgotten to buy until 5pm. The bakery downstairs slipped a heart-shaped pastry under his door.",
+    "location": {
+      "lat": 50.8798,
+      "lng": 4.7005,
+      "name": "Leuven"
+    },
+    "photos": ["10-valentines.svg"],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 8
+    },
+    "videos": [],
+    "tags": [
+      "valentines",
+      "home-cooked"
+    ],
+    "emojis": [
+      "🌹"
+    ],
+    "transport": "train"
+  }
+]

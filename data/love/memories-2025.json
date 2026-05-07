@@ -1,0 +1,109 @@
+[
+  {
+    "id": "love-2025-12-13-first-date",
+    "date": "2025-12-13",
+    "type": "date",
+    "title": "First date — Vrijdagmarkt",
+    "caption": "Coffee that turned into wine that turned into a long walk past the antique shops. He kept eyeing his last train back to Leuven, then missing it.",
+    "location": {
+      "lat": 51.2196,
+      "lng": 4.3990,
+      "name": "Vrijdagmarkt, Antwerp"
+    },
+    "photos": ["01-first-date-antwerp.svg"],
+    "music": null,
+    "weather": {
+      "icon": "drizzle",
+      "tempC": 7
+    },
+    "videos": [],
+    "tags": [
+      "first-date",
+      "antwerp"
+    ],
+    "emojis": [
+      "☕"
+    ],
+    "transport": "train"
+  },
+  {
+    "id": "love-2025-12-20-xmas-market",
+    "date": "2025-12-20",
+    "type": "date",
+    "title": "Wintertijd in Leuven",
+    "caption": "Glühwein and frozen fingers. She tried to win me a stuffed bear at the shooting stall. Missed every shot, kept the bear anyway.",
+    "location": {
+      "lat": 50.8794,
+      "lng": 4.7016,
+      "name": "Grote Markt, Leuven"
+    },
+    "photos": ["02-leuven-xmas.svg"],
+    "music": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 3
+    },
+    "videos": [],
+    "tags": [
+      "christmas-market",
+      "leuven"
+    ],
+    "emojis": [
+      "🎄"
+    ],
+    "transport": "train"
+  },
+  {
+    "id": "love-2025-12-27-cooking",
+    "date": "2025-12-27",
+    "type": "date",
+    "title": "Cooking at hers",
+    "caption": "First time at her place. Pasta, too much garlic, the cat refused to come out from under the sofa. Stayed til the morning train.",
+    "location": {
+      "lat": 51.2194,
+      "lng": 4.4025,
+      "name": "Antwerp"
+    },
+    "photos": ["03-cooking.svg"],
+    "music": null,
+    "weather": {
+      "icon": "rain",
+      "tempC": 5
+    },
+    "videos": [],
+    "tags": [
+      "home-cooked"
+    ],
+    "emojis": [
+      "🍝"
+    ],
+    "transport": "train"
+  },
+  {
+    "id": "love-2025-12-31-nye",
+    "date": "2025-12-31",
+    "type": "date",
+    "title": "New Year's Eve",
+    "caption": "Fireworks over the Grand Place. Counted down in French because we couldn't agree on Dutch or English.",
+    "location": {
+      "lat": 50.8467,
+      "lng": 4.3525,
+      "name": "Grand Place, Brussels"
+    },
+    "photos": ["04-nye-grand-place.svg"],
+    "music": null,
+    "weather": {
+      "icon": "cloud",
+      "tempC": 2
+    },
+    "videos": [],
+    "tags": [
+      "nye",
+      "brussels"
+    ],
+    "emojis": [
+      "🥂"
+    ],
+    "transport": "train"
+  }
+]
