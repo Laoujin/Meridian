@@ -13,7 +13,7 @@ import { resolveStartup } from './src/startup';
 import { loadStory, saveStory, parseStory } from './src/story';
 import { listFavicons } from './src/favicons';
 
-const ROOT = join(import.meta.dir, '..', '..');
+const ROOT = join(import.meta.dir, '..');
 const DATA_ROOT = join(ROOT, 'data');
 const CONFIG_PATH = join(import.meta.dir, 'triage.config.json');
 
@@ -23,7 +23,7 @@ const { slug, photoFolder } = await resolveStartup({
   listStories: () => listStories(DATA_ROOT),
   loadConfig: () => loadConfig(CONFIG_PATH),
   saveConfig: (c) => saveConfig(CONFIG_PATH, c),
-  scaffoldStory: (s) => scaffoldStory(DATA_ROOT, s),
+  scaffoldStory: (s) => scaffoldStory(DATA_ROOT, s, join(ROOT, 'app', '.env')),
 });
 
 const SOURCE = photoFolder;

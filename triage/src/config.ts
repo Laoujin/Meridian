@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { setEnvVar } from './env';
 
 export interface TriageConfig {
   slug: string;
@@ -33,13 +34,17 @@ export function saveConfig(path: string, config: TriageConfig): void {
   writeFileSync(path, JSON.stringify(config, null, 2) + '\n');
 }
 
-export function scaffoldStory(dataRoot: string, slug: string): void {
+export function scaffoldStory(dataRoot: string, slug: string, appEnvPath?: string): void {
   if (!SLUG_RX.test(slug)) throw new Error(`Invalid slug: ${slug}`);
   const dir = join(dataRoot, slug);
   if (existsSync(dir)) throw new Error(`Story already exists: ${slug}`);
   mkdirSync(dir, { recursive: true });
+  for (const sub of ['photos/full', 'photos/thumb', 'music', 'videos']) {
+    mkdirSync(join(dir, sub), { recursive: true });
+  }
   writeFileSync(join(dir, 'memories.json'), '[]\n');
   writeFileSync(join(dir, 'story.json'), JSON.stringify(storyTemplate(slug), null, 2) + '\n');
+  if (appEnvPath) setEnvVar(appEnvPath, 'MERIDIAN_DATA', `data/${slug}`);
 }
 
 function titleize(slug: string): string {
@@ -60,6 +65,11 @@ function storyTemplate(slug: string) {
       heroImage: '/start1.jpg',
       card: { icon: '✨', date: '', text: titleize(slug), animate: 'pulse' },
     },
-    closing: { giftReveal: false },
+    closing: {
+      giftReveal: false,
+      giftRevealButton: 'and then... ✨',
+      giftRevealIcon: '🎁',
+      giftRevealText: 'A Present!?',
+    },
   };
 }

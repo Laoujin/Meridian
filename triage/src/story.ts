@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import type { Story, StoryPlace } from '../../app/src/types/story';
-import type { TransportMode } from '../../app/src/types/memory';
+import type { TransportMode } from '@meridian/schema';
 
 const TRANSPORT_MODES = ['car', 'plane', 'train', 'metro', 'walking', 'boat', 'bike', 'bus'] as const;
 const ANIMATE_MODES = ['heartbeat', 'bounce', 'pulse'] as const;

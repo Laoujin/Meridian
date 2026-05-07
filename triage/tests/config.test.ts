@@ -62,6 +62,31 @@ describe('scaffoldStory', () => {
     const story = JSON.parse(readFileSync(join(dir, 'our-story', 'story.json'), 'utf-8'));
     expect(story.app?.title).toBe('Our Story');
     expect(typeof story.anchor?.lat).toBe('number');
+    expect(story.closing).toMatchObject({
+      giftReveal: false,
+      giftRevealButton: expect.any(String),
+      giftRevealIcon: expect.any(String),
+      giftRevealText: expect.any(String),
+    });
+  });
+
+  it('creates empty photos/full, photos/thumb, music, and videos folders', () => {
+    scaffoldStory(dir, 'our-story');
+    for (const sub of ['photos/full', 'photos/thumb', 'music', 'videos']) {
+      expect(existsSync(join(dir, 'our-story', sub))).toBe(true);
+    }
+  });
+
+  it('writes MERIDIAN_DATA into app/.env when path provided', () => {
+    const envPath = join(dir, 'app.env');
+    scaffoldStory(dir, 'our-story', envPath);
+    expect(readFileSync(envPath, 'utf-8')).toBe('MERIDIAN_DATA=data/our-story\n');
+  });
+
+  it('skips env write when path not provided', () => {
+    scaffoldStory(dir, 'our-story');
+    // dir contains only the scaffolded story dir
+    expect(existsSync(join(dir, 'app.env'))).toBe(false);
   });
 
   it('refuses to overwrite an existing story dir', () => {

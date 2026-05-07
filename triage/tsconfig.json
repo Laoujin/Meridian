@@ -11,7 +11,7 @@
     "lib": ["ESNext"],
     "baseUrl": ".",
     "paths": {
-      "@meridian/schema": ["../../app/src/types/memory.ts"]
+      "@meridian/schema": ["../app/src/types/memory.ts"]
     }
   },
   "include": ["src", "tests", "server.ts"]
