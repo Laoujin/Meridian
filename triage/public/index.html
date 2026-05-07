@@ -696,8 +696,14 @@ function autoApplyJson() {
 
 function addNewEntry() {
   const date = state.selectedDate;
-  if (!state.memories[state.year]) { alert(`Year ${state.year} not loaded`); return; }
-  const list = state.memories[state.year];
+  if (!date) { alert('Pick a day first'); return; }
+  const year = date.slice(0, 4);
+  if (!state.memories[year]) {
+    state.memories[year] = [];
+    if (!state.years.includes(year)) state.years = [...state.years, year].sort();
+    state.year = year;
+  }
+  const list = state.memories[year];
   const newEntry = {
     id: date,
     date,
@@ -966,7 +972,7 @@ function wireGeocodeLookup(buttonId, lookupId, fieldPrefix) {
       });
       const data = await r.json();
       if (!r.ok) { toast('error', data.error || `lookup failed (${r.status})`); return; }
-      storyForm.querySelector(`input[name="${fieldPrefix}.label"]`).value = data.name || address;
+      storyForm.querySelector(`input[name="${fieldPrefix}.label"]`).value = data.city || data.name || address;
       storyForm.querySelector(`input[name="${fieldPrefix}.lat"]`).value = data.lat;
       storyForm.querySelector(`input[name="${fieldPrefix}.lng"]`).value = data.lng;
     } catch (e) {

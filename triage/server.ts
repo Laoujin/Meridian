@@ -76,8 +76,8 @@ async function handleCopy(name: string): Promise<CopyResponse> {
   };
   if (exif.gps) {
     try {
-      const name = await geocoder.reverse(exif.gps.lat, exif.gps.lng);
-      if (name) out.geocoded = { name };
+      const hit = await geocoder.reverse(exif.gps.lat, exif.gps.lng);
+      if (hit) out.geocoded = { name: hit.name };
     } catch (e) { out.errors.geocode = String(e); }
     if (exif.date) {
       try {
@@ -150,13 +150,13 @@ Bun.serve({
         if (body.address) {
           const hit = await geocoder.forward(body.address);
           if (!hit) return Response.json({ error: 'no result' }, { status: 404 });
-          const name = await geocoder.reverse(hit.lat, hit.lng);
-          return Response.json({ lat: hit.lat, lng: hit.lng, name: name ?? body.address });
+          const rh = await geocoder.reverse(hit.lat, hit.lng);
+          return Response.json({ lat: hit.lat, lng: hit.lng, name: rh?.name ?? body.address, city: rh?.city ?? null });
         }
         if (typeof body.lat === 'number' && typeof body.lng === 'number') {
-          const name = await geocoder.reverse(body.lat, body.lng);
-          if (!name) return Response.json({ error: 'no result' }, { status: 404 });
-          return Response.json({ name });
+          const rh = await geocoder.reverse(body.lat, body.lng);
+          if (!rh) return Response.json({ error: 'no result' }, { status: 404 });
+          return Response.json({ name: rh.name, city: rh.city });
         }
         return new Response('bad body', { status: 400 });
       } catch (e) { return Response.json({ error: String(e) }, { status: 500 }); }

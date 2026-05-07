@@ -60,10 +60,10 @@ function storyTemplate(slug: string) {
     },
     anchor: { lat: 0, lng: 0, label: 'Set me' },
     opening: {
-      welcomeTitle: 'We met on Tinder',
+      welcomeTitle: 'Our Story',
       welcomeSubtitle: 'The story of how we met',
       heroImage: '/start1.jpg',
-      card: { icon: '✨', date: '', text: titleize(slug), animate: 'pulse' },
+      card: { icon: '✨', date: 'We met on Tinder', text: titleize(slug), animate: 'pulse' },
     },
     closing: {
       giftReveal: false,

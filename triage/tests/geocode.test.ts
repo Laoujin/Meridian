@@ -36,10 +36,31 @@ describe('forward', () => {
 });
 
 describe('reverse', () => {
-  it('returns display_name', async () => {
-    const f = ((_u: string) => ok({ display_name: 'Brussels, Belgium' })) as unknown as typeof fetch;
+  it('returns name and city from address details', async () => {
+    const f = ((_u: string) => ok({
+      display_name: 'Brussels, Belgium',
+      address: { city: 'Brussels', country: 'Belgium' },
+    })) as unknown as typeof fetch;
     const g = createGeocoder({ fetch: f, throttleMs: 0 });
-    expect(await g.reverse(50.85, 4.35)).toBe('Brussels, Belgium');
+    expect(await g.reverse(50.85, 4.35)).toEqual({ name: 'Brussels, Belgium', city: 'Brussels' });
+  });
+
+  it('falls back to town when city is missing', async () => {
+    const f = ((_u: string) => ok({
+      display_name: 'Bruges, Belgium',
+      address: { town: 'Bruges' },
+    })) as unknown as typeof fetch;
+    const g = createGeocoder({ fetch: f, throttleMs: 0 });
+    expect((await g.reverse(0, 0))?.city).toBe('Bruges');
+  });
+
+  it('returns null city when no locality keys present', async () => {
+    const f = ((_u: string) => ok({
+      display_name: 'Somewhere',
+      address: { country: 'Belgium' },
+    })) as unknown as typeof fetch;
+    const g = createGeocoder({ fetch: f, throttleMs: 0 });
+    expect(await g.reverse(0, 0)).toEqual({ name: 'Somewhere', city: null });
   });
 
   it('returns null when no display_name', async () => {

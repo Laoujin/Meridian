@@ -6,16 +6,23 @@ interface Deps {
 const UA = 'meridian-triage/0.1 (https://github.com/Laoujin/meridian)';
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
+export interface ReverseHit {
+  name: string;
+  city: string | null;
+}
+
 export interface Geocoder {
   forward(addr: string): Promise<{ lat: number; lng: number } | null>;
-  reverse(lat: number, lng: number): Promise<string | null>;
+  reverse(lat: number, lng: number): Promise<ReverseHit | null>;
 }
+
+const CITY_KEYS = ['city', 'town', 'village', 'municipality', 'borough', 'suburb', 'county'] as const;
 
 export function createGeocoder(deps: Deps = {}): Geocoder {
   const f = deps.fetch ?? fetch;
   const throttleMs = deps.throttleMs ?? 1100;
   const fwd = new Map<string, { lat: number; lng: number } | null>();
-  const rev = new Map<string, string | null>();
+  const rev = new Map<string, ReverseHit | null>();
 
   return {
     async forward(addr) {
@@ -37,14 +44,17 @@ export function createGeocoder(deps: Deps = {}): Geocoder {
     async reverse(lat, lng) {
       const key = `${lat},${lng}`;
       if (rev.has(key)) return rev.get(key)!;
-      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&addressdetails=1&lat=${lat}&lon=${lng}`;
       try {
         const res = await f(url, { headers: { 'User-Agent': UA } });
         if (!res.ok) { rev.set(key, null); return null; }
-        const data = await res.json() as { display_name?: string };
-        const name = data.display_name ?? null;
-        rev.set(key, name);
-        return name;
+        const data = await res.json() as { display_name?: string; address?: Record<string, string> };
+        if (!data.display_name) { rev.set(key, null); return null; }
+        const addr = data.address ?? {};
+        const city = CITY_KEYS.map(k => addr[k]).find(Boolean) ?? null;
+        const hit: ReverseHit = { name: data.display_name, city };
+        rev.set(key, hit);
+        return hit;
       } finally {
         if (throttleMs) await sleep(throttleMs);
       }
