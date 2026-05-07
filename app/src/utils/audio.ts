@@ -1,3 +1,5 @@
+import { asset } from './asset';
+
 // Single shared <audio> element. iOS only fully unlocks the *element* that
 // played during a user gesture, so we reuse one element for the whole session.
 const audio = new Audio();
@@ -5,12 +7,14 @@ audio.preload = 'auto';
 
 const preloadedTracks = new Set<string>();
 
+const trackUrl = (track: string) => asset(`/music/${track}`);
+
 export function preloadTracks(tracks: string[]): void {
   for (const t of tracks) {
     if (preloadedTracks.has(t)) continue;
     preloadedTracks.add(t);
     // Warm the HTTP cache; subsequent <audio src> hits will be instant.
-    fetch(`/music/${t}`).catch(() => { /* file may be missing */ });
+    fetch(trackUrl(t)).catch(() => { /* file may be missing */ });
   }
 }
 
@@ -20,9 +24,9 @@ export function getAudio(): HTMLAudioElement {
 
 // Call from inside a user gesture (the welcome button click) to satisfy
 // browser autoplay policies. Plays muted, then immediately pauses.
-export function unlockAudio(primingSrc: string): void {
+export function unlockAudio(track: string): void {
   audio.muted = true;
-  audio.src = primingSrc;
+  audio.src = trackUrl(track);
   audio.play()
     .catch(() => { /* unlock will be retried on next play attempt */ })
     .finally(() => {
@@ -33,7 +37,7 @@ export function unlockAudio(primingSrc: string): void {
 }
 
 export function playTrack(track: string): void {
-  const src = `/music/${track}`;
+  const src = trackUrl(track);
   if (!audio.src.endsWith(src)) {
     audio.src = src;
   }

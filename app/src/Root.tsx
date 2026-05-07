@@ -18,7 +18,7 @@ export default function Root() {
   useEffect(() => { preloadTracks(tracks); }, [tracks]);
 
   const handleStart = () => {
-    if (tracks.length > 0) unlockAudio(`/music/${tracks[0]}`);
+    if (tracks.length > 0) unlockAudio(tracks[0]);
     setStarted(true);
   };
 
