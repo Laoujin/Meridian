@@ -121,6 +121,12 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
             autoPlay
             playsInline
             onClick={(e) => e.stopPropagation()}
+            onError={(e) => {
+              const target = e.target as HTMLVideoElement;
+              if (!target.src.includes('/photos/full/')) {
+                target.src = asset(`/photos/full/${item.filename}`);
+              }
+            }}
           />
         )}
       </div>

@@ -101,6 +101,12 @@ Bun.serve({
 
     if (p === '/' || p === '/index.html') return new Response(Bun.file(HTML));
 
+    if (p === '/favicon.svg' || p === '/favicon.ico') {
+      const path = join(ROOT, 'app', 'public', 'favicons', 'path.svg');
+      if (!existsSync(path)) return new Response('not found', { status: 404 });
+      return new Response(Bun.file(path));
+    }
+
     if (p === '/api/state') {
       const { memories, years } = await loadAllMemories();
       return Response.json({ memories, years, files: listSourceFiles() });
@@ -190,8 +196,10 @@ Bun.serve({
     if (p === '/photo') {
       const name = url.searchParams.get('name') || '';
       if (!safeName(name)) return new Response('bad', { status: 400 });
-      const dir = VIDEO_RX.test(name) ? VIDEOS_DEST : PHOTOS_DEST;
-      const path = join(dir, name);
+      const primary = VIDEO_RX.test(name) ? VIDEOS_DEST : PHOTOS_DEST;
+      const fallback = VIDEO_RX.test(name) ? PHOTOS_DEST : VIDEOS_DEST;
+      let path = join(primary, name);
+      if (!existsSync(path)) path = join(fallback, name);
       if (!existsSync(path)) return new Response('not found', { status: 404 });
       return new Response(Bun.file(path));
     }

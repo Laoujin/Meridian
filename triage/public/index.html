@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>Memories Triage</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; height: 100%; }
@@ -957,7 +958,7 @@ function toast(msg, kind = 'info', retry = null) {
 function openLightbox(name, isVideo) {
   const lb = $('lightbox');
   lb.innerHTML = isVideo
-    ? `<video src="/photo?name=${encodeURIComponent(name)}" controls autoplay></video>`
+    ? `<video src="/photo?name=${encodeURIComponent(name)}" controls autoplay muted playsinline></video>`
     : `<img src="/photo?name=${encodeURIComponent(name)}">`;
   lb.classList.add('open');
 }
@@ -1031,7 +1032,9 @@ window.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveAll(); }
   if (e.key === 'Escape') { closeLightbox(); closeStoryModal(); }
 });
-$('lightbox').addEventListener('click', closeLightbox);
+$('lightbox').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
 
 // ---- Story Settings modal ----
 const storyModal = $('story-modal');
