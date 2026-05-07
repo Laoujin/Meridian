@@ -59,13 +59,13 @@
       </li>
       <li>
         <div class="step__num">2</div>
-        <h3>Run <code>meridian-triage</code></h3>
-        <p>The CLI extracts metadata, geocodes locations, and looks up historical weather. Outputs a <code>Memory[]</code> JSON.</p>
+        <h3>Run <code>bun run triage</code></h3>
+        <p>A small local web app that extracts EXIF, geocodes locations, looks up historical weather, and writes a <code>Memory[]</code> JSON. Edit captions and pick covers in the same UI.</p>
       </li>
       <li>
         <div class="step__num">3</div>
-        <h3>Host</h3>
-        <p>Point the app at the JSON, run <code>bun run dev</code>, and ship to any static host.</p>
+        <h3>Run <code>bun run dev</code></h3>
+        <p>The app reads your dataset and renders the scroll-driven timeline. Ship the build to any static host.</p>
       </li>
     </ol>
   </section>
@@ -92,9 +92,13 @@
   <section id="install" class="section section--install">
     <h2>Install</h2>
     <pre><code>git clone https://github.com/Laoujin/Meridian
-cd meridian/app
-bun install
-bun run dev</code></pre>
+cd meridian
+
+# 1. Ingest your photos → writes data/&lt;your-story&gt;/
+cd triage &amp;&amp; bun install &amp;&amp; bun run triage
+
+# 2. View the timeline
+cd ../app &amp;&amp; bun install &amp;&amp; bun run dev</code></pre>
     <p class="muted">Requires <a href="https://bun.sh" target="_blank" rel="noopener">bun</a>.</p>
   </section>
 

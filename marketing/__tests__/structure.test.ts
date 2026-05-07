@@ -38,7 +38,7 @@ describe("marketing/index.html structure", () => {
 
   test("contains a 3-step 'how it works' section", () => {
     expect(html).toMatch(/<section[^>]*id="how"/i);
-    expect(html).toMatch(/meridian-triage/);
+    expect(html).toMatch(/bun\s+run\s+triage/);
   });
 
   test("contains a live-demo section with both NY-Trip and Love-Story links", () => {
@@ -49,9 +49,11 @@ describe("marketing/index.html structure", () => {
     expect(html).toMatch(/Love Story/i);
   });
 
-  test("contains an install snippet with bun install + bun run dev", () => {
+  test("contains an install snippet with triage + dev workflow", () => {
     expect(html).toMatch(/<section[^>]*id="install"/i);
+    expect(html).toMatch(/git\s+clone/);
     expect(html).toMatch(/bun\s+install/);
+    expect(html).toMatch(/bun\s+run\s+triage/);
     expect(html).toMatch(/bun\s+run\s+dev/);
   });
 
