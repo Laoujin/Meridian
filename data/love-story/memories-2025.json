@@ -3,14 +3,14 @@
     "id": "love-2025-12-13-first-date",
     "date": "2025-12-13",
     "type": "date",
-    "title": "First date — Vrijdagmarkt",
+    "title": "First date — Sablon",
     "caption": "Coffee that turned into wine that turned into a long walk past the antique shops. He kept eyeing his last train back to Leuven, then missing it.",
     "location": {
-      "lat": 51.2196,
-      "lng": 4.3990,
-      "name": "Vrijdagmarkt, Antwerp"
+      "lat": 50.8419,
+      "lng": 4.3553,
+      "name": "Place du Grand Sablon, Brussels"
     },
-    "photos": ["01-first-date-antwerp.svg"],
+    "photos": ["01-first-date-1.jpg", "01-first-date-2.jpg", "01-first-date-3.jpg", "01-first-date-4.jpg"],
     "music": null,
     "weather": {
       "icon": "drizzle",
@@ -19,7 +19,7 @@
     "videos": [],
     "tags": [
       "first-date",
-      "antwerp"
+      "brussels"
     ],
     "emojis": [
       "☕"

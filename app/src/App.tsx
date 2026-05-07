@@ -358,7 +358,9 @@ export default function App() {
           destination={memoryLngLat(memories, 0)}
           progress={isOpeningTransition ? progress : 1}
           visible
-          transport={memories[0]?.transport ?? 'car'}
+          originTransport={memories[0]?.transport ?? 'car'}
+          anchorTransport={story.opening.anchorTransport}
+          showMarkers={isOpeningTransition}
         />
       )}
 
