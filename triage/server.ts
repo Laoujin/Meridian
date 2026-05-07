@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, readdirSync, renameSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { loadAll, saveAll } from './src/memories';
 import type { Memory } from '@meridian/schema';
-import { copyToPhotosFull } from './src/photo-copy';
+import { copyMedia } from './src/photo-copy';
 import { readExif } from './src/exif';
 import { createGeocoder } from './src/geocode';
 import { fetchWeather } from './src/weather';
@@ -30,12 +30,15 @@ const { slug, photoFolder } = await resolveStartup({
 const SOURCE = photoFolder;
 const DATA_DIR = join(DATA_ROOT, slug);
 const PHOTOS_DEST = join(DATA_DIR, 'photos', 'full');
+const VIDEOS_DEST = join(DATA_DIR, 'videos');
 const TRASH = join(SOURCE, '.trash');
 const HTML = join(import.meta.dir, 'public', 'index.html');
 const PORT = 5273;
 const MEDIA_RX = /\.(jpe?g|png|mp4|mov)$/i;
+const VIDEO_RX = /\.(mp4|mov)$/i;
 
 if (!existsSync(PHOTOS_DEST)) mkdirSync(PHOTOS_DEST, { recursive: true });
+if (!existsSync(VIDEOS_DEST)) mkdirSync(VIDEOS_DEST, { recursive: true });
 if (!existsSync(TRASH)) mkdirSync(TRASH, { recursive: true });
 
 const geocoder = createGeocoder();
@@ -68,7 +71,7 @@ interface CopyResponse {
 }
 
 async function handleCopy(name: string): Promise<CopyResponse> {
-  await copyToPhotosFull(SOURCE, name, PHOTOS_DEST);
+  await copyMedia(SOURCE, name, PHOTOS_DEST, VIDEOS_DEST);
   const exif = await readExif(join(SOURCE, name));
   const out: CopyResponse = {
     ok: true,
@@ -187,7 +190,8 @@ Bun.serve({
     if (p === '/photo') {
       const name = url.searchParams.get('name') || '';
       if (!safeName(name)) return new Response('bad', { status: 400 });
-      const path = join(PHOTOS_DEST, name);
+      const dir = VIDEO_RX.test(name) ? VIDEOS_DEST : PHOTOS_DEST;
+      const path = join(dir, name);
       if (!existsSync(path)) return new Response('not found', { status: 404 });
       return new Response(Bun.file(path));
     }

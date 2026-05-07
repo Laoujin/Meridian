@@ -90,6 +90,10 @@
   .entry-form textarea { font: inherit; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; }
   .entry-meta { font-size: 11px; color: #555; padding: 4px 6px; background: #f5f5f5; border-radius: 4px; }
   .entry-meta .muted { color: #999; font-family: ui-monospace, Consolas, monospace; }
+  .emoji-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .emoji-row .emoji-chip { background: #f0f0f0; border: 1px solid #ccc; border-radius: 16px; padding: 2px 10px; cursor: pointer; font-size: 16px; }
+  .emoji-row .emoji-chip:hover { background: #ffe0e0; border-color: #c00; }
+  .emoji-row .emoji-add-btn { padding: 2px 10px; cursor: pointer; }
 </style>
 <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
 </head>
@@ -110,7 +114,6 @@
     <div class="switcher" id="entry-switcher"></div>
     <div class="json-toolbar">
       <button id="add-entry-btn" disabled>+ Add entry</button>
-      <button id="emoji-btn" disabled>+ Emoji</button>
       <button id="delete-btn" disabled>Delete entry</button>
     </div>
     <div class="err" id="json-err"></div>
@@ -163,6 +166,11 @@
         <div class="field-row"><label>Artist</label><input type="text" name="music.artist"></div>
         <div class="field-row"><label>Title</label><input type="text" name="music.title"></div>
       </fieldset>
+
+      <div class="field-row">
+        <label>Emojis</label>
+        <div class="emoji-row" id="entry-emoji-row"></div>
+      </div>
     </form>
   </div>
 </main>
@@ -702,14 +710,12 @@ function renderEntryForm() {
     form.hidden = true; empty.hidden = false;
     empty.textContent = 'Pick a day to view/edit its memory entry.';
     addEntry.disabled = true; del.disabled = true;
-    $('emoji-btn').disabled = true;
     return;
   }
   if (!state.selectedPath) {
     form.hidden = true; empty.hidden = false;
     empty.textContent = 'No entry yet for this day. Click "+ Add entry".';
     addEntry.disabled = false; del.disabled = true;
-    $('emoji-btn').disabled = true;
     return;
   }
 
@@ -721,8 +727,20 @@ function renderEntryForm() {
     $('entry-id-label').textContent = entry.id || '';
     state.lastEntryRefRendered = entry;
   }
+  renderEmojiChips(entry);
   addEntry.disabled = false; del.disabled = false;
-  $('emoji-btn').disabled = false;
+}
+
+function renderEmojiChips(entry) {
+  const row = $('entry-emoji-row');
+  const emojis = Array.isArray(entry.emojis) ? entry.emojis : [];
+  const chips = emojis.map((e, i) =>
+    `<button type="button" class="emoji-chip" data-remove-emoji="${i}" title="Remove">${escapeHtml(e)} ×</button>`
+  ).join('');
+  const addBtn = emojis.length < 2
+    ? '<button type="button" class="emoji-add-btn" id="entry-emoji-add">+ Emoji</button>'
+    : '';
+  row.innerHTML = chips + addBtn;
 }
 
 function populateEntryForm(entry) {
@@ -791,6 +809,7 @@ function syncFormToEntry() {
   }
 
   markDirty(state.year);
+  renderStatus();
 }
 
 function populateMusicOptions(files) {
@@ -959,11 +978,6 @@ $('entry-loc-find').addEventListener('click', findEntryLocation);
 const emojiPopup = $('emoji-popup');
 let emojiTargetInput = null; // when set, picked emoji writes here instead of entry.emojis
 
-$('emoji-btn').addEventListener('click', (e) => {
-  e.stopPropagation();
-  emojiTargetInput = null;
-  emojiPopup.hidden = !emojiPopup.hidden;
-});
 emojiPopup.querySelector('emoji-picker').addEventListener('emoji-click', (e) => {
   const unicode = e.detail.unicode;
   if (emojiTargetInput) {
@@ -976,16 +990,37 @@ emojiPopup.querySelector('emoji-picker').addEventListener('emoji-click', (e) => 
   const entry = currentEntry();
   if (!entry) return;
   if (!Array.isArray(entry.emojis)) entry.emojis = [];
+  if (entry.emojis.length >= 2) { emojiPopup.hidden = true; return; }
   entry.emojis.push(unicode);
+  if (entry.emojis.length >= 2) emojiPopup.hidden = true;
   markDirty(state.year);
   state.lastEntryRefRendered = null;
   render();
 });
 document.addEventListener('click', (e) => {
   if (!emojiPopup.hidden && !emojiPopup.contains(e.target)
-      && e.target.id !== 'emoji-btn' && !e.target.classList?.contains('emoji-pick')) {
+      && e.target.id !== 'entry-emoji-add' && !e.target.classList?.contains('emoji-pick')) {
     emojiPopup.hidden = true;
     emojiTargetInput = null;
+  }
+});
+
+$('entry-emoji-row').addEventListener('click', (e) => {
+  const remove = e.target.closest('[data-remove-emoji]');
+  if (remove) {
+    const entry = currentEntry();
+    if (!entry || !Array.isArray(entry.emojis)) return;
+    entry.emojis.splice(Number(remove.dataset.removeEmoji), 1);
+    if (entry.emojis.length === 0) delete entry.emojis;
+    markDirty(state.year);
+    state.lastEntryRefRendered = null;
+    render();
+    return;
+  }
+  if (e.target.id === 'entry-emoji-add') {
+    e.stopPropagation();
+    emojiTargetInput = null;
+    emojiPopup.hidden = false;
   }
 });
 
