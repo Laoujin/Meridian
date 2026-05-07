@@ -90,8 +90,10 @@ export default function TravelLine({
     const marker = new maplibregl.Marker({ element: wrapper, rotationAlignment: 'map' })
       .setLngLat([0, 0])
       .addTo(map);
-    // Hide until we have a real position
+    // Hide until we have a real position — opacity AND display, so the [0,0]
+    // mount position never leaks a frame (e.g. during the opening arc).
     wrapper.style.opacity = '0';
+    wrapper.style.display = 'none';
     markerRef.current = marker;
 
     return () => {

@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Us",
+    "title": "Our Story",
     "description": "How we met",
     "faviconHref": "/favicons/rings.svg",
     "temperatureUnit": "celsius"
@@ -17,7 +17,7 @@
     "heroImage": "/start1.jpg",
     "card": {
       "icon": "💘",
-      "date": "December 2025 — January 2026",
+      "date": "December 2025",
       "text": "How we found each other",
       "animate": "heartbeat"
     }
