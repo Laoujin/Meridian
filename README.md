@@ -30,7 +30,6 @@ bun run dev:love-story  # http://localhost:5175 — loads data/love-story
 ```
 
 Datasets live under `data/<story>/` (e.g. `ny-trip`, `love-story`).
-`bun run dev` picks the `MERIDIAN_DATA` set in `.env`.
 
 
 ## Marketing Site

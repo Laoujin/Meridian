@@ -12,6 +12,7 @@ import { listStories, loadConfig, saveConfig, scaffoldStory } from './src/config
 import { resolveStartup } from './src/startup';
 import { loadStory, saveStory, parseStory } from './src/story';
 import { listFavicons } from './src/favicons';
+import { listMusic } from './src/music';
 
 const ROOT = join(import.meta.dir, '..');
 const DATA_ROOT = join(ROOT, 'data');
@@ -118,6 +119,10 @@ Bun.serve({
 
     if (p === '/api/favicons' && req.method === 'GET') {
       return Response.json(listFavicons(join(ROOT, 'app', 'public', 'favicons')));
+    }
+
+    if (p === '/api/music' && req.method === 'GET') {
+      return Response.json(listMusic(DATA_DIR));
     }
 
     if (p === '/api/story' && req.method === 'POST') {

@@ -54,36 +54,36 @@
     <ol class="steps">
       <li>
         <div class="step__num">1</div>
-        <h3>Drop in photos</h3>
-        <p>Point at a folder of trip photos. EXIF gets you dates and coordinates for free.</p>
+        <h3>Collect your photos</h3>
+        <p>Gather your photos, videos and music</p>
       </li>
       <li>
         <div class="step__num">2</div>
-        <h3>Run <code>bun run triage</code></h3>
-        <p>A small local web app that extracts EXIF, geocodes locations, looks up historical weather, and writes a <code>Memory[]</code> JSON. Edit captions and pick covers in the same UI.</p>
+        <h3><code>bun run triage</code></h3>
+        <p>Extracts locations, looks up weather, and creates your story.</p>
       </li>
       <li>
         <div class="step__num">3</div>
-        <h3>Run <code>bun run dev</code></h3>
-        <p>The app reads your dataset and renders the scroll-driven timeline. Ship the build to any static host.</p>
+        <h3><code>bun run dev</code></h3>
+        <p>Reads the story you built to create the scroll-driven timeline.</p>
       </li>
     </ol>
   </section>
 
   <section id="demo" class="section section--demo">
     <h2>Live demos</h2>
-    <p>Two fake datasets in watercolour, each walking through the full feature set.</p>
+    <p>Two datasets, each walking through the full feature set.</p>
     <ul class="demos">
       <li class="demo__card">
         <div class="demo__icon" aria-hidden="true">🗽</div>
         <h3>NY Trip</h3>
-        <p>A fake 5-day New York trip — arrival, sights, food, transit between memories.</p>
+        <p>A 5-day New York trip — arrival, sights, food, transit between memories.</p>
         <a class="btn btn--primary" href="https://laoujin.github.io/Meridian/NY-Trip/" target="_blank" rel="noopener">Open NY Trip →</a>
       </li>
       <li class="demo__card">
         <div class="demo__icon" aria-hidden="true">💘</div>
         <h3>Love Story</h3>
-        <p>A fake "how we met" timeline — two cities, a winter of dates, an opening arc between Leuven and Antwerp.</p>
+        <p>"How we met" — two cities, a winter of dates, an opening arc between Leuven and Antwerp.</p>
         <a class="btn btn--primary" href="https://laoujin.github.io/Meridian/Love-Story/" target="_blank" rel="noopener">Open Love Story →</a>
       </li>
     </ul>
@@ -99,7 +99,6 @@ cd triage &amp;&amp; bun install &amp;&amp; bun run triage
 
 # 2. View the timeline
 cd ../app &amp;&amp; bun install &amp;&amp; bun run dev</code></pre>
-    <p class="muted">Requires <a href="https://bun.sh" target="_blank" rel="noopener">bun</a>.</p>
   </section>
 
   <footer>

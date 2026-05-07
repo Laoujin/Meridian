@@ -84,6 +84,12 @@
   .field-row.checkbox { grid-template-columns: auto 1fr; }
   .field-row .req { color: #c00; }
   .field-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .entry-form { display: flex; flex-direction: column; gap: 8px; overflow: auto; padding: 4px 2px; }
+  .entry-form[hidden] { display: none; }
+  .entry-empty { padding: 20px; color: #888; }
+  .entry-form textarea { font: inherit; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; }
+  .entry-meta { font-size: 11px; color: #555; padding: 4px 6px; background: #f5f5f5; border-radius: 4px; }
+  .entry-meta .muted { color: #999; font-family: ui-monospace, Consolas, monospace; }
 </style>
 <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
 </head>
@@ -105,12 +111,59 @@
     <div class="json-toolbar">
       <button id="add-entry-btn" disabled>+ Add entry</button>
       <button id="emoji-btn" disabled>+ Emoji</button>
-      <button id="apply-btn" disabled>Apply edit</button>
-      <button id="revert-btn" disabled>Revert</button>
       <button id="delete-btn" disabled>Delete entry</button>
     </div>
     <div class="err" id="json-err"></div>
-    <textarea id="json-editor" spellcheck="false" placeholder="Pick a day to view/edit its memory entry."></textarea>
+    <div class="entry-empty" id="entry-empty">Pick a day to view/edit its memory entry.</div>
+    <form class="entry-form" id="entry-form" hidden>
+      <div class="entry-meta"><span id="entry-date-label"></span> · <span id="entry-id-label" class="muted"></span></div>
+      <div class="field-row"><label>Title</label><input type="text" name="title"></div>
+      <div class="field-row"><label>Caption</label><textarea name="caption" rows="3"></textarea></div>
+      <div class="field-row">
+        <label>Type</label>
+        <select name="type">
+          <option value="date">date</option>
+          <option value="trip">trip</option>
+          <option value="milestone">milestone</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <label>Transport</label>
+        <select name="transport">
+          <option value="">(default: car)</option>
+          <option>car</option><option>plane</option><option>train</option><option>metro</option>
+          <option>walking</option><option>boat</option><option>bike</option><option>bus</option>
+        </select>
+      </div>
+
+      <fieldset class="story">
+        <legend>Location</legend>
+        <div class="field-row"><label>Lookup</label><div class="icon-input"><input type="text" id="entry-loc-lookup" placeholder="Eiffel Tower, Paris"><button type="button" id="entry-loc-find">🔍 Find</button></div></div>
+        <div class="field-row"><label>Name</label><input type="text" name="location.name"></div>
+        <div class="field-row"><label>Latitude</label><input type="number" step="any" name="location.lat"></div>
+        <div class="field-row"><label>Longitude</label><input type="number" step="any" name="location.lng"></div>
+      </fieldset>
+
+      <fieldset class="story">
+        <legend>Weather</legend>
+        <div class="field-row"><label>Icon</label>
+          <select name="weather.icon">
+            <option value="">(none)</option>
+            <option>sun</option><option>cloud-sun</option><option>cloud</option>
+            <option>fog</option><option>drizzle</option><option>rain</option>
+            <option>rain-heavy</option><option>snow</option><option>storm</option>
+          </select>
+        </div>
+        <div class="field-row"><label>Temp °C</label><input type="number" step="any" name="weather.tempC"></div>
+      </fieldset>
+
+      <fieldset class="story">
+        <legend>Music</legend>
+        <div class="field-row"><label>Track</label><select name="music.track" id="music-select"></select></div>
+        <div class="field-row"><label>Artist</label><input type="text" name="music.artist"></div>
+        <div class="field-row"><label>Title</label><input type="text" name="music.title"></div>
+      </fieldset>
+    </form>
   </div>
 </main>
 <div class="lightbox" id="lightbox"></div>
@@ -199,6 +252,7 @@ const state = {
   years: [],
   memories: {},
   files: [], // string[]
+  musicFiles: [], // string[]
   selectedDate: null,
   selectedPath: null,
   dirty: new Set(),
@@ -272,12 +326,13 @@ function currentEntry() {
 function markDirty(year) { state.dirty.add(year); }
 
 async function loadState() {
-  const r = await fetch('/api/state');
+  const [r, mr] = await Promise.all([fetch('/api/state'), fetch('/api/music')]);
   const data = await r.json();
   state.memories = data.memories;
   state.years = data.years || [];
   state.year = data.years[data.years.length - 1] || '';
   state.files = data.files;
+  populateMusicOptions(mr.ok ? await mr.json() : []);
   render();
 }
 
@@ -285,7 +340,7 @@ function render() {
   renderYearButtons();
   renderDays();
   renderPhotos();
-  renderJson();
+  renderEntryForm();
   renderStatus();
 }
 
@@ -617,15 +672,12 @@ function deselectFromEntry(name) {
   render();
 }
 
-function renderJson() {
-  const ed = $('json-editor');
+function renderEntryForm() {
   const switcher = $('entry-switcher');
   const addEntry = $('add-entry-btn');
-  const apply = $('apply-btn');
-  const revert = $('revert-btn');
   const del = $('delete-btn');
-  $('json-err').textContent = '';
-  ed.classList.remove('error');
+  const form = $('entry-form');
+  const empty = $('entry-empty');
 
   switcher.innerHTML = '';
   if (state.selectedDate) {
@@ -637,7 +689,6 @@ function renderJson() {
         b.textContent = m.entry.title || '(untitled)';
         if (pathsEqual(m.path, state.selectedPath)) b.classList.add('active');
         b.addEventListener('click', () => {
-          if (!autoApplyJson()) return;
           state.selectedPath = m.path;
           state.lastEntryRefRendered = null;
           render();
@@ -648,51 +699,157 @@ function renderJson() {
   }
 
   if (!state.selectedDate) {
-    ed.value = ''; ed.disabled = true;
-    addEntry.disabled = true; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    form.hidden = true; empty.hidden = false;
+    empty.textContent = 'Pick a day to view/edit its memory entry.';
+    addEntry.disabled = true; del.disabled = true;
     $('emoji-btn').disabled = true;
     return;
   }
   if (!state.selectedPath) {
-    ed.value = ''; ed.disabled = true; ed.placeholder = 'No entry yet for this day. Click "+ Add entry".';
-    addEntry.disabled = false; apply.disabled = true; revert.disabled = true; del.disabled = true;
+    form.hidden = true; empty.hidden = false;
+    empty.textContent = 'No entry yet for this day. Click "+ Add entry".';
+    addEntry.disabled = false; del.disabled = true;
     $('emoji-btn').disabled = true;
     return;
   }
 
   const entry = currentEntry();
+  empty.hidden = true; form.hidden = false;
   if (state.lastEntryRefRendered !== entry) {
-    ed.value = JSON.stringify(entry, null, 2);
+    populateEntryForm(entry);
+    $('entry-date-label').textContent = entry.date || '';
+    $('entry-id-label').textContent = entry.id || '';
     state.lastEntryRefRendered = entry;
   }
-  ed.disabled = false;
-  addEntry.disabled = false;
-  apply.disabled = false;
-  revert.disabled = false;
-  del.disabled = false;
+  addEntry.disabled = false; del.disabled = false;
   $('emoji-btn').disabled = false;
 }
 
-function autoApplyJson() {
-  if (!state.selectedPath) return true;
-  const ed = $('json-editor');
-  const text = ed.value;
-  if (!text.trim()) return true;
-  let parsed;
-  try { parsed = JSON.parse(text); }
-  catch (e) {
-    ed.classList.add('error');
-    $('json-err').textContent = 'JSON parse error: ' + e.message;
-    return false;
-  }
-  const current = currentEntry();
-  if (JSON.stringify(parsed) !== JSON.stringify(current)) {
-    setEntryAtPath(state.memories, state.year, state.selectedPath, parsed);
-    markDirty(state.year);
-    state.lastEntryRefRendered = parsed;
-  }
-  return true;
+function populateEntryForm(entry) {
+  const f = $('entry-form');
+  f.elements['title'].value = entry.title ?? '';
+  f.elements['caption'].value = entry.caption ?? '';
+  f.elements['type'].value = entry.type ?? 'date';
+  f.elements['transport'].value = entry.transport ?? '';
+  f.elements['location.name'].value = entry.location?.name ?? '';
+  f.elements['location.lat'].value = entry.location?.lat ?? '';
+  f.elements['location.lng'].value = entry.location?.lng ?? '';
+  f.elements['weather.icon'].value = entry.weather?.icon ?? '';
+  f.elements['weather.tempC'].value = entry.weather?.tempC ?? '';
+  ensureMusicOption(entry.music?.track ?? '');
+  f.elements['music.track'].value = entry.music?.track ?? '';
+  f.elements['music.artist'].value = entry.music?.artist ?? '';
+  f.elements['music.title'].value = entry.music?.title ?? '';
+  $('entry-loc-lookup').value = '';
 }
+
+function syncFormToEntry() {
+  const entry = currentEntry();
+  if (!entry) return;
+  const f = $('entry-form');
+  entry.title = f.elements['title'].value;
+  entry.caption = f.elements['caption'].value;
+  entry.type = f.elements['type'].value || 'date';
+  const transport = f.elements['transport'].value;
+  if (transport) entry.transport = transport; else delete entry.transport;
+
+  const locName = f.elements['location.name'].value.trim();
+  const locLat = f.elements['location.lat'].value.trim();
+  const locLng = f.elements['location.lng'].value.trim();
+  if (!locName && !locLat && !locLng) {
+    entry.location = null;
+  } else {
+    const prev = entry.location ?? { lat: null, lng: null, name: '' };
+    entry.location = {
+      ...prev,
+      name: locName,
+      lat: locLat === '' ? null : Number(locLat),
+      lng: locLng === '' ? null : Number(locLng),
+    };
+  }
+
+  const wIcon = f.elements['weather.icon'].value;
+  const wTemp = f.elements['weather.tempC'].value.trim();
+  if (!wIcon && wTemp === '') {
+    entry.weather = null;
+  } else {
+    const prev = entry.weather ?? {};
+    entry.weather = {
+      ...prev,
+      icon: wIcon || prev.icon || 'sun',
+      tempC: wTemp === '' ? (prev.tempC ?? 0) : Number(wTemp),
+    };
+  }
+
+  const mTrack = f.elements['music.track'].value.trim();
+  const mArtist = f.elements['music.artist'].value.trim();
+  const mTitle = f.elements['music.title'].value.trim();
+  if (!mTrack && !mArtist && !mTitle) {
+    entry.music = null;
+  } else {
+    entry.music = { track: mTrack, artist: mArtist, title: mTitle };
+  }
+
+  markDirty(state.year);
+}
+
+function populateMusicOptions(files) {
+  state.musicFiles = Array.isArray(files) ? files : [];
+  const sel = $('music-select');
+  if (!sel) return;
+  const cur = sel.value;
+  sel.innerHTML =
+    '<option value="">(none)</option>' +
+    state.musicFiles.map(f => `<option value="${escapeAttr(f)}">${escapeHtml(f)}</option>`).join('');
+  if (cur) ensureMusicOption(cur);
+  sel.value = cur;
+}
+
+function ensureMusicOption(value) {
+  if (!value) return;
+  const sel = $('music-select');
+  if (!sel) return;
+  if ([...sel.options].some(o => o.value === value)) return;
+  const o = document.createElement('option');
+  o.value = value; o.textContent = `${value} (custom)`;
+  sel.appendChild(o);
+}
+
+async function findEntryLocation() {
+  const address = $('entry-loc-lookup').value.trim();
+  if (!address) return;
+  try {
+    const r = await fetch('/api/geocode', {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ address }),
+    });
+    const data = await r.json();
+    if (!r.ok) { toast('error', data.error || `lookup failed (${r.status})`); return; }
+    const f = $('entry-form');
+    f.elements['location.name'].value = data.name || data.city || address;
+    f.elements['location.lat'].value = data.lat;
+    f.elements['location.lng'].value = data.lng;
+    syncFormToEntry();
+    if (state.selectedDate) {
+      const wr = await fetch('/api/weather', {
+        method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ lat: data.lat, lng: data.lng, date: state.selectedDate }),
+      });
+      if (wr.ok) {
+        const w = await wr.json();
+        if (w?.icon) f.elements['weather.icon'].value = w.icon;
+        if (typeof w?.tempC === 'number') f.elements['weather.tempC'].value = w.tempC;
+        syncFormToEntry();
+      }
+    }
+    render();
+  } catch (e) {
+    toast('error', `lookup error: ${e}`);
+  }
+}
+
+// Compatibility shim for old callsites that flushed pending JSON edits.
+function autoApplyJson() { return true; }
 
 function addNewEntry() {
   const date = state.selectedDate;
@@ -792,10 +949,12 @@ function closeLightbox() {
 }
 
 $('save-btn').addEventListener('click', saveAll);
-$('apply-btn').addEventListener('click', () => { if (autoApplyJson()) render(); });
-$('revert-btn').addEventListener('click', () => { state.lastEntryRefRendered = null; render(); });
 $('add-entry-btn').addEventListener('click', addNewEntry);
 $('delete-btn').addEventListener('click', deleteCurrentEntry);
+
+$('entry-form').addEventListener('input', () => syncFormToEntry());
+$('entry-form').addEventListener('change', () => syncFormToEntry());
+$('entry-loc-find').addEventListener('click', findEntryLocation);
 
 const emojiPopup = $('emoji-popup');
 let emojiTargetInput = null; // when set, picked emoji writes here instead of entry.emojis
