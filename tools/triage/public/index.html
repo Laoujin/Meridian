@@ -53,7 +53,10 @@
   .switcher { display: flex; gap: 4px; flex-wrap: wrap; font-size: 11px; }
   .switcher button { padding: 2px 6px; font-size: 11px; cursor: pointer; }
   .switcher button.active { background: #1a3a7f; color: white; border-color: #1a3a7f; }
-  .emoji-popup { position: fixed; right: 20px; top: 100px; z-index: 50; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .emoji-popup { position: fixed; right: 20px; top: 100px; z-index: 250; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .icon-input { display: flex; gap: 4px; align-items: center; }
+  .icon-input input { flex: 1; }
+  .icon-input button { padding: 4px 8px; cursor: pointer; }
   .emoji-popup[hidden] { display: none; }
   .toasts { position: fixed; top: 16px; right: 16px; z-index: 200; display: flex; flex-direction: column; gap: 8px; max-width: 320px; }
   .toast { background: #333; color: white; padding: 10px 14px; border-radius: 6px; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); cursor: pointer; display: flex; gap: 10px; align-items: center; justify-content: space-between; }
@@ -126,7 +129,7 @@
         <legend>App</legend>
         <div class="field-row"><label>Title <span class="req">*</span></label><input type="text" name="app.title" required></div>
         <div class="field-row"><label>Description</label><input type="text" name="app.description"></div>
-        <div class="field-row"><label>Favicon path</label><input type="text" name="app.faviconHref" placeholder="/favicons/watercolour.png"></div>
+        <div class="field-row"><label>Favicon</label><select name="app.faviconHref" id="favicon-select"></select></div>
         <div class="field-row"><label>Temperature unit</label>
           <select name="app.temperatureUnit">
             <option value="">(default)</option>
@@ -161,7 +164,7 @@
         </fieldset>
         <fieldset class="story">
           <legend>Card (optional)</legend>
-          <div class="field-row"><label>Icon</label><input type="text" name="opening.card.icon" placeholder="✨"></div>
+          <div class="field-row"><label>Icon</label><div class="icon-input"><input type="text" name="opening.card.icon" placeholder="✨"><button type="button" class="emoji-pick" data-target="opening.card.icon">😀</button></div></div>
           <div class="field-row"><label>Date</label><input type="text" name="opening.card.date" placeholder="December 2025"></div>
           <div class="field-row"><label>Text</label><input type="text" name="opening.card.text"></div>
           <div class="field-row"><label>Animate</label>
@@ -176,7 +179,7 @@
         <legend>Closing</legend>
         <div class="field-row checkbox"><input type="checkbox" name="closing.giftReveal" id="closing-giftReveal"><label for="closing-giftReveal">Show gift reveal at the end</label></div>
         <div class="field-row"><label>Reveal button text</label><input type="text" name="closing.giftRevealButton" placeholder="and then... ✨"></div>
-        <div class="field-row"><label>Reveal icon</label><input type="text" name="closing.giftRevealIcon"></div>
+        <div class="field-row"><label>Reveal icon</label><div class="icon-input"><input type="text" name="closing.giftRevealIcon"><button type="button" class="emoji-pick" data-target="closing.giftRevealIcon">😀</button></div></div>
         <div class="field-row"><label>Reveal text</label><input type="text" name="closing.giftRevealText"></div>
       </fieldset>
     </form>
@@ -788,22 +791,35 @@ $('add-entry-btn').addEventListener('click', addNewEntry);
 $('delete-btn').addEventListener('click', deleteCurrentEntry);
 
 const emojiPopup = $('emoji-popup');
+let emojiTargetInput = null; // when set, picked emoji writes here instead of entry.emojis
+
 $('emoji-btn').addEventListener('click', (e) => {
   e.stopPropagation();
+  emojiTargetInput = null;
   emojiPopup.hidden = !emojiPopup.hidden;
 });
 emojiPopup.querySelector('emoji-picker').addEventListener('emoji-click', (e) => {
+  const unicode = e.detail.unicode;
+  if (emojiTargetInput) {
+    emojiTargetInput.value = unicode;
+    emojiTargetInput.dispatchEvent(new Event('input', { bubbles: true }));
+    emojiPopup.hidden = true;
+    emojiTargetInput = null;
+    return;
+  }
   const entry = currentEntry();
   if (!entry) return;
   if (!Array.isArray(entry.emojis)) entry.emojis = [];
-  entry.emojis.push(e.detail.unicode);
+  entry.emojis.push(unicode);
   markDirty(state.year);
   state.lastEntryRefRendered = null;
   render();
 });
 document.addEventListener('click', (e) => {
-  if (!emojiPopup.hidden && !emojiPopup.contains(e.target) && e.target.id !== 'emoji-btn') {
+  if (!emojiPopup.hidden && !emojiPopup.contains(e.target)
+      && e.target.id !== 'emoji-btn' && !e.target.classList?.contains('emoji-pick')) {
     emojiPopup.hidden = true;
+    emojiTargetInput = null;
   }
 });
 
@@ -820,16 +836,33 @@ $('lightbox').addEventListener('click', closeLightbox);
 const storyModal = $('story-modal');
 const storyForm = $('story-form');
 
-function openStoryModal() {
+async function openStoryModal() {
   $('story-err').textContent = '';
-  fetch('/api/story').then(r => r.json()).then((data) => {
-    if (data && !data.error) populateStoryForm(data);
+  try {
+    const [storyRes, favRes] = await Promise.all([fetch('/api/story'), fetch('/api/favicons')]);
+    const story = await storyRes.json();
+    const favicons = await favRes.json();
+    populateFaviconOptions(Array.isArray(favicons) ? favicons : [], story?.app?.faviconHref);
+    if (story && !story.error) populateStoryForm(story);
     storyModal.classList.add('open');
-  }).catch((e) => toast('error', `Load story failed: ${e}`));
+  } catch (e) {
+    toast('error', `Load story failed: ${e}`);
+  }
+}
+
+function populateFaviconOptions(files, current) {
+  const sel = $('favicon-select');
+  const has = current && files.some(f => `/favicons/${f}` === current);
+  sel.innerHTML =
+    '<option value="">(default)</option>' +
+    files.map(f => `<option value="/favicons/${f}">${f}</option>`).join('') +
+    (current && !has ? `<option value="${current}">${current} (custom)</option>` : '');
 }
 
 function closeStoryModal() {
   storyModal.classList.remove('open');
+  emojiTargetInput = null;
+  emojiPopup.hidden = true;
 }
 
 function populateStoryForm(s) {
@@ -909,6 +942,16 @@ $('story-cancel').addEventListener('click', closeStoryModal);
 $('story-save').addEventListener('click', saveStoryForm);
 storyForm.addEventListener('submit', (e) => { e.preventDefault(); saveStoryForm(); });
 storyModal.addEventListener('click', (e) => { if (e.target === storyModal) closeStoryModal(); });
+
+storyForm.addEventListener('click', (e) => {
+  const btn = e.target.closest('.emoji-pick');
+  if (!btn) return;
+  e.stopPropagation();
+  const input = storyForm.querySelector(`input[name="${btn.dataset.target}"]`);
+  if (!input) return;
+  emojiTargetInput = input;
+  emojiPopup.hidden = false;
+});
 
 loadState();
 </script>

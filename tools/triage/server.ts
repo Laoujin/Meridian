@@ -11,6 +11,7 @@ import type { Weather } from '@meridian/schema';
 import { listStories, loadConfig, saveConfig, scaffoldStory } from './src/config';
 import { resolveStartup } from './src/startup';
 import { loadStory, saveStory, parseStory } from './src/story';
+import { listFavicons } from './src/favicons';
 
 const ROOT = join(import.meta.dir, '..', '..');
 const DATA_ROOT = join(ROOT, 'data');
@@ -113,6 +114,10 @@ Bun.serve({
     if (p === '/api/story' && req.method === 'GET') {
       try { return Response.json(await loadStory(join(DATA_DIR, 'story.json'))); }
       catch (e) { return Response.json({ error: String(e) }, { status: 500 }); }
+    }
+
+    if (p === '/api/favicons' && req.method === 'GET') {
+      return Response.json(listFavicons(join(ROOT, 'app', 'public', 'favicons')));
     }
 
     if (p === '/api/story' && req.method === 'POST') {

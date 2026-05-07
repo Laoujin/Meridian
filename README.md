@@ -4,6 +4,23 @@ A self-hosted scroll-driven memory timeline. Cards with photos appear as you scr
 
 ## Quickstart
 
+### Start Triage
+
+Point to a folder and start creating **Your Story**!  
+Update `triage.config.json` if you need to change folders.
+
+```bash
+cd triage
+bun install
+bun run triage
+```
+
+
+### Start Meridian
+
+See the app in action. If you already did the triage `.env` is already
+created to point to your story!
+
 ```bash
 cd app
 bun install
@@ -13,7 +30,7 @@ bun run dev:love-story  # http://localhost:5175 — loads data/love-story
 ```
 
 Datasets live under `data/<story>/` (e.g. `ny-trip`, `love-story`).
-The dev server picks one via `MERIDIAN_DATA`.
+`bun run dev` picks the `MERIDIAN_DATA` set in `.env`.
 
 
 ## Marketing Site
