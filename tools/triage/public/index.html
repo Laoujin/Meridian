@@ -128,7 +128,6 @@
       <fieldset class="story">
         <legend>App</legend>
         <div class="field-row"><label>Title <span class="req">*</span></label><input type="text" name="app.title" required></div>
-        <div class="field-row"><label>Description</label><input type="text" name="app.description"></div>
         <div class="field-row"><label>Favicon</label><select name="app.faviconHref" id="favicon-select"></select></div>
         <div class="field-row"><label>Temperature unit</label>
           <select name="app.temperatureUnit">
@@ -140,6 +139,7 @@
       </fieldset>
       <fieldset class="story">
         <legend>Anchor (home location)</legend>
+        <div class="field-row"><label>Lookup location</label><div class="icon-input"><input type="text" id="anchor-lookup" placeholder="Antwerp, Belgium"><button type="button" id="anchor-find">🔍 Find</button></div></div>
         <div class="field-row"><label>Label <span class="req">*</span></label><input type="text" name="anchor.label" required></div>
         <div class="field-row"><label>Latitude <span class="req">*</span></label><input type="number" step="any" name="anchor.lat" required></div>
         <div class="field-row"><label>Longitude <span class="req">*</span></label><input type="number" step="any" name="anchor.lng" required></div>
@@ -158,6 +158,7 @@
         </div>
         <fieldset class="story">
           <legend>Arc origin (optional — opening flies from here to memory 0)</legend>
+          <div class="field-row"><label>Lookup location</label><div class="icon-input"><input type="text" id="arc-origin-lookup" placeholder="Paris, France"><button type="button" id="arc-origin-find">🔍 Find</button></div></div>
           <div class="field-row"><label>Label</label><input type="text" name="opening.arcOrigin.label"></div>
           <div class="field-row"><label>Latitude</label><input type="number" step="any" name="opening.arcOrigin.lat"></div>
           <div class="field-row"><label>Longitude</label><input type="number" step="any" name="opening.arcOrigin.lng"></div>
@@ -179,8 +180,8 @@
         <legend>Closing</legend>
         <div class="field-row checkbox"><input type="checkbox" name="closing.giftReveal" id="closing-giftReveal"><label for="closing-giftReveal">Show gift reveal at the end</label></div>
         <div class="field-row"><label>Reveal button text</label><input type="text" name="closing.giftRevealButton" placeholder="and then... ✨"></div>
-        <div class="field-row"><label>Reveal icon</label><div class="icon-input"><input type="text" name="closing.giftRevealIcon"><button type="button" class="emoji-pick" data-target="closing.giftRevealIcon">😀</button></div></div>
-        <div class="field-row"><label>Reveal text</label><input type="text" name="closing.giftRevealText"></div>
+        <div class="field-row"><label>Reveal icon</label><div class="icon-input"><input type="text" name="closing.giftRevealIcon" placeholder="🎁"><button type="button" class="emoji-pick" data-target="closing.giftRevealIcon">😀</button></div></div>
+        <div class="field-row"><label>Reveal text</label><input type="text" name="closing.giftRevealText" placeholder="A Present!?"></div>
       </fieldset>
     </form>
     <div class="modal-foot">
@@ -952,6 +953,30 @@ storyForm.addEventListener('click', (e) => {
   emojiTargetInput = input;
   emojiPopup.hidden = false;
 });
+
+function wireGeocodeLookup(buttonId, lookupId, fieldPrefix) {
+  $(buttonId).addEventListener('click', async () => {
+    const address = $(lookupId).value.trim();
+    if (!address) return;
+    try {
+      const r = await fetch('/api/geocode', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ address }),
+      });
+      const data = await r.json();
+      if (!r.ok) { toast('error', data.error || `lookup failed (${r.status})`); return; }
+      storyForm.querySelector(`input[name="${fieldPrefix}.label"]`).value = data.name || address;
+      storyForm.querySelector(`input[name="${fieldPrefix}.lat"]`).value = data.lat;
+      storyForm.querySelector(`input[name="${fieldPrefix}.lng"]`).value = data.lng;
+    } catch (e) {
+      toast('error', `lookup error: ${e}`);
+    }
+  });
+}
+
+wireGeocodeLookup('anchor-find', 'anchor-lookup', 'anchor');
+wireGeocodeLookup('arc-origin-find', 'arc-origin-lookup', 'opening.arcOrigin');
 
 loadState();
 </script>

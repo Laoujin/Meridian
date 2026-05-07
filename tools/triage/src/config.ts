@@ -50,14 +50,13 @@ function storyTemplate(slug: string) {
   return {
     app: {
       title: titleize(slug),
-      description: 'A scroll-driven memory timeline',
-      faviconHref: '/favicons/watercolour.png',
+      faviconHref: '/favicons/rings.svg',
       temperatureUnit: 'celsius',
     },
     anchor: { lat: 0, lng: 0, label: 'Set me' },
     opening: {
-      welcomeTitle: 'Welcome',
-      welcomeSubtitle: 'A scroll-driven memory timeline.',
+      welcomeTitle: 'We met on Tinder',
+      welcomeSubtitle: 'The story of how we met',
       heroImage: '/start1.jpg',
       card: { icon: '✨', date: '', text: titleize(slug), animate: 'pulse' },
     },

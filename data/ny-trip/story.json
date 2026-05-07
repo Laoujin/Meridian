@@ -1,7 +1,6 @@
 {
   "app": {
     "title": "Meridian",
-    "description": "A scroll-driven memory timeline",
     "faviconHref": "/favicons/watercolour.png",
     "temperatureUnit": "fahrenheit"
   },

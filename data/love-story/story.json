@@ -1,7 +1,6 @@
 {
   "app": {
     "title": "Our Story",
-    "description": "How we met",
     "faviconHref": "/favicons/rings.svg",
     "temperatureUnit": "celsius"
   },

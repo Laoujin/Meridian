@@ -25,7 +25,7 @@ describe('parseStory', () => {
   it('preserves optional fields when present', () => {
     const s = parseStory({
       ...minimalStory,
-      app: { ...minimalStory.app, description: 'd', temperatureUnit: 'celsius' },
+      app: { ...minimalStory.app, temperatureUnit: 'celsius' },
       opening: {
         ...minimalStory.opening,
         arcOrigin: { lat: 0, lng: 0, label: 'O' },

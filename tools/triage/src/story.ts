@@ -33,10 +33,6 @@ export function parseStory(input: unknown): Story {
   const appIn = o.app as Record<string, unknown> | undefined;
   if (!appIn || !isStr(appIn.title)) throw new Error('app.title: expected string');
   const app: Story['app'] = { title: appIn.title };
-  if (appIn.description !== undefined) {
-    if (!isStr(appIn.description)) throw new Error('app.description: expected string');
-    app.description = appIn.description;
-  }
   if (appIn.faviconHref !== undefined) {
     if (!isStr(appIn.faviconHref)) throw new Error('app.faviconHref: expected string');
     app.faviconHref = appIn.faviconHref;
