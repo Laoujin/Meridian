@@ -12,6 +12,7 @@
   },
   "opening": {
     "arcOrigin": { "lat": 50.8798, "lng": 4.7005, "label": "Leuven" },
+    "anchorTransport": "car",
     "welcomeTitle": "Us",
     "welcomeSubtitle": "Two lives, two cities, one swipe.",
     "heroImage": "/start1.jpg",
