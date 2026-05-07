@@ -11,7 +11,7 @@
       "name": "Place du Grand Sablon, Brussels"
     },
     "photos": ["01-first-date-1.jpg", "01-first-date-2.jpg", "01-first-date-3.jpg", "01-first-date-4.jpg"],
-    "music": null,
+    "music": { "track": "first-date.mp3", "artist": "Nastelbom", "title": "Romantic" },
     "weather": {
       "icon": "drizzle",
       "tempC": 7
