@@ -44,7 +44,7 @@ export default function CardOverlay({ activeIndex, memories, phase, progress, mu
           {idx < 0 ? (
             <OpeningCard />
           ) : (
-            <MemoryCard memory={memories[idx]} muted={muted} onToggleMute={onToggleMute} />
+            <MemoryCard memory={memories[idx]} muted={muted} onToggleMute={onToggleMute} active />
           )}
         </div>
       </div>

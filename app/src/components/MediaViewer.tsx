@@ -97,7 +97,14 @@ export default function MediaViewer({ items, initialIndex, onClose }: MediaViewe
             className="media-viewer__img"
             src={asset(`/photos/full/${item.filename}`)}
             alt=""
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (total <= 1) return;
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              if (x < rect.width / 2) goPrev();
+              else goNext();
+            }}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               if (!target.src.includes('/thumb/')) {

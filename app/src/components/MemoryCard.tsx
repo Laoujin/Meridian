@@ -8,9 +8,12 @@ interface MemoryCardProps {
   memory: Memory;
   muted?: boolean;
   onToggleMute?: () => void;
+  // True only when this card is in the foreground hold — gates MediaStack
+  // keyboard navigation so it doesn't fire on background/transitioning cards.
+  active?: boolean;
 }
 
-export default function MemoryCard({ memory, muted, onToggleMute }: MemoryCardProps) {
+export default function MemoryCard({ memory, muted, onToggleMute, active }: MemoryCardProps) {
   const dateStr = format(parseISO(memory.date), 'd MMMM yyyy', { locale: nl });
 
   const isMilestone = memory.type === 'milestone';
@@ -39,7 +42,7 @@ export default function MemoryCard({ memory, muted, onToggleMute }: MemoryCardPr
         </div>
       )}
       {(memory.photos.length > 0 || memory.videos.length > 0) && (
-        <MediaStack photos={memory.photos} videos={memory.videos} />
+        <MediaStack photos={memory.photos} videos={memory.videos} active={active} />
       )}
       <p className="memory-card__caption">{memory.caption}</p>
       {memory.weather?.note && (
